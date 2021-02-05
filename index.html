@@ -1,7 +1,75 @@
 <html>
 <head>
 <title>Graphing the daily Irish COVID swab tests results against positivity rates</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
 </head>
 <body>
+  <canvas id="ROIChartBar"></canvas>
+  <script type="text/javascript">
+            var ctx = document.getElementById('ROIChartBar').getContext('2d');
+        var ROIChartt = new Chart(ctx, {
+           "type":"bar",
+           "data":{
+              labels: ['Jan-06', 'Jan-07', 'Jan-08', 'Jan-09', 'Jan-10', 'Jan-11', 'Jan-12', 'Jan-13', 'Jan-14', 'Jan-15', 'Jan-16', 'Jan-17', 'Jan-18', 'Jan-19', 'Jan-20', 'Jan-21', 'Jan-22', 'Jan-23', 'Jan-24', 'Jan-25', 'Jan-26', 'Jan-27', 'Jan-28', 'Jan-29', 'Jan-30', 'Jan-31', 'Feb-01', 'Feb-02', 'Feb-03', 'Feb-04', 'Feb-05'],
+              "datasets":[
+                 {
+                    "label":"Positive Swabs",
+                    "data": ['6865', '6368', '5156', '5099', '4188', '2922', '2521', '3932', '3854', '3416', '3110', '2868', '1877', '1784', '2786', '2318', '2084', '1926', '1529', '1085', '953', '1668', '1587', '1483', '1421', '1153', '831', '969', '1203', '1283', '1009'],
+                    "backgroundColor":"rgba(237, 100, 127, .55)",
+                    "borderColor":"rgba(233,0,45, 1)",
+                    "borderWidth":0,
+                    "yAxisID": "A"
+                 },
+                 {
+                    "label":"Negative Swabs",
+                    "data": ['21505', '22242', '22163', '24873', '20297', '16872', '16424', '20651', '24324', '19617', '23553', '18573', '16314', '17434', '21510', '20878', '22105', '19566', '18064', '13799', '15712', '20719', '20193', '20460', '20177', '16496', '14216', '15360', '17149', '18931', '19181'],
+                    "backgroundColor":"rgba(63, 63, 191, .4)",
+                    "borderColor":"rgba(14, 54, 201, 0.5)",
+                    "borderWidth":0,
+                    "yAxisID": "A"
+                 },
+                 {
+                    "label": "% Positive",
+                    "data": ['24.20', '22.26', '18.87', '17.01', '17.10', '14.76', '13.31', '15.99', '13.68', '14.83', '11.66', '13.38', '10.32', '9.28', '11.47', '9.99', '8.62', '8.96', '7.80', '7.29', '5.72', '7.45', '7.29', '6.76', '6.58', '6.53', '5.52', '5.93', '6.56', '6.35', '5.00'],
+                    "borderColor":"red",
+                    "borderWidth":0,
+                    "yAxisID": "B",
+                    "type": "line"
+                 }
+              ]
+           },
+           "options":{
+              "scales":{
+                 "xAxes":[
+                    {
+                       "stacked":true
+                    }
+                 ],
+                 "yAxes":[
+                    {
+                        "id": "A",
+                       "stacked":true,
+                      "position": "left",
+                       "ticks":{
+                          "beginAtZero":true,
+                          "max": 30000
+                       }
+                       
+                    },
+                    {
+                      "id": "B",
+                      "position": "right",       
+                      "ticks":{
+                          "beginAtZero":true,
+                          "max": 30
+                       }
+											
+                    }
+                 ]
+              }
+           }
+        });
+
+  </script>
 </body>
 </html>
