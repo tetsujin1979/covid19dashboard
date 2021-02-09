@@ -1,122 +1,283 @@
 <html>
-<head>
-<title>Graphing the daily Irish COVID swab tests results against positivity rates</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
-</head>
-<body>
-  <canvas id="ROIChartBar"></canvas>
-  <script type="text/javascript">
-            var ctx = document.getElementById('ROIChartBar').getContext('2d');
-            var data = [
-				{date: new Date('2021-01-06'), positiveSwabs: 6865, totalSwabs: 28370},
-				{date: new Date('2021-01-07'), positiveSwabs: 6368, totalSwabs: 28610},
-				{date: new Date('2021-01-08'), positiveSwabs: 5156, totalSwabs: 27319},
-				{date: new Date('2021-01-09'), positiveSwabs: 5099, totalSwabs: 29972},
-				{date: new Date('2021-01-10'), positiveSwabs: 4188, totalSwabs: 24485},
-				{date: new Date('2021-01-11'), positiveSwabs: 2922, totalSwabs: 19794},
-				{date: new Date('2021-01-12'), positiveSwabs: 2521, totalSwabs: 18945},
-				{date: new Date('2021-01-13'), positiveSwabs: 3932, totalSwabs: 24583},
-				{date: new Date('2021-01-14'), positiveSwabs: 3854, totalSwabs: 28178},
-				{date: new Date('2021-01-15'), positiveSwabs: 3416, totalSwabs: 23033},
-				{date: new Date('2021-01-16'), positiveSwabs: 3110, totalSwabs: 26663},
-				{date: new Date('2021-01-17'), positiveSwabs: 2868, totalSwabs: 21441},
-				{date: new Date('2021-01-18'), positiveSwabs: 1877, totalSwabs: 18191},
-				{date: new Date('2021-01-19'), positiveSwabs: 1784, totalSwabs: 19218},
-				{date: new Date('2021-01-20'), positiveSwabs: 2786, totalSwabs: 24296},
-				{date: new Date('2021-01-21'), positiveSwabs: 2318, totalSwabs: 23196},
-				{date: new Date('2021-01-22'), positiveSwabs: 2084, totalSwabs: 24189},
-				{date: new Date('2021-01-23'), positiveSwabs: 1926, totalSwabs: 21492},
-				{date: new Date('2021-01-24'), positiveSwabs: 1529, totalSwabs: 19593},
-				{date: new Date('2021-01-25'), positiveSwabs: 1085, totalSwabs: 14884},
-				{date: new Date('2021-01-26'), positiveSwabs: 953, totalSwabs: 16665},
-				{date: new Date('2021-01-27'), positiveSwabs: 1668, totalSwabs: 22387},
-				{date: new Date('2021-01-28'), positiveSwabs: 1587, totalSwabs: 21780},
-				{date: new Date('2021-01-29'), positiveSwabs: 1483, totalSwabs: 21943},
-				{date: new Date('2021-01-30'), positiveSwabs: 1421, totalSwabs: 21598},
-				{date: new Date('2021-01-31'), positiveSwabs: 1153, totalSwabs: 17649},
-				{date: new Date('2021-02-01'), positiveSwabs: 831, totalSwabs: 15047},
-				{date: new Date('2021-02-02'), positiveSwabs: 969, totalSwabs: 16329},
-				{date: new Date('2021-02-03'), positiveSwabs: 1203, totalSwabs: 18352},
-				{date: new Date('2021-02-04'), positiveSwabs: 1283, totalSwabs: 20214},
-				{date: new Date('2021-02-05'), positiveSwabs: 1009, totalSwabs: 20190},
-				{date: new Date('2021-02-06'), positiveSwabs: 1074, totalSwabs: 19248},
-				{date: new Date('2021-02-07'), positiveSwabs: 956, totalSwabs: 15377},
-				{date: new Date('2021-02-08'), positiveSwabs: 780, totalSwabs: 12697},
-				{date: new Date('2021-02-09'), positiveSwabs: 816, totalSwabs: 15126}
-            ];
-            var labels = new Array();
-            var positiveSwabs = new Array();
-            var negativeSwabs = new Array();
-            var percentagePositive = new Array();
-            data.forEach(function (value, index) {
-            	labels.push(value.date.toDateString());
-            	positiveSwabs.push(value.positiveSwabs);
-            	negativeSwabs.push(value.totalSwabs - value.positiveSwabs);
-            	percentagePositive.push((value.positiveSwabs * 100) / value.totalSwabs);
-            });
-        var ROIChartt = new Chart(ctx, {
-           "type":"bar",
-           "data":{
-              labels: labels,
-              "datasets":[
-                 {
-                    "label":"Positive Swabs",
-                    "data": positiveSwabs,
-                    "backgroundColor":"rgba(237, 100, 127, .55)",
-                    "borderColor":"rgba(233,0,45, 1)",
-                    "borderWidth":0,
-                    "yAxisID": "A"
-                 },
-                 {
-                    "label":"Negative Swabs",
-                    "data": negativeSwabs,
-                    "backgroundColor":"rgba(63, 63, 191, .4)",
-                    "borderColor":"rgba(14, 54, 201, 0.5)",
-                    "borderWidth":0,
-                    "yAxisID": "A"
-                 },
-                 {
-                    "label": "% Positive",
-                    "data": percentagePositive,
-                    "borderColor":"red",
-                    "borderWidth":0,
-                    "yAxisID": "B",
-                    "type": "line"
-                 }
-              ]
-           },
-           "options":{
-              "scales":{
-                 "xAxes":[
-                    {
-                       "stacked":true
-                    }
-                 ],
-                 "yAxes":[
-                    {
-                        "id": "A",
-                       "stacked":true,
+  <head>
+    <title>Graphing the daily Irish COVID swab tests results against positivity rates</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+  </head>
+  <body>
+    <div style="height: 75%;">
+      <div style="width: 20%; height: 100%; display: inline-block; text-align: center;">
+        <div style="width: 80%; border: 1px #555555 solid; border-radius: 15px; margin: 1px auto; padding: 15px; text-align: left;">
+          <div>
+            <input type="radio" name="type" checked onclick="defaultGraph()"> All data
+          </div>
+          <div>
+            <input type="radio" name="type" onclick="dayAverage(1)"> Rolling seven day average
+          </div>
+          <div>
+            <input type="radio" name="type" onclick="dayAverage(7, 'Seven days to ')"> Seven day average
+          </div>
+          <div>
+            <input type="radio" name="type" onclick="byDay()"> By weekday
+            <select name="day" id="day" disabled="true" onchange="byDay()">
+              <option value="0">Sunday</option>
+              <option value="1">Monday</option>
+              <option value="2">Tuesday</option>
+              <option value="3">Wednesday</option>
+              <option value="4">Thursday</option>
+              <option value="5">Friday</option>
+              <option value="6">Saturday</option>
+            </select>
+          </div>
+          <div>
+            <input type="radio" name="type" onclick="totalByWeek()"> Total By week
+          </div>
+        </div>
+        <div style="width: 80%; border: 1px #555555 solid; border-radius: 15px; margin: 1px auto; padding: 15px; text-align: left;">
+          <div><a href="https://github.com/tetsujin1979/testsVpositivity">Source</a></div>
+          <div><a href="https://www.chartjs.org/">Chart Library</a></div>
+          <div><a href="https://github.com/ShaneHastings/Twitter-AutoPost-for-COVID-Data">COVID-19 Data Ireland</a></div>
+        </div>
+      </div>
+      <div style="width: 75%; float: right; border: 1px #555555 solid; border-radius: 15px; margin: 1px auto; padding: 15px;">
+        <canvas id="testsVpositivityRate"></canvas>
+      </div>
+    </div>
+    <script type="text/javascript">
+      var dayOptions = document.getElementById("day").options;
+      var today = new Date();
+      for (var counter = 0; counter < dayOptions.length; counter ++) {
+        var option = dayOptions[counter];
+        if (option.value == today.getDay()) {
+            option.selected = true;
+        }
+      }
+      var ctx = document.getElementById('testsVpositivityRate').getContext('2d');
+      var data = [
+        {date: new Date('2021-01-06'), positiveSwabs: 6865, totalSwabs: 28370},
+        {date: new Date('2021-01-07'), positiveSwabs: 6368, totalSwabs: 28610},
+        {date: new Date('2021-01-08'), positiveSwabs: 5156, totalSwabs: 27319},
+        {date: new Date('2021-01-09'), positiveSwabs: 5099, totalSwabs: 29972},
+        {date: new Date('2021-01-10'), positiveSwabs: 4188, totalSwabs: 24485},
+        {date: new Date('2021-01-11'), positiveSwabs: 2922, totalSwabs: 19794},
+        {date: new Date('2021-01-12'), positiveSwabs: 2521, totalSwabs: 18945},
+        {date: new Date('2021-01-13'), positiveSwabs: 3932, totalSwabs: 24583},
+        {date: new Date('2021-01-14'), positiveSwabs: 3854, totalSwabs: 28178},
+        {date: new Date('2021-01-15'), positiveSwabs: 3416, totalSwabs: 23033},
+        {date: new Date('2021-01-16'), positiveSwabs: 3110, totalSwabs: 26663},
+        {date: new Date('2021-01-17'), positiveSwabs: 2868, totalSwabs: 21441},
+        {date: new Date('2021-01-18'), positiveSwabs: 1877, totalSwabs: 18191},
+        {date: new Date('2021-01-19'), positiveSwabs: 1784, totalSwabs: 19218},
+        {date: new Date('2021-01-20'), positiveSwabs: 2786, totalSwabs: 24296},
+        {date: new Date('2021-01-21'), positiveSwabs: 2318, totalSwabs: 23196},
+        {date: new Date('2021-01-22'), positiveSwabs: 2084, totalSwabs: 24189},
+        {date: new Date('2021-01-23'), positiveSwabs: 1926, totalSwabs: 21492},
+        {date: new Date('2021-01-24'), positiveSwabs: 1529, totalSwabs: 19593},
+        {date: new Date('2021-01-25'), positiveSwabs: 1085, totalSwabs: 14884},
+        {date: new Date('2021-01-26'), positiveSwabs: 953, totalSwabs: 16665},
+        {date: new Date('2021-01-27'), positiveSwabs: 1668, totalSwabs: 22387},
+        {date: new Date('2021-01-28'), positiveSwabs: 1587, totalSwabs: 21780},
+        {date: new Date('2021-01-29'), positiveSwabs: 1483, totalSwabs: 21943},
+        {date: new Date('2021-01-30'), positiveSwabs: 1421, totalSwabs: 21598},
+        {date: new Date('2021-01-31'), positiveSwabs: 1153, totalSwabs: 17649},
+        {date: new Date('2021-02-01'), positiveSwabs: 831, totalSwabs: 15047},
+        {date: new Date('2021-02-02'), positiveSwabs: 969, totalSwabs: 16329},
+        {date: new Date('2021-02-03'), positiveSwabs: 1203, totalSwabs: 18352},
+        {date: new Date('2021-02-04'), positiveSwabs: 1283, totalSwabs: 20214},
+        {date: new Date('2021-02-05'), positiveSwabs: 1009, totalSwabs: 20190},
+        {date: new Date('2021-02-06'), positiveSwabs: 1074, totalSwabs: 19248},
+        {date: new Date('2021-02-07'), positiveSwabs: 956, totalSwabs: 15377},
+        {date: new Date('2021-02-08'), positiveSwabs: 780, totalSwabs: 12697},
+        {date: new Date('2021-02-09'), positiveSwabs: 816, totalSwabs: 15126}
+      ];
+      var positiveSwabs = {
+        "label":"Positive Tests",
+        "data": [],
+        "backgroundColor":"rgba(237, 100, 127, .55)",
+        "borderColor":"rgba(233,0,45, 1)",
+        "borderWidth":0,
+        "yAxisID": "A"
+      };
+      var negativeSwabs = {
+        "label":"Negative Tests",
+        "data": [],
+        "backgroundColor":"rgba(63, 63, 191, .4)",
+        "borderColor":"rgba(14, 54, 201, 0.5)",
+        "borderWidth":0,
+        "yAxisID": "A"
+      };
+      var percentagePositive = {
+        "label": "% Positive",
+        "data": [],
+        "borderColor":"red",
+        "borderWidth":0,
+        "yAxisID": "B",
+        "type": "line"
+      };
+      var chartConfig = {
+          "type": "bar",
+          "data": {
+              labels: [],
+              "datasets": [positiveSwabs, negativeSwabs, percentagePositive]
+          },
+          "options": {
+              "scales": {
+                  "xAxes": [{
+                      "stacked": true
+                  }],
+                  "yAxes": [{
+                      "id": "A",
+                      "stacked": true,
                       "position": "left",
-                       "ticks":{
-                          "beginAtZero":true,
+                      "ticks": {
+                          "beginAtZero": true,
                           "max": 35000
-                       }
-
-                    },
-                    {
+                      },
+                      "scaleLabel": {
+                          "display": true,
+                          "labelString": "Total Tests"
+                      }
+                  }, {
                       "id": "B",
                       "position": "right",
-                      "ticks":{
-                          "beginAtZero":true,
+                      "ticks": {
+                          "beginAtZero": true,
                           "max": 35
-                       }
-
-                    }
-                 ]
+                      },
+                      "gridLines": {
+                          "display": false
+                      },
+                      "scaleLabel": {
+                          "display": true,
+                          "labelString": "% Positive"
+                      }
+                  }]
+              },
+              "tooltips": {
+                  "mode": 'index'
               }
-           }
+          }
+      };
+      var testsVpositivityRate = new Chart(ctx, chartConfig);
+      defaultGraph();
+      
+      function defaultGraph() {
+        resetGraph();
+        var labels = new Array();
+        var positiveSwabs = new Array();
+        var negativeSwabs = new Array();
+        var percentagePositive = new Array();
+        data.forEach(function (value, index) {
+          labels.push(value.date.toDateString());
+          positiveSwabs.push(value.positiveSwabs);
+          negativeSwabs.push(value.totalSwabs - value.positiveSwabs);
+          percentagePositive.push(((value.positiveSwabs * 100) / value.totalSwabs).toFixed(2));
         });
-
-  </script>
-</body>
+        updateGraph(labels, positiveSwabs, negativeSwabs, percentagePositive);
+      }
+      
+      function byDay() {
+        resetGraph();
+        var day = document.getElementById("day");
+        day.disabled = false;
+        var labels = new Array();
+        var positiveSwabs = new Array();
+        var negativeSwabs = new Array();
+        var percentagePositive = new Array();
+        data.forEach(function (value, index) {
+          if (value.date.getDay() == day.value) {
+            labels.push(value.date.toDateString());
+            positiveSwabs.push(value.positiveSwabs);
+            negativeSwabs.push(value.totalSwabs - value.positiveSwabs);
+            percentagePositive.push(((value.positiveSwabs * 100) / value.totalSwabs).toFixed(2));
+          }
+        });
+        updateGraph(labels, positiveSwabs, negativeSwabs, percentagePositive);        
+      }
+      
+      function dayAverage(increment, prefix) {
+        prefix = prefix ? prefix : '';
+        resetGraph();
+        var labels = new Array();
+        var positiveSwabs = new Array();
+        var negativeSwabs = new Array();
+        var percentagePositive = new Array();
+        for (var counter = 6; counter < data.length; counter += increment) {
+          var today = data[counter];
+          var yesterday = data[counter - 1];
+          var twoDaysAgo = data[counter - 2];
+          var threeDaysAgo = data[counter - 3];
+          var fourDaysAgo = data[counter - 4];
+          var fiveDaysAgo = data[counter - 5];
+          var sixDayAgo = data[counter - 6];
+          labels.push(prefix + today.date.toDateString());
+          var totalPositiveSwabs = today.positiveSwabs + yesterday.positiveSwabs + twoDaysAgo.positiveSwabs + threeDaysAgo.positiveSwabs + fourDaysAgo.positiveSwabs + fiveDaysAgo.positiveSwabs + sixDayAgo.positiveSwabs;
+          var totalNegativeSwabs = (today.totalSwabs - today.positiveSwabs) + (yesterday.totalSwabs - yesterday.positiveSwabs) + (twoDaysAgo.totalSwabs - twoDaysAgo.positiveSwabs) + (threeDaysAgo.totalSwabs - threeDaysAgo.positiveSwabs) + (fourDaysAgo.totalSwabs - fourDaysAgo.positiveSwabs) + (fiveDaysAgo.totalSwabs - fiveDaysAgo.positiveSwabs) + (sixDayAgo.totalSwabs - sixDayAgo.positiveSwabs);
+          var totalSwabs = (today.totalSwabs + yesterday.totalSwabs + twoDaysAgo.totalSwabs + threeDaysAgo.totalSwabs + fourDaysAgo.totalSwabs + fiveDaysAgo.totalSwabs + sixDayAgo.totalSwabs);
+          positiveSwabs.push((totalPositiveSwabs / 7).toFixed(2));
+          negativeSwabs.push((totalNegativeSwabs / 7).toFixed(2));
+          percentagePositive.push(((totalPositiveSwabs * 100) / totalSwabs).toFixed(2));
+        }        
+        updateGraph(labels, positiveSwabs, negativeSwabs, percentagePositive);        
+      }
+      
+      function totalByWeek() {
+        resetGraph();
+        var labels = new Array();
+        var positiveSwabs = new Array();
+        var negativeSwabs = new Array();
+        var percentagePositive = new Array();
+        for (var counter = 6; counter < data.length; counter ++) {
+          var today = data[counter];
+          if (today.date.getDay() === 6) {
+            var yesterday = data[counter - 1];
+            var twoDaysAgo = data[counter - 2];
+            var threeDaysAgo = data[counter - 3];
+            var fourDaysAgo = data[counter - 4];
+            var fiveDaysAgo = data[counter - 5];
+            var sixDayAgo = data[counter - 6];
+            labels.push('Week ending ' + today.date.toDateString());
+            var totalPositiveSwabs = today.positiveSwabs + yesterday.positiveSwabs + twoDaysAgo.positiveSwabs + threeDaysAgo.positiveSwabs + fourDaysAgo.positiveSwabs + fiveDaysAgo.positiveSwabs + sixDayAgo.positiveSwabs;
+            var totalNegativeSwabs = (today.totalSwabs - today.positiveSwabs) + (yesterday.totalSwabs - yesterday.positiveSwabs) + (twoDaysAgo.totalSwabs - twoDaysAgo.positiveSwabs) + (threeDaysAgo.totalSwabs - threeDaysAgo.positiveSwabs) + (fourDaysAgo.totalSwabs - fourDaysAgo.positiveSwabs) + (fiveDaysAgo.totalSwabs - fiveDaysAgo.positiveSwabs) + (sixDayAgo.totalSwabs - sixDayAgo.positiveSwabs);
+            var totalSwabs = (today.totalSwabs + yesterday.totalSwabs + twoDaysAgo.totalSwabs + threeDaysAgo.totalSwabs + fourDaysAgo.totalSwabs + fiveDaysAgo.totalSwabs + sixDayAgo.totalSwabs);
+            positiveSwabs.push((totalPositiveSwabs).toFixed(2));
+            negativeSwabs.push((totalNegativeSwabs).toFixed(2));
+            percentagePositive.push(((totalPositiveSwabs * 100) / totalSwabs).toFixed(2));
+          }
+        }
+        updateGraph(labels, positiveSwabs, negativeSwabs, percentagePositive);        
+      }
+      
+      function resetGraph() {
+        var day = document.getElementById("day");
+        day.disabled = true;
+        chartConfig.data.labels = new Array();
+        positiveSwabs.data = new Array();
+        negativeSwabs.data = new Array();
+        percentagePositive.data = new Array();
+      }
+      
+      function updateGraph(labels, positiveSwabsData, negativeSwabsData, percentagePositiveData) {
+        chartConfig.data.labels = labels;
+        positiveSwabs.data = positiveSwabsData;
+        negativeSwabs.data = negativeSwabsData;
+        percentagePositive.data = percentagePositiveData;
+        
+        var maxSwabs = 0;
+        var maxPercentage = 0;
+        for (var counter = 0; counter < positiveSwabsData.length; counter++) {
+          var positiveSwabData = positiveSwabsData[counter];
+          var negativeSwabData = negativeSwabsData[counter];
+          var totalSwabs = Number(positiveSwabData) + Number(negativeSwabData);
+          maxSwabs = Math.max(maxSwabs, totalSwabs);
+          maxPercentage = Math.max(maxPercentage, Number(percentagePositiveData[counter]));
+        }
+        maxSwabs = (Math.round(maxSwabs / 5000) * 5000) + 5000;
+        maxPercentage = (Math.round(maxPercentage / 5) * 5) + 5;
+        var calculatedMaxPercentage = maxSwabs / 1000;
+        chartConfig.options.scales.yAxes[0].ticks.max = maxSwabs;
+        chartConfig.options.scales.yAxes[1].ticks.max = maxPercentage;
+        testsVpositivityRate.update();
+      }
+    </script>
+  </body>
 </html>
