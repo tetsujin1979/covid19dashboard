@@ -2,7 +2,8 @@
   <head>
     <title>Graphing the daily Irish COVID swab tests results against positivity rates</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
-    <style>
+	<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-trendline"></script>
+	<style>
       fieldset {
         border: 1px solid #666;
         border-radius: 5px;
@@ -93,7 +94,7 @@
             </div>
             <div>
               <input type="radio" name="graphType" id="graphType" value="3" onclick="byDay()"> By weekday
-              <select name="day" id="day" disabled="true" onchange="byDay()">
+              <select name="day" id="day" disabled="true" onchange="byDay()" style="float: right;">
                 <option value="0">Sunday</option>
                 <option value="1">Monday</option>
                 <option value="2">Tuesday</option>
@@ -112,6 +113,9 @@
           <div>
             <input type="radio" name="displayType" id="displayType" value="0" onclick="displayGraph()" checked> Graph
           </div>
+          <div style="text-align: center;">
+          	<input type="checkbox" id="trendLine" name="trendLine" value="trendLine" onclick="trendLine()" checked> Trend line
+          </div>
           <div>
             <input type="radio" name="displayType" id="displayType" value="1" onclick="displayTable()"> Table
           </div>
@@ -128,10 +132,13 @@
         <fieldset>
           <legend>Links</legend>
           <div>
-          	<a href="https://github.com/tetsujin1979/testsVpositivity">Source</a>
+          	<a href="https://github.com/tetsujin1979/testsVpositivity">Github Source</a>
           </div>
           <div>
-          	<a href="https://www.chartjs.org/">Chart Library</a>
+          	<a href="https://www.chartjs.org/">Chart.js Library</a>
+          </div>
+          <div>
+          	<a href="https://github.com/Makanz/chartjs-plugin-trendline">Trendline plugin</a>
           </div>
           <div>
           	<a href="https://github.com/ShaneHastings/Twitter-AutoPost-for-COVID-Data">COVID-19 Data Ireland</a>
@@ -521,25 +528,38 @@
         {date: new Date('2021-02-08'), positiveSwabs: 780, totalSwabs: 12697},
         {date: new Date('2021-02-09'), positiveSwabs: 816, totalSwabs: 15126},
         {date: new Date('2021-02-10'), positiveSwabs: 1096, totalSwabs: 18213},
-        {date: new Date('2021-02-11'), positiveSwabs: 861, totalSwabs: 17207}
+        {date: new Date('2021-02-11'), positiveSwabs: 861, totalSwabs: 17207},
+        {date: new Date('2021-02-12'), positiveSwabs: 986, totalSwabs: 18841}
       ];
 
       var graphData = new Array();
+      var positiveSwabsTrendLine = {
+        "style": "rgba(237, 100, 127, 0.75)",
+        "lineStyle": "dotted|solid",
+        "width": 2
+      };
+      var negativeSwabsTrendLine = {
+		"style": "rgba(63, 63, 191, 0.75)",
+		"lineStyle": "dotted|solid",
+		"width": 2
+      };
       var positiveSwabs = {
-          "label": "Positive Tests",
-          "data": [],
-          "backgroundColor": "rgba(237, 100, 127, .55)",
-          "borderColor": "rgba(233,0,45, 1)",
-          "borderWidth": 0,
-          "yAxisID": "A"
+        "label": "Positive Tests",
+        "data": [],
+        "backgroundColor": "rgba(237, 100, 127, .6)",
+        "borderColor": "rgba(233,0,45, 1)",
+        "borderWidth": 0,
+        "yAxisID": "A",
+        "trendlineLinear": positiveSwabsTrendLine
       };
       var negativeSwabs = {
-          "label": "Negative Tests",
-          "data": [],
-          "backgroundColor": "rgba(63, 63, 191, .4)",
-          "borderColor": "rgba(14, 54, 201, 0.5)",
-          "borderWidth": 0,
-          "yAxisID": "A"
+        "label": "Negative Tests",
+        "data": [],
+        "backgroundColor": "rgba(63, 63, 191, 0.6)",
+        "borderColor": "rgba(14, 54, 201, 0.5)",
+        "borderWidth": 0,
+        "yAxisID": "A",
+        "trendlineLinear": negativeSwabsTrendLine
       };
       var percentagePositive = {
           "label": "% Positive",
@@ -590,11 +610,6 @@
               },
               "tooltips": {
                   "mode": 'index'
-              },
-              "animation": {
-                "onComplete": function() {
-                  console.log(testsVpositivityRate.toBase64Image());
-                }
               }
           }
       };
@@ -974,6 +989,18 @@
         downloadLink.style.display = "none";
         document.body.appendChild(downloadLink);
         downloadLink.click();
+      }
+
+      function trendLine() {
+		var trendLine = document.getElementById('trendLine');
+		if (trendLine.checked) {
+		  positiveSwabs.trendlineLinear = positiveSwabsTrendLine;
+		  negativeSwabs.trendlineLinear = negativeSwabsTrendLine;
+		} else {
+		  positiveSwabs.trendlineLinear = null;
+		  negativeSwabs.trendlineLinear = null;
+		}
+		testsVpositivityRate.update();
       }
     </script>
   </body>
