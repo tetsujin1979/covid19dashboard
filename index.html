@@ -7,37 +7,37 @@
         border: 1px solid #666;
         border-radius: 5px;
       }
-      
+
       legend {
         padding: 2px 4px;
       }
-      
+
       select {
         text-align-last: right;
       }
-      
+
       option {
         direction: rtl;
       }
-      
+
       table {
         border-collapse: collapse;
         width: 100%;
       }
-      
+
       th, td {
         padding: 8px 16px;
         border: 1px solid #ccc;
       }
-      
+
       th {
         background: #eee;
       }
-      
+
       td:not(:nth-child(1)) {
         text-align: center;
       }
-      
+
       button {
         width: 100%;
         margin: 5px;
@@ -47,7 +47,7 @@
   <body>
     <div style="height: 85%;">
       <div style="width: 20%; height: 100%; display: inline-block; text-align: center;">
-        <div style="width: 80%; border: 1px #555555 solid; border-radius: 15px; margin: 1px auto; padding: 15px; text-align: left;">
+        <div style="width: 80%; padding: 15px; text-align: left;">
           <fieldset>
             <legend>Data selection</legend>
             <div>
@@ -58,7 +58,7 @@
             </div>
             <div>
               <input type="radio" name="data" onclick="twoMonthView()"> Two month view
-              <select name="twoMonthView" id="twoMonthView" onchange="twoMonthView()" disabled></select>
+       		  <select name="twoMonthView" id="twoMonthView" onchange="twoMonthView()" disabled></select>
             </div>
             <div>
               <div>
@@ -66,12 +66,16 @@
               </div>
               <div style="float: right;">
                 <div style="text-align: right;">
-                  <span id="startDateLabel" style="color: #999999;">Start date </span>
-                  <select name="startDate" id="startDate" onchange="betweenDates();"></select>
+                  <div id="startDateLabel" style="color: #999999; float: right;">Start date </span>
+                  <div style="float: right; padding-left: 5px;">
+                  	<select name="startDate" id="startDate" onchange="betweenDates();"></select>
+                  </div>
                 </div>
                 <div style="text-align: right;">
-                  <span id="endDateLabel" style="color: #999999;">End date </span>
-                  <select name="endDate" id="endDate" onchange="betweenDates()"></select>
+                  <div id="endDateLabel" style="color: #999999; float: right;">End date </span>
+                  <div style="float: right; padding-left: 5px;">
+                  	<select name="endDate" id="endDate" onchange="betweenDates()"></select>
+                  </div>
                 </div>
               </div>
             </div>
@@ -121,13 +125,20 @@
             <button type="button" id="exportCSV" value="exportCSV" onclick="exportAsCSV()">Export as CSV</button>
           </div>
         </fieldset>
+        <fieldset>
+          <legend>Links</legend>
+          <div>
+          	<a href="https://github.com/tetsujin1979/testsVpositivity">Source</a>
+          </div>
+          <div>
+          	<a href="https://www.chartjs.org/">Chart Library</a>
+          </div>
+          <div>
+          	<a href="https://github.com/ShaneHastings/Twitter-AutoPost-for-COVID-Data">COVID-19 Data Ireland</a>
+          </div>
+        </fieldset>
       </div>
-      <div style="width: 80%; border: 1px #555555 solid; border-radius: 15px; margin: 1px auto; padding: 15px; text-align: left;">
-          <div><a href="https://github.com/tetsujin1979/testsVpositivity">Source</a></div>
-          <div><a href="https://www.chartjs.org/">Chart Library</a></div>
-          <div><a href="https://github.com/ShaneHastings/Twitter-AutoPost-for-COVID-Data">COVID-19 Data Ireland</a></div>
-        </div>
-      </div>
+    </div>
       <div style="height: 95%; width: 75%; float: right; border: 1px #555555 solid; border-radius: 15px; margin: 1px auto; padding: 15px;">
         <div id="table" style="display: none; height: 95%; margin: 1px auto; padding: 15px; text-align: left; overflow-y: scroll;">
           <table id="dataTable">
@@ -164,6 +175,14 @@
       var today = new Date();
       var csv = [];
       var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+      Chart.plugins.register({
+        beforeDraw: function(chartInstance) {
+          var ctx = chartInstance.chart.ctx;
+          ctx.fillStyle = "white";
+          ctx.fillRect(0, 0, chartInstance.chart.width, chartInstance.chart.height);
+        }
+      });
 
       for (var counter = 0; counter < dayOptions.length; counter++) {
           var option = dayOptions[counter];
@@ -504,7 +523,7 @@
         {date: new Date('2021-02-10'), positiveSwabs: 1096, totalSwabs: 18213},
         {date: new Date('2021-02-11'), positiveSwabs: 861, totalSwabs: 17207}
       ];
-      
+
       var graphData = new Array();
       var positiveSwabs = {
           "label": "Positive Tests",
@@ -866,11 +885,11 @@
               // Insert daily total tests cell
               createCell(newRow, dailyTests);
               csvData.push(dailyTests);
-              
+
               // Insert daily positive tests cell
               createCell(newRow, positiveSwabsData[index]);
               csvData.push(positiveSwabsData[index]);
-              
+
               // Insert daily negative tests cell
               createCell(newRow, negativeSwabsData[index]);
               csvData.push(negativeSwabsData[index]);
@@ -936,17 +955,17 @@
           table.style.display = 'block';
           graph.style.display = 'none'
       }
-      
+
       function exportAsImage() {
         var downloadLink = document.createElement("a");
         downloadLink.download = "swabData.png";
         downloadLink.href = document.getElementById('testsVpositivityRate')
                                     .toDataURL('image/png')
                                     .replace('image/png', 'image/octet-stream');
-                                    
+
         downloadLink.click();
       }
-    
+
       function exportAsCSV() {
         var csvFile = csvFile = new Blob([csv.join('\n')], {type:"text/csv"});
         var downloadLink = document.createElement("a");
