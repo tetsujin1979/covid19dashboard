@@ -5,10 +5,9 @@
 	<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-trendline"></script>
 	<style>
       fieldset {
-        border: 1px solid #666;
-        border-radius: 5px;
+        border-radius: 15px;
       }
-
+      
       legend {
         padding: 2px 4px;
       }
@@ -59,7 +58,7 @@
             </div>
             <div>
               <input type="radio" name="data" onclick="twoMonthView()"> Two month view
-       		  <select name="twoMonthView" id="twoMonthView" onchange="twoMonthView()" disabled></select>
+       		  <select name="twoMonthView" id="twoMonthView" onchange="twoMonthView()" style="width: 100%;" disabled></select>
             </div>
             <div>
               <div>
@@ -530,7 +529,9 @@
         {date: new Date('2021-02-10'), positiveSwabs: 1096, totalSwabs: 18213},
         {date: new Date('2021-02-11'), positiveSwabs: 861, totalSwabs: 17207},
         {date: new Date('2021-02-12'), positiveSwabs: 986, totalSwabs: 18841},
-        {date: new Date('2021-02-13'), positiveSwabs: 1009, totalSwabs: 16414}
+        {date: new Date('2021-02-13'), positiveSwabs: 1009, totalSwabs: 16414},
+        {date: new Date('2021-02-14'), positiveSwabs: 752, totalSwabs: 14400},
+        {date: new Date('2021-02-15'), positiveSwabs: 645, totalSwabs: 11452}
       ];
 
       var graphData = new Array();
@@ -586,8 +587,7 @@
                       "stacked": true,
                       "position": "left",
                       "ticks": {
-                          "beginAtZero": true,
-                          "max": 35000
+                          "beginAtZero": true
                       },
                       "scaleLabel": {
                           "display": true,
@@ -597,8 +597,7 @@
                       "id": "B",
                       "position": "right",
                       "ticks": {
-                          "beginAtZero": true,
-                          "max": 35
+                          "beginAtZero": true
                       },
                       "gridLines": {
                           "display": false
@@ -610,9 +609,26 @@
                   }]
               },
               "tooltips": {
-                  "mode": 'index'
+              	"mode": 'label',
+                	"callbacks": {
+                  		"label": function (tooltipItem, data) {
+                            var datasetLabel = data.datasets[tooltipItem.datasetIndex].label;
+                            var datasetValue = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                            var total = 0;
+                            for (var i = 0; i < data.datasets.length; i++) {
+                            	if (data.datasets[i].label != '% Positive') {
+                                	total += Number(data.datasets[i].data[tooltipItem.index]);
+                                }
+                            }
+                            if (tooltipItem.datasetIndex != data.datasets.length - 1) {
+                                return datasetLabel + ": " + datasetValue;
+                            } else {
+                                return ['Total Tests: ' + total, datasetLabel + ": " + datasetValue];
+                            }
+                        }
+                      }
+                  }
               }
-          }
       };
       var testsVpositivityRate = new Chart(ctx, chartConfig);
       lastTwoMonths();
@@ -873,8 +889,8 @@
           maxSwabs = (Math.round(maxSwabs / 5000) * 5000) + 5000;
           maxPercentage = (Math.round(maxPercentage / 5) * 5) + 5;
           var calculatedMaxPercentage = maxSwabs / 1000;
-          chartConfig.options.scales.yAxes[0].ticks.max = maxSwabs;
-          chartConfig.options.scales.yAxes[1].ticks.max = maxPercentage;
+//          chartConfig.options.scales.yAxes[0].ticks.max = maxSwabs;
+//          chartConfig.options.scales.yAxes[1].ticks.max = maxPercentage;
           testsVpositivityRate.update();
 
           // Populate date table
