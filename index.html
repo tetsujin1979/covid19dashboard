@@ -615,15 +615,25 @@
                             var datasetLabel = data.datasets[tooltipItem.datasetIndex].label;
                             var datasetValue = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
                             var total = 0;
+                            var percentageChange = 0;
+                            var difference = 0;
                             for (var i = 0; i < data.datasets.length; i++) {
                             	if (data.datasets[i].label != '% Positive') {
-                                	total += Number(data.datasets[i].data[tooltipItem.index]);
-                                }
+                                total += Number(data.datasets[i].data[tooltipItem.index]);
+                              }
+                            	if (data.datasets[i].label === 'Positive Tests' && tooltipItem.index > 0) {
+                                var previousValue = Number(data.datasets[i].data[tooltipItem.index - 1]);
+                                var currentValue = Number(data.datasets[i].data[tooltipItem.index]);
+                                var difference = currentValue - previousValue;
+                                percentageChange = ((difference * 100) / previousValue).toFixed(2);
+                              }
                             }
                             if (tooltipItem.datasetIndex != data.datasets.length - 1) {
                                 return datasetLabel + ": " + datasetValue;
                             } else {
-                                return ['Total Tests: ' + total, datasetLabel + ": " + datasetValue];
+                                total = total.toString().includes('.') ? total.toFixed(2) : total;
+                                difference = difference.toString().includes('.') ? difference.toFixed(2) : difference;
+                                return ['Total Tests: ' + total, 'Difference: ' + difference, '% Difference: ' + percentageChange + '%', datasetLabel + ": " + datasetValue];
                             }
                         }
                       }
@@ -815,7 +825,15 @@
           var positiveSwabs = new Array();
           var negativeSwabs = new Array();
           var percentagePositive = new Array();
-          for (var counter = 6; counter < graphData.length; counter += increment) {
+          var initialIndex = 0;
+          var todayDay = new Date().getDay();
+          for (var counter = 6; counter < 15; counter++) {
+            if (graphData[counter].date.getDay() === todayDay) {
+              initialIndex = counter;
+              break;
+            }
+          }
+          for (var counter = initialIndex; counter < graphData.length; counter += increment) {
               var today = graphData[counter];
               var yesterday = graphData[counter - 1];
               var twoDaysAgo = graphData[counter - 2];
