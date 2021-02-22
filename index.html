@@ -2,7 +2,8 @@
   <head>
     <title>Graphing the daily Irish COVID swab tests results against positivity rates</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-trendline"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-trendline"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 	<style>
       fieldset {
         border-radius: 15px;
@@ -42,6 +43,26 @@
         width: 100%;
         margin: 5px;
       }
+      
+      .statsTable {
+        display: none; 
+        height: 95%; 
+        margin: 1px auto; 
+        padding: 15px; 
+        text-align: left; 
+        overflow-y: scroll;
+      }
+      
+      .share-icon {
+        font-size: 25px;
+        width: 15%;
+      }
+      
+      .share-link {
+        width: 10%;
+        padding-left: 5px;
+        padding-right: 5px;
+      }
     </style>
   </head>
   <body>
@@ -49,20 +70,38 @@
       <div style="width: 20%; height: 100%; display: inline-block; text-align: center;">
         <div style="width: 80%; padding: 15px; text-align: left;">
           <fieldset>
-            <legend>Data selection</legend>
+            <legend>Share</legend>
+            <a id="twitterLink" target="_blank"><img class="share-link" src="twitter.svg"></img></a>
+            <a id="facebookLink" target="_blank"><img class="share-link" src="facebook.svg"></img></a>
+            <a id="emailLink" target="_blank" ><img class="share-link" src="email.svg"></img></a>
+          </fieldset>
+          <fieldset>
+            <legend>Source data</legend>
             <div>
-              <input type="radio" name="data" onclick="allData()"> All dates
+              <input type ="radio" name="dataSelection" value="dailyCases" onclick="selectData('dailyCases', 'dailyCasesGraph')"> Cases
             </div>
             <div>
-              <input type="radio" name="data" checked onclick="lastTwoMonths()"> Last two months
+              <input type="radio" name="dataSelection" value="dailyDeaths" onclick="selectData('dailyDeaths', 'dailyDeathsGraph')"> Deaths
             </div>
             <div>
-              <input type="radio" name="data" onclick="twoMonthView()"> Two month view
+              <input type="radio" name="dataSelection" value="dailySwabs" onclick="selectData('dailySwabs', 'dailySwabsGraph')"> Swabs
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Date selection</legend>
+            <div>
+              <input type="radio" name="dateSelection" value="allDates" onclick="allData()"> All dates
+            </div>
+            <div>
+              <input type="radio" name="dateSelection" value="lastTwoMonths" onclick="lastTwoMonths()"> Last two months
+            </div>
+            <div>
+              <input type="radio" name="dateSelection" value="twoMonthView" onclick="twoMonthView()"> Two month view
        		  <select name="twoMonthView" id="twoMonthView" onchange="twoMonthView()" style="width: 100%;" disabled></select>
             </div>
             <div>
               <div>
-                <input type="radio" name="data" onclick="betweenDates()"> Between dates
+                <input type="radio" name="dateSelection" value="betweenDates" onclick="betweenDates()"> Between dates
               </div>
               <div style="float: right;">
                 <div style="text-align: right;">
@@ -83,16 +122,16 @@
           <fieldset>
             <legend>Graph type</legend>
             <div>
-              <input type="radio" name="graphType" id="graphType" value="0" onclick="standardGraph()" checked> Normal
+              <input type="radio" name="graphType" id="graphType" value="normal" onclick="standardGraph()"> Normal
             </div>
             <div>
-              <input type="radio" name="graphType" id="graphType" value="1" onclick="dayAverage(1)"> Rolling seven day average
+              <input type="radio" name="graphType" id="graphType" value="rollingSevenDayAverage" onclick="dayAverage(1)"> Rolling seven day average
             </div>
             <div>
-              <input type="radio" name="graphType" id="graphType" value="2" onclick="dayAverage(7, 'Seven days to ')"> Seven day average
+              <input type="radio" name="graphType" id="graphType" value="sevenDayAverage" onclick="dayAverage(7, 'Seven days to ')"> Seven day average
             </div>
             <div>
-              <input type="radio" name="graphType" id="graphType" value="3" onclick="byDay()"> By weekday
+              <input type="radio" name="graphType" id="graphType" value="byWeekday" onclick="byDay()"> By weekday
               <select name="day" id="day" disabled="true" onchange="byDay()" style="float: right;">
                 <option value="0">Sunday</option>
                 <option value="1">Monday</option>
@@ -104,19 +143,19 @@
               </select>
             </div>
             <div>
-              <input type="radio" name="graphType" id="graphType" value="4" onclick="weeklyTotal()"> Weekly total
+              <input type="radio" name="graphType" id="graphType" value="weeklyTotal" onclick="weeklyTotal()"> Weekly total
             </div>
         </fieldset>
         <fieldset>
           <legend>Display as</legend>
           <div>
-            <input type="radio" name="displayType" id="displayType" value="0" onclick="displayGraph()" checked> Graph
+            <input type="radio" name="displayType" id="displayType" value="graph" onclick="displayGraph()"> Graph
           </div>
           <div style="text-align: center;">
-          	<input type="checkbox" id="trendLine" name="trendLine" value="trendLine" onclick="trendLine()" checked> Trend line
+          	<input type="checkbox" id="trendLine" name="trendLine" value="trendLine" onclick="toggleTrendLine()" checked> Trend line
           </div>
           <div>
-            <input type="radio" name="displayType" id="displayType" value="1" onclick="displayTable()"> Table
+            <input type="radio" name="displayType" id="displayType" value="table" onclick="displayTable()"> Table
           </div>
         </fieldset>
         <fieldset>
@@ -146,33 +185,60 @@
       </div>
     </div>
       <div style="width: 75%; float: right; border: 1px #555555 solid; border-radius: 15px; margin: 1px auto; padding: 15px;">
-        <div id="table" style="display: none; height: 95%; margin: 1px auto; padding: 15px; text-align: left; overflow-y: scroll;">
-          <table id="dataTable">
-            <thead>
-              <tr>
-                <th rowspan="2">Date</th>
-                <th colspan="4">Daily Tests</th>
-                <th colspan="4">Total Tests</th>
-                <th colspan="2">Daily change in positive tests</th>
-              </tr>
-              <tr>
-                <th>Total</th>
-                <th>Positive</th>
-                <th>Negative</th>
-                <th>% Positive</th>
-                <th>Total</th>
-                <th>Positive</th>
-                <th>Negative</th>
-                <th>% Positive</th>
-                <th>Actual</th>
-                <th>Percentage</th>
-              </tr>
-            </thead>
-            <tbody></tbody>
-          </table>
+        <div id="dailyCases">
+          <canvas id="dailyCasesGraph"></canvas>
+          <div id="dailyCasesTable" class="statsTable">
+            <table id="dailyCasesDataTable">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Cases</th>
+                  <th>Change</th>
+                  <th>% Change</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
         </div>
-        <div id="graph">
-          <canvas id="testsVpositivityRate"></canvas>
+        <div id="dailyDeaths" style="display:none;">
+          <canvas id="dailyDeathsGraph"></canvas>
+          <div id="dailyDeathsTable" class="statsTable">
+            <table id="dailyDeathsDataTable">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Deaths</th>
+                  <th>Change</th>
+                  <th>% Change</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+        <div id="dailySwabs" style="display:none;">
+          <canvas id="dailySwabsGraph"></canvas>
+          <div id="dailySwabsTable" class="statsTable">
+            <table id="dailySwabsDataTable">
+              <thead>
+                <tr>
+                  <th rowspan="2">Date</th>
+                  <th colspan="4">Daily Tests</th>
+                  <th colspan="2">Daily change in positive tests</th>
+                </tr>
+                <tr>
+                  <th>Total</th>
+                  <th>Positive</th>
+                  <th>Negative</th>
+                  <th>% Positive</th>
+                  <th>Actual</th>
+                  <th>Percentage</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
@@ -180,8 +246,15 @@
       var dayOptions = document.getElementById("day").options;
       var today = new Date();
       var csv = [];
+      
+      var activeData = 'dailyCases';
+      var activeDate = 'lastTwoMonths';
+      var activeGraph = 'normal';
+      var activeDisplay = 'graph';
+      
       var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-
+      const parameterList = new URLSearchParams(window.location.search);
+       
       Chart.plugins.register({
         beforeDraw: function(chartInstance) {
           var ctx = chartInstance.chart.ctx;
@@ -196,429 +269,519 @@
               option.selected = true;
           }
       }
-      var ctx = document.getElementById('testsVpositivityRate').getContext('2d');
+      
       var data = [
-        {date: new Date('2020-03-19'), positiveSwabs: 70, totalSwabs: 946},
-        {date: new Date('2020-03-20'), positiveSwabs: 105, totalSwabs: 1469},
-        {date: new Date('2020-03-21'), positiveSwabs: 55, totalSwabs: 1564},
-        {date: new Date('2020-03-22'), positiveSwabs: 119, totalSwabs: 978},
-        {date: new Date('2020-03-23'), positiveSwabs: 113, totalSwabs: 2581},
-        {date: new Date('2020-03-24'), positiveSwabs: 129, totalSwabs: 1566},
-        {date: new Date('2020-03-25'), positiveSwabs: 150, totalSwabs: 1775},
-        {date: new Date('2020-03-26'), positiveSwabs: 448, totalSwabs: 3376},
-        {date: new Date('2020-03-27'), positiveSwabs: 307, totalSwabs: 2941},
-        {date: new Date('2020-03-28'), positiveSwabs: 664, totalSwabs: 2206},
-        {date: new Date('2020-03-29'), positiveSwabs: 288, totalSwabs: 1616},
-        {date: new Date('2020-03-30'), positiveSwabs: 436, totalSwabs: 1397},
-        {date: new Date('2020-03-31'), positiveSwabs: 378, totalSwabs: 1928},
-        {date: new Date('2020-04-01'), positiveSwabs: 416, totalSwabs: 2009},
-        {date: new Date('2020-04-02'), positiveSwabs: 367, totalSwabs: 1975},
-        {date: new Date('2020-04-03'), positiveSwabs: 470, totalSwabs: 1857},
-        {date: new Date('2020-04-04'), positiveSwabs: 460, totalSwabs: 1849},
-        {date: new Date('2020-04-05'), positiveSwabs: 318, totalSwabs: 2831},
-        {date: new Date('2020-04-06'), positiveSwabs: 855, totalSwabs: 6117},
-        {date: new Date('2020-04-07'), positiveSwabs: 495, totalSwabs: 1853},
-        {date: new Date('2020-04-08'), positiveSwabs: 619, totalSwabs: 3728},
-        {date: new Date('2020-04-09'), positiveSwabs: 809, totalSwabs: 5487},
-        {date: new Date('2020-04-10'), positiveSwabs: 834, totalSwabs: 6959},
-        {date: new Date('2020-04-11'), positiveSwabs: 1219, totalSwabs: 6990},
-        {date: new Date('2020-04-12'), positiveSwabs: 917, totalSwabs: 5722},
-        {date: new Date('2020-04-13'), positiveSwabs: 1377, totalSwabs: 8427},
-        {date: new Date('2020-04-14'), positiveSwabs: 877, totalSwabs: 4275},
-        {date: new Date('2020-04-15'), positiveSwabs: 653, totalSwabs: 3036},
-        {date: new Date('2020-04-16'), positiveSwabs: 725, totalSwabs: 3644},
-        {date: new Date('2020-04-17'), positiveSwabs: 909, totalSwabs: 4355},
-        {date: new Date('2020-04-18'), positiveSwabs: 438, totalSwabs: 2209},
-        {date: new Date('2020-04-19'), positiveSwabs: 374, totalSwabs: 2313},
-        {date: new Date('2020-04-20'), positiveSwabs: 232, totalSwabs: 1626},
-        {date: new Date('2020-04-21'), positiveSwabs: 707, totalSwabs: 3757},
-        {date: new Date('2020-04-22'), positiveSwabs: 1260, totalSwabs: 5363},
-        {date: new Date('2020-04-23'), positiveSwabs: 568, totalSwabs: 4871},
-        {date: new Date('2020-04-24'), positiveSwabs: 604, totalSwabs: 5580},
-        {date: new Date('2020-04-25'), positiveSwabs: 386, totalSwabs: 5632},
-        {date: new Date('2020-04-26'), positiveSwabs: 1093, totalSwabs: 8598},
-        {date: new Date('2020-04-27'), positiveSwabs: 357, totalSwabs: 5100},
-        {date: new Date('2020-04-28'), positiveSwabs: 367, totalSwabs: 6306},
-        {date: new Date('2020-04-29'), positiveSwabs: 420, totalSwabs: 8159},
-        {date: new Date('2020-04-30'), positiveSwabs: 300, totalSwabs: 8218},
-        {date: new Date('2020-05-01'), positiveSwabs: 262, totalSwabs: 7451},
-        {date: new Date('2020-05-02'), positiveSwabs: 447, totalSwabs: 12076},
-        {date: new Date('2020-05-03'), positiveSwabs: 324, totalSwabs: 9799},
-        {date: new Date('2020-05-04'), positiveSwabs: 327, totalSwabs: 8617},
-        {date: new Date('2020-05-05'), positiveSwabs: 204, totalSwabs: 7512},
-        {date: new Date('2020-05-06'), positiveSwabs: 279, totalSwabs: 7815},
-        {date: new Date('2020-05-07'), positiveSwabs: 201, totalSwabs: 5703},
-        {date: new Date('2020-05-08'), positiveSwabs: 163, totalSwabs: 4973},
-        {date: new Date('2020-05-09'), positiveSwabs: 197, totalSwabs: 7657},
-        {date: new Date('2020-05-10'), positiveSwabs: 325, totalSwabs: 6517},
-        {date: new Date('2020-05-11'), positiveSwabs: 165, totalSwabs: 5374},
-        {date: new Date('2020-05-12'), positiveSwabs: 136, totalSwabs: 6138},
-        {date: new Date('2020-05-13'), positiveSwabs: 211, totalSwabs: 4674},
-        {date: new Date('2020-05-14'), positiveSwabs: 219, totalSwabs: 6210},
-        {date: new Date('2020-05-15'), positiveSwabs: 108, totalSwabs: 5699},
-        {date: new Date('2020-05-16'), positiveSwabs: 112, totalSwabs: 6334},
-        {date: new Date('2020-05-17'), positiveSwabs: 126, totalSwabs: 6457},
-        {date: new Date('2020-05-18'), positiveSwabs: 81, totalSwabs: 3964},
-        {date: new Date('2020-05-19'), positiveSwabs: 59, totalSwabs: 3278},
-        {date: new Date('2020-05-20'), positiveSwabs: 94, totalSwabs: 4764},
-        {date: new Date('2020-05-21'), positiveSwabs: 126, totalSwabs: 5274},
-        {date: new Date('2020-05-22'), positiveSwabs: 112, totalSwabs: 5373},
-        {date: new Date('2020-05-23'), positiveSwabs: 78, totalSwabs: 4276},
-        {date: new Date('2020-05-24'), positiveSwabs: 57, totalSwabs: 3509},
-        {date: new Date('2020-05-25'), positiveSwabs: 98, totalSwabs: 3529},
-        {date: new Date('2020-05-26'), positiveSwabs: 67, totalSwabs: 3515},
-        {date: new Date('2020-05-27'), positiveSwabs: 67, totalSwabs: 3437},
-        {date: new Date('2020-05-28'), positiveSwabs: 44, totalSwabs: 3811},
-        {date: new Date('2020-05-29'), positiveSwabs: 72, totalSwabs: 4364},
-        {date: new Date('2020-05-30'), positiveSwabs: 70, totalSwabs: 3423},
-        {date: new Date('2020-05-31'), positiveSwabs: 70, totalSwabs: 3474},
-        {date: new Date('2020-06-01'), positiveSwabs: 42, totalSwabs: 2285},
-        {date: new Date('2020-06-02'), positiveSwabs: 24, totalSwabs: 1827},
-        {date: new Date('2020-06-03'), positiveSwabs: 40, totalSwabs: 2486},
-        {date: new Date('2020-06-04'), positiveSwabs: 33, totalSwabs: 3099},
-        {date: new Date('2020-06-05'), positiveSwabs: 36, totalSwabs: 3234},
-        {date: new Date('2020-06-06'), positiveSwabs: 27, totalSwabs: 3106},
-        {date: new Date('2020-06-07'), positiveSwabs: 21, totalSwabs: 2828},
-        {date: new Date('2020-06-08'), positiveSwabs: 9, totalSwabs: 1960},
-        {date: new Date('2020-06-09'), positiveSwabs: 19, totalSwabs: 2355},
-        {date: new Date('2020-06-10'), positiveSwabs: 19, totalSwabs: 2675},
-        {date: new Date('2020-06-11'), positiveSwabs: 29, totalSwabs: 4240},
-        {date: new Date('2020-06-12'), positiveSwabs: 44, totalSwabs: 3009},
-        {date: new Date('2020-06-13'), positiveSwabs: 16, totalSwabs: 2712},
-        {date: new Date('2020-06-14'), positiveSwabs: 13, totalSwabs: 2512},
-        {date: new Date('2020-06-15'), positiveSwabs: 21, totalSwabs: 1714},
-        {date: new Date('2020-06-16'), positiveSwabs: 5, totalSwabs: 2112},
-        {date: new Date('2020-06-17'), positiveSwabs: 22, totalSwabs: 3420},
-        {date: new Date('2020-06-18'), positiveSwabs: 13, totalSwabs: 3359},
-        {date: new Date('2020-06-19'), positiveSwabs: 29, totalSwabs: 3161},
-        {date: new Date('2020-06-20'), positiveSwabs: 14, totalSwabs: 2724},
-        {date: new Date('2020-06-21'), positiveSwabs: 9, totalSwabs: 2159},
-        {date: new Date('2020-06-22'), positiveSwabs: 6, totalSwabs: 1498},
-        {date: new Date('2020-06-23'), positiveSwabs: 6, totalSwabs: 2116},
-        {date: new Date('2020-06-24'), positiveSwabs: 22, totalSwabs: 3252},
-        {date: new Date('2020-06-25'), positiveSwabs: 12, totalSwabs: 2983},
-        {date: new Date('2020-06-26'), positiveSwabs: 37, totalSwabs: 3689},
-        {date: new Date('2020-06-27'), positiveSwabs: 4, totalSwabs: 4007},
-        {date: new Date('2020-06-28'), positiveSwabs: 4, totalSwabs: 2724},
-        {date: new Date('2020-06-29'), positiveSwabs: 28, totalSwabs: 3340},
-        {date: new Date('2020-06-30'), positiveSwabs: 7, totalSwabs: 4591},
-        {date: new Date('2020-07-01'), positiveSwabs: 22, totalSwabs: 4551},
-        {date: new Date('2020-07-02'), positiveSwabs: 8, totalSwabs: 3792},
-        {date: new Date('2020-07-03'), positiveSwabs: 10, totalSwabs: 8049},
-        {date: new Date('2020-07-04'), positiveSwabs: 29, totalSwabs: 8312},
-        {date: new Date('2020-07-05'), positiveSwabs: 8, totalSwabs: 7000},
-        {date: new Date('2020-07-06'), positiveSwabs: 20, totalSwabs: 6529},
-        {date: new Date('2020-07-07'), positiveSwabs: 11, totalSwabs: 6161},
-        {date: new Date('2020-07-08'), positiveSwabs: 20, totalSwabs: 4361},
-        {date: new Date('2020-07-09'), positiveSwabs: 27, totalSwabs: 3945},
-        {date: new Date('2020-07-10'), positiveSwabs: 21, totalSwabs: 9330},
-        {date: new Date('2020-07-11'), positiveSwabs: 41, totalSwabs: 8929},
-        {date: new Date('2020-07-12'), positiveSwabs: 14, totalSwabs: 8717},
-        {date: new Date('2020-07-13'), positiveSwabs: 19, totalSwabs: 7664},
-        {date: new Date('2020-07-14'), positiveSwabs: 15, totalSwabs: 6400},
-        {date: new Date('2020-07-15'), positiveSwabs: 17, totalSwabs: 4387},
-        {date: new Date('2020-07-16'), positiveSwabs: 24, totalSwabs: 4316},
-        {date: new Date('2020-07-17'), positiveSwabs: 26, totalSwabs: 9512},
-        {date: new Date('2020-07-18'), positiveSwabs: 14, totalSwabs: 9243},
-        {date: new Date('2020-07-19'), positiveSwabs: 13, totalSwabs: 8630},
-        {date: new Date('2020-07-20'), positiveSwabs: 31, totalSwabs: 8415},
-        {date: new Date('2020-07-21'), positiveSwabs: 13, totalSwabs: 6674},
-        {date: new Date('2020-07-22'), positiveSwabs: 18, totalSwabs: 4619},
-        {date: new Date('2020-07-23'), positiveSwabs: 12, totalSwabs: 4067},
-        {date: new Date('2020-07-24'), positiveSwabs: 16, totalSwabs: 8980},
-        {date: new Date('2020-07-25'), positiveSwabs: 31, totalSwabs: 8888},
-        {date: new Date('2020-07-26'), positiveSwabs: 24, totalSwabs: 8016},
-        {date: new Date('2020-07-27'), positiveSwabs: 30, totalSwabs: 5804},
-        {date: new Date('2020-07-28'), positiveSwabs: 16, totalSwabs: 4965},
-        {date: new Date('2020-07-29'), positiveSwabs: 46, totalSwabs: 4740},
-        {date: new Date('2020-07-30'), positiveSwabs: 56, totalSwabs: 4383},
-        {date: new Date('2020-07-31'), positiveSwabs: 29, totalSwabs: 3856},
-        {date: new Date('2020-08-01'), positiveSwabs: 53, totalSwabs: 3306},
-        {date: new Date('2020-08-02'), positiveSwabs: 54, totalSwabs: 3131},
-        {date: new Date('2020-08-03'), positiveSwabs: 76, totalSwabs: 3041},
-        {date: new Date('2020-08-04'), positiveSwabs: 6, totalSwabs: 1991},
-        {date: new Date('2020-08-05'), positiveSwabs: 52, totalSwabs: 3761},
-        {date: new Date('2020-08-06'), positiveSwabs: 73, totalSwabs: 4833},
-        {date: new Date('2020-08-07'), positiveSwabs: 94, totalSwabs: 4980},
-        {date: new Date('2020-08-08'), positiveSwabs: 137, totalSwabs: 4880},
-        {date: new Date('2020-08-09'), positiveSwabs: 55, totalSwabs: 4107},
-        {date: new Date('2020-08-10'), positiveSwabs: 60, totalSwabs: 3874},
-        {date: new Date('2020-08-11'), positiveSwabs: 53, totalSwabs: 4026},
-        {date: new Date('2020-08-12'), positiveSwabs: 80, totalSwabs: 5843},
-        {date: new Date('2020-08-13'), positiveSwabs: 63, totalSwabs: 7072},
-        {date: new Date('2020-08-14'), positiveSwabs: 138, totalSwabs: 11337},
-        {date: new Date('2020-08-15'), positiveSwabs: 122, totalSwabs: 10653},
-        {date: new Date('2020-08-16'), positiveSwabs: 89, totalSwabs: 10352},
-        {date: new Date('2020-08-17'), positiveSwabs: 170, totalSwabs: 5533},
-        {date: new Date('2020-08-18'), positiveSwabs: 31, totalSwabs: 4339},
-        {date: new Date('2020-08-19'), positiveSwabs: 90, totalSwabs: 6192},
-        {date: new Date('2020-08-20'), positiveSwabs: 142, totalSwabs: 11416},
-        {date: new Date('2020-08-21'), positiveSwabs: 94, totalSwabs: 13080},
-        {date: new Date('2020-08-22'), positiveSwabs: 157, totalSwabs: 6758},
-        {date: new Date('2020-08-23'), positiveSwabs: 123, totalSwabs: 5438},
-        {date: new Date('2020-08-24'), positiveSwabs: 92, totalSwabs: 4838},
-        {date: new Date('2020-08-25'), positiveSwabs: 101, totalSwabs: 5015},
-        {date: new Date('2020-08-26'), positiveSwabs: 105, totalSwabs: 7648},
-        {date: new Date('2020-08-27'), positiveSwabs: 129, totalSwabs: 12274},
-        {date: new Date('2020-08-28'), positiveSwabs: 107, totalSwabs: 12303},
-        {date: new Date('2020-08-29'), positiveSwabs: 113, totalSwabs: 9940},
-        {date: new Date('2020-08-30'), positiveSwabs: 49, totalSwabs: 5659},
-        {date: new Date('2020-08-31'), positiveSwabs: 159, totalSwabs: 9340},
-        {date: new Date('2020-09-01'), positiveSwabs: 90, totalSwabs: 4892},
-        {date: new Date('2020-09-02'), positiveSwabs: 105, totalSwabs: 7301},
-        {date: new Date('2020-09-03'), positiveSwabs: 137, totalSwabs: 12501},
-        {date: new Date('2020-09-04'), positiveSwabs: 155, totalSwabs: 14064},
-        {date: new Date('2020-09-05'), positiveSwabs: 154, totalSwabs: 11322},
-        {date: new Date('2020-09-06'), positiveSwabs: 174, totalSwabs: 10343},
-        {date: new Date('2020-09-07'), positiveSwabs: 232, totalSwabs: 6253},
-        {date: new Date('2020-09-08'), positiveSwabs: 119, totalSwabs: 6678},
-        {date: new Date('2020-09-09'), positiveSwabs: 156, totalSwabs: 10749},
-        {date: new Date('2020-09-10'), positiveSwabs: 122, totalSwabs: 12363},
-        {date: new Date('2020-09-11'), positiveSwabs: 227, totalSwabs: 13073},
-        {date: new Date('2020-09-12'), positiveSwabs: 248, totalSwabs: 12230},
-        {date: new Date('2020-09-13'), positiveSwabs: 217, totalSwabs: 9815},
-        {date: new Date('2020-09-14'), positiveSwabs: 261, totalSwabs: 9888},
-        {date: new Date('2020-09-15'), positiveSwabs: 311, totalSwabs: 8120},
-        {date: new Date('2020-09-16'), positiveSwabs: 271, totalSwabs: 12241},
-        {date: new Date('2020-09-17'), positiveSwabs: 248, totalSwabs: 14663},
-        {date: new Date('2020-09-18'), positiveSwabs: 288, totalSwabs: 14506},
-        {date: new Date('2020-09-19'), positiveSwabs: 197, totalSwabs: 14380},
-        {date: new Date('2020-09-20'), positiveSwabs: 392, totalSwabs: 12138},
-        {date: new Date('2020-09-21'), positiveSwabs: 254, totalSwabs: 10031},
-        {date: new Date('2020-09-22'), positiveSwabs: 299, totalSwabs: 12583},
-        {date: new Date('2020-09-23'), positiveSwabs: 316, totalSwabs: 12671},
-        {date: new Date('2020-09-24'), positiveSwabs: 383, totalSwabs: 14356},
-        {date: new Date('2020-09-25'), positiveSwabs: 430, totalSwabs: 14538},
-        {date: new Date('2020-09-26'), positiveSwabs: 402, totalSwabs: 11808},
-        {date: new Date('2020-09-27'), positiveSwabs: 382, totalSwabs: 11878},
-        {date: new Date('2020-09-28'), positiveSwabs: 289, totalSwabs: 9866},
-        {date: new Date('2020-09-29'), positiveSwabs: 279, totalSwabs: 12673},
-        {date: new Date('2020-09-30'), positiveSwabs: 440, totalSwabs: 13247},
-        {date: new Date('2020-10-01'), positiveSwabs: 511, totalSwabs: 14524},
-        {date: new Date('2020-10-02'), positiveSwabs: 458, totalSwabs: 12673},
-        {date: new Date('2020-10-03'), positiveSwabs: 610, totalSwabs: 13621},
-        {date: new Date('2020-10-04'), positiveSwabs: 425, totalSwabs: 11295},
-        {date: new Date('2020-10-05'), positiveSwabs: 503, totalSwabs: 12166},
-        {date: new Date('2020-10-06'), positiveSwabs: 516, totalSwabs: 11646},
-        {date: new Date('2020-10-07'), positiveSwabs: 625, totalSwabs: 14542},
-        {date: new Date('2020-10-08'), positiveSwabs: 753, totalSwabs: 15880},
-        {date: new Date('2020-10-09'), positiveSwabs: 857, totalSwabs: 16522},
-        {date: new Date('2020-10-10'), positiveSwabs: 947, totalSwabs: 15634},
-        {date: new Date('2020-10-11'), positiveSwabs: 582, totalSwabs: 7998},
-        {date: new Date('2020-10-12'), positiveSwabs: 998, totalSwabs: 13988},
-        {date: new Date('2020-10-13'), positiveSwabs: 889, totalSwabs: 15305},
-        {date: new Date('2020-10-14'), positiveSwabs: 1271, totalSwabs: 16255},
-        {date: new Date('2020-10-15'), positiveSwabs: 966, totalSwabs: 13428},
-        {date: new Date('2020-10-16'), positiveSwabs: 1376, totalSwabs: 17758},
-        {date: new Date('2020-10-17'), positiveSwabs: 1507, totalSwabs: 19040},
-        {date: new Date('2020-10-18'), positiveSwabs: 1151, totalSwabs: 16140},
-        {date: new Date('2020-10-19'), positiveSwabs: 970, totalSwabs: 14391},
-        {date: new Date('2020-10-20'), positiveSwabs: 905, totalSwabs: 14676},
-        {date: new Date('2020-10-21'), positiveSwabs: 1112, totalSwabs: 16779},
-        {date: new Date('2020-10-22'), positiveSwabs: 1035, totalSwabs: 17834},
-        {date: new Date('2020-10-23'), positiveSwabs: 1036, totalSwabs: 17712},
-        {date: new Date('2020-10-24'), positiveSwabs: 975, totalSwabs: 17906},
-        {date: new Date('2020-10-25'), positiveSwabs: 922, totalSwabs: 15772},
-        {date: new Date('2020-10-26'), positiveSwabs: 738, totalSwabs: 14264},
-        {date: new Date('2020-10-27'), positiveSwabs: 535, totalSwabs: 11435},
-        {date: new Date('2020-10-28'), positiveSwabs: 657, totalSwabs: 11170},
-        {date: new Date('2020-10-29'), positiveSwabs: 783, totalSwabs: 15316},
-        {date: new Date('2020-10-30'), positiveSwabs: 684, totalSwabs: 13801},
-        {date: new Date('2020-10-31'), positiveSwabs: 674, totalSwabs: 14296},
-        {date: new Date('2020-11-01'), positiveSwabs: 539, totalSwabs: 11068},
-        {date: new Date('2020-11-02'), positiveSwabs: 394, totalSwabs: 11074},
-        {date: new Date('2020-11-03'), positiveSwabs: 391, totalSwabs: 10500},
-        {date: new Date('2020-11-04'), positiveSwabs: 617, totalSwabs: 12592},
-        {date: new Date('2020-11-05'), positiveSwabs: 450, totalSwabs: 11846},
-        {date: new Date('2020-11-06'), positiveSwabs: 502, totalSwabs: 11815},
-        {date: new Date('2020-11-07'), positiveSwabs: 428, totalSwabs: 12172},
-        {date: new Date('2020-11-08'), positiveSwabs: 447, totalSwabs: 9576},
-        {date: new Date('2020-11-09'), positiveSwabs: 327, totalSwabs: 9912},
-        {date: new Date('2020-11-10'), positiveSwabs: 284, totalSwabs: 10407},
-        {date: new Date('2020-11-11'), positiveSwabs: 418, totalSwabs: 10790},
-        {date: new Date('2020-11-12'), positiveSwabs: 423, totalSwabs: 13058},
-        {date: new Date('2020-11-13'), positiveSwabs: 523, totalSwabs: 11612},
-        {date: new Date('2020-11-14'), positiveSwabs: 388, totalSwabs: 9801},
-        {date: new Date('2020-11-15'), positiveSwabs: 374, totalSwabs: 9184},
-        {date: new Date('2020-11-16'), positiveSwabs: 491, totalSwabs: 11106},
-        {date: new Date('2020-11-17'), positiveSwabs: 364, totalSwabs: 9977},
-        {date: new Date('2020-11-18'), positiveSwabs: 389, totalSwabs: 12562},
-        {date: new Date('2020-11-19'), positiveSwabs: 332, totalSwabs: 12640},
-        {date: new Date('2020-11-20'), positiveSwabs: 388, totalSwabs: 12829},
-        {date: new Date('2020-11-21'), positiveSwabs: 246, totalSwabs: 10444},
-        {date: new Date('2020-11-22'), positiveSwabs: 301, totalSwabs: 9563},
-        {date: new Date('2020-11-23'), positiveSwabs: 293, totalSwabs: 9834},
-        {date: new Date('2020-11-24'), positiveSwabs: 190, totalSwabs: 10089},
-        {date: new Date('2020-11-25'), positiveSwabs: 363, totalSwabs: 12442},
-        {date: new Date('2020-11-26'), positiveSwabs: 270, totalSwabs: 12456},
-        {date: new Date('2020-11-27'), positiveSwabs: 318, totalSwabs: 10778},
-        {date: new Date('2020-11-28'), positiveSwabs: 355, totalSwabs: 11339},
-        {date: new Date('2020-11-29'), positiveSwabs: 338, totalSwabs: 9443},
-        {date: new Date('2020-11-30'), positiveSwabs: 190, totalSwabs: 9057},
-        {date: new Date('2020-12-01'), positiveSwabs: 199, totalSwabs: 9786},
-        {date: new Date('2020-12-02'), positiveSwabs: 334, totalSwabs: 11934},
-        {date: new Date('2020-12-03'), positiveSwabs: 253, totalSwabs: 12047},
-        {date: new Date('2020-12-04'), positiveSwabs: 277, totalSwabs: 11856},
-        {date: new Date('2020-12-05'), positiveSwabs: 322, totalSwabs: 11456},
-        {date: new Date('2020-12-06'), positiveSwabs: 292, totalSwabs: 9413},
-        {date: new Date('2020-12-07'), positiveSwabs: 234, totalSwabs: 9623},
-        {date: new Date('2020-12-08'), positiveSwabs: 224, totalSwabs: 10424},
-        {date: new Date('2020-12-09'), positiveSwabs: 274, totalSwabs: 12203},
-        {date: new Date('2020-12-10'), positiveSwabs: 284, totalSwabs: 12688},
-        {date: new Date('2020-12-11'), positiveSwabs: 325, totalSwabs: 12618},
-        {date: new Date('2020-12-12'), positiveSwabs: 336, totalSwabs: 12850},
-        {date: new Date('2020-12-13'), positiveSwabs: 355, totalSwabs: 10728},
-        {date: new Date('2020-12-14'), positiveSwabs: 292, totalSwabs: 10251},
-        {date: new Date('2020-12-15'), positiveSwabs: 356, totalSwabs: 10847},
-        {date: new Date('2020-12-16'), positiveSwabs: 474, totalSwabs: 13120},
-        {date: new Date('2020-12-17'), positiveSwabs: 521, totalSwabs: 13219},
-        {date: new Date('2020-12-18'), positiveSwabs: 637, totalSwabs: 14093},
-        {date: new Date('2020-12-19'), positiveSwabs: 703, totalSwabs: 13941},
-        {date: new Date('2020-12-20'), positiveSwabs: 746, totalSwabs: 13458},
-        {date: new Date('2020-12-21'), positiveSwabs: 757, totalSwabs: 12804},
-        {date: new Date('2020-12-22'), positiveSwabs: 698, totalSwabs: 13225},
-        {date: new Date('2020-12-23'), positiveSwabs: 1077, totalSwabs: 20662},
-        {date: new Date('2020-12-24'), positiveSwabs: 1269, totalSwabs: 22876},
-        {date: new Date('2020-12-25'), positiveSwabs: 1644, totalSwabs: 21423},
-        {date: new Date('2020-12-26'), positiveSwabs: 1207, totalSwabs: 11999},
-        {date: new Date('2020-12-27'), positiveSwabs: 343, totalSwabs: 3536},
-        {date: new Date('2020-12-28'), positiveSwabs: 1178, totalSwabs: 9405},
-        {date: new Date('2020-12-29'), positiveSwabs: 2007, totalSwabs: 13805},
-        {date: new Date('2020-12-30'), positiveSwabs: 2867, totalSwabs: 17489},
-        {date: new Date('2020-12-31'), positiveSwabs: 4372, totalSwabs: 26312},
-        {date: new Date('2021-01-01'), positiveSwabs: 5621, totalSwabs: 27389},
-        {date: new Date('2021-01-02'), positiveSwabs: 4554, totalSwabs: 20846},
-        {date: new Date('2021-01-03'), positiveSwabs: 6489, totalSwabs: 28543},
-        {date: new Date('2021-01-04'), positiveSwabs: 5199, totalSwabs: 20571},
-        {date: new Date('2021-01-05'), positiveSwabs: 4416, totalSwabs: 19908},
-        {date: new Date('2021-01-06'), positiveSwabs: 6865, totalSwabs: 28370},
-        {date: new Date('2021-01-07'), positiveSwabs: 6368, totalSwabs: 28610},
-        {date: new Date('2021-01-08'), positiveSwabs: 5156, totalSwabs: 27319},
-        {date: new Date('2021-01-09'), positiveSwabs: 5099, totalSwabs: 29972},
-        {date: new Date('2021-01-10'), positiveSwabs: 4188, totalSwabs: 24485},
-        {date: new Date('2021-01-11'), positiveSwabs: 2922, totalSwabs: 19794},
-        {date: new Date('2021-01-12'), positiveSwabs: 2521, totalSwabs: 18945},
-        {date: new Date('2021-01-13'), positiveSwabs: 3932, totalSwabs: 24583},
-        {date: new Date('2021-01-14'), positiveSwabs: 3854, totalSwabs: 28178},
-        {date: new Date('2021-01-15'), positiveSwabs: 3416, totalSwabs: 23033},
-        {date: new Date('2021-01-16'), positiveSwabs: 3110, totalSwabs: 26663},
-        {date: new Date('2021-01-17'), positiveSwabs: 2868, totalSwabs: 21441},
-        {date: new Date('2021-01-18'), positiveSwabs: 1877, totalSwabs: 18191},
-        {date: new Date('2021-01-19'), positiveSwabs: 1784, totalSwabs: 19218},
-        {date: new Date('2021-01-20'), positiveSwabs: 2786, totalSwabs: 24296},
-        {date: new Date('2021-01-21'), positiveSwabs: 2318, totalSwabs: 23196},
-        {date: new Date('2021-01-22'), positiveSwabs: 2084, totalSwabs: 24189},
-        {date: new Date('2021-01-23'), positiveSwabs: 1926, totalSwabs: 21492},
-        {date: new Date('2021-01-24'), positiveSwabs: 1529, totalSwabs: 19593},
-        {date: new Date('2021-01-25'), positiveSwabs: 1085, totalSwabs: 14884},
-        {date: new Date('2021-01-26'), positiveSwabs: 953, totalSwabs: 16665},
-        {date: new Date('2021-01-27'), positiveSwabs: 1668, totalSwabs: 22387},
-        {date: new Date('2021-01-28'), positiveSwabs: 1587, totalSwabs: 21780},
-        {date: new Date('2021-01-29'), positiveSwabs: 1483, totalSwabs: 21943},
-        {date: new Date('2021-01-30'), positiveSwabs: 1421, totalSwabs: 21598},
-        {date: new Date('2021-01-31'), positiveSwabs: 1153, totalSwabs: 17649},
-        {date: new Date('2021-02-01'), positiveSwabs: 831, totalSwabs: 15047},
-        {date: new Date('2021-02-02'), positiveSwabs: 969, totalSwabs: 16329},
-        {date: new Date('2021-02-03'), positiveSwabs: 1203, totalSwabs: 18352},
-        {date: new Date('2021-02-04'), positiveSwabs: 1283, totalSwabs: 20214},
-        {date: new Date('2021-02-05'), positiveSwabs: 1010, totalSwabs: 20278},
-        {date: new Date('2021-02-06'), positiveSwabs: 1075, totalSwabs: 19355},
-        {date: new Date('2021-02-07'), positiveSwabs: 956, totalSwabs: 15377},
-        {date: new Date('2021-02-08'), positiveSwabs: 780, totalSwabs: 12697},
-        {date: new Date('2021-02-09'), positiveSwabs: 816, totalSwabs: 15126},
-        {date: new Date('2021-02-10'), positiveSwabs: 1096, totalSwabs: 18213},
-        {date: new Date('2021-02-11'), positiveSwabs: 861, totalSwabs: 17207},
-        {date: new Date('2021-02-12'), positiveSwabs: 986, totalSwabs: 18841},
-        {date: new Date('2021-02-13'), positiveSwabs: 1009, totalSwabs: 16414},
-        {date: new Date('2021-02-14'), positiveSwabs: 752, totalSwabs: 14400},
-        {date: new Date('2021-02-15'), positiveSwabs: 645, totalSwabs: 11452},
-        {date: new Date('2021-02-16'), positiveSwabs: 771, totalSwabs: 13119},
-        {date: new Date('2021-02-17'), positiveSwabs: 938, totalSwabs: 17104},
-        {date: new Date('2021-02-18'), positiveSwabs: 816, totalSwabs: 15499},
-        {date: new Date('2021-02-19'), positiveSwabs: 836, totalSwabs: 17036},
-        {date: new Date('2021-02-20'), positiveSwabs: 843, totalSwabs: 15122},
-        {date: new Date('2021-02-21'), positiveSwabs: 764, totalSwabs: 14901},
-        {date: new Date('2021-02-22'), positiveSwabs: 609, totalSwabs: 11828}
+        {date: new Date('2020-02-29'), cases: 1, deaths: 0},
+        {date: new Date('2020-03-01'), cases: 0, deaths: 0},
+        {date: new Date('2020-03-02'), cases: 0, deaths: 0},
+        {date: new Date('2020-03-03'), cases: 1, deaths: 0},
+        {date: new Date('2020-03-04'), cases: 4, deaths: 0},
+        {date: new Date('2020-03-05'), cases: 7, deaths: 0},
+        {date: new Date('2020-03-06'), cases: 5, deaths: 0},
+        {date: new Date('2020-03-07'), cases: 1, deaths: 0},
+        {date: new Date('2020-03-08'), cases: 2, deaths: 0},
+        {date: new Date('2020-03-09'), cases: 3, deaths: 0},
+        {date: new Date('2020-03-10'), cases: 10, deaths: 0},
+        {date: new Date('2020-03-11'), cases: 9, deaths: 1},
+        {date: new Date('2020-03-12'), cases: 27, deaths: 0},
+        {date: new Date('2020-03-13'), cases: 20, deaths: 0},
+        {date: new Date('2020-03-14'), cases: 39, deaths: 1},
+        {date: new Date('2020-03-15'), cases: 40, deaths: 0},
+        {date: new Date('2020-03-16'), cases: 50, deaths: 0},
+        {date: new Date('2020-03-17'), cases: 69, deaths: 0},
+        {date: new Date('2020-03-18'), cases: 70, deaths: 1},
+        {date: new Date('2020-03-19'), positiveSwabs: 70, dailySwabs: 946, cases: 191, deaths: 0},
+        {date: new Date('2020-03-20'), positiveSwabs: 105, dailySwabs: 1469, cases: 126, deaths: 0},
+        {date: new Date('2020-03-21'), positiveSwabs: 55, dailySwabs: 1564, cases: 102, deaths: 1},
+        {date: new Date('2020-03-22'), positiveSwabs: 119, dailySwabs: 978, cases: 121, deaths: 1},
+        {date: new Date('2020-03-23'), positiveSwabs: 113, dailySwabs: 2581, cases: 200, deaths: 2},
+        {date: new Date('2020-03-24'), positiveSwabs: 129, dailySwabs: 1566, cases: 200, deaths: 1},
+        {date: new Date('2020-03-25'), positiveSwabs: 150, dailySwabs: 1775, cases: 229, deaths: 2},
+        {date: new Date('2020-03-26'), positiveSwabs: 448, dailySwabs: 3376, cases: 240, deaths: 10},
+        {date: new Date('2020-03-27'), positiveSwabs: 307, dailySwabs: 2941, cases: 302, deaths: 3},
+        {date: new Date('2020-03-28'), positiveSwabs: 664, dailySwabs: 2206, cases: 282, deaths: 14},
+        {date: new Date('2020-03-29'), positiveSwabs: 288, dailySwabs: 1616, cases: 200, deaths: 10},
+        {date: new Date('2020-03-30'), positiveSwabs: 436, dailySwabs: 1397, cases: 290, deaths: 8},
+        {date: new Date('2020-03-31'), positiveSwabs: 378, dailySwabs: 1928, cases: 300, deaths: 16},
+        {date: new Date('2020-04-01'), positiveSwabs: 416, dailySwabs: 2009, cases: 216, deaths: 14},
+        {date: new Date('2020-04-02'), positiveSwabs: 367, dailySwabs: 1975, cases: 401, deaths: 13},
+        {date: new Date('2020-04-03'), positiveSwabs: 470, dailySwabs: 1857, cases: 400, deaths: 22},
+        {date: new Date('2020-04-04'), positiveSwabs: 460, dailySwabs: 1849, cases: 331, deaths: 10},
+        {date: new Date('2020-04-05'), positiveSwabs: 318, dailySwabs: 2831, cases: 500, deaths: 20},
+        {date: new Date('2020-04-06'), positiveSwabs: 855, dailySwabs: 6117, cases: 711, deaths: 14},
+        {date: new Date('2020-04-07'), positiveSwabs: 495, dailySwabs: 1853, cases: 349, deaths: 25},
+        {date: new Date('2020-04-08'), positiveSwabs: 619, dailySwabs: 3728, cases: 460, deaths: 22},
+        {date: new Date('2020-04-09'), positiveSwabs: 809, dailySwabs: 5487, cases: 670, deaths: 27},
+        {date: new Date('2020-04-10'), positiveSwabs: 834, dailySwabs: 6959, cases: 671, deaths: 20},
+        {date: new Date('2020-04-11'), positiveSwabs: 1219, dailySwabs: 6990, cases: 810, deaths: 30},
+        {date: new Date('2020-04-12'), positiveSwabs: 917, dailySwabs: 5722, cases: 720, deaths: 14},
+        {date: new Date('2020-04-13'), positiveSwabs: 1377, dailySwabs: 8427, cases: 991, deaths: 29},
+        {date: new Date('2020-04-14'), positiveSwabs: 877, dailySwabs: 4275, cases: 831, deaths: 40},
+        {date: new Date('2020-04-15'), positiveSwabs: 653, dailySwabs: 3036, cases: 1050, deaths: 38},
+        {date: new Date('2020-04-16'), positiveSwabs: 725, dailySwabs: 3644, cases: 720, deaths: 41},
+        {date: new Date('2020-04-17'), positiveSwabs: 909, dailySwabs: 4355, cases: 706, deaths: 40},
+        {date: new Date('2020-04-18'), positiveSwabs: 438, dailySwabs: 2209, cases: 700, deaths: 41},
+        {date: new Date('2020-04-19'), positiveSwabs: 374, dailySwabs: 2313, cases: 490, deaths: 39},
+        {date: new Date('2020-04-20'), positiveSwabs: 232, dailySwabs: 1626, cases: 401, deaths: 77},
+        {date: new Date('2020-04-21'), positiveSwabs: 707, dailySwabs: 3757, cases: 368, deaths: 69},
+        {date: new Date('2020-04-22'), positiveSwabs: 1260, dailySwabs: 5363, cases: 620, deaths: 75},
+        {date: new Date('2020-04-23'), positiveSwabs: 568, dailySwabs: 4871, cases: 900, deaths: 61},
+        {date: new Date('2020-04-24'), positiveSwabs: 604, dailySwabs: 5580, cases: 567, deaths: 70},
+        {date: new Date('2020-04-25'), positiveSwabs: 386, dailySwabs: 5632, cases: 370, deaths: 62},
+        {date: new Date('2020-04-26'), positiveSwabs: 1093, dailySwabs: 8598, cases: 701, deaths: 28},
+        {date: new Date('2020-04-27'), positiveSwabs: 357, dailySwabs: 5100, cases: 372, deaths: 17},
+        {date: new Date('2020-04-28'), positiveSwabs: 367, dailySwabs: 6306, cases: 200, deaths: 53},
+        {date: new Date('2020-04-29'), positiveSwabs: 420, dailySwabs: 8159, cases: 310, deaths: 33},
+        {date: new Date('2020-04-30'), positiveSwabs: 300, dailySwabs: 8218, cases: 350, deaths: 43},
+        {date: new Date('2020-05-01'), positiveSwabs: 262, dailySwabs: 7451, cases: 220, deaths: 34},
+        {date: new Date('2020-05-02'), positiveSwabs: 447, dailySwabs: 12076, cases: 337, deaths: 23},
+        {date: new Date('2020-05-03'), positiveSwabs: 324, dailySwabs: 9799, cases: 330, deaths: 18},
+        {date: new Date('2020-05-04'), positiveSwabs: 327, dailySwabs: 8617, cases: 260, deaths: 16},
+        {date: new Date('2020-05-05'), positiveSwabs: 204, dailySwabs: 7512, cases: 211, deaths: 23},
+        {date: new Date('2020-05-06'), positiveSwabs: 279, dailySwabs: 7815, cases: 261, deaths: 27},
+        {date: new Date('2020-05-07'), positiveSwabs: 201, dailySwabs: 5703, cases: 130, deaths: 28},
+        {date: new Date('2020-05-08'), positiveSwabs: 163, dailySwabs: 4973, cases: 156, deaths: 21},
+        {date: new Date('2020-05-09'), positiveSwabs: 197, dailySwabs: 7657, cases: 200, deaths: 18},
+        {date: new Date('2020-05-10'), positiveSwabs: 325, dailySwabs: 6517, cases: 200, deaths: 11},
+        {date: new Date('2020-05-11'), positiveSwabs: 165, dailySwabs: 5374, cases: 130, deaths: 15},
+        {date: new Date('2020-05-12'), positiveSwabs: 136, dailySwabs: 6138, cases: 100, deaths: 19},
+        {date: new Date('2020-05-13'), positiveSwabs: 211, dailySwabs: 4674, cases: 125, deaths: 10},
+        {date: new Date('2020-05-14'), positiveSwabs: 219, dailySwabs: 6210, cases: 360, deaths: 8},
+        {date: new Date('2020-05-15'), positiveSwabs: 108, dailySwabs: 5699, cases: 108, deaths: 10},
+        {date: new Date('2020-05-16'), positiveSwabs: 112, dailySwabs: 6334, cases: 90, deaths: 15},
+        {date: new Date('2020-05-17'), positiveSwabs: 126, dailySwabs: 6457, cases: 62, deaths: 10},
+        {date: new Date('2020-05-18'), positiveSwabs: 81, dailySwabs: 3964, cases: 80, deaths: 4},
+        {date: new Date('2020-05-19'), positiveSwabs: 59, dailySwabs: 3278, cases: 50, deaths: 10},
+        {date: new Date('2020-05-20'), positiveSwabs: 94, dailySwabs: 4764, cases: 63, deaths: 11},
+        {date: new Date('2020-05-21'), positiveSwabs: 126, dailySwabs: 5274, cases: 70, deaths: 12},
+        {date: new Date('2020-05-22'), positiveSwabs: 112, dailySwabs: 5373, cases: 100, deaths: 11},
+        {date: new Date('2020-05-23'), positiveSwabs: 78, dailySwabs: 4276, cases: 70, deaths: 11},
+        {date: new Date('2020-05-24'), positiveSwabs: 57, dailySwabs: 3509, cases: 56, deaths: 4},
+        {date: new Date('2020-05-25'), positiveSwabs: 98, dailySwabs: 3529, cases: 50, deaths: 0},
+        {date: new Date('2020-05-26'), positiveSwabs: 67, dailySwabs: 3515, cases: 37, deaths: 9},
+        {date: new Date('2020-05-27'), positiveSwabs: 67, dailySwabs: 3437, cases: 65, deaths: 9},
+        {date: new Date('2020-05-28'), positiveSwabs: 44, dailySwabs: 3811, cases: 46, deaths: 8},
+        {date: new Date('2020-05-29'), positiveSwabs: 72, dailySwabs: 4364, cases: 30, deaths: 6},
+        {date: new Date('2020-05-30'), positiveSwabs: 70, dailySwabs: 3423, cases: 59, deaths: 9},
+        {date: new Date('2020-05-31'), positiveSwabs: 70, dailySwabs: 3474, cases: 57, deaths: 2},
+        {date: new Date('2020-06-01'), positiveSwabs: 42, dailySwabs: 2285, cases: 72, deaths: 1},
+        {date: new Date('2020-06-02'), positiveSwabs: 24, dailySwabs: 1827, cases: 6, deaths: 8},
+        {date: new Date('2020-06-03'), positiveSwabs: 40, dailySwabs: 2486, cases: 40, deaths: 3},
+        {date: new Date('2020-06-04'), positiveSwabs: 33, dailySwabs: 3099, cases: 30, deaths: 5},
+        {date: new Date('2020-06-05'), positiveSwabs: 36, dailySwabs: 3234, cases: 26, deaths: 7},
+        {date: new Date('2020-06-06'), positiveSwabs: 27, dailySwabs: 3106, cases: 21, deaths: 4},
+        {date: new Date('2020-06-07'), positiveSwabs: 21, dailySwabs: 2828, cases: 24, deaths: 1},
+        {date: new Date('2020-06-08'), positiveSwabs: 9, dailySwabs: 1960, cases: 9, deaths: 3},
+        {date: new Date('2020-06-09'), positiveSwabs: 19, dailySwabs: 2355, cases: 9, deaths: 9},
+        {date: new Date('2020-06-10'), positiveSwabs: 19, dailySwabs: 2675, cases: 19, deaths: 5},
+        {date: new Date('2020-06-11'), positiveSwabs: 29, dailySwabs: 4240, cases: 8, deaths: 8},
+        {date: new Date('2020-06-12'), positiveSwabs: 44, dailySwabs: 3009, cases: 10, deaths: 3},
+        {date: new Date('2020-06-13'), positiveSwabs: 16, dailySwabs: 2712, cases: 20, deaths: 5},
+        {date: new Date('2020-06-14'), positiveSwabs: 13, dailySwabs: 2512, cases: 8, deaths: 0},
+        {date: new Date('2020-06-15'), positiveSwabs: 21, dailySwabs: 1714, cases: 10, deaths: 0},
+        {date: new Date('2020-06-16'), positiveSwabs: 5, dailySwabs: 2112, cases: 0, deaths: 3},
+        {date: new Date('2020-06-17'), positiveSwabs: 22, dailySwabs: 3420, cases: 8, deaths: 3},
+        {date: new Date('2020-06-18'), positiveSwabs: 13, dailySwabs: 3359, cases: 16, deaths: 4},
+        {date: new Date('2020-06-19'), positiveSwabs: 29, dailySwabs: 3161, cases: 9, deaths: 2},
+        {date: new Date('2020-06-20'), positiveSwabs: 14, dailySwabs: 2724, cases: 20, deaths: 2},
+        {date: new Date('2020-06-21'), positiveSwabs: 9, dailySwabs: 2159, cases: 0, deaths: 0},
+        {date: new Date('2020-06-22'), positiveSwabs: 6, dailySwabs: 1498, cases: 2, deaths: 2},
+        {date: new Date('2020-06-23'), positiveSwabs: 6, dailySwabs: 2116, cases: 10, deaths: 3},
+        {date: new Date('2020-06-24'), positiveSwabs: 22, dailySwabs: 3252, cases: 5, deaths: 6},
+        {date: new Date('2020-06-25'), positiveSwabs: 12, dailySwabs: 2983, cases: 10, deaths: 1},
+        {date: new Date('2020-06-26'), positiveSwabs: 37, dailySwabs: 3689, cases: 10, deaths: 3},
+        {date: new Date('2020-06-27'), positiveSwabs: 4, dailySwabs: 4007, cases: 10, deaths: 6},
+        {date: new Date('2020-06-28'), positiveSwabs: 4, dailySwabs: 2724, cases: 3, deaths: 1},
+        {date: new Date('2020-06-29'), positiveSwabs: 28, dailySwabs: 3340, cases: 20, deaths: 0},
+        {date: new Date('2020-06-30'), positiveSwabs: 7, dailySwabs: 4591, cases: 12, deaths: 1},
+        {date: new Date('2020-07-01'), positiveSwabs: 22, dailySwabs: 4551, cases: 3, deaths: 2},
+        {date: new Date('2020-07-02'), positiveSwabs: 8, dailySwabs: 3792, cases: 15, deaths: 4},
+        {date: new Date('2020-07-03'), positiveSwabs: 10, dailySwabs: 8049, cases: 9, deaths: 1},
+        {date: new Date('2020-07-04'), positiveSwabs: 29, dailySwabs: 8312, cases: 11, deaths: 1},
+        {date: new Date('2020-07-05'), positiveSwabs: 8, dailySwabs: 7000, cases: 10, deaths: 0},
+        {date: new Date('2020-07-06'), positiveSwabs: 20, dailySwabs: 6529, cases: 4, deaths: 0},
+        {date: new Date('2020-07-07'), positiveSwabs: 11, dailySwabs: 6161, cases: 22, deaths: 1},
+        {date: new Date('2020-07-08'), positiveSwabs: 20, dailySwabs: 4361, cases: 10, deaths: 0},
+        {date: new Date('2020-07-09'), positiveSwabs: 27, dailySwabs: 3945, cases: 10, deaths: 6},
+        {date: new Date('2020-07-10'), positiveSwabs: 21, dailySwabs: 9330, cases: 20, deaths: 1},
+        {date: new Date('2020-07-11'), positiveSwabs: 41, dailySwabs: 8929, cases: 10, deaths: 1},
+        {date: new Date('2020-07-12'), positiveSwabs: 14, dailySwabs: 8717, cases: 8, deaths: 0},
+        {date: new Date('2020-07-13'), positiveSwabs: 19, dailySwabs: 7664, cases: 10, deaths: 0},
+        {date: new Date('2020-07-14'), positiveSwabs: 15, dailySwabs: 6400, cases: 20, deaths: 0},
+        {date: new Date('2020-07-15'), positiveSwabs: 17, dailySwabs: 4387, cases: 14, deaths: 2},
+        {date: new Date('2020-07-16'), positiveSwabs: 24, dailySwabs: 4316, cases: 20, deaths: 0},
+        {date: new Date('2020-07-17'), positiveSwabs: 26, dailySwabs: 9512, cases: 31, deaths: 3},
+        {date: new Date('2020-07-18'), positiveSwabs: 14, dailySwabs: 9243, cases: 21, deaths: 2},
+        {date: new Date('2020-07-19'), positiveSwabs: 13, dailySwabs: 8630, cases: 10, deaths: 0},
+        {date: new Date('2020-07-20'), positiveSwabs: 31, dailySwabs: 8415, cases: 0, deaths: 0},
+        {date: new Date('2020-07-21'), positiveSwabs: 13, dailySwabs: 6674, cases: 30, deaths: 0},
+        {date: new Date('2020-07-22'), positiveSwabs: 18, dailySwabs: 4619, cases: 10, deaths: 1},
+        {date: new Date('2020-07-23'), positiveSwabs: 12, dailySwabs: 4067, cases: 6, deaths: 1},
+        {date: new Date('2020-07-24'), positiveSwabs: 16, dailySwabs: 8980, cases: 20, deaths: 0},
+        {date: new Date('2020-07-25'), positiveSwabs: 31, dailySwabs: 8888, cases: 20, deaths: 0},
+        {date: new Date('2020-07-26'), positiveSwabs: 24, dailySwabs: 8016, cases: 10, deaths: 0},
+        {date: new Date('2020-07-27'), positiveSwabs: 30, dailySwabs: 5804, cases: 10, deaths: 0},
+        {date: new Date('2020-07-28'), positiveSwabs: 16, dailySwabs: 4965, cases: 40, deaths: 0},
+        {date: new Date('2020-07-29'), positiveSwabs: 46, dailySwabs: 4740, cases: 14, deaths: 0},
+        {date: new Date('2020-07-30'), positiveSwabs: 56, dailySwabs: 4383, cases: 85, deaths: 0},
+        {date: new Date('2020-07-31'), positiveSwabs: 29, dailySwabs: 3856, cases: 30, deaths: 0},
+        {date: new Date('2020-08-01'), positiveSwabs: 53, dailySwabs: 3306, cases: 45, deaths: 0},
+        {date: new Date('2020-08-02'), positiveSwabs: 54, dailySwabs: 3131, cases: 50, deaths: 0},
+        {date: new Date('2020-08-03'), positiveSwabs: 76, dailySwabs: 3041, cases: 40, deaths: 0},
+        {date: new Date('2020-08-04'), positiveSwabs: 6, dailySwabs: 1991, cases: 40, deaths: 0},
+        {date: new Date('2020-08-05'), positiveSwabs: 52, dailySwabs: 3761, cases: 50, deaths: 0},
+        {date: new Date('2020-08-06'), positiveSwabs: 73, dailySwabs: 4833, cases: 60, deaths: 5},
+        {date: new Date('2020-08-07'), positiveSwabs: 94, dailySwabs: 4980, cases: 98, deaths: 4},
+        {date: new Date('2020-08-08'), positiveSwabs: 137, dailySwabs: 4880, cases: 158, deaths: 1},
+        {date: new Date('2020-08-09'), positiveSwabs: 55, dailySwabs: 4107, cases: 68, deaths: 0},
+        {date: new Date('2020-08-10'), positiveSwabs: 60, dailySwabs: 3874, cases: 50, deaths: 0},
+        {date: new Date('2020-08-11'), positiveSwabs: 53, dailySwabs: 4026, cases: 35, deaths: 1},
+        {date: new Date('2020-08-12'), positiveSwabs: 80, dailySwabs: 5843, cases: 29, deaths: 1},
+        {date: new Date('2020-08-13'), positiveSwabs: 63, dailySwabs: 7072, cases: 92, deaths: 0},
+        {date: new Date('2020-08-14'), positiveSwabs: 138, dailySwabs: 11337, cases: 61, deaths: 0},
+        {date: new Date('2020-08-15'), positiveSwabs: 122, dailySwabs: 10653, cases: 200, deaths: 0},
+        {date: new Date('2020-08-16'), positiveSwabs: 89, dailySwabs: 10352, cases: 66, deaths: 0},
+        {date: new Date('2020-08-17'), positiveSwabs: 170, dailySwabs: 5533, cases: 54, deaths: 0},
+        {date: new Date('2020-08-18'), positiveSwabs: 31, dailySwabs: 4339, cases: 190, deaths: 1},
+        {date: new Date('2020-08-19'), positiveSwabs: 90, dailySwabs: 6192, cases: 50, deaths: 0},
+        {date: new Date('2020-08-20'), positiveSwabs: 142, dailySwabs: 11416, cases: 136, deaths: 1},
+        {date: new Date('2020-08-21'), positiveSwabs: 94, dailySwabs: 13080, cases: 79, deaths: 0},
+        {date: new Date('2020-08-22'), positiveSwabs: 157, dailySwabs: 6758, cases: 156, deaths: 2},
+        {date: new Date('2020-08-23'), positiveSwabs: 123, dailySwabs: 5438, cases: 61, deaths: 0},
+        {date: new Date('2020-08-24'), positiveSwabs: 92, dailySwabs: 4838, cases: 147, deaths: 0},
+        {date: new Date('2020-08-25'), positiveSwabs: 101, dailySwabs: 5015, cases: 91, deaths: 0},
+        {date: new Date('2020-08-26'), positiveSwabs: 105, dailySwabs: 7648, cases: 140, deaths: 0},
+        {date: new Date('2020-08-27'), positiveSwabs: 129, dailySwabs: 12274, cases: 93, deaths: 0},
+        {date: new Date('2020-08-28'), positiveSwabs: 107, dailySwabs: 12303, cases: 127, deaths: 0},
+        {date: new Date('2020-08-29'), positiveSwabs: 113, dailySwabs: 9940, cases: 142, deaths: 0},
+        {date: new Date('2020-08-30'), positiveSwabs: 49, dailySwabs: 5659, cases: 42, deaths: 0},
+        {date: new Date('2020-08-31'), positiveSwabs: 159, dailySwabs: 9340, cases: 50, deaths: 0},
+        {date: new Date('2020-09-01'), positiveSwabs: 90, dailySwabs: 4892, cases: 217, deaths: 0},
+        {date: new Date('2020-09-02'), positiveSwabs: 105, dailySwabs: 7301, cases: 89, deaths: 1},
+        {date: new Date('2020-09-03'), positiveSwabs: 137, dailySwabs: 12501, cases: 90, deaths: 0},
+        {date: new Date('2020-09-04'), positiveSwabs: 155, dailySwabs: 14064, cases: 96, deaths: 0},
+        {date: new Date('2020-09-05'), positiveSwabs: 154, dailySwabs: 11322, cases: 231, deaths: 0},
+        {date: new Date('2020-09-06'), positiveSwabs: 174, dailySwabs: 10343, cases: 128, deaths: 0},
+        {date: new Date('2020-09-07'), positiveSwabs: 232, dailySwabs: 6253, cases: 102, deaths: 0},
+        {date: new Date('2020-09-08'), positiveSwabs: 119, dailySwabs: 6678, cases: 307, deaths: 1},
+        {date: new Date('2020-09-09'), positiveSwabs: 156, dailySwabs: 10749, cases: 80, deaths: 3},
+        {date: new Date('2020-09-10'), positiveSwabs: 122, dailySwabs: 12363, cases: 196, deaths: 0},
+        {date: new Date('2020-09-11'), positiveSwabs: 227, dailySwabs: 13073, cases: 211, deaths: 1},
+        {date: new Date('2020-09-12'), positiveSwabs: 248, dailySwabs: 12230, cases: 159, deaths: 2},
+        {date: new Date('2020-09-13'), positiveSwabs: 217, dailySwabs: 9815, cases: 241, deaths: 1},
+        {date: new Date('2020-09-14'), positiveSwabs: 261, dailySwabs: 9888, cases: 208, deaths: 0},
+        {date: new Date('2020-09-15'), positiveSwabs: 311, dailySwabs: 8120, cases: 357, deaths: 3},
+        {date: new Date('2020-09-16'), positiveSwabs: 271, dailySwabs: 12241, cases: 254, deaths: 3},
+        {date: new Date('2020-09-17'), positiveSwabs: 248, dailySwabs: 14663, cases: 220, deaths: 1},
+        {date: new Date('2020-09-18'), positiveSwabs: 288, dailySwabs: 14506, cases: 250, deaths: 3},
+        {date: new Date('2020-09-19'), positiveSwabs: 197, dailySwabs: 14380, cases: 270, deaths: 0},
+        {date: new Date('2020-09-20'), positiveSwabs: 392, dailySwabs: 12138, cases: 396, deaths: 0},
+        {date: new Date('2020-09-21'), positiveSwabs: 254, dailySwabs: 10031, cases: 188, deaths: 0},
+        {date: new Date('2020-09-22'), positiveSwabs: 299, dailySwabs: 12583, cases: 334, deaths: 0},
+        {date: new Date('2020-09-23'), positiveSwabs: 316, dailySwabs: 12671, cases: 234, deaths: 2},
+        {date: new Date('2020-09-24'), positiveSwabs: 383, dailySwabs: 14356, cases: 324, deaths: 3},
+        {date: new Date('2020-09-25'), positiveSwabs: 430, dailySwabs: 14538, cases: 326, deaths: 0},
+        {date: new Date('2020-09-26'), positiveSwabs: 402, dailySwabs: 11808, cases: 248, deaths: 5},
+        {date: new Date('2020-09-27'), positiveSwabs: 382, dailySwabs: 11878, cases: 430, deaths: 0},
+        {date: new Date('2020-09-28'), positiveSwabs: 289, dailySwabs: 9866, cases: 390, deaths: 0},
+        {date: new Date('2020-09-29'), positiveSwabs: 279, dailySwabs: 12673, cases: 363, deaths: 1},
+        {date: new Date('2020-09-30'), positiveSwabs: 440, dailySwabs: 13247, cases: 418, deaths: 1},
+        {date: new Date('2020-10-01'), positiveSwabs: 511, dailySwabs: 14524, cases: 442, deaths: 4},
+        {date: new Date('2020-10-02'), positiveSwabs: 458, dailySwabs: 12673, cases: 470, deaths: 1},
+        {date: new Date('2020-10-03'), positiveSwabs: 610, dailySwabs: 13621, cases: 613, deaths: 10},
+        {date: new Date('2020-10-04'), positiveSwabs: 425, dailySwabs: 11295, cases: 354, deaths: 0},
+        {date: new Date('2020-10-05'), positiveSwabs: 503, dailySwabs: 12166, cases: 518, deaths: 0},
+        {date: new Date('2020-10-06'), positiveSwabs: 516, dailySwabs: 11646, cases: 432, deaths: 1},
+        {date: new Date('2020-10-07'), positiveSwabs: 625, dailySwabs: 14542, cases: 611, deaths: 5},
+        {date: new Date('2020-10-08'), positiveSwabs: 753, dailySwabs: 15880, cases: 506, deaths: 1},
+        {date: new Date('2020-10-09'), positiveSwabs: 857, dailySwabs: 16522, cases: 617, deaths: 5},
+        {date: new Date('2020-10-10'), positiveSwabs: 947, dailySwabs: 15634, cases: 1012, deaths: 3},
+        {date: new Date('2020-10-11'), positiveSwabs: 582, dailySwabs: 7998, cases: 814, deaths: 2},
+        {date: new Date('2020-10-12'), positiveSwabs: 998, dailySwabs: 13988, cases: 813, deaths: 1},
+        {date: new Date('2020-10-13'), positiveSwabs: 889, dailySwabs: 15305, cases: 811, deaths: 3},
+        {date: new Date('2020-10-14'), positiveSwabs: 1271, dailySwabs: 16255, cases: 1090, deaths: 4},
+        {date: new Date('2020-10-15'), positiveSwabs: 966, dailySwabs: 13428, cases: 1200, deaths: 3},
+        {date: new Date('2020-10-16'), positiveSwabs: 1376, dailySwabs: 17758, cases: 1000, deaths: 3},
+        {date: new Date('2020-10-17'), positiveSwabs: 1507, dailySwabs: 19040, cases: 1276, deaths: 8},
+        {date: new Date('2020-10-18'), positiveSwabs: 1151, dailySwabs: 16140, cases: 1283, deaths: 3},
+        {date: new Date('2020-10-19'), positiveSwabs: 970, dailySwabs: 14391, cases: 1031, deaths: 0},
+        {date: new Date('2020-10-20'), positiveSwabs: 905, dailySwabs: 14676, cases: 1268, deaths: 13},
+        {date: new Date('2020-10-21'), positiveSwabs: 1112, dailySwabs: 16779, cases: 1137, deaths: 3},
+        {date: new Date('2020-10-22'), positiveSwabs: 1035, dailySwabs: 17834, cases: 1066, deaths: 3},
+        {date: new Date('2020-10-23'), positiveSwabs: 1036, dailySwabs: 17712, cases: 770, deaths: 7},
+        {date: new Date('2020-10-24'), positiveSwabs: 975, dailySwabs: 17906, cases: 859, deaths: 4},
+        {date: new Date('2020-10-25'), positiveSwabs: 922, dailySwabs: 15772, cases: 1020, deaths: 0},
+        {date: new Date('2020-10-26'), positiveSwabs: 738, dailySwabs: 14264, cases: 939, deaths: 3},
+        {date: new Date('2020-10-27'), positiveSwabs: 535, dailySwabs: 11435, cases: 720, deaths: 5},
+        {date: new Date('2020-10-28'), positiveSwabs: 657, dailySwabs: 11170, cases: 675, deaths: 6},
+        {date: new Date('2020-10-29'), positiveSwabs: 783, dailySwabs: 15316, cases: 866, deaths: 6},
+        {date: new Date('2020-10-30'), positiveSwabs: 684, dailySwabs: 13801, cases: 772, deaths: 6},
+        {date: new Date('2020-10-31'), positiveSwabs: 674, dailySwabs: 14296, cases: 416, deaths: 5},
+        {date: new Date('2020-11-01'), positiveSwabs: 539, dailySwabs: 11068, cases: 552, deaths: 2},
+        {date: new Date('2020-11-02'), positiveSwabs: 394, dailySwabs: 11074, cases: 767, deaths: 2},
+        {date: new Date('2020-11-03'), positiveSwabs: 391, dailySwabs: 10500, cases: 322, deaths: 5},
+        {date: new Date('2020-11-04'), positiveSwabs: 617, dailySwabs: 12592, cases: 440, deaths: 8},
+        {date: new Date('2020-11-05'), positiveSwabs: 450, dailySwabs: 11846, cases: 591, deaths: 3},
+        {date: new Date('2020-11-06'), positiveSwabs: 502, dailySwabs: 11815, cases: 499, deaths: 8},
+        {date: new Date('2020-11-07'), positiveSwabs: 428, dailySwabs: 12172, cases: 331, deaths: 5},
+        {date: new Date('2020-11-08'), positiveSwabs: 447, dailySwabs: 9576, cases: 542, deaths: 2},
+        {date: new Date('2020-11-09'), positiveSwabs: 327, dailySwabs: 9912, cases: 270, deaths: 1},
+        {date: new Date('2020-11-10'), positiveSwabs: 284, dailySwabs: 10407, cases: 270, deaths: 16},
+        {date: new Date('2020-11-11'), positiveSwabs: 418, dailySwabs: 10790, cases: 362, deaths: 2},
+        {date: new Date('2020-11-12'), positiveSwabs: 423, dailySwabs: 13058, cases: 385, deaths: 1},
+        {date: new Date('2020-11-13'), positiveSwabs: 523, dailySwabs: 11612, cases: 482, deaths: 7},
+        {date: new Date('2020-11-14'), positiveSwabs: 388, dailySwabs: 9801, cases: 456, deaths: 6},
+        {date: new Date('2020-11-15'), positiveSwabs: 374, dailySwabs: 9184, cases: 378, deaths: 1},
+        {date: new Date('2020-11-16'), positiveSwabs: 491, dailySwabs: 11106, cases: 456, deaths: 5},
+        {date: new Date('2020-11-17'), positiveSwabs: 364, dailySwabs: 9977, cases: 366, deaths: 11},
+        {date: new Date('2020-11-18'), positiveSwabs: 389, dailySwabs: 12562, cases: 369, deaths: 12},
+        {date: new Date('2020-11-19'), positiveSwabs: 332, dailySwabs: 12640, cases: 429, deaths: 4},
+        {date: new Date('2020-11-20'), positiveSwabs: 388, dailySwabs: 12829, cases: 330, deaths: 8},
+        {date: new Date('2020-11-21'), positiveSwabs: 246, dailySwabs: 10444, cases: 340, deaths: 4},
+        {date: new Date('2020-11-22'), positiveSwabs: 301, dailySwabs: 9563, cases: 318, deaths: 1},
+        {date: new Date('2020-11-23'), positiveSwabs: 293, dailySwabs: 9834, cases: 252, deaths: 0},
+        {date: new Date('2020-11-24'), positiveSwabs: 190, dailySwabs: 10089, cases: 226, deaths: 6},
+        {date: new Date('2020-11-25'), positiveSwabs: 363, dailySwabs: 12442, cases: 269, deaths: 6},
+        {date: new Date('2020-11-26'), positiveSwabs: 270, dailySwabs: 12456, cases: 335, deaths: 3},
+        {date: new Date('2020-11-27'), positiveSwabs: 318, dailySwabs: 10778, cases: 206, deaths: 7},
+        {date: new Date('2020-11-28'), positiveSwabs: 355, dailySwabs: 11339, cases: 243, deaths: 7},
+        {date: new Date('2020-11-29'), positiveSwabs: 338, dailySwabs: 9443, cases: 300, deaths: 2},
+        {date: new Date('2020-11-30'), positiveSwabs: 190, dailySwabs: 9057, cases: 306, deaths: 1},
+        {date: new Date('2020-12-01'), positiveSwabs: 199, dailySwabs: 9786, cases: 269, deaths: 18},
+        {date: new Date('2020-12-02'), positiveSwabs: 334, dailySwabs: 11934, cases: 270, deaths: 5},
+        {date: new Date('2020-12-03'), positiveSwabs: 253, dailySwabs: 12047, cases: 180, deaths: 6},
+        {date: new Date('2020-12-04'), positiveSwabs: 277, dailySwabs: 11856, cases: 265, deaths: 6},
+        {date: new Date('2020-12-05'), positiveSwabs: 322, dailySwabs: 11456, cases: 456, deaths: 13},
+        {date: new Date('2020-12-06'), positiveSwabs: 292, dailySwabs: 9413, cases: 301, deaths: 0},
+        {date: new Date('2020-12-07'), positiveSwabs: 234, dailySwabs: 9623, cases: 242, deaths: 0},
+        {date: new Date('2020-12-08'), positiveSwabs: 224, dailySwabs: 10424, cases: 215, deaths: 1},
+        {date: new Date('2020-12-09'), positiveSwabs: 274, dailySwabs: 12203, cases: 220, deaths: 5},
+        {date: new Date('2020-12-10'), positiveSwabs: 284, dailySwabs: 12688, cases: 310, deaths: 15},
+        {date: new Date('2020-12-11'), positiveSwabs: 325, dailySwabs: 12618, cases: 313, deaths: 3},
+        {date: new Date('2020-12-12'), positiveSwabs: 336, dailySwabs: 12850, cases: 248, deaths: 3},
+        {date: new Date('2020-12-13'), positiveSwabs: 355, dailySwabs: 10728, cases: 429, deaths: 1},
+        {date: new Date('2020-12-14'), positiveSwabs: 292, dailySwabs: 10251, cases: 264, deaths: 2},
+        {date: new Date('2020-12-15'), positiveSwabs: 356, dailySwabs: 10847, cases: 329, deaths: 8},
+        {date: new Date('2020-12-16'), positiveSwabs: 474, dailySwabs: 13120, cases: 431, deaths: 6},
+        {date: new Date('2020-12-17'), positiveSwabs: 521, dailySwabs: 13219, cases: 484, deaths: 3},
+        {date: new Date('2020-12-18'), positiveSwabs: 637, dailySwabs: 14093, cases: 582, deaths: 6},
+        {date: new Date('2020-12-19'), positiveSwabs: 703, dailySwabs: 13941, cases: 527, deaths: 5},
+        {date: new Date('2020-12-20'), positiveSwabs: 746, dailySwabs: 13458, cases: 764, deaths: 4},
+        {date: new Date('2020-12-21'), positiveSwabs: 757, dailySwabs: 12804, cases: 727, deaths: 0},
+        {date: new Date('2020-12-22'), positiveSwabs: 698, dailySwabs: 13225, cases: 970, deaths: 13},
+        {date: new Date('2020-12-23'), positiveSwabs: 1077, dailySwabs: 20662, cases: 938, deaths: 13},
+        {date: new Date('2020-12-24'), positiveSwabs: 1269, dailySwabs: 22876, cases: 922, deaths: 8},
+        {date: new Date('2020-12-25'), positiveSwabs: 1644, dailySwabs: 21423, cases: 1025, deaths: 2},
+        {date: new Date('2020-12-26'), positiveSwabs: 1207, dailySwabs: 11999, cases: 1296, deaths: 6},
+        {date: new Date('2020-12-27'), positiveSwabs: 343, dailySwabs: 3536, cases: 744, deaths: 4},
+        {date: new Date('2020-12-28'), positiveSwabs: 1178, dailySwabs: 9405, cases: 765, deaths: 1},
+        {date: new Date('2020-12-29'), positiveSwabs: 2007, dailySwabs: 13805, cases: 1546, deaths: 8},
+        {date: new Date('2020-12-30'), positiveSwabs: 2867, dailySwabs: 17489, cases: 1718, deaths: 12},
+        {date: new Date('2020-12-31'), positiveSwabs: 4372, dailySwabs: 26312, cases: 1620, deaths: 12},
+        {date: new Date('2021-01-01'), positiveSwabs: 5621, dailySwabs: 27389, cases: 1754, deaths: 11},
+        {date: new Date('2021-01-02'), positiveSwabs: 4554, dailySwabs: 20846, cases: 3394, deaths: 4},
+        {date: new Date('2021-01-03'), positiveSwabs: 6489, dailySwabs: 28543, cases: 4962, deaths: 7},
+        {date: new Date('2021-01-04'), positiveSwabs: 5199, dailySwabs: 20571, cases: 6110, deaths: 6},
+        {date: new Date('2021-01-05'), positiveSwabs: 4416, dailySwabs: 19908, cases: 5325, deaths: 17},
+        {date: new Date('2021-01-06'), positiveSwabs: 6865, dailySwabs: 28370, cases: 7836, deaths: 17},
+        {date: new Date('2021-01-07'), positiveSwabs: 6368, dailySwabs: 28610, cases: 6521, deaths: 10},
+        {date: new Date('2021-01-08'), positiveSwabs: 5156, dailySwabs: 27319, cases: 8248, deaths: 20},
+        {date: new Date('2021-01-09'), positiveSwabs: 5099, dailySwabs: 29972, cases: 4824, deaths: 9},
+        {date: new Date('2021-01-10'), positiveSwabs: 4188, dailySwabs: 24485, cases: 6888, deaths: 8},
+        {date: new Date('2021-01-11'), positiveSwabs: 2922, dailySwabs: 19794, cases: 4929, deaths: 8},
+        {date: new Date('2021-01-12'), positiveSwabs: 2521, dailySwabs: 18945, cases: 3086, deaths: 46},
+        {date: new Date('2021-01-13'), positiveSwabs: 3932, dailySwabs: 24583, cases: 3569, deaths: 63},
+        {date: new Date('2021-01-14'), positiveSwabs: 3854, dailySwabs: 28178, cases: 3955, deaths: 28},
+        {date: new Date('2021-01-15'), positiveSwabs: 3416, dailySwabs: 23033, cases: 3498, deaths: 50},
+        {date: new Date('2021-01-16'), positiveSwabs: 3110, dailySwabs: 26663, cases: 3231, deaths: 60},
+        {date: new Date('2021-01-17'), positiveSwabs: 2868, dailySwabs: 21441, cases: 2944, deaths: 13},
+        {date: new Date('2021-01-18'), positiveSwabs: 1877, dailySwabs: 18191, cases: 2121, deaths: 8},
+        {date: new Date('2021-01-19'), positiveSwabs: 1784, dailySwabs: 19218, cases: 2001, deaths: 93},
+        {date: new Date('2021-01-20'), positiveSwabs: 2786, dailySwabs: 24296, cases: 2488, deaths: 61},
+        {date: new Date('2021-01-21'), positiveSwabs: 2318, dailySwabs: 23196, cases: 2608, deaths: 51},
+        {date: new Date('2021-01-22'), positiveSwabs: 2084, dailySwabs: 24189, cases: 2371, deaths: 52},
+        {date: new Date('2021-01-23'), positiveSwabs: 1926, dailySwabs: 21492, cases: 1910, deaths: 77},
+        {date: new Date('2021-01-24'), positiveSwabs: 1529, dailySwabs: 19593, cases: 1378, deaths: 23},
+        {date: new Date('2021-01-25'), positiveSwabs: 1085, dailySwabs: 14884, cases: 1372, deaths: 7},
+        {date: new Date('2021-01-26'), positiveSwabs: 953, dailySwabs: 16665, cases: 928, deaths: 90},
+        {date: new Date('2021-01-27'), positiveSwabs: 1668, dailySwabs: 22387, cases: 1335, deaths: 54},
+        {date: new Date('2021-01-28'), positiveSwabs: 1587, dailySwabs: 21780, cases: 1466, deaths: 47},
+        {date: new Date('2021-01-29'), positiveSwabs: 1483, dailySwabs: 21943, cases: 1254, deaths: 48},
+        {date: new Date('2021-01-30'), positiveSwabs: 1421, dailySwabs: 21598, cases: 1414, deaths: 79},
+        {date: new Date('2021-01-31'), positiveSwabs: 1153, dailySwabs: 17649, cases: 1247, deaths: 15},
+        {date: new Date('2021-02-01'), positiveSwabs: 831, dailySwabs: 15047, cases: 1062, deaths: 10},
+        {date: new Date('2021-02-02'), positiveSwabs: 969, dailySwabs: 16329, cases: 879, deaths: 101},
+        {date: new Date('2021-02-03'), positiveSwabs: 1203, dailySwabs: 18352, cases: 1013, deaths: 94},
+        {date: new Date('2021-02-04'), positiveSwabs: 1283, dailySwabs: 20214, cases: 1318, deaths: 75},
+        {date: new Date('2021-02-05'), positiveSwabs: 1010, dailySwabs: 20278, cases: 1047, deaths: 35},
+        {date: new Date('2021-02-06'), positiveSwabs: 1075, dailySwabs: 19355, cases: 827, deaths: 55},
+        {date: new Date('2021-02-07'), positiveSwabs: 956, dailySwabs: 15377, cases: 1024, deaths: 12},
+        {date: new Date('2021-02-08'), positiveSwabs: 780, dailySwabs: 12697, cases: 829, deaths: 6},
+        {date: new Date('2021-02-09'), positiveSwabs: 816, dailySwabs: 15126, cases: 556, deaths: 68},
+        {date: new Date('2021-02-10'), positiveSwabs: 1096, dailySwabs: 18213, cases: 1006, deaths: 54},
+        {date: new Date('2021-02-11'), positiveSwabs: 861, dailySwabs: 17207, cases: 866, deaths: 52},
+        {date: new Date('2021-02-12'), positiveSwabs: 986, dailySwabs: 18841, cases: 921, deaths: 23},
+        {date: new Date('2021-02-13'), positiveSwabs: 1009, dailySwabs: 16414, cases: 1078, deaths: 66},
+        {date: new Date('2021-02-14'), positiveSwabs: 752, dailySwabs: 14400, cases: 788, deaths: 17},
+        {date: new Date('2021-02-15'), positiveSwabs: 645, dailySwabs: 11452, cases: 821, deaths: 0},
+        {date: new Date('2021-02-16'), positiveSwabs: 771, dailySwabs: 13119, cases: 744, deaths: 33},
+        {date: new Date('2021-02-17'), positiveSwabs: 938, dailySwabs: 17104, cases: 650, deaths: 57},
+        {date: new Date('2021-02-18'), positiveSwabs: 816, dailySwabs: 15499, cases: 901, deaths: 47},
+        {date: new Date('2021-02-19'), positiveSwabs: 836, dailySwabs: 17036, cases: 763, deaths: 28},
+        {date: new Date('2021-02-20'), positiveSwabs: 843, dailySwabs: 15122, cases: 988, deaths: 26},
+        {date: new Date('2021-02-21'), positiveSwabs: 764, dailySwabs: 14901, cases: 679, deaths: 1},
+        {date: new Date('2021-02-22'), positiveSwabs: 609, dailySwabs: 11828, cases: 686, deaths: 1}
       ];
+      
+      var totalSwabs = 0;
+      var totalPositiveSwabs = 0;
+      var totalCases = 0;
+      var totalDeaths = 0;
+      data.forEach(function(item) { 
+        if (item.dailySwabs) {
+          totalSwabs += item.dailySwabs;
+        }
+        if (item.positiveSwabs) {
+          totalPositiveSwabs += item.positiveSwabs;
+        }
+        if (item.cases) {
+          totalCases += item.cases;
+        }
+        if (item.deaths) {
+          totalDeaths += item.deaths;
+        }
+        item.totalSwabs = totalSwabs;
+        item.totalPositiveSwabs = totalPositiveSwabs;
+        item.totalCases = totalCases;
+        item.totalDeaths = totalDeaths;
+      });
 
-      var graphData = new Array();
+      var swabGraphData = new Array();
+      
+      var dailyCasesData = new Array();
+      var totalCasesData = new Array();
+      
+      var dailyDeathsData = new Array();
+      var totalDeathsData = new Array();
+      
       var positiveSwabsTrendLine = {
-        "style": "rgba(237, 100, 127, 0.75)",
-        "lineStyle": "dotted|solid",
-        "width": 2
+        style: "rgba(237, 100, 127, 0.75)",
+        lineStyle: "dotted|solid",
+        width: 2
       };
+      
       var negativeSwabsTrendLine = {
-		"style": "rgba(63, 63, 191, 0.75)",
-		"lineStyle": "dotted|solid",
-		"width": 2
+        style: "rgba(63, 63, 191, 0.75)",
+        lineStyle: "dotted|solid",
+        width: 2
       };
+      
       var positiveSwabs = {
-        "label": "Positive Tests",
-        "data": [],
-        "backgroundColor": "rgba(237, 100, 127, .6)",
-        "borderColor": "rgba(233,0,45, 1)",
-        "borderWidth": 0,
-        "yAxisID": "A",
-        "trendlineLinear": positiveSwabsTrendLine
+        label: "Positive Tests",
+        data: [],
+        backgroundColor: "rgba(237, 100, 127, .6)",
+        borderColor: "rgba(233,0,45, 1)",
+        borderWidth: 0,
+        yAxisID: "A"
       };
+      
       var negativeSwabs = {
-        "label": "Negative Tests",
-        "data": [],
-        "backgroundColor": "rgba(63, 63, 191, 0.6)",
-        "borderColor": "rgba(14, 54, 201, 0.5)",
-        "borderWidth": 0,
-        "yAxisID": "A",
-        "trendlineLinear": negativeSwabsTrendLine
+        label: "Negative Tests",
+        data: [],
+        backgroundColor: "rgba(63, 63, 191, 0.6)",
+        borderColor: "rgba(14, 54, 201, 0.5)",
+        borderWidth: 0,
+        yAxisID: "A"
       };
+      
+      var dailyCases = {
+        label: "Cases",
+        data: [],
+        backgroundColor: "rgba(237, 100, 127, .6)",
+        borderColor: "rgba(233,0,45, 1)",
+        borderWidth: 0,
+        yAxisID: "dailyCasesAxis"
+      };
+      
+      totalCases = {
+        label: "Total Cases",
+        data: [],
+        backgroundColor: "transparent",
+        borderColor: "rgba(63, 63, 191, 0.6)",
+        borderWidth: 2,
+        type: "line",
+        yAxisID: "totalCasesAxis"
+      };
+      
+      var dailyDeaths = {
+        label: "Deaths",
+        data: [],
+        backgroundColor: "rgba(63, 63, 191, 0.6)",
+        borderColor: "rgba(14, 54, 201, 0.5)",
+        borderWidth: 0,
+        yAxisID: "dailyDeathsAxis"
+      };
+      
+      totalDeaths = {
+        label: "Total Deaths",
+        data: [],
+        backgroundColor: "transparent",
+        borderColor: "rgba(237, 100, 127, .6)",
+        borderWidth: 2,
+        type: "line",
+        yAxisID: "totalDeathsAxis"
+      };
+      
       var percentagePositive = {
-          "label": "% Positive",
-          "data": [],
-          "borderColor": "red",
-          "borderWidth": 0,
-          "yAxisID": "B",
-          "type": "line"
+          label: "% Positive",
+          data: [],
+          borderColor: "red",
+          borderWidth: 0,
+          yAxisID: "B",
+          type: "line"
       };
-      var chartConfig = {
-          "type": "bar",
-          "data": {
+      
+      var dailySwabsGraphChartConfig = {
+          type: "bar",
+          data: {
               labels: [],
-              "datasets": [positiveSwabs, negativeSwabs, percentagePositive]
+              datasets: [positiveSwabs, negativeSwabs, percentagePositive]
           },
-          "options": {
-              "scales": {
-                  "xAxes": [{
-                      "stacked": true
+          options: {
+              scales: {
+                  xAxes: [{
+                      stacked: true
                   }],
-                  "yAxes": [{
-                      "id": "A",
-                      "stacked": true,
-                      "position": "left",
-                      "ticks": {
-                          "beginAtZero": true
+                  yAxes: [{
+                      id: "A",
+                      stacked: true,
+                      position: "left",
+                      ticks: {
+                          beginAtZero: true
                       },
-                      "scaleLabel": {
-                          "display": true,
-                          "labelString": "Total Tests"
+                      scaleLabel: {
+                          display: true,
+                          labelString: "Total Tests"
                       }
                   }, {
-                      "id": "B",
-                      "position": "right",
-                      "ticks": {
-                          "beginAtZero": true
+                      id: "B",
+                      position: "right",
+                      ticks: {
+                          beginAtZero: true
                       },
-                      "gridLines": {
-                          "display": false
+                      gridLines: {
+                          display: false
                       },
-                      "scaleLabel": {
-                          "display": true,
-                          "labelString": "% Positive"
+                      scaleLabel: {
+                          display: true,
+                          labelString: "% Positive"
                       }
                   }]
               },
-              "tooltips": {
-              	"mode": 'label',
-                	"callbacks": {
-                  		"label": function (tooltipItem, data) {
+              tooltips: {
+              	mode: 'label',
+                	callbacks: {
+                  		label: function (tooltipItem, data) {
                             var datasetLabel = data.datasets[tooltipItem.datasetIndex].label;
                             var datasetValue = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
                             var total = 0;
@@ -647,12 +810,178 @@
                   }
               }
       };
-      var testsVpositivityRate = new Chart(ctx, chartConfig);
-      lastTwoMonths();
-      populateStartAndEndDates();
-      populateTwoMonthView();
+      
+      var dailyCasesChartConfig = {
+        type: "bar",
+        data: {
+          labels: [],
+          datasets: [totalCases, dailyCases]
+        },
+        options: {
+            scales: {
+              yAxes: [{
+                  id: "dailyCasesAxis",
+                  position: "left",
+                  ticks: {
+                      beginAtZero: true
+                  },
+                  scaleLabel: {
+                      display: true,
+                      labelString: "Daily Cases"
+                  }
+              }, {
+                  id: "totalCasesAxis",
+                  position: "right",
+                  ticks: {
+                      beginAtZero: true
+                  },
+                  gridLines: {
+                      display: false
+                  },
+                  scaleLabel: {
+                      display: true,
+                      labelString: "Total Cases"
+                  }
+              }]
+            },
+            tooltips: {
+              	mode: 'label',
+                callbacks: {
+                  label: function (tooltipItem, data) {
+                    var datasetLabel = data.datasets[tooltipItem.datasetIndex].label;
+                    var datasetValue = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                    var total = 0;
+                    var percentageChange = 0;
+                    var difference = 0;
+                    for (var i = 0; i < data.datasets.length; i++) {
+                    if (data.datasets[i].label === 'Cases' && tooltipItem.index > 0) {
+                        var previousValue = Number(data.datasets[i].data[tooltipItem.index - 1]);
+                        var currentValue = Number(data.datasets[i].data[tooltipItem.index]);
+                        var difference = currentValue - previousValue;
+                        percentageChange = ((difference * 100) / previousValue).toFixed(2);
+                      }
+                    }
 
-      function populateTwoMonthView() {
+                    if (tooltipItem.datasetIndex != data.datasets.length - 1) {
+                        return datasetLabel + ": " + datasetValue;
+                    } else {
+                        total = total.toString().includes('.') ? total.toFixed(2) : total;
+                        difference = difference.toString().includes('.') ? difference.toFixed(2) : difference;
+                        var retVal = [datasetLabel + ": " + datasetValue, 'Difference: ' + difference];
+                        if (percentageChange !== "Infinity") {
+                          retVal.push('% Difference: ' + percentageChange + '%');
+                        }
+                        return retVal;
+                    }
+                  }
+               }
+            }
+          }
+      };
+
+      var dailyDeathsChartConfig = {
+        type: "bar",
+        data: {
+          labels: [],
+          datasets: [totalDeaths, dailyDeaths]
+        },
+        options: {
+            scales: {
+              yAxes: [{
+                  id: "dailyDeathsAxis",
+                  ticks: {
+                      beginAtZero: true
+                  },
+                  gridLines: {
+                      display: false
+                  },
+                  scaleLabel: {
+                      display: true,
+                      labelString: "Daily Deaths"
+                  }
+              }, {
+                  id: "totalDeathsAxis",
+                  position: "right",
+                  ticks: {
+                      beginAtZero: true
+                  },
+                  gridLines: {
+                      display: false
+                  },
+                  scaleLabel: {
+                      display: true,
+                      labelString: "Total Cases"
+                  }
+              }]
+            },
+            tooltips: {
+              	mode: 'label',
+                callbacks: {
+                  label: function (tooltipItem, data) {
+                    var datasetLabel = data.datasets[tooltipItem.datasetIndex].label;
+                    var datasetValue = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                    var total = 0;
+                    var percentageChange = 0;
+                    var difference = 0;
+                    for (var i = 0; i < data.datasets.length; i++) {
+                      if (data.datasets[i].label === 'Deaths' && tooltipItem.index > 0) {
+                          var previousValue = Number(data.datasets[i].data[tooltipItem.index - 1]);
+                          var currentValue = Number(data.datasets[i].data[tooltipItem.index]);
+                          var difference = currentValue - previousValue;
+                          percentageChange = ((difference * 100) / previousValue).toFixed(2);
+                      }
+                    }
+
+                    if (tooltipItem.datasetIndex != data.datasets.length - 1) {
+                        return datasetLabel + ": " + datasetValue;
+                    } else {
+                        total = total.toString().includes('.') ? total.toFixed(2) : total;
+                        difference = difference.toString().includes('.') ? difference.toFixed(2) : difference;
+                        var retVal = [datasetLabel + ": " + datasetValue, 'Difference: ' + difference];
+                        if (percentageChange !== "Infinity") {
+                          retVal.push('% Difference: ' + percentageChange + '%');
+                        }
+                        return retVal;
+                    }
+                  }
+               }
+            }
+        }
+      };
+
+      var dailySwabsGraphContext = document.getElementById('dailySwabsGraph').getContext('2d');
+      var dailyCasesContext = document.getElementById('dailyCasesGraph').getContext('2d');
+      var dailyDeathsContext = document.getElementById('dailyDeathsGraph').getContext('2d');
+      
+      var dailySwabsGraph = new Chart(dailySwabsGraphContext, dailySwabsGraphChartConfig);
+      var dailyCasesGraph = new Chart(dailyCasesContext, dailyCasesChartConfig);
+      var dailyDeathsGraph = new Chart(dailyDeathsContext, dailyDeathsChartConfig);
+      
+      populateStartAndEndDates();
+      populateTwoMonthViewSelect();
+        
+      processParameter("dateSelection", "lastTwoMonths");
+      processParameter("dataSelection", "dailyCases");
+      processParameter("graphType", "normal");
+      processParameter("displayType", "graph");
+
+      var trendLineParameter = parameterList.get("trendLine");
+      trendLineParameter = trendLineParameter ? (trendLineParameter == "true") : true;
+      document.getElementById("trendLine").checked = trendLineParameter;
+      toggleTrendLine();
+      
+      function processParameter(parameterName, defaultValue) {
+        var parameterValue = parameterList.get(parameterName);
+        parameterValue = parameterValue ? parameterValue : defaultValue;
+        document.getElementsByName(parameterName).forEach(function(item) {
+          if (item.value === parameterValue) {
+            item.checked = true;
+            item.onclick();
+          }
+        });
+      }
+      
+      function populateTwoMonthViewSelect() {
           var twoMonthViewSelect = document.getElementById('twoMonthView');
           var startTimestamps = new Array();
           data.forEach(function(value, index) {
@@ -681,7 +1010,7 @@
 
       function twoMonthView() {
           disableStartAndEndDates();
-          graphData = new Array();
+          resetData();
           var twoMonthViewSelect = document.getElementById('twoMonthView');
           twoMonthViewSelect.disabled = false;
           var timeStamps = twoMonthViewSelect.value.split('|');
@@ -690,32 +1019,47 @@
           var endDate = new Date(Number(timeStamps[1]));
           data.forEach(function(item, index) {
               if (item.date >= startDate && item.date <= endDate) {
-                  graphData.push(item);
+                  if (isValidSwabData(item)) {
+                    swabGraphData.push(item);
+                  }
+                  dailyCasesData.push(item);
+                  dailyDeathsData.push(item);
               }
           });
-          processGraphData();
+          processSwabGraphData();
+          activeDate = "twoMonthView";
       }
 
       function lastTwoMonths() {
           disableStartAndEndDates();
-          graphData = new Array();
+          resetData();;
           var twoMonthsAgo = new Date();
           twoMonthsAgo.setMonth(twoMonthsAgo.getMonth() - 2);
           data.forEach(function(value, index) {
               if (value.date > twoMonthsAgo) {
-                  graphData.push(value)
+                  if(isValidSwabData(value)) {
+                    swabGraphData.push(value)
+                  }
+                  dailyCasesData.push(value);
+                  dailyDeathsData.push(value);
               }
           });
-          processGraphData();
+          processSwabGraphData();
+          activeDate = "lastTwoMonths";
       }
 
       function allData() {
           disableStartAndEndDates();
-          graphData = new Array();
+          resetData();
           data.forEach(function(value, index) {
-              graphData.push(value);
+              if(isValidSwabData(value)) {
+                swabGraphData.push(value);
+              }
+              dailyCasesData.push(value);
+              dailyDeathsData.push(value);
           });
-          processGraphData();
+          processSwabGraphData();
+          activeDate = "allDates";
       }
 
       function disableStartAndEndDates() {
@@ -732,7 +1076,7 @@
       }
 
       function betweenDates() {
-          graphData = new Array();
+          resetData();
           disableStartAndEndDates();
           var selectStartDate = document.getElementById('startDate');
           var selectEndDate = document.getElementById('endDate');
@@ -746,11 +1090,16 @@
           var endDate = new Date(selectEndDate.value);
           data.forEach(function(item, index) {
               if (item.date >= startDate && item.date <= endDate) {
-                  graphData.push(item);
+                  if(isValidSwabData(item)) {
+                    swabGraphData.push(item);
+                  }
+                  dailyCasesData.push(item);
+                  dailyDeathsData.push(item);
               }
           });
           populateStartAndEndDates(startDate, endDate);
-          processGraphData();
+          processSwabGraphData();
+          activeDate = "betweenDates";
       }
 
       function populateStartAndEndDates(startDate, endDate) {
@@ -761,7 +1110,7 @@
           selectStartDate.innerHTML = '';
           selectEndDate.innerHTML = '';
           data.forEach(function(item, index) {
-              if (item.date < endDate) {
+              if (item.date < endDate && isValidSwabData(item)) {
                   var startOpt = document.createElement('option');
                   startOpt.value = item.date.toISOString();
                   startOpt.innerHTML = item.date.toDateString();
@@ -782,7 +1131,7 @@
           });
       }
 
-      function processGraphData() {
+      function processSwabGraphData() {
           var graphType = document.getElementsByName("graphType");
           graphType.forEach(function(value, index) {
               if (value.checked) {
@@ -793,139 +1142,256 @@
 
       function standardGraph() {
           resetGraph();
-          var labels = new Array();
+          var dailySwabsGraphLabels = new Array();
           var positiveSwabs = new Array();
           var negativeSwabs = new Array();
           var percentagePositive = new Array();
-          graphData.forEach(function(value, index) {
-              labels.push(value.date.toDateString());
+          
+          var dailyCasesLabel = new Array();
+          var dailyCases = new Array();
+          var totalCasesData = new Array();
+
+          var dailyDeathsLabel = new Array();
+          var dailyDeaths = new Array();
+          var totalDeathsData = new Array();
+
+          swabGraphData.forEach(function(value, index) {
+              dailySwabsGraphLabels.push(value.date.toDateString());
               positiveSwabs.push(value.positiveSwabs);
-              negativeSwabs.push(value.totalSwabs - value.positiveSwabs);
-              percentagePositive.push(((value.positiveSwabs * 100) / value.totalSwabs).toFixed(2));
+              negativeSwabs.push(value.dailySwabs - value.positiveSwabs);
+              percentagePositive.push(((value.positiveSwabs * 100) / value.dailySwabs).toFixed(2));
           });
-          updateGraph(labels, positiveSwabs, negativeSwabs, percentagePositive);
+          
+          dailyCasesData.forEach(function(value, index) { 
+              dailyCasesLabel.push(value.date.toDateString());
+              dailyCases.push(value.cases);
+              totalCasesData.push(value.totalCases);
+          });
+          
+          dailyDeathsData.forEach(function(value, index) { 
+              dailyDeathsLabel.push(value.date.toDateString());
+              dailyDeaths.push(value.deaths);
+              totalDeathsData.push(value.totalDeaths);
+          });
+          activeGraph = 'normal';                    
+          updateGraph(dailySwabsGraphLabels, positiveSwabs, negativeSwabs, percentagePositive, dailyCasesLabel, dailyCases, dailyDeathsLabel, dailyDeaths, totalCasesData, totalDeathsData);
       }
 
       function byDay() {
           resetGraph();
           var day = document.getElementById("day");
           day.disabled = false;
-          var labels = new Array();
+          var dailySwabsGraphLabels = new Array();
           var positiveSwabs = new Array();
           var negativeSwabs = new Array();
           var percentagePositive = new Array();
-          graphData.forEach(function(value, index) {
+
+          var dailyCasesLabel = new Array();
+          var dailyCases = new Array();
+
+          var dailyDeathsLabel = new Array();
+          var dailyDeaths = new Array();
+
+          swabGraphData.forEach(function(value, index) {
               if (value.date.getDay() == day.value) {
-                  labels.push(value.date.toDateString());
+                  dailySwabsGraphLabels.push(value.date.toDateString());
                   positiveSwabs.push(value.positiveSwabs);
-                  negativeSwabs.push(value.totalSwabs - value.positiveSwabs);
-                  percentagePositive.push(((value.positiveSwabs * 100) / value.totalSwabs).toFixed(2));
+                  negativeSwabs.push(value.dailySwabs - value.positiveSwabs);
+                  percentagePositive.push(((value.positiveSwabs * 100) / value.dailySwabs).toFixed(2));
               }
           });
-          updateGraph(labels, positiveSwabs, negativeSwabs, percentagePositive);
+
+          dailyCasesData.forEach(function(value, index) { 
+              if (value.date.getDay() == day.value) {
+                dailyCasesLabel.push(value.date.toDateString());
+                dailyCases.push(value.cases);
+              }
+          });
+
+          dailyDeathsData.forEach(function(value, index) { 
+              if (value.date.getDay() == day.value) {
+                dailyDeathsLabel.push(value.date.toDateString());
+                dailyDeaths.push(value.deaths);
+              }
+          });
+          activeGraph = 'byWeekday';
+          updateGraph(dailySwabsGraphLabels, positiveSwabs, negativeSwabs, percentagePositive, dailyCasesLabel, dailyCases, dailyDeathsLabel, dailyDeaths);
       }
 
       function dayAverage(increment, prefix) {
           prefix = prefix ? prefix : '';
           resetGraph();
-          var labels = new Array();
+          var dailySwabsGraphLabels = new Array();
           var positiveSwabs = new Array();
           var negativeSwabs = new Array();
           var percentagePositive = new Array();
-          var initialIndex = 0;
+
+          var dailyCasesLabel = new Array();
+          var dailyCases = new Array();
+
+          var dailyDeathsLabel = new Array();
+          var dailyDeaths = new Array();
+
+          var initialTestsIndex = 0;
+          var initialCasesIndex = 0;
           var todayDay = new Date().getDay();
           for (var counter = 6; counter < 15; counter++) {
-            if (graphData[counter].date.getDay() === todayDay) {
-              initialIndex = counter;
+            if (swabGraphData[counter].date.getDay() === todayDay) {
+              initialTestsIndex = counter;
               break;
             }
           }
-          for (var counter = initialIndex; counter < graphData.length; counter += increment) {
-              var today = graphData[counter];
-              var yesterday = graphData[counter - 1];
-              var twoDaysAgo = graphData[counter - 2];
-              var threeDaysAgo = graphData[counter - 3];
-              var fourDaysAgo = graphData[counter - 4];
-              var fiveDaysAgo = graphData[counter - 5];
-              var sixDayAgo = graphData[counter - 6];
-              labels.push(prefix + today.date.toDateString());
+          for (var counter = 6; counter < 15; counter++) {
+            if (dailyCasesData[counter].date.getDay() === todayDay) {
+              initialCasesIndex = counter;
+              break;
+            }
+          }
+          for (var counter = initialTestsIndex; counter < swabGraphData.length; counter += increment) {
+              var today = swabGraphData[counter];
+              var yesterday = swabGraphData[counter - 1];
+              var twoDaysAgo = swabGraphData[counter - 2];
+              var threeDaysAgo = swabGraphData[counter - 3];
+              var fourDaysAgo = swabGraphData[counter - 4];
+              var fiveDaysAgo = swabGraphData[counter - 5];
+              var sixDayAgo = swabGraphData[counter - 6];
+              dailySwabsGraphLabels.push(prefix + today.date.toDateString());
               var totalPositiveSwabs = today.positiveSwabs + yesterday.positiveSwabs + twoDaysAgo.positiveSwabs + threeDaysAgo.positiveSwabs + fourDaysAgo.positiveSwabs + fiveDaysAgo.positiveSwabs + sixDayAgo.positiveSwabs;
-              var totalNegativeSwabs = (today.totalSwabs - today.positiveSwabs) + (yesterday.totalSwabs - yesterday.positiveSwabs) + (twoDaysAgo.totalSwabs - twoDaysAgo.positiveSwabs) + (threeDaysAgo.totalSwabs - threeDaysAgo.positiveSwabs) + (fourDaysAgo.totalSwabs - fourDaysAgo.positiveSwabs) + (fiveDaysAgo.totalSwabs - fiveDaysAgo.positiveSwabs) + (sixDayAgo.totalSwabs - sixDayAgo.positiveSwabs);
-              var totalSwabs = (today.totalSwabs + yesterday.totalSwabs + twoDaysAgo.totalSwabs + threeDaysAgo.totalSwabs + fourDaysAgo.totalSwabs + fiveDaysAgo.totalSwabs + sixDayAgo.totalSwabs);
+              var totalNegativeSwabs = (today.dailySwabs - today.positiveSwabs) + (yesterday.dailySwabs - yesterday.positiveSwabs) + (twoDaysAgo.dailySwabs - twoDaysAgo.positiveSwabs) + (threeDaysAgo.dailySwabs - threeDaysAgo.positiveSwabs) + (fourDaysAgo.dailySwabs - fourDaysAgo.positiveSwabs) + (fiveDaysAgo.dailySwabs - fiveDaysAgo.positiveSwabs) + (sixDayAgo.dailySwabs - sixDayAgo.positiveSwabs);
+              var dailySwabs = (today.dailySwabs + yesterday.dailySwabs + twoDaysAgo.dailySwabs + threeDaysAgo.dailySwabs + fourDaysAgo.dailySwabs + fiveDaysAgo.dailySwabs + sixDayAgo.dailySwabs);
               positiveSwabs.push((totalPositiveSwabs / 7).toFixed(2));
               negativeSwabs.push((totalNegativeSwabs / 7).toFixed(2));
-              percentagePositive.push(((totalPositiveSwabs * 100) / totalSwabs).toFixed(2));
+              percentagePositive.push(((totalPositiveSwabs * 100) / dailySwabs).toFixed(2));
           }
-          updateGraph(labels, positiveSwabs, negativeSwabs, percentagePositive);
+          for (var counter = initialCasesIndex; counter < dailyCasesData.length; counter += increment) {
+              var today = dailyCasesData[counter];
+              var yesterday = dailyCasesData[counter - 1];
+              var twoDaysAgo = dailyCasesData[counter - 2];
+              var threeDaysAgo = dailyCasesData[counter - 3];
+              var fourDaysAgo = dailyCasesData[counter - 4];
+              var fiveDaysAgo = dailyCasesData[counter - 5];
+              var sixDayAgo = dailyCasesData[counter - 6];
+              dailyDeathsLabel.push(prefix + today.date.toDateString());
+              dailyCasesLabel.push(prefix + today.date.toDateString());
+              var totalCases = today.cases + yesterday.cases + twoDaysAgo.cases + threeDaysAgo.cases + fourDaysAgo.cases + fiveDaysAgo.cases + sixDayAgo.cases;
+              var totalDeaths = today.deaths + yesterday.deaths + twoDaysAgo.deaths + threeDaysAgo.deaths + fourDaysAgo.deaths + fiveDaysAgo.deaths + sixDayAgo.deaths;
+              dailyCases.push((totalCases / 7).toFixed(2));
+              dailyDeaths.push((totalDeaths / 7).toFixed(2));
+              percentagePositive.push(((totalPositiveSwabs * 100) / dailySwabs).toFixed(2));
+          }
+          activeGraph = (prefix === '') ? 'rollingSevenDayAverage' : 'sevenDayAverage';
+          updateGraph(dailySwabsGraphLabels, positiveSwabs, negativeSwabs, percentagePositive, dailyCasesLabel, dailyCases, dailyDeathsLabel, dailyDeaths);
       }
 
       function weeklyTotal() {
           resetGraph();
-          var labels = new Array();
+          var dailySwabsGraphLabels = new Array();
           var positiveSwabs = new Array();
           var negativeSwabs = new Array();
           var percentagePositive = new Array();
-          for (var counter = 6; counter < graphData.length; counter++) {
-              var today = graphData[counter];
+
+          var dailyCasesLabel = new Array();
+          var dailyCases = new Array();
+
+          var dailyDeathsLabel = new Array();
+          var dailyDeaths = new Array();
+
+          for (var counter = 6; counter < swabGraphData.length; counter++) {
+              var today = swabGraphData[counter];
               if (today.date.getDay() === 6) {
-                  var yesterday = graphData[counter - 1];
-                  var twoDaysAgo = graphData[counter - 2];
-                  var threeDaysAgo = graphData[counter - 3];
-                  var fourDaysAgo = graphData[counter - 4];
-                  var fiveDaysAgo = graphData[counter - 5];
-                  var sixDayAgo = graphData[counter - 6];
-                  labels.push('Week ending ' + today.date.toDateString());
+                  var yesterday = swabGraphData[counter - 1];
+                  var twoDaysAgo = swabGraphData[counter - 2];
+                  var threeDaysAgo = swabGraphData[counter - 3];
+                  var fourDaysAgo = swabGraphData[counter - 4];
+                  var fiveDaysAgo = swabGraphData[counter - 5];
+                  var sixDayAgo = swabGraphData[counter - 6];
+                  dailySwabsGraphLabels.push('Week ending ' + today.date.toDateString());
                   var totalPositiveSwabs = today.positiveSwabs + yesterday.positiveSwabs + twoDaysAgo.positiveSwabs + threeDaysAgo.positiveSwabs + fourDaysAgo.positiveSwabs + fiveDaysAgo.positiveSwabs + sixDayAgo.positiveSwabs;
-                  var totalNegativeSwabs = (today.totalSwabs - today.positiveSwabs) + (yesterday.totalSwabs - yesterday.positiveSwabs) + (twoDaysAgo.totalSwabs - twoDaysAgo.positiveSwabs) + (threeDaysAgo.totalSwabs - threeDaysAgo.positiveSwabs) + (fourDaysAgo.totalSwabs - fourDaysAgo.positiveSwabs) + (fiveDaysAgo.totalSwabs - fiveDaysAgo.positiveSwabs) + (sixDayAgo.totalSwabs - sixDayAgo.positiveSwabs);
-                  var totalSwabs = (today.totalSwabs + yesterday.totalSwabs + twoDaysAgo.totalSwabs + threeDaysAgo.totalSwabs + fourDaysAgo.totalSwabs + fiveDaysAgo.totalSwabs + sixDayAgo.totalSwabs);
+                  var totalNegativeSwabs = (today.dailySwabs - today.positiveSwabs) + (yesterday.dailySwabs - yesterday.positiveSwabs) + (twoDaysAgo.dailySwabs - twoDaysAgo.positiveSwabs) + (threeDaysAgo.dailySwabs - threeDaysAgo.positiveSwabs) + (fourDaysAgo.dailySwabs - fourDaysAgo.positiveSwabs) + (fiveDaysAgo.dailySwabs - fiveDaysAgo.positiveSwabs) + (sixDayAgo.dailySwabs - sixDayAgo.positiveSwabs);
+                  var dailySwabs = (today.dailySwabs + yesterday.dailySwabs + twoDaysAgo.dailySwabs + threeDaysAgo.dailySwabs + fourDaysAgo.dailySwabs + fiveDaysAgo.dailySwabs + sixDayAgo.dailySwabs);
                   positiveSwabs.push(totalPositiveSwabs);
                   negativeSwabs.push(totalNegativeSwabs);
-                  percentagePositive.push(((totalPositiveSwabs * 100) / totalSwabs).toFixed(2));
+                  percentagePositive.push(((totalPositiveSwabs * 100) / dailySwabs).toFixed(2));
               }
           }
-          updateGraph(labels, positiveSwabs, negativeSwabs, percentagePositive);
+          for (var counter = 6; counter < dailyCasesData.length; counter++) {
+              var today = dailyCasesData[counter];
+              if (today.date.getDay() === 6) {
+                  var today = dailyCasesData[counter];
+                  var yesterday = dailyCasesData[counter - 1];
+                  var twoDaysAgo = dailyCasesData[counter - 2];
+                  var threeDaysAgo = dailyCasesData[counter - 3];
+                  var fourDaysAgo = dailyCasesData[counter - 4];
+                  var fiveDaysAgo = dailyCasesData[counter - 5];
+                  var sixDayAgo = dailyCasesData[counter - 6];
+                  var totalCases = today.cases + yesterday.cases + twoDaysAgo.cases + threeDaysAgo.cases + fourDaysAgo.cases + fiveDaysAgo.cases + sixDayAgo.cases;
+                  var totalDeaths = today.deaths + yesterday.deaths + twoDaysAgo.deaths + threeDaysAgo.deaths + fourDaysAgo.deaths + fiveDaysAgo.deaths + sixDayAgo.deaths;
+
+                  dailyCases.push(totalCases);
+                  dailyCasesLabel.push('Week ending ' + today.date.toDateString());
+
+                  dailyDeaths.push(totalDeaths);
+                  dailyDeathsLabel.push('Week ending ' + today.date.toDateString());
+                  percentagePositive.push(((totalPositiveSwabs * 100) / dailySwabs).toFixed(2));
+              }
+          }
+          activeGraph = "weeklyTotal";
+          updateGraph(dailySwabsGraphLabels, positiveSwabs, negativeSwabs, percentagePositive, dailyCasesLabel, dailyCases, dailyDeathsLabel, dailyDeaths);
       }
 
       function resetGraph() {
           var day = document.getElementById("day");
           day.disabled = true;
-          chartConfig.data.labels = new Array();
+          dailySwabsGraphChartConfig.data.labels = new Array();
           positiveSwabs.data = new Array();
           negativeSwabs.data = new Array();
           percentagePositive.data = new Array();
+
+          dailyCasesChartConfig.data.labels = new Array();
+          dailyCases.data = new Array();
+          
+          dailyDeathsChartConfig.data.labels = new Array();
+          dailyDeaths.data = new Array();
       }
 
-      function updateGraph(labels, positiveSwabsData, negativeSwabsData, percentagePositiveData) {
-          csv = ['Date,Total Daily Tests,Positive Daily Tests,Negative Daily Tests,% Positive,Total Tests,Total Positive Tests,Total Negative Tests,% Positive,Change in daily positive tests,Percentage change in daily positive tests'];
-          chartConfig.data.labels = labels;
+      function updateGraph(dailySwabsGraphLabels, positiveSwabsData, negativeSwabsData, percentagePositiveData, dailyCasesLabel, dailyCasesData, dailyDeathsLabel, dailyDeathsData, totalCasesData, totalDeathsData) {
+          csv = {
+          };
+          dailySwabsGraphChartConfig.data.labels = dailySwabsGraphLabels;
           positiveSwabs.data = positiveSwabsData;
           negativeSwabs.data = negativeSwabsData;
           percentagePositive.data = percentagePositiveData;
+
+          dailyCasesChartConfig.data.labels = dailyCasesLabel;
+          dailyCases.data = dailyCasesData;
+          totalCases.data = totalCasesData;
+          
+          dailyDeathsChartConfig.data.labels = dailyDeathsLabel;
+          dailyDeaths.data = dailyDeathsData;
+          totalDeaths.data = totalDeathsData
 
           var maxSwabs = 0;
           var maxPercentage = 0;
           for (var counter = 0; counter < positiveSwabsData.length; counter++) {
               var positiveSwabData = positiveSwabsData[counter];
               var negativeSwabData = negativeSwabsData[counter];
-              var totalSwabs = Number(positiveSwabData) + Number(negativeSwabData);
-              maxSwabs = Math.max(maxSwabs, totalSwabs);
+              var dailySwabs = Number(positiveSwabData) + Number(negativeSwabData);
+              maxSwabs = Math.max(maxSwabs, dailySwabs);
               maxPercentage = Math.max(maxPercentage, Number(percentagePositiveData[counter]));
           }
           maxSwabs = (Math.round(maxSwabs / 5000) * 5000) + 5000;
           maxPercentage = (Math.round(maxPercentage / 5) * 5) + 5;
           var calculatedMaxPercentage = maxSwabs / 1000;
-//          chartConfig.options.scales.yAxes[0].ticks.max = maxSwabs;
-//          chartConfig.options.scales.yAxes[1].ticks.max = maxPercentage;
-          testsVpositivityRate.update();
-
-          // Populate date table
-          var oldDataTableBody = document.getElementById('dataTable').getElementsByTagName('tbody')[0];
+          //          chartConfig.options.scales.yAxes[0].ticks.max = maxSwabs;
+          //          chartConfig.options.scales.yAxes[1].ticks.max = maxPercentage;
+          updateGraphs();
+          
+          // Populate swab data table
+          var oldDataTableBody = document.getElementById('dailySwabsDataTable').getElementsByTagName('tbody')[0];
           var newDataTableBody = document.createElement('tbody');
-          var totalTests = 0;
-          var totalPositive = 0;
-          var totalNegative = 0;
           var previousDaysPositiveTests = 0;
-          labels.forEach(function(item, index) {
+          var dailySwabsCSV = ['Date,Total Daily Tests,Positive Daily Tests,Negative Daily Tests,% Positive,Change in daily positive tests,Percentage change in daily positive tests'];
+          dailySwabsGraphLabels.forEach(function(item, index) {
               var csvData = new Array();
               // Insert date cell
               var newRow = newDataTableBody.insertRow();
@@ -933,9 +1399,6 @@
               var newText = document.createTextNode(item);
               var dailyTests = Number(positiveSwabsData[index]) + Number(negativeSwabsData[index]);
 
-              totalTests += dailyTests
-              totalPositive += Number(positiveSwabsData[index]);
-              totalNegative += Number(negativeSwabsData[index]);
               newCell.appendChild(newText);
               csvData.push(item);
 
@@ -955,23 +1418,6 @@
               createCell(newRow, percentagePositiveData[index]);
               csvData.push(percentagePositiveData[index]);
 
-              // Insert cumulative total tests cell
-              createCell(newRow, totalTests);
-              csvData.push(totalTests);
-
-              // Insert cumulative positive tests cell
-              createCell(newRow, totalPositive);
-              csvData.push(totalPositive);
-
-              // Insert cumulative negative tests cell
-              createCell(newRow, totalNegative);
-              csvData.push(totalNegative);
-
-              // Insert total % positive cell
-              var percentagePositive = ((totalPositive * 100) / totalTests).toFixed(2);
-              createCell(newRow, percentagePositive);
-              csvData.push(percentagePositive);
-
               if (index > 0) {
 
                   var changeInPositiveTests = positiveSwabsData[index] - previousDaysPositiveTests;
@@ -988,9 +1434,95 @@
                   csvData.push('-');
               }
               previousDaysPositiveTests = positiveSwabsData[index];
-              csv.push(csvData.join(','));
+              dailySwabsCSV.push(csvData.join(','))
           });
           oldDataTableBody.parentNode.replaceChild(newDataTableBody, oldDataTableBody);
+          csv.dailySwabs = dailySwabsCSV;
+          
+          // Create new cases table
+          oldDataTableBody = document.getElementById('dailyCasesDataTable').getElementsByTagName('tbody')[0];
+          newDataTableBody = document.createElement('tbody');
+          var previousDaysCases = 0;
+          var dailyCasesCSV = ['Date,Daily Cases,Change In Cases,Percentage Change In Daily Cases'];
+          dailyCasesLabel.forEach(function(item, index) {
+              var csvData = new Array();
+              var newRow = newDataTableBody.insertRow();
+              
+              // Insert date cell
+              var newCell = newRow.insertCell();
+              var newText = document.createTextNode(item);
+              
+              newCell.appendChild(newText);
+              csvData.push(item);
+
+              // Insert daily total tests cell
+              var dailyCases = dailyCasesData[index];
+              createCell(newRow, dailyCases);
+              csvData.push(dailyCases);
+
+              if (index > 0) {
+
+                  var changeInCases = dailyCases - previousDaysCases;
+                  var percentageChange = ((changeInCases * 100) / previousDaysCases).toFixed(2)
+                  createCell(newRow, changeInCases);
+                  csvData.push(changeInCases);
+                  createCell(newRow, percentageChange);
+                  csvData.push(percentageChange + '%');
+
+              } else {
+                  createCell(newRow, '-');
+                  createCell(newRow, '-');
+                  csvData.push('-');
+                  csvData.push('-');
+              }
+              previousDaysCases = dailyCases;
+              dailyCasesCSV.push(csvData.join(','))
+          });
+          csv.dailyCases = dailyCasesCSV;
+          oldDataTableBody.parentNode.replaceChild(newDataTableBody, oldDataTableBody);
+
+          // Create new deaths table
+          oldDataTableBody = document.getElementById('dailyDeathsDataTable').getElementsByTagName('tbody')[0];
+          newDataTableBody = document.createElement('tbody');
+          var previousDaysDeaths = 0;
+          var dailyDeathsCSV = ['Date,Daily Deaths,Change In Deaths,Percentage Change In Daily Deaths'];
+          dailyDeathsLabel.forEach(function(item, index) {
+              var csvData = new Array();
+              var newRow = newDataTableBody.insertRow();
+              
+              // Insert date cell
+              var newCell = newRow.insertCell();
+              var newText = document.createTextNode(item);
+              
+              newCell.appendChild(newText);
+              csvData.push(item);
+
+              // Insert daily total tests cell
+              var dailyDeaths = dailyDeathsData[index];
+              createCell(newRow, dailyDeaths);
+              csvData.push(dailyDeaths);
+
+              if (index > 0) {
+
+                  var changeInDeaths = dailyDeaths - previousDaysDeaths;
+                  var percentageChange = ((changeInDeaths * 100) / previousDaysDeaths).toFixed(2)
+                  createCell(newRow, changeInDeaths);
+                  csvData.push(changeInDeaths);
+                  createCell(newRow, percentageChange);
+                  csvData.push(percentageChange + '%');
+
+              } else {
+                  createCell(newRow, '-');
+                  createCell(newRow, '-');
+                  csvData.push('-');
+                  csvData.push('-');
+              }
+              previousDaysDeaths = dailyDeaths;
+              dailyDeathsCSV.push(csvData.join(','))
+          });
+          csv.dailyDeaths = dailyDeathsCSV;
+          oldDataTableBody.parentNode.replaceChild(newDataTableBody, oldDataTableBody);
+          updateShareLinks();
       }
 
       function createCell(tableRow, value) {
@@ -1000,49 +1532,125 @@
       }
 
       function displayGraph() {
-          var table = document.getElementById('table');
-          var graph = document.getElementById('graph');
+          var table = document.getElementById(activeData + 'Table');
+          var graph = document.getElementById(activeData + 'Graph');
           table.style.display = 'none';
-          graph.style.display = 'block'
+          graph.style.display = 'block';
+          activeDisplay = 'graph';
+          updateShareLinks();
       }
 
       function displayTable() {
-          var table = document.getElementById('table');
-          var graph = document.getElementById('graph');
+          var table = document.getElementById(activeData + 'Table');
+          var graph = document.getElementById(activeData + 'Graph');
           table.style.display = 'block';
           graph.style.display = 'none'
+          activeDisplay = 'table';
+          updateShareLinks();
       }
 
       function exportAsImage() {
-        var downloadLink = document.createElement("a");
-        downloadLink.download = "swabData.png";
-        downloadLink.href = document.getElementById('testsVpositivityRate')
-                                    .toDataURL('image/png')
-                                    .replace('image/png', 'image/octet-stream');
+          var downloadLink = document.createElement("a");
+          downloadLink.download = activeData + ".png";
+          downloadLink.href = document.getElementById(activeData + 'Graph')
+              .toDataURL('image/png')
+              .replace('image/png', 'image/octet-stream');
 
-        downloadLink.click();
+          downloadLink.click();
       }
 
       function exportAsCSV() {
-        var csvFile = csvFile = new Blob([csv.join('\n')], {type:"text/csv"});
-        var downloadLink = document.createElement("a");
-        downloadLink.download = "swabData.csv";
-        downloadLink.href = window.URL.createObjectURL(csvFile);
-        downloadLink.style.display = "none";
-        document.body.appendChild(downloadLink);
-        downloadLink.click();
+          var csvFile = csvFile = new Blob([csv[activeData].join('\n')], {
+              type: "text/csv"
+          });
+          var downloadLink = document.createElement("a");
+          downloadLink.download = activeData + ".csv";
+          downloadLink.href = window.URL.createObjectURL(csvFile);
+          downloadLink.style.display = "none";
+          document.body.appendChild(downloadLink);
+          downloadLink.click();
       }
 
-      function trendLine() {
-		var trendLine = document.getElementById('trendLine');
-		if (trendLine.checked) {
-		  positiveSwabs.trendlineLinear = positiveSwabsTrendLine;
-		  negativeSwabs.trendlineLinear = negativeSwabsTrendLine;
-		} else {
-		  positiveSwabs.trendlineLinear = null;
-		  negativeSwabs.trendlineLinear = null;
-		}
-		testsVpositivityRate.update();
+      function toggleTrendLine() {
+        var trendLine = document.getElementById('trendLine');
+        if (trendLine.checked) {
+            positiveSwabs.trendlineLinear = positiveSwabsTrendLine;
+            negativeSwabs.trendlineLinear = negativeSwabsTrendLine;
+            dailyCases.trendlineLinear = positiveSwabsTrendLine;
+            dailyDeaths.trendlineLinear = negativeSwabsTrendLine;
+        } else {
+            positiveSwabs.trendlineLinear = null;
+            negativeSwabs.trendlineLinear = null;
+            dailyCases.trendlineLinear = null;
+            dailyDeaths.trendlineLinear = null;
+        }
+        updateGraphs();
+      }
+
+      function isValidSwabData(swabData) {
+          return (swabData.positiveSwabs && swabData.dailySwabs);
+      }
+
+      function updateGraphs() {
+        dailySwabsGraph.update();
+        dailyCasesGraph.update();
+        dailyDeathsGraph.update();
+      }
+      
+      function resetData() {
+        swabGraphData = new Array();
+        
+        dailyCasesData = new Array();
+        totalCasesData = new Array();
+        
+        dailyDeathsData = new Array();
+        totalDeathsData = new Array();
+      }
+      
+      function selectData(data) {
+        var elementIds = ['dailyCases', 'dailyDeaths', 'dailySwabs'];
+        var graphOrTable = ''
+        var displayType = document.getElementsByName("displayType");
+        displayType.forEach(function(value, index) {
+            if (value.checked) {
+                graphOrTable = value.value;
+            }
+        });
+
+        document.getElementById(data + (graphOrTable === 'graph' ? 'Graph' : 'Table')).style.display = 'block';
+        document.getElementById(data + (graphOrTable === 'graph' ? 'Table' : 'Graph')).style.display = 'none';
+        elementIds.forEach(function(item) {
+          document.getElementById(item).style.display = (data === item) ? 'block' : 'none';
+        });
+        activeData = data;
+        updateShareLinks();
+      }
+      
+      function updateShareLinks() {
+        var trendLine = document.getElementById('trendLine');
+        var parameters = new Array();
+        parameters.push("dataSelection=" + activeData);
+        parameters.push("dateSelection=" + activeDate);
+        parameters.push("graphType=" + activeGraph);
+        parameters.push("displayType=" + activeDisplay);
+        parameters.push("trendLine=" + trendLine.checked);
+        var url = "https://tetsujin1979.github.io/testsVpositivity?" + encodeURIComponent(parameters.join('&'));
+        var twitterLink = document.getElementById('twitterLink');
+        
+        var text = "Take a look at this " + 
+                      {graph: 'graph', table: 'table'}[activeDisplay] +
+                    " of " + 
+                    {normal: '', rollingSevenDayAverage: 'rolling seven day average ', sevenDayAverage: 'seven day average ', byWeekday: '' , weeklyTotal: 'weekly total '}[activeGraph] +
+                    "data from daily Irish COVID 19 " + 
+                    {dailyCases : 'cases', dailyDeaths: 'deaths', dailySwabs: 'swabs'}[activeData];
+
+        twitterLink.href="https://twitter.com/intent/tweet?url=" + url + "&via=tetsujin1979&text=" + encodeURIComponent(text) + "&hashtags=COVID19Ireland"
+        
+        var facebookLink = document.getElementById('facebookLink');
+        facebookLink.href="https://www.facebook.com/sharer/sharer.php?u=" + url + "&quote=" + encodeURIComponent(text + " #COVID19Ireland");
+        
+        var emailLink = document.getElementById('emailLink');
+        emailLink.href="mailto:?subject=COVID-19 Ireland Dashboard&body=" + text + ": https://tetsujin1979.github.io/testsVpositivity?" + parameters.join('&');
       }
     </script>
   </body>
