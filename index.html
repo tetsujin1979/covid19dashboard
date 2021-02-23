@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Graphing the daily Irish COVID swab tests results against positivity rates</title>
+    <title>A dashboard of daily Irish COVID data</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-trendline"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
@@ -1634,7 +1634,7 @@
         parameters.push("graphType=" + activeGraph);
         parameters.push("displayType=" + activeDisplay);
         parameters.push("trendLine=" + trendLine.checked);
-        var url = "https://tetsujin1979.github.io/testsVpositivity?" + encodeURIComponent(parameters.join('&'));
+        var url = "https://tetsujin1979.github.io/covid19dashboard?" + encodeURIComponent(parameters.join('&'));
         var twitterLink = document.getElementById('twitterLink');
         
         var text = "Take a look at this " + 
@@ -1650,7 +1650,7 @@
         facebookLink.href="https://www.facebook.com/sharer/sharer.php?u=" + url + "&quote=" + encodeURIComponent(text + " #COVID19Ireland");
         
         var emailLink = document.getElementById('emailLink');
-        emailLink.href="mailto:?subject=COVID-19 Ireland Dashboard&body=" + text + ": https://tetsujin1979.github.io/testsVpositivity?" + parameters.join('&');
+        emailLink.href="mailto:?subject=COVID-19 Ireland Dashboard&body=" + text + ": https://tetsujin1979.github.io/covid19dashboard?" + parameters.join('&');
       }
     </script>
   </body>
