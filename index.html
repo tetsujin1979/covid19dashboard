@@ -1188,10 +1188,12 @@
 
           var dailyCasesLabel = new Array();
           var dailyCases = new Array();
-
+          var totalCasesData = new Array();
+          
           var dailyDeathsLabel = new Array();
           var dailyDeaths = new Array();
-
+          var totalDeathsData = new Array();
+          
           swabGraphData.forEach(function(value, index) {
               if (value.date.getDay() == day.value) {
                   dailySwabsGraphLabels.push(value.date.toDateString());
@@ -1205,6 +1207,7 @@
               if (value.date.getDay() == day.value) {
                 dailyCasesLabel.push(value.date.toDateString());
                 dailyCases.push(value.cases);
+                totalCasesData.push(value.totalCases);
               }
           });
 
@@ -1212,10 +1215,11 @@
               if (value.date.getDay() == day.value) {
                 dailyDeathsLabel.push(value.date.toDateString());
                 dailyDeaths.push(value.deaths);
+                totalDeathsData.push(value.totalDeaths);
               }
           });
           activeGraph = 'byWeekday';
-          updateGraph(dailySwabsGraphLabels, positiveSwabs, negativeSwabs, percentagePositive, dailyCasesLabel, dailyCases, dailyDeathsLabel, dailyDeaths);
+          updateGraph(dailySwabsGraphLabels, positiveSwabs, negativeSwabs, percentagePositive, dailyCasesLabel, dailyCases, dailyDeathsLabel, dailyDeaths, totalCasesData, totalDeathsData);
       }
 
       function dayAverage(increment, prefix) {
@@ -1228,9 +1232,11 @@
 
           var dailyCasesLabel = new Array();
           var dailyCases = new Array();
+          var totalCasesData = new Array();
 
           var dailyDeathsLabel = new Array();
           var dailyDeaths = new Array();
+          var totalDeathsData = new Array();
 
           var initialTestsIndex = 0;
           var initialCasesIndex = 0;
@@ -1262,6 +1268,7 @@
               positiveSwabs.push((totalPositiveSwabs / 7).toFixed(2));
               negativeSwabs.push((totalNegativeSwabs / 7).toFixed(2));
               percentagePositive.push(((totalPositiveSwabs * 100) / dailySwabs).toFixed(2));
+              totalCasesData.push(today.totalCases);
           }
           for (var counter = initialCasesIndex; counter < dailyCasesData.length; counter += increment) {
               var today = dailyCasesData[counter];
@@ -1278,9 +1285,10 @@
               dailyCases.push((totalCases / 7).toFixed(2));
               dailyDeaths.push((totalDeaths / 7).toFixed(2));
               percentagePositive.push(((totalPositiveSwabs * 100) / dailySwabs).toFixed(2));
+              totalDeathsData.push(today.totalDeaths);
           }
           activeGraph = (prefix === '') ? 'rollingSevenDayAverage' : 'sevenDayAverage';
-          updateGraph(dailySwabsGraphLabels, positiveSwabs, negativeSwabs, percentagePositive, dailyCasesLabel, dailyCases, dailyDeathsLabel, dailyDeaths);
+          updateGraph(dailySwabsGraphLabels, positiveSwabs, negativeSwabs, percentagePositive, dailyCasesLabel, dailyCases, dailyDeathsLabel, dailyDeaths, totalCasesData, totalDeathsData);
       }
 
       function weeklyTotal() {
@@ -1526,9 +1534,11 @@
       }
 
       function createCell(tableRow, value) {
+        if (value) {
           var cell = tableRow.insertCell();
           var newText = document.createTextNode(value.toString().includes('.') ? Number(value).toFixed(2) : value);
           cell.appendChild(newText);
+        }
       }
 
       function displayGraph() {
