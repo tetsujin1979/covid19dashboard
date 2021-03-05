@@ -29,7 +29,7 @@ function DailySwabs() {
     data: [],
     backgroundColor: "transparent",
     borderColor: "red",
-    borderWidth: 0,
+    borderWidth: 4,
     yAxisID: "PercentagePositiveAxis",
     type: "line"
   };

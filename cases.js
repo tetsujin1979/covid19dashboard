@@ -20,7 +20,7 @@ function DailyCases() {
     data: [],
     backgroundColor: "transparent",
     borderColor: "rgba(63, 63, 191, 0.6)",
-    borderWidth: 2,
+    borderWidth: 4,
     type: "line",
     yAxisID: "totalCasesAxis"
   };

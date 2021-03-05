@@ -20,7 +20,7 @@ function DailyDeaths(items) {
     data: [],
     backgroundColor: "transparent",
     borderColor: "rgba(237, 100, 127, .6)",
-    borderWidth: 2,
+    borderWidth: 4,
     type: "line",
     yAxisID: "totalDeathsAxis"
   };
