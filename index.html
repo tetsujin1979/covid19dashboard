@@ -147,10 +147,10 @@
       const parameterList = new URLSearchParams(window.location.search);
       const graphs = [cases, deaths, swabs];
       const today = new Date().getDay();
-
+       
       let activeDate = 'lastTwoMonths';
-      var activeGraph = 'normal';
-      var activeDisplay = 'graph';
+      let activeGraph = 'normal';
+      let activeDisplay = 'graph';
       let dayOptions = document.getElementById("day").options;
       let graph = {};
 
