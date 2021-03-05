@@ -25,12 +25,13 @@ function DailySwabs() {
   };
 
   thisObject.percentagePositive = {
-      label: "% Positive",
-      data: [],
-      borderColor: "red",
-      borderWidth: 0,
-      yAxisID: "PercentagePositiveAxis",
-      type: "line"
+    label: "% Positive",
+    data: [],
+    backgroundColor: "transparent",
+    borderColor: "red",
+    borderWidth: 0,
+    yAxisID: "PercentagePositiveAxis",
+    type: "line"
   };
   
   thisObject.chartConfig = {

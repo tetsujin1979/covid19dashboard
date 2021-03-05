@@ -28,6 +28,7 @@ function DailyVaccinations() {
   thisObject.populationFirstDose = {
       label: "% of Population - 1st Dose",
       data: [],
+      backgroundColor: "transparent",
       borderColor: "red",
       borderWidth: 0,
       yAxisID: "VaccinatedAxis",
@@ -37,6 +38,7 @@ function DailyVaccinations() {
   thisObject.populationSecondDose = {
       label: "% of Population - 2nd Dose",
       data: [],
+      backgroundColor: "transparent",
       borderColor: "green",
       borderWidth: 0,
       yAxisID: "VaccinatedAxis",
