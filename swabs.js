@@ -41,66 +41,66 @@ function DailySwabs() {
       datasets: [thisObject.positiveSwabs, thisObject.negativeSwabs, thisObject.percentagePositive]
     },
     options: {
-    scales: {
-        xAxes: [{
-            stacked: true
-        }],
-        yAxes: [{
-            id: "SwabsAxis",
-            stacked: true,
-            position: "left",
-            ticks: {
-                beginAtZero: true
-            },
-            scaleLabel: {
-                display: true,
-                labelString: "Total Tests"
-            }
-        }, {
-            id: "PercentagePositiveAxis",
-            position: "right",
-            ticks: {
-                beginAtZero: true
-            },
-            gridLines: {
-                display: false
-            },
-            scaleLabel: {
-                display: true,
-                labelString: "% Positive"
-            }
-        }]
-    },
-    tooltips: {
-      mode: 'label',
+      scales: {
+          xAxes: [{
+              stacked: true
+          }],
+          yAxes: [{
+              id: "SwabsAxis",
+              stacked: true,
+              position: "left",
+              ticks: {
+                  beginAtZero: true
+              },
+              scaleLabel: {
+                  display: true,
+                  labelString: "Total Tests"
+              }
+          }, {
+              id: "PercentagePositiveAxis",
+              position: "right",
+              ticks: {
+                  beginAtZero: true
+              },
+              gridLines: {
+                  display: false
+              },
+              scaleLabel: {
+                  display: true,
+                  labelString: "% Positive"
+              }
+          }]
+      },
+      tooltips: {
+        mode: 'label',
         callbacks: {
-            label: function (tooltipItem, data) {
-                  let datasetLabel = data.datasets[tooltipItem.datasetIndex].label;
-                  let datasetValue = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
-                  let total = 0;
-                  let percentageChange = 0;
-                  let difference = 0;
-                  for (let i = 0; i < data.datasets.length; i++) {
-                    if (data.datasets[i].label != '% Positive') {
-                      total += Number(data.datasets[i].data[tooltipItem.index]);
-                    }
-                    if (data.datasets[i].label === 'Positive Tests' && tooltipItem.index > 0) {
-                      let previousValue = Number(data.datasets[i].data[tooltipItem.index - 1]);
-                      let currentValue = Number(data.datasets[i].data[tooltipItem.index]);
-                      difference = currentValue - previousValue;
-                      percentageChange = ((difference * 100) / previousValue).toFixed(2);
-                    }
-                  }
-                  if (tooltipItem.datasetIndex != data.datasets.length - 1) {
-                      return datasetLabel + ": " + datasetValue;
-                  } else {
-                      total = total.toString().includes('.') ? total.toFixed(2) : total;
-                      difference = difference.toString().includes('.') ? difference.toFixed(2) : difference;
-                      return ['Total Tests: ' + total, 'Difference: ' + difference, '% Difference: ' + percentageChange + '%', datasetLabel + ": " + datasetValue];
-                  }
+          label: function (tooltipItem, data) {
+            let datasetLabel = data.datasets[tooltipItem.datasetIndex].label;
+            let datasetValue = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+            let total = 0;
+            let percentageChange = 0;
+            let difference = 0;
+            for (let i = 0; i < data.datasets.length; i++) {
+              if (data.datasets[i].label != '% Positive') {
+                total += Number(data.datasets[i].data[tooltipItem.index]);
+              }
+              if (data.datasets[i].label === 'Positive Tests' && tooltipItem.index > 0) {
+                let previousValue = Number(data.datasets[i].data[tooltipItem.index - 1]);
+                let currentValue = Number(data.datasets[i].data[tooltipItem.index]);
+                difference = currentValue - previousValue;
+                percentageChange = ((difference * 100) / previousValue).toFixed(2);
               }
             }
+            if (tooltipItem.datasetIndex != data.datasets.length - 1) {
+                return datasetLabel + ": " + datasetValue;
+            } else {
+                total = total.toString().includes('.') ? total.toFixed(2) : total;
+                difference = difference.toString().includes('.') ? difference.toFixed(2) : difference;
+                return ['Total Tests: ' + total, 'Difference: ' + difference, '% Difference: ' + percentageChange + '%', datasetLabel + ": " + datasetValue];
+            }
+          }
         }
+      }
     }
   };
 
