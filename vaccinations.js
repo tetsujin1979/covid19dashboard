@@ -2,6 +2,7 @@ function DailyVaccinations() {
   const thisObject = this;
   const csvHeader = ['Date,First Dose,Second Dose,Total,% Population With 1st Dose, % Population with 2nd Dose'];
   const population = 4977400;
+
   thisObject.data = new Array();
   thisObject.graphData = new Array();
   thisObject.name = 'vaccinations';
@@ -78,12 +79,33 @@ function DailyVaccinations() {
           },
           scaleLabel: {
             display: true,
-            labelString: "% Positive"
+            labelString: "% Of Population Vaccinated"
           }
         }]
       },
       tooltips: {
-        mode: 'label'
+        mode: 'label',
+        callbacks: {
+          label: function (tooltipItem, data) {
+            let datasetLabel = data.datasets[tooltipItem.datasetIndex].label;
+            let datasetValue = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+            let total = 0;
+            let percentageChange = 0;
+            let difference = 0;
+            for (let i = 0; i < data.datasets.length; i++) {
+              if (!data.datasets[i].label.includes('%')) {
+                total += Number(data.datasets[i].data[tooltipItem.index]);
+              }
+            }
+            if (datasetLabel.includes('Second Dose')) {
+                total = total.toString().includes('.') ? total.toFixed(2) : total;
+                difference = difference.toString().includes('.') ? difference.toFixed(2) : difference;
+                return [datasetLabel + ": " + datasetValue, 'Total Doses: ' + total];
+            } else {
+                return datasetLabel + ": " + datasetValue;
+            }
+          }
+        }
       }
     }
   };
