@@ -20,16 +20,16 @@
         <fieldset>
           <legend>Source data</legend>
           <div>
-            <input type ="radio" name="dataSelection" value="dailyCases" onclick="selectData(cases)"> Cases
+            <input type ="radio" name="dataSelection" value="cases" onclick="selectData(cases)"> Cases
           </div>
           <div>
-            <input type="radio" name="dataSelection" value="dailyDeaths" onclick="selectData(deaths)"> Deaths
+            <input type="radio" name="dataSelection" value="deaths" onclick="selectData(deaths)"> Deaths
           </div>
           <div>
-            <input type="radio" name="dataSelection" value="dailySwabs" onclick="selectData(swabs)"> Swabs
+            <input type="radio" name="dataSelection" value="swabs" onclick="selectData(swabs)"> Swabs
           </div>
           <div>
-            <input type="radio" name="dataSelection" value="dailyVaccinations" onclick="selectData(vaccinations)"> Vaccinations
+            <input type="radio" name="dataSelection" value="vaccinations" onclick="selectData(vaccinations)"> Vaccinations
           </div>
         </fieldset>
         <fieldset>
@@ -181,8 +181,6 @@
         }
       }
       
-      //populateStartAndEndDates();
-        
       const chartContext = document.getElementById('graph').getContext('2d');      
       const chart = new Chart(chartContext, {
         type: "bar",
@@ -197,7 +195,7 @@
       trendLineParameter = trendLineParameter ? (trendLineParameter == "true") : true;
       document.getElementById("trendLine").checked = trendLineParameter;
 
-      processParameter("dataSelection", "dailyCases");
+      processParameter("dataSelection", "cases");
       processParameter("dateSelection", "lastTwoMonths");
       processParameter("graphType", "normal");
       processParameter("displayType", "graph");      
@@ -469,7 +467,7 @@
         facebookLink.href="https://www.facebook.com/sharer/sharer.php?u=" + url + "&quote=" + encodeURIComponent(text + " #COVID19Ireland");
         
         let emailLink = document.getElementById('emailLink');
-        emailLink.href="mailto:?subject=COVID-19 Ireland Dashboard&body=" + text + ": https://tetsujin1979.github.io/covid19dashboard?" + parameters.join('&amp;');
+        emailLink.href="mailto:?subject=COVID-19 Ireland Dashboard&body=" + encodeURIComponent(text + ": https://tetsujin1979.github.io/covid19dashboard?" + parameters.join('&'));
       }
     </script>
   </body>
