@@ -13,9 +13,10 @@
       <div style="width: 80%; padding: 15px; text-align: left;">
         <fieldset>
           <legend>Share</legend>
-          <a id="twitterLink" target="_blank"><img class="share-link" src="twitter.svg"></img></a>
-          <a id="facebookLink" target="_blank"><img class="share-link" src="facebook.svg"></img></a>
-          <a id="emailLink" target="_blank" ><img class="share-link" src="email.svg"></img></a>
+          <a id="twitterLink" title="Share on twitter" target="_blank"><img class="share-link" src="twitter.svg"></img></a>
+          <a id="facebookLink" title="Share on facebook" target="_blank"><img class="share-link" src="facebook.svg"></img></a>
+          <a id="emailLink" title="Share via email" target="_blank" ><img class="share-link" src="email.svg"></img></a>
+          <img title="Copy link to clipboard" onmouseover='this.style.cursor="pointer"' class="share-link" src="link.svg" onclick="navigator.clipboard.writeText(link).then(alert('Link copied'));"></img>
         </fieldset>
         <fieldset>
           <legend>Source data</legend>
@@ -147,7 +148,8 @@
       const parameterList = new URLSearchParams(window.location.search);
       const graphs = [cases, deaths, swabs];
       const today = new Date().getDay();
-       
+      
+      let link = "";
       let activeDate = 'lastTwoMonths';
       let activeGraph = 'normal';
       let activeDisplay = 'graph';
@@ -468,6 +470,8 @@
         
         let emailLink = document.getElementById('emailLink');
         emailLink.href="mailto:?subject=COVID-19 Ireland Dashboard&body=" + encodeURIComponent(text + ": https://tetsujin1979.github.io/covid19dashboard?" + parameters.join('&'));
+        
+        link = "https://tetsujin1979.github.io/covid19dashboard?" + parameters.join('&');
       }
     </script>
   </body>
