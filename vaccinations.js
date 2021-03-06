@@ -27,7 +27,7 @@ function DailyVaccinations() {
   };
 
   thisObject.populationFirstDose = {
-    label: "% of Population - 1st Dose",
+    label: "Population - 1st Dose",
     data: [],
     backgroundColor: "transparent",
     borderColor: "red",
@@ -37,7 +37,7 @@ function DailyVaccinations() {
   };
   
   thisObject.populationSecondDose = {
-    label: "% of Population - 2nd Dose",
+    label: "Population - 2nd Dose",
     data: [],
     backgroundColor: "transparent",
     borderColor: "green",
@@ -79,7 +79,7 @@ function DailyVaccinations() {
           },
           scaleLabel: {
             display: true,
-            labelString: "% Of Population Vaccinated"
+            labelString: "Population Vaccinated"
           }
         }]
       },
@@ -98,9 +98,15 @@ function DailyVaccinations() {
               }
             }
             if (datasetLabel.includes('Second Dose')) {
-                total = total.toString().includes('.') ? total.toFixed(2) : total;
-                difference = difference.toString().includes('.') ? difference.toFixed(2) : difference;
-                return [datasetLabel + ": " + datasetValue, 'Total Doses: ' + total];
+              total = total.toString().includes('.') ? total.toFixed(2) : total;
+              difference = difference.toString().includes('.') ? difference.toFixed(2) : difference;
+              return [datasetLabel + ": " + datasetValue, 'Total Doses: ' + total];
+            } if (datasetLabel.includes('Population - 1st Dose')) {
+              let percentageVaccinated = ((datasetValue * 100) / population).toFixed(2);
+              return datasetLabel + ": " + datasetValue + '(' + percentageVaccinated + '%)';
+            } if (datasetLabel.includes('Population - 2nd Dose')) {
+              let percentageVaccinated = ((datasetValue * 100) / population).toFixed(2);
+              return datasetLabel + ": " + datasetValue + '(' + percentageVaccinated + '%)';              
             } else {
                 return datasetLabel + ": " + datasetValue;
             }
@@ -176,8 +182,8 @@ function DailyVaccinations() {
       thisObject.chartConfig.data.labels.push(value.date.toDateString());
       thisObject.firstDose.data.push(value.firstDose);
       thisObject.secondDose.data.push(value.secondDose);
-      thisObject.populationFirstDose.data.push(value.populationFirstDose);
-      thisObject.populationSecondDose.data.push(value.populationSecondDose);
+      thisObject.populationFirstDose.data.push(value.totalFirstDose);
+      thisObject.populationSecondDose.data.push(value.totalSecondDose);
     });
   };
   
@@ -202,8 +208,8 @@ function DailyVaccinations() {
         thisObject.chartConfig.data.labels.push(value.date.toDateString());
         thisObject.firstDose.data.push(value.firstDose);
         thisObject.secondDose.data.push(value.secondDose);
-        thisObject.populationFirstDose.data.push(value.populationFirstDose);
-        thisObject.populationSecondDose.data.push(value.populationSecondDose);
+        thisObject.populationFirstDose.data.push(value.totalFirstDose);
+        thisObject.populationSecondDose.data.push(value.totalSecondDose);
       }
     });
   };
@@ -232,8 +238,8 @@ function DailyVaccinations() {
       thisObject.chartConfig.data.labels.push(prefix + today.date.toDateString());
       thisObject.firstDose.data.push((totalFirstDose / 7).toFixed(2));
       thisObject.secondDose.data.push((totalSecondDose / 7).toFixed(2));
-      thisObject.populationFirstDose.data.push(today.populationFirstDose);
-      thisObject.populationSecondDose.data.push(today.populationSecondDose);
+      thisObject.populationFirstDose.data.push(today.totalFirstDose);
+      thisObject.populationSecondDose.data.push(today.totalSecondDose);
     }
   };
   
@@ -264,8 +270,8 @@ function DailyVaccinations() {
         thisObject.chartConfig.data.labels.push('Week ending ' + today.date.toDateString());
         thisObject.firstDose.data.push(totalFirstDose);
         thisObject.secondDose.data.push(totalSecondDose);
-        thisObject.populationFirstDose.data.push(today.populationFirstDose);
-        thisObject.populationSecondDose.data.push(today.populationSecondDose);
+        thisObject.populationFirstDose.data.push(today.totalFirstDose);
+        thisObject.populationSecondDose.data.push(today.totalSecondDose);
       }
     }
   };
@@ -292,8 +298,8 @@ function DailyVaccinations() {
       createCell(newRow, totalDoses);
       createCell(newRow, totalFirstDose);
       createCell(newRow, totalSecondDose);
-      createCell(newRow, item.populationFirstDose);
-      createCell(newRow, item.populationSecondDose);
+      createCell(newRow, item.totalFirstDose);
+      createCell(newRow, item.totalSecondDose);
     });
     return tableBody;
   };
@@ -311,8 +317,8 @@ function DailyVaccinations() {
       csvData.push(item.firstDose);
       csvData.push(item.secondDose);
       csvData.push(totalDoses);
-      csvData.push(item.populationFirstDose);
-      csvData.push(item.populationSecondDose);
+      csvData.push(item.totalFirstDose);
+      csvData.push(item.totalSecondDose);
       retVal.push(csvData.join(','))
     });
     return retVal.join("\n");
