@@ -50,7 +50,7 @@ function DailyVaccinations() {
     type: "bar",
     data: {
       labels: [],
-      datasets: [thisObject.firstDose, thisObject.secondDose, thisObject.populationFirstDose, thisObject.populationSecondDose]
+      datasets: [thisObject.populationFirstDose, thisObject.populationSecondDose, thisObject.firstDose, thisObject.secondDose]
     },
     options: {
       scales: {
@@ -89,26 +89,27 @@ function DailyVaccinations() {
           label: function (tooltipItem, data) {
             let datasetLabel = data.datasets[tooltipItem.datasetIndex].label;
             let datasetValue = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
-            let total = 0;
-            let percentageChange = 0;
-            let difference = 0;
+            let totalDailyDose = 0;
+            let totalVaccinesAdministered = 0;
             for (let i = 0; i < data.datasets.length; i++) {
-              if (!data.datasets[i].label.includes('%')) {
-                total += Number(data.datasets[i].data[tooltipItem.index]);
+              if (data.datasets[i].label === 'First Dose' || data.datasets[i].label === 'Second Dose') {
+                totalDailyDose += Number(data.datasets[i].data[tooltipItem.index]);
+              }
+              if (data.datasets[i].label === 'Population - 1st Dose' || data.datasets[i].label === 'Population - 2nd Dose') {
+                totalVaccinesAdministered += Number(data.datasets[i].data[tooltipItem.index]);
               }
             }
             if (datasetLabel.includes('Second Dose')) {
-              total = total.toString().includes('.') ? total.toFixed(2) : total;
-              difference = difference.toString().includes('.') ? difference.toFixed(2) : difference;
-              return [datasetLabel + ": " + datasetValue, 'Total Doses: ' + total];
+              totalDailyDose = totalDailyDose.toString().includes('.') ? roundToTwo(totalDailyDose) : totalDailyDose;
+              return [datasetLabel + ": " + Number(datasetValue).toLocaleString('en'), 'Total Doses: ' + totalDailyDose.toLocaleString('en')];
             } if (datasetLabel.includes('Population - 1st Dose')) {
               let percentageVaccinated = ((datasetValue * 100) / population).toFixed(2);
-              return datasetLabel + ": " + datasetValue + '(' + percentageVaccinated + '%)';
+              return datasetLabel + ": " + datasetValue.toLocaleString('en') + '(' + percentageVaccinated + '%)';
             } if (datasetLabel.includes('Population - 2nd Dose')) {
               let percentageVaccinated = ((datasetValue * 100) / population).toFixed(2);
-              return datasetLabel + ": " + datasetValue + '(' + percentageVaccinated + '%)';              
+              return [datasetLabel + ": " + datasetValue.toLocaleString('en') + '(' + percentageVaccinated + '%)', 'Total Doses Administered: ' + totalVaccinesAdministered.toLocaleString('en')];
             } else {
-                return datasetLabel + ": " + datasetValue;
+                return datasetLabel + ": " + Number(datasetValue).toLocaleString('en');
             }
           }
         }
