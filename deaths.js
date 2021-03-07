@@ -19,7 +19,7 @@ function DailyDeaths(items) {
     label: "Total Deaths",
     data: [],
     backgroundColor: "transparent",
-    borderColor: "rgba(237, 100, 127, .6)",
+    borderColor: "red",
     borderWidth: 4,
     type: "line",
     yAxisID: "totalDeathsAxis"
@@ -56,7 +56,7 @@ function DailyDeaths(items) {
               },
               scaleLabel: {
                   display: true,
-                  labelString: "Total Cases"
+                  labelString: "Total Deaths"
               }
           }]
         },
@@ -79,11 +79,11 @@ function DailyDeaths(items) {
                 }
 
                 if (tooltipItem.datasetIndex != data.datasets.length - 1) {
-                    return datasetLabel + ": " + datasetValue;
+                    return datasetLabel + ": " + Number(datasetValue).toLocaleString('en');
                 } else {
                     total = total.toString().includes('.') ? total.toFixed(2) : total;
-                    difference = difference.toString().includes('.') ? difference.toFixed(2) : difference;
-                    let retVal = [datasetLabel + ": " + datasetValue, 'Difference: ' + difference];
+                    difference = difference.toString().includes('.') ? roundToTwo(difference) : difference;
+                    let retVal = [datasetLabel + ": " + Number(datasetValue).toLocaleString('en'), 'Difference: ' + Number(difference).toLocaleString('en')];
                     if (percentageChange !== "Infinity") {
                       retVal.push('% Difference: ' + percentageChange + '%');
                     }
