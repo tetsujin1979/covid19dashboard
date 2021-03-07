@@ -38,7 +38,7 @@ function DailySwabs() {
     type: "bar",
     data: {
       labels: [],
-      datasets: [thisObject.positiveSwabs, thisObject.negativeSwabs, thisObject.percentagePositive]
+      datasets: [thisObject.percentagePositive, thisObject.positiveSwabs, thisObject.negativeSwabs]
     },
     options: {
       scales: {
@@ -92,11 +92,14 @@ function DailySwabs() {
               }
             }
             if (tooltipItem.datasetIndex != data.datasets.length - 1) {
-                return datasetLabel + ": " + datasetValue;
+                return datasetLabel + ": " + Number(datasetValue).toLocaleString('en');
             } else {
-                total = total.toString().includes('.') ? total.toFixed(2) : total;
-                difference = difference.toString().includes('.') ? difference.toFixed(2) : difference;
-                return ['Total Tests: ' + total, 'Difference: ' + difference, '% Difference: ' + percentageChange + '%', datasetLabel + ": " + datasetValue];
+                total = total.toString().includes('.') ? roundToTwo(total) : total;
+                difference = difference.toString().includes('.') ? roundToTwo(difference) : difference;
+                return ['Total Tests: ' + total.toLocaleString('en'), 
+                        'Difference: ' + difference.toLocaleString('en'), 
+                        '% Difference: ' + percentageChange + '%', 
+                        datasetLabel + ": " + datasetValue.toLocaleString('en')];
             }
           }
         }
