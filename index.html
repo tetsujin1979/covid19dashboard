@@ -473,6 +473,10 @@
         
         link = "https://tetsujin1979.github.io/covid19dashboard?" + parameters.join('&');
       }
+      
+      function roundToTwo(value) {
+        return Number(Math.round(value + 'e' + 2) + 'e-' + 2);
+      }
     </script>
   </body>
 </html>
