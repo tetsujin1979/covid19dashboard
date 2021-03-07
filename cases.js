@@ -77,11 +77,11 @@ function DailyCases() {
                 }
 
                 if (tooltipItem.datasetIndex != data.datasets.length - 1) {
-                    return datasetLabel + ": " + datasetValue;
+                    return datasetLabel + ": " + Number(datasetValue).toLocaleString('en');
                 } else {
-                    total = total.toString().includes('.') ? total.toFixed(2) : total;
-                    difference = difference.toString().includes('.') ? difference.toFixed(2) : difference;
-                    let retVal = [datasetLabel + ": " + datasetValue, 'Difference: ' + difference];
+                    total = total.toString().includes('.') ? roundToTwo(total) : total;
+                    difference = difference.toString().includes('.') ? roundToTwo(difference) : difference;
+                    let retVal = [datasetLabel + ": " + Number(datasetValue).toLocaleString('en'), 'Difference: ' + Number(difference).toLocaleString('en')];
                     if (percentageChange !== "Infinity") {
                       retVal.push('% Difference: ' + percentageChange + '%');
                     }
