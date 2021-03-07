@@ -1,2 +1,2 @@
 # covid19dashboard
-Graphing the daily COVID swab results in Ireland V the positivity rate
+A dashboard of charts from the publicly available data on COVID spread and treatment in Ireland
