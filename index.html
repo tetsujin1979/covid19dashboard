@@ -241,12 +241,12 @@
         let twoMonthViewSelect = document.getElementById('twoMonthView');
         let currentValue = twoMonthViewSelect.value;
         twoMonthViewSelect.innerHTML = '';
-        for (var counter = 0; counter < (options.length - 1); counter++) {
-          var startDate = new Date(options[counter]);
-          var endDate = new Date(options[counter + 1]);
+        for (let counter = 0; counter < (options.length - 1); counter++) {
+          let startDate = new Date(options[counter]);
+          let endDate = new Date(options[counter + 1]);
           endDate.setMonth(endDate.getMonth() + 1);
           endDate.setDate(0);
-          var twoMonthOption = document.createElement('option');
+          let twoMonthOption = document.createElement('option');
           twoMonthOption.value = startDate.getTime() + '|' + endDate.getTime();
           twoMonthOption.innerHTML = months[startDate.getMonth()] + ' ' + startDate.getFullYear() + ' - ' + months[endDate.getMonth()] + ' ' + endDate.getFullYear();
           if (twoMonthOption.value == currentValue) {
