@@ -332,6 +332,8 @@
         let selectEndDate = document.getElementById('endDate');
         let currentStartDate = selectStartDate.value;
         let currentEndDate = selectEndDate.value;
+        let startDateSelected = false;
+        let endDateSelected = false;
         selectStartDate.innerHTML = '';
         selectEndDate.innerHTML = '';
         graph.data.forEach(function(item, index) {
@@ -341,9 +343,11 @@
             startOpt.innerHTML = item.date.toDateString();
             if (currentStartDate != '' && startOpt.value == currentStartDate) {
               startOpt.selected = true;
+              startDateSelected = true;
             }
             if (currentStartDate === '' && index === 0) {
               startOpt.selected = true;
+              startDateSelected = true;
             }
             selectStartDate.appendChild(startOpt);
           }
@@ -353,14 +357,21 @@
             endOpt.innerHTML = item.date.toDateString();
             if (currentStartDate != '' && endOpt.value == currentEndDate) {
               endOpt.selected = true;
+              endDateSelected = true;
             }
             if (currentStartDate === '') {
               endOpt.selected = true;
+              endDateSelected = true;
             }
             selectEndDate.appendChild(endOpt);
           }
         });
-        
+        if(!startDateSelected) {
+          selectStartDate.options[0].selected = true;
+        }        
+        if(!endDateSelected) {
+          selectEndDate.options[selectEndDate.options.length - 1].selected = true;
+        }        
       }
 
       function standardGraph() {
@@ -478,7 +489,7 @@
                     " of " + 
                     {normal: '', rollingSevenDayAverage: 'rolling seven day average ', sevenDayAverage: 'seven day average ', byWeekday: '' , weeklyTotal: 'weekly total '}[activeGraph] +
                     "data from daily Irish COVID 19 " + 
-                    {dailyCases : 'cases', dailyDeaths: 'deaths', dailySwabs: 'swabs'}[graph.name];
+                    graph.name;
 
         twitterLink.href="https://twitter.com/intent/tweet?url=" + url + "&via=tetsujin1979&text=" + encodeURIComponent(text) + "&hashtags=COVID19Ireland"
         
