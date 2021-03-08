@@ -96,10 +96,14 @@ function DailySwabs() {
             } else {
                 total = total.toString().includes('.') ? roundToTwo(total) : total;
                 difference = difference.toString().includes('.') ? roundToTwo(difference) : difference;
-                return ['Total Tests: ' + total.toLocaleString('en'), 
-                        'Difference: ' + difference.toLocaleString('en'), 
-                        '% Difference: ' + percentageChange + '%', 
-                        datasetLabel + ": " + datasetValue.toLocaleString('en')];
+                let retVal = ['Total Tests: ' + total.toLocaleString('en')];
+                if (tooltipItem.index > 0) {
+                  retVal.push('Difference: ' + difference.toLocaleString('en'));
+                  retVal.push('% Difference: ' + percentageChange + '%');
+
+                }
+                retVal.push(datasetLabel + ": " + datasetValue.toLocaleString('en'));
+                return retVal;
             }
           }
         }
@@ -109,7 +113,7 @@ function DailySwabs() {
 
   thisObject.populateData = function(items) {
     items.forEach(function(item, index) { 
-      if (item.date && item.positiveSwabs && item.dailySwabs) {
+      if (item.hasOwnProperty("date") && item.hasOwnProperty("positiveSwabs") && item.hasOwnProperty("dailySwabs")) {
         let percentagePositive = ((item.positiveSwabs * 100) / item.dailySwabs).toFixed(2);
         let swabData = {
           date: item.date,
