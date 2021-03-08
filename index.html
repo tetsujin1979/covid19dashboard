@@ -197,11 +197,33 @@
       trendLineParameter = trendLineParameter ? (trendLineParameter == "true") : true;
       document.getElementById("trendLine").checked = trendLineParameter;
 
-      processParameter("dataSelection", "cases");
-      processParameter("dateSelection", "lastTwoMonths");
-      processParameter("graphType", "normal");
       processParameter("displayType", "graph");      
-      
+      processParameter("graphType", "normal");
+      processParameter("dateSelection", "lastTwoMonths");
+      let dataSelection = processParameter("dataSelection", "cases");
+      dataSelection.onclick();
+      if (document.querySelector('input[name="dateSelection"]:checked').value === 'betweenDates') {
+        let startDate = new Date(parameterList.get('startDate'));
+        let endDate = new Date(parameterList.get('endDate'));
+        document.getElementById('startDate').value = parameterList.get('startDate');
+        document.getElementById('endDate').value = parameterList.get('endDate');
+        populateStartAndEndDates(startDate, endDate);
+        dataSelection.onclick();
+      }
+
+      function processParameter(parameterName, defaultValue) {
+        let parameterValue = parameterList.get(parameterName);
+        let retVal = null;
+        parameterValue = parameterValue ? parameterValue : defaultValue;
+        document.getElementsByName(parameterName).forEach(function(item) {
+          if (item.value === parameterValue) {
+            item.checked = true;
+            retVal = item;
+          }
+        });
+        return retVal;
+      }
+
       function selectData(newGraph) {
         graph = newGraph;
         populateTwoMonthView(graph.twoMonthViewOptions());
@@ -290,17 +312,6 @@
         });
       }
 
-      function processParameter(parameterName, defaultValue) {
-        let parameterValue = parameterList.get(parameterName);
-        parameterValue = parameterValue ? parameterValue : defaultValue;
-        document.getElementsByName(parameterName).forEach(function(item) {
-          if (item.value === parameterValue) {
-            item.checked = true;
-            item.onclick();
-          }
-        });
-      }
-      
       function disableStartAndEndDates() {
         let selectStartDate = document.getElementById('startDate');
         let selectEndDate = document.getElementById('endDate');
@@ -448,8 +459,14 @@
       function updateShareLinks() {
         let trendLine = document.getElementById('trendLine');
         let parameters = new Array();
+        let activeGraph = document.querySelector('input[name="graphType"]:checked').value;
+        let activeDate = document.querySelector('input[name="dateSelection"]:checked').value;
         parameters.push("dataSelection=" + graph.name);
         parameters.push("dateSelection=" + activeDate);
+        if (activeDate === 'betweenDates') {
+          parameters.push("startDate=" + document.getElementById('startDate').value);
+          parameters.push("endDate=" +  document.getElementById('endDate').value);
+        }
         parameters.push("graphType=" + activeGraph);
         parameters.push("displayType=" + activeDisplay);
         parameters.push("trendLine=" + trendLine.checked);
