@@ -83,8 +83,11 @@ function DailyDeaths(items) {
                 } else {
                     total = total.toString().includes('.') ? total.toFixed(2) : total;
                     difference = difference.toString().includes('.') ? roundToTwo(difference) : difference;
-                    let retVal = [datasetLabel + ": " + Number(datasetValue).toLocaleString('en'), 'Difference: ' + Number(difference).toLocaleString('en')];
-                    if (percentageChange !== "Infinity") {
+                    let retVal = [datasetLabel + ": " + Number(datasetValue).toLocaleString('en')];
+                    if (Number(difference) > 0) {
+                      retVal.push('Difference: ' + Number(difference).toLocaleString('en'));
+                    }
+                    if (percentageChange !== "Infinity" && tooltipItem.index > 0) {
                       retVal.push('% Difference: ' + percentageChange + '%');
                     }
                     return retVal;
@@ -98,7 +101,7 @@ function DailyDeaths(items) {
   thisObject.populateData = function(items) {
     let totalDeaths = 0;
     items.forEach(function(item, index) { 
-      if (item.date && item.deaths) {
+      if (item.hasOwnProperty("date") && item.hasOwnProperty("deaths")) {
         let deathData = {
           date: item.date,
           deaths: item.deaths,
