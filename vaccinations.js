@@ -121,7 +121,7 @@ function DailyVaccinations() {
     let totalFirstDose = 0;
     let totalSecondDose = 0;
     items.forEach(function(item, index) { 
-      if (item.date && item.firstDose) {
+      if (item.hasOwnProperty("date") && item.hasOwnProperty("firstDose")) {
         totalFirstDose += item.firstDose;
         let populationFirstDose = ((totalFirstDose * 100) / population).toFixed(2);
         let populationSecondDose = 0;
