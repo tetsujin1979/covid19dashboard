@@ -202,7 +202,7 @@ function DailyDeaths(items) {
     reset();
     let initialTestsIndex = 0;
     let todayDay = new Date().getDay();
-    for (let counter = 6; counter < 15; counter++) {
+    for (let counter = 6; counter < 13; counter++) {
       if (thisObject.graphData[counter].date.getDay() === todayDay) {
         initialTestsIndex = counter;
         break;
