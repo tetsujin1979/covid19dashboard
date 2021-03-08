@@ -81,8 +81,11 @@ function DailyCases() {
                 } else {
                     total = total.toString().includes('.') ? roundToTwo(total) : total;
                     difference = difference.toString().includes('.') ? roundToTwo(difference) : difference;
-                    let retVal = [datasetLabel + ": " + Number(datasetValue).toLocaleString('en'), 'Difference: ' + Number(difference).toLocaleString('en')];
-                    if (percentageChange !== "Infinity") {
+                    let retVal = [datasetLabel + ": " + Number(datasetValue).toLocaleString('en')];
+                    if (Number(difference) > 0) {
+                      retVal.push('Difference: ' + Number(difference).toLocaleString('en'));
+                    }
+                    if (percentageChange !== "Infinity" && tooltipItem.index > 0) {
                       retVal.push('% Difference: ' + percentageChange + '%');
                     }
                     return retVal;
@@ -97,7 +100,7 @@ function DailyCases() {
     let totalCases = 0;
 
     items.forEach(function(item, index) { 
-      if (item.date && item.cases) {
+      if (item.hasOwnProperty("date") && item.hasOwnProperty("cases")) {
         totalCases += item.cases; 
         let caseData = {
           date: item.date,
