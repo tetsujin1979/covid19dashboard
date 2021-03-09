@@ -293,17 +293,20 @@ function DailySwabs() {
     let retVal = new Array();
     let previousDaysPositiveTests = 0;
     retVal.push(csvHeader);
-    thisObject.graphData.forEach(function(item, index) {
+    thisObject.chartConfig.data.labels.forEach(function(item, index) {
       let csvData = new Array();
-      let dailyTests = Number(item.positiveSwabs) + Number(item.negativeSwabs);
-      csvData.push(item.date.toDateString());
+      let positiveSwabs = thisObject.positiveSwabs.data[index];
+      let negativeSwabs = thisObject.negativeSwabs.data[index];
+      let percentagePositive = thisObject.percentagePositive.data[index];
+      let dailyTests = Number(positiveSwabs) + Number(negativeSwabs);
+      csvData.push(item);
       csvData.push(dailyTests);
-      csvData.push(item.positiveSwabs);
-      csvData.push(item.negativeSwabs);
-      csvData.push(item.percentagePositive);
+      csvData.push(positiveSwabs);
+      csvData.push(negativeSwabs);
+      csvData.push(percentagePositive);
 
       if (index > 0) {
-          let changeInPositiveTests = item.positiveSwabs - previousDaysPositiveTests;
+          let changeInPositiveTests = positiveSwabs - previousDaysPositiveTests;
           let percentageChange = ((changeInPositiveTests * 100) / previousDaysPositiveTests).toFixed(2)
           csvData.push(changeInPositiveTests);
           csvData.push(percentageChange + '%');
@@ -311,7 +314,7 @@ function DailySwabs() {
           csvData.push('-');
           csvData.push('-');
       }
-      previousDaysPositiveTests = item.positiveSwabs;
+      previousDaysPositiveTests = positiveSwabs;
       retVal.push(csvData.join(','))
     });
     return retVal.join("\n");

@@ -1,6 +1,6 @@
 function DailyCases() {
   const thisObject = this;
-  const csvHeader = ['Date,Daily Cases,Change In Cases,Percentage Change In Daily Cases'];
+  const csvHeader = ['Date,Daily Cases,Change In Cases,Percentage Change In Daily Cases,Total Cases'];
   thisObject.data = new Array();
   thisObject.graphData = new Array();
   thisObject.name = 'cases';
@@ -267,12 +267,14 @@ function DailyCases() {
     let retVal = new Array();
     let previousDaysCases = 0;
     retVal.push(csvHeader);
-    thisObject.graphData.forEach(function(item, index) {
+    thisObject.chartConfig.data.labels.forEach(function(item, index) {
       let csvData = new Array();
-      csvData.push(item.date.toDateString());
-      csvData.push(item.dailyCases);
+      let cases = thisObject.dailyCases.data[index];
+      
+      csvData.push(item);
+      csvData.push(cases);
       if (index > 0) {
-        let changeInCases = item.dailyCases - previousDaysCases;
+        let changeInCases = cases - previousDaysCases;
         let percentageChange = ((changeInCases * 100) / previousDaysCases).toFixed(2)
         csvData.push(changeInCases);
         csvData.push(percentageChange + '%');
@@ -280,7 +282,8 @@ function DailyCases() {
         csvData.push('-');
         csvData.push('-');
       }
-      previousDaysCases = item.dailyCases;
+      csvData.push(thisObject.totalCases.data[index]);
+      previousDaysCases = cases;
       retVal.push(csvData.join(','))
     });
     return retVal.join("\n");

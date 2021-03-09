@@ -1,6 +1,6 @@
 function DailyVaccinations() {
   const thisObject = this;
-  const csvHeader = ['Date,First Dose,Second Dose,Total,% Population With 1st Dose, % Population with 2nd Dose'];
+  const csvHeader = ['Date,First Dose,Second Dose,Total Daily Dose,Total 1st Dose,Total 2nd Dose,% Population With 1st Dose,% Population with 2nd Dose'];
   const population = 4977400;
 
   thisObject.data = new Array();
@@ -279,11 +279,9 @@ function DailyVaccinations() {
 
   thisObject.generateTableBody = function() {
     let tableBody = document.createElement('tbody');
-    let previousDaysPositiveTests = 0;
     let totalFirstDose = 0;
     let totalSecondDose = 0;
     thisObject.chartConfig.data.labels.forEach(function(item, index) {
-      let csvData = new Array();
       // Insert date cell
       let newRow = tableBody.insertRow();
       let newCell = newRow.insertCell();
@@ -312,19 +310,27 @@ function DailyVaccinations() {
 
   thisObject.generateCSV = function() {
     let retVal = new Array();
-    let previousDaysPositiveTests = 0;
+    let totalFirstDose = 0;
+    let totalSecondDose = 0;
     retVal.push(csvHeader);
-    thisObject.graphData.forEach(function(item, index) {
+    thisObject.chartConfig.data.labels.forEach(function(item, index) {
       let csvData = new Array();
-      let totalDoses = Number(item.firstDose) + Number(item.secondDose);
+      let firstDose = Number(thisObject.firstDose.data[index]);
+      let secondDose = (thisObject.secondDose.data[index] ? Number(thisObject.secondDose.data[index]) : 0);
+      let populationFirstDose = Number(thisObject.populationFirstDose.data[index]);
+      let populationSecondDose = (thisObject.populationSecondDose.data[index] ? Number(thisObject.populationSecondDose.data[index]) : 0);
+      let totalDoses = firstDose + secondDose;
 
-      csvData.push(item.date.toDateString());
-      csvData.push(dailyTests);
-      csvData.push(item.firstDose);
-      csvData.push(item.secondDose);
+      totalFirstDose += firstDose;
+      totalSecondDose += secondDose;
+      csvData.push(item);
+      csvData.push(firstDose);
+      csvData.push(secondDose);
       csvData.push(totalDoses);
-      csvData.push(item.totalFirstDose);
-      csvData.push(item.totalSecondDose);
+      csvData.push(totalFirstDose);
+      csvData.push(totalSecondDose);
+      csvData.push(((populationFirstDose * 100) / population).toFixed(2));
+      csvData.push(((populationSecondDose * 100) / population).toFixed(2));
       retVal.push(csvData.join(','))
     });
     return retVal.join("\n");

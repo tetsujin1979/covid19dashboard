@@ -268,20 +268,20 @@ function DailyDeaths(items) {
         createCell(newRow, '-');
       }
       previousDaysDeaths = dailyDeaths;
-      createCell(newRow,   thisObject.totalDeaths.data[index]);
+      createCell(newRow, thisObject.totalDeaths.data[index]);
     });
     return tableBody;
   };
   
   thisObject.generateCSV = function() {
     let retVal = new Array();
-    let previousDaysDeaths = 0;
     retVal.push(csvHeader);
-    thisObject.graphData.forEach(function(item, index) {
+    let previousDaysDeaths = 0;
+    thisObject.chartConfig.data.labels.forEach(function(item, index) {
       let csvData = new Array();
-      let dailyDeaths = item.deaths;
+      let dailyDeaths = thisObject.dailyDeaths.data[index];
       
-      csvData.push(item.date.toDateString());
+      csvData.push(item);
       csvData.push(dailyDeaths);      
       if (index > 0) {
           let changeInDeaths = dailyDeaths - previousDaysDeaths;
@@ -292,7 +292,7 @@ function DailyDeaths(items) {
           csvData.push('-');
           csvData.push('-');
       }
-      csvData.push(item.totalDeaths);
+      csvData.push(thisObject.totalDeaths.data[index]);
       previousDaysDeaths = dailyDeaths;
       retVal.push(csvData.join(','))
     });
