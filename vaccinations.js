@@ -50,7 +50,7 @@ function DailyVaccinations() {
     type: "bar",
     data: {
       labels: [],
-      datasets: [thisObject.populationFirstDose, thisObject.populationSecondDose, thisObject.firstDose, thisObject.secondDose]
+      datasets: [thisObject.firstDose, thisObject.secondDose, thisObject.populationFirstDose, thisObject.populationSecondDose]
     },
     options: {
       scales: {

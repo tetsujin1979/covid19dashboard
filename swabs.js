@@ -73,6 +73,9 @@ function DailySwabs() {
       },
       tooltips: {
         mode: 'label',
+        filter: function (tooltipItem) {
+          return tooltipItem.datasetIndex != 0;
+        },
         callbacks: {
           label: function (tooltipItem, data) {
             let datasetLabel = data.datasets[tooltipItem.datasetIndex].label;
@@ -92,18 +95,17 @@ function DailySwabs() {
               }
             }
             if (tooltipItem.datasetIndex != data.datasets.length - 1) {
-                return datasetLabel + ": " + Number(datasetValue).toLocaleString('en');
+              let percentage = ((Number(datasetValue) * 100) / total).toFixed(2);
+              return datasetLabel + ": " + Number(datasetValue).toLocaleString('en') + '(' + percentage + '%)';
             } else {
-                total = total.toString().includes('.') ? roundToTwo(total) : total;
-                difference = difference.toString().includes('.') ? roundToTwo(difference) : difference;
-                let retVal = ['Total Tests: ' + total.toLocaleString('en')];
-                if (tooltipItem.index > 0) {
-                  retVal.push('Difference: ' + difference.toLocaleString('en'));
-                  retVal.push('% Difference: ' + percentageChange + '%');
-
-                }
-                retVal.push(datasetLabel + ": " + datasetValue.toLocaleString('en'));
-                return retVal;
+              let percentage = ((Number(datasetValue) * 100) / total).toFixed(2);
+              total = total.toString().includes('.') ? roundToTwo(total) : total;
+              difference = difference.toString().includes('.') ? roundToTwo(difference) : difference;
+              let retVal = [datasetLabel + ": " + datasetValue.toLocaleString('en') + '(' + percentage + '%)', 'Total Tests: ' + total.toLocaleString('en')];
+              if (tooltipItem.index > 0) {
+                retVal.push('Difference: ' + difference.toLocaleString('en') + '(' + percentageChange + '%)');
+              }
+              return retVal;
             }
           }
         }

@@ -82,11 +82,12 @@ function DailyCases() {
                     total = total.toString().includes('.') ? roundToTwo(total) : total;
                     difference = difference.toString().includes('.') ? roundToTwo(difference) : difference;
                     let retVal = [datasetLabel + ": " + Number(datasetValue).toLocaleString('en')];
-                    if (Number(difference) > 0) {
-                      retVal.push('Difference: ' + Number(difference).toLocaleString('en'));
-                    }
-                    if (percentageChange !== "Infinity" && tooltipItem.index > 0) {
-                      retVal.push('% Difference: ' + percentageChange + '%');
+                    if (Number(difference) != 0) {
+                      let tooltipLabel = 'Difference: ' + Number(difference).toLocaleString('en');
+                      if (percentageChange !== "Infinity" && tooltipItem.index > 0) {
+                        tooltipLabel += '(' + percentageChange + '%)';
+                      }
+                      retVal.push(tooltipLabel);
                     }
                     return retVal;
                 }
