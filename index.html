@@ -202,12 +202,21 @@
       processParameter("dateSelection", "lastTwoMonths");
       let dataSelection = processParameter("dataSelection", "cases");
       dataSelection.onclick();
-      if (document.querySelector('input[name="dateSelection"]:checked').value === 'betweenDates') {
+      if (document.querySelector('input[name="dateSelection"]:checked').value === 'twoMonthView') {
+        document.getElementById('twoMonthView').value = parameterList.get('twoMonthView');
+        dataSelection.onclick();
+      } else if (document.querySelector('input[name="dateSelection"]:checked').value === 'betweenDates') {
         let startDate = new Date(parameterList.get('startDate'));
         let endDate = new Date(parameterList.get('endDate'));
         document.getElementById('startDate').value = parameterList.get('startDate');
         document.getElementById('endDate').value = parameterList.get('endDate');
         populateStartAndEndDates(startDate, endDate);
+        dataSelection.onclick();
+      }
+      
+      if (document.querySelector('input[name="graphType"]:checked').value === 'byWeekday') {
+        let day = parameterList.get('day');
+        document.getElementById('day').value = day;
         dataSelection.onclick();
       }
 
@@ -474,11 +483,16 @@
         let activeDate = document.querySelector('input[name="dateSelection"]:checked').value;
         parameters.push("dataSelection=" + graph.name);
         parameters.push("dateSelection=" + activeDate);
-        if (activeDate === 'betweenDates') {
+        if (activeDate === 'twoMonthView') {
+          parameters.push("twoMonthView=" + document.getElementById('twoMonthView').value);
+        } else if (activeDate === 'betweenDates') {
           parameters.push("startDate=" + document.getElementById('startDate').value);
           parameters.push("endDate=" +  document.getElementById('endDate').value);
         }
         parameters.push("graphType=" + activeGraph);
+        if (activeGraph === 'byWeekday') {
+          parameters.push("day=" + document.getElementById('day').value);
+        }
         parameters.push("displayType=" + activeDisplay);
         parameters.push("trendLine=" + trendLine.checked);
         let url = "https://tetsujin1979.github.io/covid19dashboard?" + encodeURIComponent(parameters.join('&'));
