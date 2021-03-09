@@ -248,14 +248,14 @@ function DailyDeaths(items) {
   thisObject.generateTableBody = function() {
     let tableBody = document.createElement('tbody');
     let previousDaysDeaths = 0;
-    thisObject.graphData.forEach(function(item, index) {
+    thisObject.chartConfig.data.labels.forEach(function(item, index) {
       let newRow = tableBody.insertRow();
       
       let newCell = newRow.insertCell();
-      let newText = document.createTextNode(item.date.toDateString());
+      let newText = document.createTextNode(item);
       newCell.appendChild(newText);
-      
-      let dailyDeaths = item.deaths;
+  
+      let dailyDeaths = thisObject.dailyDeaths.data[index];
       createCell(newRow, dailyDeaths);
 
       if (index > 0) {
@@ -268,7 +268,7 @@ function DailyDeaths(items) {
         createCell(newRow, '-');
       }
       previousDaysDeaths = dailyDeaths;
-      createCell(newRow, item.totalDeaths);
+      createCell(newRow,   thisObject.totalDeaths.data[index]);
     });
     return tableBody;
   };

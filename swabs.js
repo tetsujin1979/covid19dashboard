@@ -259,21 +259,24 @@ function DailySwabs() {
   thisObject.generateTableBody = function() {
     let tableBody = document.createElement('tbody');
     let previousDaysPositiveTests = 0;
-    thisObject.graphData.forEach(function(item, index) {
+    thisObject.chartConfig.data.labels.forEach(function(item, index) {
       let csvData = new Array();
       // Insert date cell
       let newRow = tableBody.insertRow();
       let newCell = newRow.insertCell();
-      let newText = document.createTextNode(item.date.toDateString());
-      let dailyTests = Number(item.positiveSwabs) + Number(item.negativeSwabs);
+      let newText = document.createTextNode(item);
+      let positiveSwabs = thisObject.positiveSwabs.data[index];
+      let negativeSwabs = thisObject.negativeSwabs.data[index];
+      let percentagePositive = thisObject.percentagePositive.data[index];
+      let dailyTests = Number(positiveSwabs) + Number(negativeSwabs);
 
       newCell.appendChild(newText);
-      createCell(newRow, item.positiveSwabs);
-      createCell(newRow, item.negativeSwabs);
+      createCell(newRow, positiveSwabs);
+      createCell(newRow, negativeSwabs);
       createCell(newRow, dailyTests);
-      createCell(newRow, item.percentagePositive);
+      createCell(newRow, percentagePositive);
       if (index > 0) {
-          let changeInPositiveTests = item.positiveSwabs - previousDaysPositiveTests;
+          let changeInPositiveTests = positiveSwabs - previousDaysPositiveTests;
           let percentageChange = ((changeInPositiveTests * 100) / previousDaysPositiveTests).toFixed(2)
           createCell(newRow, changeInPositiveTests);
           createCell(newRow, percentageChange);
@@ -281,7 +284,7 @@ function DailySwabs() {
           createCell(newRow, '-');
           createCell(newRow, '-');
       }
-      previousDaysPositiveTests = item.positiveSwabs;
+      previousDaysPositiveTests = positiveSwabs;
     });
     return tableBody;
   };

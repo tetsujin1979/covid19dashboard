@@ -200,18 +200,18 @@ function DailyCases() {
       }
     }
     for (let counter = initialCasesIndex; counter < thisObject.graphData.length; counter += increment) {
-        let today = thisObject.graphData[counter];
-        let yesterday = thisObject.graphData[counter - 1];
-        let twoDaysAgo = thisObject.graphData[counter - 2];
-        let threeDaysAgo = thisObject.graphData[counter - 3];
-        let fourDaysAgo = thisObject.graphData[counter - 4];
-        let fiveDaysAgo = thisObject.graphData[counter - 5];
-        let sixDayAgo = thisObject.graphData[counter - 6];
+      let today = thisObject.graphData[counter];
+      let yesterday = thisObject.graphData[counter - 1];
+      let twoDaysAgo = thisObject.graphData[counter - 2];
+      let threeDaysAgo = thisObject.graphData[counter - 3];
+      let fourDaysAgo = thisObject.graphData[counter - 4];
+      let fiveDaysAgo = thisObject.graphData[counter - 5];
+      let sixDayAgo = thisObject.graphData[counter - 6];
 
-        let totalCases = today.cases + yesterday.cases + twoDaysAgo.cases + threeDaysAgo.cases + fourDaysAgo.cases + fiveDaysAgo.cases + sixDayAgo.cases;        
-        thisObject.chartConfig.data.labels.push(prefix + today.date.toDateString());
-        thisObject.dailyCases.data.push((totalCases / 7).toFixed(2));
-        thisObject.totalCases.data.push(today.totalCases);
+      let totalCases = today.cases + yesterday.cases + twoDaysAgo.cases + threeDaysAgo.cases + fourDaysAgo.cases + fiveDaysAgo.cases + sixDayAgo.cases;        
+      thisObject.chartConfig.data.labels.push(prefix + today.date.toDateString());
+      thisObject.dailyCases.data.push((totalCases / 7).toFixed(2));
+      thisObject.totalCases.data.push(today.totalCases);
     }
   };
 
@@ -239,25 +239,26 @@ function DailyCases() {
   thisObject.generateTableBody = function() {
     let tableBody = document.createElement('tbody');
     let previousDaysCases = 0;
-    thisObject.graphData.forEach(function(item, index) {
-        let newRow = tableBody.insertRow();
-        let newCell = newRow.insertCell();
-        
-        let newText = document.createTextNode(item.date.toDateString());
-        newCell.appendChild(newText);
-        
-        createCell(newRow, item.cases);
-        if (index > 0) {
-            let changeInCases = item.cases - previousDaysCases;
-            let percentageChange = ((changeInCases * 100) / previousDaysCases).toFixed(2)
-            createCell(newRow, changeInCases);
-            createCell(newRow, percentageChange);
-        } else {
-            createCell(newRow, '-');
-            createCell(newRow, '-');
-        }
-        createCell(newRow, item.totalCases);
-        previousDaysCases = item.cases;
+    thisObject.chartConfig.data.labels.forEach(function(item, index) {
+      let newRow = tableBody.insertRow();
+      let newCell = newRow.insertCell();
+            
+      let newText = document.createTextNode(item);
+      newCell.appendChild(newText);
+      
+      let cases = thisObject.dailyCases.data[index];
+      createCell(newRow, cases);
+      if (index > 0) {
+          let changeInCases = cases - previousDaysCases;
+          let percentageChange = ((changeInCases * 100) / previousDaysCases).toFixed(2)
+          createCell(newRow, changeInCases);
+          createCell(newRow, percentageChange);
+      } else {
+          createCell(newRow, '-');
+          createCell(newRow, '-');
+      }
+      createCell(newRow, thisObject.totalCases.data[index]);
+      previousDaysCases = cases;
     });
     return tableBody;
   };  

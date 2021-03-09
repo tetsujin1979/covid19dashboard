@@ -6,7 +6,7 @@ function DailyVaccinations() {
   thisObject.data = new Array();
   thisObject.graphData = new Array();
   thisObject.name = 'vaccinations';
-  thisObject.tableHead = '<tr><th>Date</th><th>First Dose</th><th>Second Dose</th><th>Total</th><th>Total 1st Dose</th><th>Total 2nd Dose</th><th>% Population With 1st Dose</th><th>% Population with 2nd Dose</th></tr>';
+  thisObject.tableHead = '<tr><th>Date</th><th>First Dose</th><th>Second Dose</th><th>Total Daily Dose</th><th>Total 1st Dose</th><th>Total 2nd Dose</th><th>% Population With 1st Dose</th><th>% Population with 2nd Dose</th></tr>';
       
   thisObject.firstDose = {
     label: "First Dose",
@@ -125,14 +125,14 @@ function DailyVaccinations() {
         totalFirstDose += item.firstDose;
         let populationFirstDose = ((totalFirstDose * 100) / population).toFixed(2);
         let populationSecondDose = 0;
-        if (item.secondDose) {
+        if (item.hasOwnProperty("secondDose")) {
           totalSecondDose += item.secondDose;
           populationSecondDose = ((totalSecondDose * 100) / population).toFixed(2);
         }
         let vaccinatedData = {
           date: item.date,
           firstDose: item.firstDose,
-          secondDose: item.secondDose,
+          secondDose: (item.hasOwnProperty("secondDose") ? item.secondDose : 0),
           totalFirstDose: totalFirstDose,
           totalSecondDose: totalSecondDose,
           populationFirstDose: populationFirstDose,
@@ -282,25 +282,30 @@ function DailyVaccinations() {
     let previousDaysPositiveTests = 0;
     let totalFirstDose = 0;
     let totalSecondDose = 0;
-    thisObject.graphData.forEach(function(item, index) {
+    thisObject.chartConfig.data.labels.forEach(function(item, index) {
       let csvData = new Array();
       // Insert date cell
       let newRow = tableBody.insertRow();
       let newCell = newRow.insertCell();
-      let newText = document.createTextNode(item.date.toDateString());
-      let totalDoses = Number(item.firstDose) + (item.secondDose ? Number(item.secondDose) : 0);
+      let newText = document.createTextNode(item);
+      let firstDose = Number(thisObject.firstDose.data[index]);
+      let secondDose = (thisObject.secondDose.data[index] ? Number(thisObject.secondDose.data[index]) : 0);
+      let populationFirstDose = Number(thisObject.populationFirstDose.data[index]);
+      let populationSecondDose = (thisObject.populationSecondDose.data[index] ? Number(thisObject.populationSecondDose.data[index]) : 0);
 
-      totalFirstDose += item.firstDose;
-      totalSecondDose += (item.secondDose ? Number(item.secondDose) : 0);
+      let totalDoses = firstDose + secondDose;
+
+      totalFirstDose += firstDose;
+      totalSecondDose += secondDose;
       
       newCell.appendChild(newText);
-      createCell(newRow, item.firstDose);
-      createCell(newRow, (item.secondDose ? item.secondDose : '-'));
+      createCell(newRow, firstDose);
+      createCell(newRow, (secondDose ? secondDose : '-'));
       createCell(newRow, totalDoses);
       createCell(newRow, totalFirstDose);
       createCell(newRow, totalSecondDose);
-      createCell(newRow, item.totalFirstDose);
-      createCell(newRow, item.totalSecondDose);
+      createCell(newRow, ((populationFirstDose * 100) / population).toFixed(2));
+      createCell(newRow, ((populationSecondDose * 100) / population).toFixed(2));
     });
     return tableBody;
   };
