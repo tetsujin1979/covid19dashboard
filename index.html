@@ -16,7 +16,7 @@
           <a id="twitterLink" title="Share on twitter" target="_blank"><img class="share-link" src="twitter.svg"></img></a>
           <a id="facebookLink" title="Share on facebook" target="_blank"><img class="share-link" src="facebook.svg"></img></a>
           <a id="emailLink" title="Share via email" target="_blank" ><img class="share-link" src="email.svg"></img></a>
-          <img title="Copy link to clipboard" onmouseover='this.style.cursor="pointer"' class="share-link" src="link.svg" onclick="navigator.clipboard.writeText(link).then(alert('Link copied'));"></img>
+          <img id="copyLink" title="Copy link to clipboard" onmouseover='this.style.cursor="pointer"' class="share-link" src="link.svg" onclick="navigator.clipboard.writeText(link).then(alert('Link copied'));"></img>
         </fieldset>
         <fieldset>
           <legend>Source data</legend>
@@ -218,6 +218,10 @@
         let day = parameterList.get('day');
         document.getElementById('day').value = day;
         dataSelection.onclick();
+      }
+      
+      if (!navigator.clipboard) {
+        document.getElementById('copyLink').style.display = 'none';
       }
 
       function processParameter(parameterName, defaultValue) {
