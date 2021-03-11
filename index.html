@@ -16,6 +16,7 @@
           <a id="twitterLink" title="Share on twitter" target="_blank"><img class="share-link" src="twitter.svg"></img></a>
           <a id="facebookLink" title="Share on facebook" target="_blank"><img class="share-link" src="facebook.svg"></img></a>
           <a id="emailLink" title="Share via email" target="_blank" ><img class="share-link" src="email.svg"></img></a>
+          <a id="whatsAppLink" title="Share via whatsapp" class="mobile-link"><img class="share-link" src="whatsapp.svg"></img></a>
           <img id="copyLink" title="Copy link to clipboard" onmouseover='this.style.cursor="pointer"' class="share-link" src="link.svg" onclick="navigator.clipboard.writeText(link).then(alert('Link copied'));"></img>
         </fieldset>
         <fieldset>
@@ -516,6 +517,9 @@
         
         let emailLink = document.getElementById('emailLink');
         emailLink.href="mailto:?subject=COVID-19 Ireland Dashboard&body=" + encodeURIComponent(text + ": https://tetsujin1979.github.io/covid19dashboard?" + parameters.join('&'));
+        
+        let whatsAppLink = document.getElementById('whatsAppLink');
+        whatsAppLink.href="whatsapp://?text=" + encodeURIComponent(text + ": https://tetsujin1979.github.io/covid19dashboard?" + parameters.join('&'));
         
         link = "https://tetsujin1979.github.io/covid19dashboard?" + parameters.join('&');
       }

@@ -77,3 +77,13 @@ button {
   margin: 1px auto; 
   padding: 15px;
 }
+
+.mobile-link {
+  display: none;
+}
+
+@media only screen and (max-device-width: 900px) {
+  .mobile-link {
+    display: block;
+  }
+}
