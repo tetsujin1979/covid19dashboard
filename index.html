@@ -519,7 +519,7 @@
         emailLink.href="mailto:?subject=COVID-19 Ireland Dashboard&body=" + encodeURIComponent(text + ": https://tetsujin1979.github.io/covid19dashboard?" + parameters.join('&'));
         
         let whatsAppLink = document.getElementById('whatsAppLink');
-        whatsAppLink.href="whatsapp://?text=" + encodeURIComponent(text + ": https://tetsujin1979.github.io/covid19dashboard?" + parameters.join('&'));
+        whatsAppLink.href="whatsapp://send?text=" + encodeURIComponent(text + ": https://tetsujin1979.github.io/covid19dashboard?" + parameters.join('&'));
         
         link = "https://tetsujin1979.github.io/covid19dashboard?" + parameters.join('&');
       }
