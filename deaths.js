@@ -103,12 +103,12 @@ function DailyDeaths(items) {
     let totalDeaths = 0;
     items.forEach(function(item, index) { 
       if (item.hasOwnProperty("date") && item.hasOwnProperty("deaths")) {
+        totalDeaths += item.deaths;
         let deathData = {
           date: item.date,
           deaths: item.deaths,
           totalDeaths: totalDeaths
         }
-        totalDeaths += item.deaths;
         thisObject.data.push(deathData);
       }
     });
