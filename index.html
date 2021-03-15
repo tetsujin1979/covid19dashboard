@@ -198,11 +198,14 @@
       trendLineParameter = trendLineParameter ? (trendLineParameter == "true") : true;
       document.getElementById("trendLine").checked = trendLineParameter;
 
-      processParameter("displayType", "graph");      
+      let displayType = processParameter("displayType", "graph");      
       processParameter("graphType", "normal");
       processParameter("dateSelection", "lastTwoMonths");
       let dataSelection = processParameter("dataSelection", "cases");
+      
       dataSelection.onclick();
+      displayType.onclick();
+      
       if (document.querySelector('input[name="dateSelection"]:checked').value === 'twoMonthView') {
         document.getElementById('twoMonthView').value = parameterList.get('twoMonthView');
         dataSelection.onclick();
