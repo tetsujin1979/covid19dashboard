@@ -378,5 +378,6 @@ const data = [
   {date: new Date('2021-03-11'), positiveSwabs: 582, dailySwabs: 15478, cases: 592, deaths: 10, firstDose: 17157, secondDose: 1964},
   {date: new Date('2021-03-12'), positiveSwabs: 623, dailySwabs: 16499, cases: 646, deaths: 10, firstDose: 16273, secondDose: 1119},
   {date: new Date('2021-03-13'), positiveSwabs: 567, dailySwabs: 15804, cases: 543, deaths: 16},
-  {date: new Date('2021-03-14'), cases: 384, deaths: 0}
+  {date: new Date('2021-03-14'), positiveSwabs: 626, dailySwabs: 13349, cases: 384, deaths: 0},
+  {date: new Date('2021-03-15'), positiveSwabs: 343, dailySwabs: 10586}
 ];
