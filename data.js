@@ -391,5 +391,5 @@ const data = [
   {date: new Date('2021-03-24'), positiveSwabs: 694, dailySwabs: 19979, cases: 683, deaths: 18, firstDose: 14184, secondDose: 9146},
   {date: new Date('2021-03-25'), positiveSwabs: 604, dailySwabs: 17821, cases: 606, deaths: 3},
   {date: new Date('2021-03-26'), positiveSwabs: 653, dailySwabs: 18450, cases: 584, deaths: 20},
-  {date: new Date('2021-03-27'), positiveSwabs: 632, dailySwabs: 20335}
+  {date: new Date('2021-03-27'), positiveSwabs: 632, dailySwabs: 20335, cases: 624, deaths: 2}
 ];
