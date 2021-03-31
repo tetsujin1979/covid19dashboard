@@ -22,16 +22,16 @@
         <fieldset>
           <legend>Source data</legend>
           <div>
-            <input type ="radio" name="dataSelection" value="cases" onclick="selectData(cases)"> Cases
+            <input id="selectCases" type ="radio" name="dataSelection" value="cases" onclick="selectData(cases)"> Cases
           </div>
           <div>
-            <input type="radio" name="dataSelection" value="deaths" onclick="selectData(deaths)"> Deaths
+            <input id="selectDeaths" type="radio" name="dataSelection" value="deaths" onclick="selectData(deaths)"> Deaths
           </div>
           <div>
-            <input type="radio" name="dataSelection" value="swabs" onclick="selectData(swabs)"> Swabs
+            <input id="selectSwabs" type="radio" name="dataSelection" value="swabs" onclick="selectData(swabs)"> Swabs
           </div>
           <div>
-            <input type="radio" name="dataSelection" value="vaccinations" onclick="selectData(vaccinations)"> Vaccinations
+            <input id="selectVaccinations" type="radio" name="dataSelection" value="vaccinations" onclick="selectData(vaccinations)"> Vaccinations
           </div>
         </fieldset>
         <fieldset>
@@ -69,16 +69,16 @@
         <fieldset>
           <legend>Graph type</legend>
           <div>
-            <input type="radio" name="graphType" id="graphType" value="normal" onclick="standardGraph()"> Normal
+            <input type="radio" name="graphType" id="dailyTotal" value="normal" onclick="standardGraph()"> Daily Total
           </div>
           <div>
-            <input type="radio" name="graphType" id="graphType" value="rollingSevenDayAverage" onclick="dayAverage(1)"> Rolling seven day average
+            <input type="radio" name="graphType" id="rollingSevenDayAverage" value="rollingSevenDayAverage" onclick="dayAverage(1)"> Rolling seven day average
           </div>
           <div>
-            <input type="radio" name="graphType" id="graphType" value="sevenDayAverage" onclick="dayAverage(7, 'Seven days to ')"> Seven day average
+            <input type="radio" name="graphType" id="sevenDayAverage" value="sevenDayAverage" onclick="dayAverage(7, 'Seven days to ')"> Seven day average
           </div>
           <div>
-            <input type="radio" name="graphType" id="graphType" value="byWeekday" onclick="byDay()"> By weekday
+            <input type="radio" name="graphType" id="byWeekday" value="byWeekday" onclick="byDay()"> By weekday
             <select name="day" id="day" disabled="true" onchange="byDay()" style="float: right;">
               <option value="0">Sunday</option>
               <option value="1">Monday</option>
@@ -90,7 +90,7 @@
             </select>
           </div>
           <div>
-            <input type="radio" name="graphType" id="graphType" value="weeklyTotal" onclick="weeklyTotal()"> Weekly total
+            <input type="radio" name="graphType" id="weeklyTotal" value="weeklyTotal" onclick="weeklyTotal()"> Weekly total
           </div>
       </fieldset>
       <fieldset>
