@@ -190,7 +190,7 @@
       fetch('data.json')
         .then(response => response.json())
         .then(function(responseData) {
-          responseData.data.forEach(function(value, index) {
+          responseData.forEach(function(value, index) {
             let dataObject = {};
             if (value.hasOwnProperty("dateString")) {
               dataObject.date = new Date(value.dateString);
