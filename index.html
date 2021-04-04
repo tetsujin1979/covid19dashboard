@@ -139,50 +139,23 @@
       </table>
     </div>
   </div>
-    <script type="text/javascript">
-      let data = [];
-      async function getData() {
-
-        let response = await fetch('data.json');
-
-        if (response.ok) { // if HTTP-status is 200-299
-          // get the response body (the method explained below)
-          let repsonseData = await response.json();
-          repsonseData.data.forEach(function(value, index) { 
-            data.push({
-              date: new Date(value.dateString),
-              positiveSwabs: value.positiveSwabs, 
-              dailySwabs: value.dailySwabs, 
-              cases: value.cases, 
-              deaths: value.deaths, 
-              firstDose: value.firstDose, 
-              secondDose: value.secondDose
-            });
-          });
-        } else {
-          alert("HTTP-Error: " + response.status);
-        }        
-
-      }
-      getData();
-    </script>
     <script type="text/javascript" src="cases.js"></script>
     <script type="text/javascript" src="deaths.js"></script>
     <script type="text/javascript" src="swabs.js"></script>
     <script type="text/javascript" src="vaccinations.js"></script>
     <script type="text/javascript">
+      Chart.plugins.register({
+        beforeDraw: function(chartInstance) {
+          let ctx = chartInstance.chart.ctx;
+          ctx.fillStyle = "white";
+          ctx.fillRect(0, 0, chartInstance.chart.width, chartInstance.chart.height);
+        }
+      });
 
       const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
       const parameterList = new URLSearchParams(window.location.search);
       const graphs = [cases, deaths, swabs];
       const today = new Date().getDay();
-      
-      let link = "";
-      let activeDate = 'lastTwoMonths';
-      let activeGraph = 'normal';
-      let activeDisplay = 'graph';
-      let dayOptions = document.getElementById("day").options;
-      let graph = {};
 
       const positiveSwabsTrendLine = {
         style: "rgba(237, 100, 127, 0.75)",
@@ -196,21 +169,6 @@
         width: 2
       };
 
-      Chart.plugins.register({
-        beforeDraw: function(chartInstance) {
-          let ctx = chartInstance.chart.ctx;
-          ctx.fillStyle = "white";
-          ctx.fillRect(0, 0, chartInstance.chart.width, chartInstance.chart.height);
-        }
-      });
-
-      for (let counter = 0; counter < dayOptions.length; counter++) {
-        let option = dayOptions[counter];
-        if (option.value == today) {
-          option.selected = true;
-        }
-      }
-      
       const chartContext = document.getElementById('graph').getContext('2d');      
       const chart = new Chart(chartContext, {
         type: "bar",
@@ -221,38 +179,92 @@
         options: {}
       });
 
-      let trendLineParameter = parameterList.get("trendLine");
-      trendLineParameter = trendLineParameter ? (trendLineParameter == "true") : true;
-      document.getElementById("trendLine").checked = trendLineParameter;
+      let data = [];
+      
+      let link = "";
+      let activeDate = 'lastTwoMonths';
+      let activeGraph = 'normal';
+      let activeDisplay = 'graph';
+      let graph = {};
 
-      let displayType = processParameter("displayType", "graph");      
-      processParameter("graphType", "normal");
-      processParameter("dateSelection", "lastTwoMonths");
-      let dataSelection = processParameter("dataSelection", "cases");
-      
-      dataSelection.onclick();
-      displayType.onclick();
-      
-      if (document.querySelector('input[name="dateSelection"]:checked').value === 'twoMonthView') {
-        document.getElementById('twoMonthView').value = parameterList.get('twoMonthView');
+      fetch('data.json')
+        .then(response => response.json())
+        .then(function(responseData) {
+          responseData.data.forEach(function(value, index) {
+            let dataObject = {};
+            if (value.hasOwnProperty("dateString")) {
+              dataObject.date = new Date(value.dateString);
+            }
+            if (value.hasOwnProperty("positiveSwabs")) {
+              dataObject.positiveSwabs = value.positiveSwabs;
+            }
+            if (value.hasOwnProperty("dailySwabs")) {
+              dataObject.dailySwabs = value.dailySwabs;
+            }
+            if (value.hasOwnProperty("cases")) {
+              dataObject.cases = value.cases;
+            }
+            if (value.hasOwnProperty("deaths")) {
+              dataObject.deaths = value.deaths;
+            }
+            if (value.hasOwnProperty("firstDose")) {
+              dataObject.firstDose = value.firstDose;
+            }
+            if (value.hasOwnProperty("secondDose")) {
+              dataObject.secondDose = value.secondDose;
+            }
+            data.push(dataObject);
+          });
+          cases.populateData(data);
+          deaths.populateData(data);
+          swabs.populateData(data);
+          vaccinations.populateData(data);
+          init();
+        });
+
+
+      function init() {
+        let dayOptions = document.getElementById("day").options;
+        for (let counter = 0; counter < dayOptions.length; counter++) {
+          let option = dayOptions[counter];
+          if (option.value == today) {
+            option.selected = true;
+          }
+        }
+
+        let trendLineParameter = parameterList.get("trendLine");
+        trendLineParameter = trendLineParameter ? (trendLineParameter == "true") : true;
+        document.getElementById("trendLine").checked = trendLineParameter;
+
+        let displayType = processParameter("displayType", "graph");      
+        processParameter("graphType", "normal");
+        processParameter("dateSelection", "lastTwoMonths");
+        let dataSelection = processParameter("dataSelection", "cases");
+        
         dataSelection.onclick();
-      } else if (document.querySelector('input[name="dateSelection"]:checked').value === 'betweenDates') {
-        let startDate = new Date(parameterList.get('startDate'));
-        let endDate = new Date(parameterList.get('endDate'));
-        document.getElementById('startDate').value = parameterList.get('startDate');
-        document.getElementById('endDate').value = parameterList.get('endDate');
-        populateStartAndEndDates(startDate, endDate);
-        dataSelection.onclick();
-      }
-      
-      if (document.querySelector('input[name="graphType"]:checked').value === 'byWeekday') {
-        let day = parameterList.get('day');
-        document.getElementById('day').value = day;
-        dataSelection.onclick();
-      }
-      
-      if (!navigator.clipboard) {
-        document.getElementById('copyLink').style.display = 'none';
+        displayType.onclick();
+        
+        if (document.querySelector('input[name="dateSelection"]:checked').value === 'twoMonthView') {
+          document.getElementById('twoMonthView').value = parameterList.get('twoMonthView');
+          dataSelection.onclick();
+        } else if (document.querySelector('input[name="dateSelection"]:checked').value === 'betweenDates') {
+          let startDate = new Date(parameterList.get('startDate'));
+          let endDate = new Date(parameterList.get('endDate'));
+          document.getElementById('startDate').value = parameterList.get('startDate');
+          document.getElementById('endDate').value = parameterList.get('endDate');
+          populateStartAndEndDates(startDate, endDate);
+          dataSelection.onclick();
+        }
+        
+        if (document.querySelector('input[name="graphType"]:checked').value === 'byWeekday') {
+          let day = parameterList.get('day');
+          document.getElementById('day').value = day;
+          dataSelection.onclick();
+        }
+        
+        if (!navigator.clipboard) {
+          document.getElementById('copyLink').style.display = 'none';
+        }
       }
 
       function processParameter(parameterName, defaultValue) {
