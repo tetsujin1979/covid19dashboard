@@ -356,4 +356,3 @@ function DailyVaccinations() {
 };
 
 const vaccinations = new DailyVaccinations();
-vaccinations.populateData(data);

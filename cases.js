@@ -306,4 +306,3 @@ function DailyCases() {
 };
 
 const cases = new DailyCases();
-cases.populateData(data);

@@ -308,4 +308,3 @@ function DailyDeaths(items) {
 };
 
 const deaths = new DailyDeaths();
-deaths.populateData(data);

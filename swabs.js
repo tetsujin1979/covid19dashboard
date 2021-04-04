@@ -341,4 +341,3 @@ function DailySwabs() {
 };
 
 const swabs = new DailySwabs();
-swabs.populateData(data);
