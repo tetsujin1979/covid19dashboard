@@ -6,7 +6,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-trendline"></script>
     <link rel="stylesheet" href="covid19dashboard.css">
-    <script type="text/javascript" src="data.js"></script>
   </head>
   <body>
     <div id="menu">
@@ -140,11 +139,28 @@
       </table>
     </div>
   </div>
+    <script type="text/javascript">
+      let data = {};
+      async function getData() {
+
+        let response = await fetch('data.json');
+
+        if (response.ok) { // if HTTP-status is 200-299
+          // get the response body (the method explained below)
+          data = await response.json();
+        } else {
+          alert("HTTP-Error: " + response.status);
+        }        
+
+      }
+      getData();
+    </script>
     <script type="text/javascript" src="cases.js"></script>
     <script type="text/javascript" src="deaths.js"></script>
     <script type="text/javascript" src="swabs.js"></script>
     <script type="text/javascript" src="vaccinations.js"></script>
     <script type="text/javascript">
+
       const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
       const parameterList = new URLSearchParams(window.location.search);
       const graphs = [cases, deaths, swabs];
