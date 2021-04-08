@@ -403,5 +403,5 @@
   {"dateString": "2021-04-05T12:00:00.000Z", "positiveSwabs": 354, "dailySwabs": 11954, "cases": 320, "deaths": 0, "firstDose": 3711, "secondDose": 1025},
   {"dateString": "2021-04-06T12:00:00.000Z", "positiveSwabs": 396, "dailySwabs": 13864, "cases": 443, "deaths": 9},
   {"dateString": "2021-04-07T12:00:00.000Z", "positiveSwabs": 411, "dailySwabs": 16002, "cases": 423, "deaths": 5},
-  {"dateString": "2021-04-08T12:00:00.000Z", "positiveSwabs": 448, "dailySwabs": 19099}
+  {"dateString": "2021-04-08T12:00:00.000Z", "positiveSwabs": 448, "dailySwabs": 19099, "cases": 400, "deaths": 7}
 ]
