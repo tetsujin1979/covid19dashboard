@@ -159,28 +159,25 @@ function DailyCases() {
     thisObject.graphData = new Array();
     let twoMonthsAgo = new Date();
     twoMonthsAgo.setMonth(twoMonthsAgo.getMonth() - 2);
-    thisObject.data.forEach(function(value, index) {
-      if (value.date > twoMonthsAgo) {
-        thisObject.graphData.push(value);
-      }
+    thisObject.data.filter(item => (item.date > twoMonthsAgo))
+                   .forEach(function(value, index) {
+      thisObject.graphData.push(value);
     });
   };
   
   thisObject.betweenDates = function(startDate, endDate) {
     thisObject.graphData = new Array();
-    thisObject.data.forEach(function(item, index) {
-      if (item.date >= startDate && item.date <= endDate) {
-        thisObject.graphData.push(item);
-      }
+    thisObject.data.filter(item => (item.date >= startDate && item.date <= endDate))
+                   .forEach(function(item, index) {
+      thisObject.graphData.push(item);
     });
   };
 
   thisObject.twoMonthView = function(startDate, endDate) {
     thisObject.graphData = new Array();
-    thisObject.data.forEach(function(item, index) {
-      if (item.date >= startDate && item.date <= endDate) {
-        thisObject.graphData.push(item);
-      }
+    thisObject.data.filter(item => (item.date >= startDate && item.date <= endDate))
+                   .forEach(function(item, index) {
+      thisObject.graphData.push(item);
     });
   };
 
@@ -195,12 +192,11 @@ function DailyCases() {
 
   thisObject.byDay = function(day) {
     reset();    
-    thisObject.graphData.forEach(function(value, index) { 
-      if (value.date.getDay() == day) {
-        thisObject.chartConfig.data.labels.push(value.date.toDateString());
-        thisObject.dailyCases.data.push(value.cases);
-        thisObject.totalCases.data.push(value.totalCases);
-      }
+    thisObject.graphData.filter(item => (item.date.getDay() == day))
+                        .forEach(function(value, index) { 
+      thisObject.chartConfig.data.labels.push(value.date.toDateString());
+      thisObject.dailyCases.data.push(value.cases);
+      thisObject.totalCases.data.push(value.totalCases);
     });
   };
   
