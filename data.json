@@ -421,6 +421,6 @@
   {"dateString": "2021-04-23T12:00:00.000Z", "positiveSwabs": 546, "dailySwabs": 19557, "cases": 434, "deaths": 1, "firstDose": 31631, "secondDose": 11125},
   {"dateString": "2021-04-24T12:00:00.000Z", "positiveSwabs": 511, "dailySwabs": 17327, "cases": 461, "deaths": 5, "firstDose": 21070, "secondDose": 4762},
   {"dateString": "2021-04-25T12:00:00.000Z", "positiveSwabs": 462, "dailySwabs": 15829, "cases": 429, "deaths": 1, "firstDose": 10453, "secondDose": 1855},
-  {"dateString": "2021-04-26T12:00:00.000Z", "positiveSwabs": 380, "dailySwabs": 12839, "cases": 437, "deaths": 1},
+  {"dateString": "2021-04-26T12:00:00.000Z", "positiveSwabs": 380, "dailySwabs": 12839, "cases": 437, "deaths": 1, "firstDose": 16506, "secondDose": 3375},
   {"dateString": "2021-04-27T12:00:00.000Z", "positiveSwabs": 395, "dailySwabs": 15273, "cases": 426, "deaths": 10}
 ]
