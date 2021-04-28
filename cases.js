@@ -108,6 +108,20 @@ function DailyCases() {
           cases: item.cases,
           totalCases: totalCases
         }
+        if (index > 7) {
+          let today = items[index];
+          let yesterday = items[index - 1];
+          let twoDaysAgo = items[index - 2];
+          let threeDaysAgo = items[index - 3];
+          let fourDaysAgo = items[index - 4];
+          let fiveDaysAgo = items[index - 5];
+          let sixDayAgo = items[index - 6];
+          let weeklyCases = today.cases + yesterday.cases + twoDaysAgo.cases + threeDaysAgo.cases + fourDaysAgo.cases + fiveDaysAgo.cases + sixDayAgo.cases;
+          caseData.sevenDayAverage = (weeklyCases / 7).toFixed(2);
+          if (item.date.getDay() === 0) {
+              caseData.weeklyCases = weeklyCases;
+          }
+        }
         thisObject.data.push(caseData);
       }
     });
@@ -145,28 +159,25 @@ function DailyCases() {
     thisObject.graphData = new Array();
     let twoMonthsAgo = new Date();
     twoMonthsAgo.setMonth(twoMonthsAgo.getMonth() - 2);
-    thisObject.data.forEach(function(value, index) {
-      if (value.date > twoMonthsAgo) {
-        thisObject.graphData.push(value);
-      }
+    thisObject.data.filter(item => (item.date > twoMonthsAgo))
+                   .forEach(function(value, index) {
+      thisObject.graphData.push(value);
     });
   };
   
   thisObject.betweenDates = function(startDate, endDate) {
     thisObject.graphData = new Array();
-    thisObject.data.forEach(function(item, index) {
-      if (item.date >= startDate && item.date <= endDate) {
-        thisObject.graphData.push(item);
-      }
+    thisObject.data.filter(item => (item.date >= startDate && item.date <= endDate))
+                   .forEach(function(item, index) {
+      thisObject.graphData.push(item);
     });
   };
 
   thisObject.twoMonthView = function(startDate, endDate) {
     thisObject.graphData = new Array();
-    thisObject.data.forEach(function(item, index) {
-      if (item.date >= startDate && item.date <= endDate) {
-        thisObject.graphData.push(item);
-      }
+    thisObject.data.filter(item => (item.date >= startDate && item.date <= endDate))
+                   .forEach(function(item, index) {
+      thisObject.graphData.push(item);
     });
   };
 
@@ -181,12 +192,11 @@ function DailyCases() {
 
   thisObject.byDay = function(day) {
     reset();    
-    thisObject.graphData.forEach(function(value, index) { 
-      if (value.date.getDay() == day) {
-        thisObject.chartConfig.data.labels.push(value.date.toDateString());
-        thisObject.dailyCases.data.push(value.cases);
-        thisObject.totalCases.data.push(value.totalCases);
-      }
+    thisObject.graphData.filter(item => (item.date.getDay() == day))
+                        .forEach(function(value, index) { 
+      thisObject.chartConfig.data.labels.push(value.date.toDateString());
+      thisObject.dailyCases.data.push(value.cases);
+      thisObject.totalCases.data.push(value.totalCases);
     });
   };
   
@@ -202,39 +212,20 @@ function DailyCases() {
     }
     for (let counter = initialCasesIndex; counter < thisObject.graphData.length; counter += increment) {
       let today = thisObject.graphData[counter];
-      let yesterday = thisObject.graphData[counter - 1];
-      let twoDaysAgo = thisObject.graphData[counter - 2];
-      let threeDaysAgo = thisObject.graphData[counter - 3];
-      let fourDaysAgo = thisObject.graphData[counter - 4];
-      let fiveDaysAgo = thisObject.graphData[counter - 5];
-      let sixDayAgo = thisObject.graphData[counter - 6];
-
-      let totalCases = today.cases + yesterday.cases + twoDaysAgo.cases + threeDaysAgo.cases + fourDaysAgo.cases + fiveDaysAgo.cases + sixDayAgo.cases;        
       thisObject.chartConfig.data.labels.push(prefix + today.date.toDateString());
-      thisObject.dailyCases.data.push((totalCases / 7).toFixed(2));
+      thisObject.dailyCases.data.push(today.sevenDayAverage);
       thisObject.totalCases.data.push(today.totalCases);
     }
   };
 
   thisObject.weeklyTotal = function() {
     reset();
-    for (let counter = 6; counter < thisObject.graphData.length; counter++) {
-      let today = thisObject.graphData[counter];
-      if (today.date.getDay() === 6) {
-        let today = thisObject.graphData[counter];
-        let yesterday = thisObject.graphData[counter - 1];
-        let twoDaysAgo = thisObject.graphData[counter - 2];
-        let threeDaysAgo = thisObject.graphData[counter - 3];
-        let fourDaysAgo = thisObject.graphData[counter - 4];
-        let fiveDaysAgo = thisObject.graphData[counter - 5];
-        let sixDayAgo = thisObject.graphData[counter - 6];
-        let totalCases = today.cases + yesterday.cases + twoDaysAgo.cases + threeDaysAgo.cases + fourDaysAgo.cases + fiveDaysAgo.cases + sixDayAgo.cases;
-
+    thisObject.graphData.filter(item => item.date.getDay() === 0 && item.hasOwnProperty("weeklyCases"))
+                        .forEach(function (today, index) {
         thisObject.chartConfig.data.labels.push('Week ending ' + today.date.toDateString());
-        thisObject.dailyCases.data.push(totalCases);
+        thisObject.dailyCases.data.push(today.weeklyCases);
         thisObject.totalCases.data.push(today.totalCases);
-      }
-    }
+      });
   };
 
   thisObject.generateTableBody = function() {

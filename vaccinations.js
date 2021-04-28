@@ -138,6 +138,23 @@ function DailyVaccinations() {
           populationFirstDose: populationFirstDose,
           populationSecondDose: populationSecondDose
         };
+        if (index > 7) {
+          let today = items[index];
+          let yesterday = items[index - 1];
+          let twoDaysAgo = items[index - 2];
+          let threeDaysAgo = items[index - 3];
+          let fourDaysAgo = items[index - 4];
+          let fiveDaysAgo = items[index - 5];
+          let sixDayAgo = items[index - 6];
+          let sevenDayTotalFirstDoses = today.firstDose + yesterday.firstDose + twoDaysAgo.firstDose + threeDaysAgo.firstDose + fourDaysAgo.firstDose + fiveDaysAgo.firstDose + sixDayAgo.firstDose;
+          let sevenDayTotalSecondDoses = today.secondDose + yesterday.secondDose + twoDaysAgo.secondDose + threeDaysAgo.secondDose + fourDaysAgo.secondDose + fiveDaysAgo.secondDose + sixDayAgo.secondDose;
+          vaccinatedData.sevenDayAverageFirstDose = (sevenDayTotalFirstDoses / 7).toFixed(2);
+          vaccinatedData.sevenDayAverageSecondDose = (sevenDayTotalSecondDoses / 7).toFixed(2);
+          if (item.date.getDay() === 0) {
+            vaccinatedData.weeklyFirstDoses = sevenDayTotalFirstDoses;
+            vaccinatedData.weeklySecondDoses = sevenDayTotalSecondDoses;
+          }
+        }
         thisObject.data.push(vaccinatedData);
       }
     });
@@ -161,19 +178,17 @@ function DailyVaccinations() {
     thisObject.graphData = new Array();
     let twoMonthsAgo = new Date();
     twoMonthsAgo.setMonth(twoMonthsAgo.getMonth() - 2);
-    thisObject.data.forEach(function(value, index) {
-      if (value.date > twoMonthsAgo) {
-        thisObject.graphData.push(value);
-      }
+    thisObject.data.filter(item => (item.date > twoMonthsAgo))
+                   .forEach(function(value, index) {
+      thisObject.graphData.push(value);
     });
   }
   
   thisObject.betweenDates = function(startDate, endDate) {
     thisObject.graphData = new Array();
-    thisObject.data.forEach(function(item, index) {
-      if (item.date >= startDate && item.date <= endDate) {
-        thisObject.graphData.push(item);
-      }
+    thisObject.data.filter(item => (item.date >= startDate && item.date <= endDate))
+                   .forEach(function(item, index) {
+      thisObject.graphData.push(item);
     });
   };
 
@@ -204,14 +219,13 @@ function DailyVaccinations() {
 
   thisObject.byDay = function(day) {
     reset();
-    thisObject.graphData.forEach(function(value, index) {
-      if (value.date.getDay() == day) {
-        thisObject.chartConfig.data.labels.push(value.date.toDateString());
-        thisObject.firstDose.data.push(value.firstDose);
-        thisObject.secondDose.data.push(value.secondDose);
-        thisObject.populationFirstDose.data.push(value.totalFirstDose);
-        thisObject.populationSecondDose.data.push(value.totalSecondDose);
-      }
+    thisObject.graphData.filter(item => (item.date.getDay() == day))
+                        .forEach(function(value, index) {
+      thisObject.chartConfig.data.labels.push(value.date.toDateString());
+      thisObject.firstDose.data.push(value.firstDose);
+      thisObject.secondDose.data.push(value.secondDose);
+      thisObject.populationFirstDose.data.push(value.totalFirstDose);
+      thisObject.populationSecondDose.data.push(value.totalSecondDose);
     });
   };
   
@@ -227,18 +241,9 @@ function DailyVaccinations() {
     }
     for (let counter = initialTestsIndex; counter < thisObject.graphData.length; counter += increment) {
       let today = thisObject.graphData[counter];
-      let yesterday = thisObject.graphData[counter - 1];
-      let twoDaysAgo = thisObject.graphData[counter - 2];
-      let threeDaysAgo = thisObject.graphData[counter - 3];
-      let fourDaysAgo = thisObject.graphData[counter - 4];
-      let fiveDaysAgo = thisObject.graphData[counter - 5];
-      let sixDayAgo = thisObject.graphData[counter - 6];
-      let totalFirstDose = today.firstDose + yesterday.firstDose + twoDaysAgo.firstDose + threeDaysAgo.firstDose + fourDaysAgo.firstDose + fiveDaysAgo.firstDose + sixDayAgo.firstDose;
-      let totalSecondDose = today.secondDose + yesterday.secondDose + twoDaysAgo.secondDose + threeDaysAgo.secondDose + fourDaysAgo.secondDose + fiveDaysAgo.secondDose + sixDayAgo.secondDose;
-      let dailyDoses = totalFirstDose + totalSecondDose;
       thisObject.chartConfig.data.labels.push(prefix + today.date.toDateString());
-      thisObject.firstDose.data.push((totalFirstDose / 7).toFixed(2));
-      thisObject.secondDose.data.push((totalSecondDose / 7).toFixed(2));
+      thisObject.firstDose.data.push(today.sevenDayAverageFirstDose);
+      thisObject.secondDose.data.push(today.sevenDayAverageSecondDose);
       thisObject.populationFirstDose.data.push(today.totalFirstDose);
       thisObject.populationSecondDose.data.push(today.totalSecondDose);
     }
@@ -246,35 +251,22 @@ function DailyVaccinations() {
   
   thisObject.twoMonthView = function(startDate, endDate) {
     thisObject.graphData = new Array();
-    thisObject.data.forEach(function(item, index) {
-      if (item.date >= startDate && item.date <= endDate) {
-        thisObject.graphData.push(item);
-      }
+    thisObject.data.filter(item => (item.date >= startDate && item.date <= endDate))
+                   .forEach(function(item, index) {
+      thisObject.graphData.push(item);
     });
   };
 
   thisObject.weeklyTotal = function() {
     reset();
-    for (let counter = 6; counter < thisObject.graphData.length; counter++) {
-      let today = thisObject.graphData[counter];
-      if (today.date.getDay() === 6) {
-        let yesterday = thisObject.graphData[counter - 1];
-        let twoDaysAgo = thisObject.graphData[counter - 2];
-        let threeDaysAgo = thisObject.graphData[counter - 3];
-        let fourDaysAgo = thisObject.graphData[counter - 4];
-        let fiveDaysAgo = thisObject.graphData[counter - 5];
-        let sixDayAgo = thisObject.graphData[counter - 6];
-        let totalFirstDose = today.firstDose + yesterday.firstDose + twoDaysAgo.firstDose + threeDaysAgo.firstDose + fourDaysAgo.firstDose + fiveDaysAgo.firstDose + sixDayAgo.firstDose;
-        let totalSecondDose = today.secondDose + yesterday.secondDose + twoDaysAgo.secondDose + threeDaysAgo.secondDose + fourDaysAgo.secondDose + fiveDaysAgo.secondDose + sixDayAgo.secondDose;
-        let dailyDoses = totalFirstDose + totalSecondDose;
-        
-        thisObject.chartConfig.data.labels.push('Week ending ' + today.date.toDateString());
-        thisObject.firstDose.data.push(totalFirstDose);
-        thisObject.secondDose.data.push(totalSecondDose);
-        thisObject.populationFirstDose.data.push(today.totalFirstDose);
-        thisObject.populationSecondDose.data.push(today.totalSecondDose);
-      }
-    }
+    thisObject.graphData.filter(item => (item.date.getDay() === 0 && item.hasOwnProperty("weeklyFirstDoses")))
+                        .forEach(function (today, index) {
+      thisObject.chartConfig.data.labels.push('Week ending ' + today.date.toDateString());
+      thisObject.firstDose.data.push(today.weeklyFirstDoses);
+      thisObject.secondDose.data.push(today.weeklySecondDoses);
+      thisObject.populationFirstDose.data.push(today.totalFirstDose);
+      thisObject.populationSecondDose.data.push(today.totalSecondDose);
+    });
   };
 
   thisObject.generateTableBody = function() {
@@ -300,8 +292,8 @@ function DailyVaccinations() {
       createCell(newRow, firstDose);
       createCell(newRow, (secondDose ? secondDose : '-'));
       createCell(newRow, totalDoses);
-      createCell(newRow, totalFirstDose);
-      createCell(newRow, totalSecondDose);
+      createCell(newRow, populationFirstDose);
+      createCell(newRow, populationSecondDose);
       createCell(newRow, ((populationFirstDose * 100) / population).toFixed(2));
       createCell(newRow, ((populationSecondDose * 100) / population).toFixed(2));
     });
