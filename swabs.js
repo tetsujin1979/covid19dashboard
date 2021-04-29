@@ -255,9 +255,9 @@ function DailySwabs() {
     thisObject.graphData.filter(item => item.date.getDay() === 0 && item.hasOwnProperty("weeklyPositiveSwabs"))
                         .forEach(function (today, index) {
       thisObject.chartConfig.data.labels.push('Week ending ' + today.date.toDateString());
-      thisObject.positiveSwabs.data.push(weeklyPositiveSwabs);
-      thisObject.negativeSwabs.data.push(weeklyNegativeSwabs);
-      thisObject.percentagePositive.data.push(weeklyPercentagePositive);
+      thisObject.positiveSwabs.data.push(today.weeklyPositiveSwabs);
+      thisObject.negativeSwabs.data.push(today.weeklyNegativeSwabs);
+      thisObject.percentagePositive.data.push(today.weeklyPercentagePositive);
     });
   };
 
