@@ -474,8 +474,7 @@
 
       function createCell(tableRow, value) {
         let cell = tableRow.insertCell();
-        let text = value ? (value.toString().includes('.') ? Number(value).toFixed(2) : value) : '';
-        let newText = document.createTextNode(text);
+        let newText = document.createTextNode(value.toString().includes('.') ? Number(value).toFixed(2) : value);
         cell.appendChild(newText);
       }
 

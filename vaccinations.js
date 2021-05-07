@@ -231,14 +231,10 @@ function DailyVaccinations() {
   
   thisObject.dayAverage = function(increment, prefix) {
     reset();
-    let initialTestsIndex = 0;
     let todayDay = new Date().getDay();
-    for (let counter = 6; counter < 13; counter++) {
-      if (thisObject.graphData[counter].date.getDay() === todayDay) {
-        initialTestsIndex = counter;
-        break;
-      }
-    }
+    let initialCasesIndex = thisObject.graphData.findIndex(function (value) { 
+      return value.date.getDay() === todayDay && value.hasOwnProperty("sevenDayAverage");
+    });
     for (let counter = initialTestsIndex; counter < thisObject.graphData.length; counter += increment) {
       let today = thisObject.graphData[counter];
       thisObject.chartConfig.data.labels.push(prefix + today.date.toDateString());
