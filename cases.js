@@ -203,10 +203,10 @@ function DailyCases() {
   thisObject.dayAverage = function(increment, prefix) {
     reset();
     let todayDay = new Date().getDay();
-    let initialCasesIndex = thisObject.graphData.findIndex(function (value) { 
+    let initialIndex = thisObject.graphData.findIndex(function (value) { 
       return value.date.getDay() === todayDay && value.hasOwnProperty("sevenDayAverage");
     });
-    for (let counter = initialCasesIndex; counter < thisObject.graphData.length; counter += increment) {
+    for (let counter = initialIndex; counter < thisObject.graphData.length; counter += increment) {
       let today = thisObject.graphData[counter];
       thisObject.chartConfig.data.labels.push(prefix + today.date.toDateString());
       thisObject.dailyCases.data.push(today.sevenDayAverage);
