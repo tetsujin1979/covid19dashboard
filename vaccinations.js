@@ -233,7 +233,7 @@ function DailyVaccinations() {
     reset();
     let todayDay = new Date().getDay();
     let initialIndex = thisObject.graphData.findIndex(function (value) { 
-      return value.date.getDay() === todayDay && value.hasOwnProperty("sevenDayAverage");
+      return value.date.getDay() === todayDay && value.hasOwnProperty("sevenDayAverageFirstDose");
     });
     for (let counter = initialIndex; counter < thisObject.graphData.length; counter += increment) {
       let today = thisObject.graphData[counter];
