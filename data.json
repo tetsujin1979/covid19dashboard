@@ -432,5 +432,5 @@
   {"dateString": "2021-05-04T12:00:00.000Z", "positiveSwabs": 362, "dailySwabs": 14170, "cases": 383, "deaths": 2, "firstDose": 27081, "secondDose": 6915},
   {"dateString": "2021-05-05T12:00:00.000Z", "positiveSwabs": 435, "dailySwabs": 19406, "cases": 418, "deaths": 7, "firstDose": 31694, "secondDose": 12978},
   {"dateString": "2021-05-06T12:00:00.000Z", "positiveSwabs": 467, "dailySwabs": 21036, "cases": 393, "deaths": 8},
-  {"dateString": "2021-05-07T12:00:00.000Z", "positiveSwabs": 461, "dailySwabs": 18847}
+  {"dateString": "2021-05-07T12:00:00.000Z", "positiveSwabs": 461, "dailySwabs": 18847, "cases": 434, "deaths": 4}
 ]
