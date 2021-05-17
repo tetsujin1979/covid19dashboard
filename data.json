@@ -441,5 +441,6 @@
   {"dateString": "2021-05-13T12:00:00.000Z", "positiveSwabs": 478, "dailySwabs": 19728, "cases": 456, "deaths": 0},
   {"dateString": "2021-05-14T12:00:00.000Z", "cases": 425, "deaths": 4},
   {"dateString": "2021-05-15T12:00:00.000Z", "cases": 447},
-  {"dateString": "2021-05-16T12:00:00.000Z", "cases": 355}
+  {"dateString": "2021-05-16T12:00:00.000Z", "cases": 355},
+  {"dateString": "2021-05-17T12:00:00.000Z", "cases": 360}
 ]
