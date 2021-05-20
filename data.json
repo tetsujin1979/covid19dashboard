@@ -443,6 +443,7 @@
   {"dateString": "2021-05-15T12:00:00.000Z", "cases": 447},
   {"dateString": "2021-05-16T12:00:00.000Z", "cases": 355},
   {"dateString": "2021-05-17T12:00:00.000Z", "cases": 360},
-  {"dateString": "2021-05-17T12:00:00.000Z", "cases": 358},
-  {"dateString": "2021-05-18T12:00:00.000Z", "cases": 503}
+  {"dateString": "2021-05-18T12:00:00.000Z", "cases": 358},
+  {"dateString": "2021-05-19T12:00:00.000Z", "cases": 503},
+  {"dateString": "2021-05-20T12:00:00.000Z", "cases": 469}
 ]
