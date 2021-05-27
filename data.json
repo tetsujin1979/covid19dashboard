@@ -452,5 +452,5 @@
   {"dateString": "2021-05-24T12:00:00.000Z", "cases": 345, "deaths": 0},
   {"dateString": "2021-05-25T12:00:00.000Z", "cases": 365, "deaths": 0},
   {"dateString": "2021-05-26T12:00:00.000Z", "cases": 448, "deaths": 0},
-  {"dateString": "2021-05-27T12:00:00.000Z", "deaths": 8},
+  {"dateString": "2021-05-27T12:00:00.000Z", "deaths": 8}
 ]
