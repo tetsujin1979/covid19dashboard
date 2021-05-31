@@ -455,5 +455,6 @@
   {"dateString": "2021-05-27T12:00:00.000Z", "cases": 436, "deaths": 8},
   {"dateString": "2021-05-28T12:00:00.000Z", "cases": 467},
   {"dateString": "2021-05-29T12:00:00.000Z", "cases": 464},
-  {"dateString": "2021-05-30T12:00:00.000Z", "cases": 374}
+  {"dateString": "2021-05-30T12:00:00.000Z", "cases": 374},
+  {"dateString": "2021-05-31T12:00:00.000Z", "cases": 378}
 ]
