@@ -476,5 +476,6 @@
   {"dateString": "2021-06-17T12:00:00.000Z", "cases": 373, "deaths": 26},
   {"dateString": "2021-06-18T12:00:00.000Z", "cases": 313},
   {"dateString": "2021-06-19T12:00:00.000Z", "cases": 393},
-  {"dateString": "2021-06-20T12:00:00.000Z", "cases": 288}
+  {"dateString": "2021-06-20T12:00:00.000Z", "cases": 288},
+  {"dateString": "2021-06-21T12:00:00.000Z", "cases": 284}
 ]
