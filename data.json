@@ -479,5 +479,6 @@
   {"dateString": "2021-06-20T12:00:00.000Z", "cases": 288, "hospitalisations": 49, "icu": 15},
   {"dateString": "2021-06-21T12:00:00.000Z", "cases": 284, "hospitalisations": 53, "icu": 13},
   {"dateString": "2021-06-22T12:00:00.000Z", "cases": 294, "hospitalisations": 39, "icu": 13},
-  {"dateString": "2021-06-23T12:00:00.000Z", "cases": 348, "hospitalisations": 41, "icu": 13}
+  {"dateString": "2021-06-23T12:00:00.000Z", "cases": 348, "hospitalisations": 41, "icu": 13},
+  {"dateString": "2021-06-24T12:00:00.000Z", "cases": 304, "hospitalisations": 47, "icu": 13}
 ]
