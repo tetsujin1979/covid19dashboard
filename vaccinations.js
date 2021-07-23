@@ -26,6 +26,15 @@ function DailyVaccinations() {
     yAxisID: "DosesAxis"
   };
 
+  thisObject.singleDose = {
+    label: "Single Dose",
+    data: [],
+    backgroundColor: "rgba(150, 81, 159, 0.6)",
+    borderColor: "rgba(14, 54, 201, 0.5)",
+    borderWidth: 0,
+    yAxisID: "DosesAxis"
+  };
+
   thisObject.populationFirstDose = {
     label: "Population - 1st Dose",
     data: [],
@@ -46,11 +55,21 @@ function DailyVaccinations() {
     type: "line"
   };
   
+  thisObject.populationSingleDose = {
+    label: "Population - Single Dose",
+    data: [],
+    backgroundColor: "transparent",
+    borderColor: "orange",
+    borderWidth: 4,
+    yAxisID: "VaccinatedAxis",
+    type: "line"
+  };
+  
   thisObject.chartConfig = {
     type: "bar",
     data: {
       labels: [],
-      datasets: [thisObject.firstDose, thisObject.secondDose, thisObject.populationFirstDose, thisObject.populationSecondDose]
+      datasets: [thisObject.firstDose, thisObject.secondDose, thisObject.singleDose, thisObject.populationFirstDose, thisObject.populationSecondDose]
     },
     options: {
       scales: {
@@ -62,7 +81,8 @@ function DailyVaccinations() {
           stacked: true,
           position: "left",
           ticks: {
-            beginAtZero: true
+            beginAtZero: true,
+            min: 0
           },
           scaleLabel: {
             display: true,
@@ -72,7 +92,8 @@ function DailyVaccinations() {
           id: "VaccinatedAxis",
           position: "right",
           ticks: {
-            beginAtZero: true
+            beginAtZero: true,
+            min: 0
           },
           gridLines: {
             display: false
@@ -95,7 +116,7 @@ function DailyVaccinations() {
               if (data.datasets[i].label === 'First Dose' || data.datasets[i].label === 'Second Dose') {
                 totalDailyDose += Number(data.datasets[i].data[tooltipItem.index]);
               }
-              if (data.datasets[i].label === 'Population - 1st Dose' || data.datasets[i].label === 'Population - 2nd Dose') {
+              if (data.datasets[i].label === 'Population - 1st Dose' || data.datasets[i].label === 'Population - 2nd Dose' || data.datasets[i].label === 'Population - Single Dose') {
                 totalVaccinesAdministered += Number(data.datasets[i].data[tooltipItem.index]);
               }
             }
@@ -120,6 +141,7 @@ function DailyVaccinations() {
   thisObject.populateData = function(items) {
     let totalFirstDose = 0;
     let totalSecondDose = 0;
+    let totalSingleDose = 0;
     items.forEach(function(item, index) { 
       if (item.hasOwnProperty("date") && item.hasOwnProperty("firstDose")) {
         totalFirstDose += item.firstDose;
@@ -129,12 +151,18 @@ function DailyVaccinations() {
           totalSecondDose += item.secondDose;
           populationSecondDose = ((totalSecondDose * 100) / population).toFixed(2);
         }
+        if (item.hasOwnProperty("singleDose")) {
+          totalSingleDose += item.singleDose;
+          populationSingleDose = ((totalSingleDose * 100) / population).toFixed(2);
+        }
         let vaccinatedData = {
           date: item.date,
           firstDose: item.firstDose,
           secondDose: (item.hasOwnProperty("secondDose") ? item.secondDose : 0),
+          singleDose: (item.hasOwnProperty("singleDose") ? item.singleDose : 0),
           totalFirstDose: totalFirstDose,
           totalSecondDose: totalSecondDose,
+          totalSingleDose: totalSingleDose,
           populationFirstDose: populationFirstDose,
           populationSecondDose: populationSecondDose
         };
@@ -148,11 +176,15 @@ function DailyVaccinations() {
           let sixDayAgo = items[index - 6];
           let sevenDayTotalFirstDoses = today.firstDose + yesterday.firstDose + twoDaysAgo.firstDose + threeDaysAgo.firstDose + fourDaysAgo.firstDose + fiveDaysAgo.firstDose + sixDayAgo.firstDose;
           let sevenDayTotalSecondDoses = today.secondDose + yesterday.secondDose + twoDaysAgo.secondDose + threeDaysAgo.secondDose + fourDaysAgo.secondDose + fiveDaysAgo.secondDose + sixDayAgo.secondDose;
+          let sevenDayTotalSingleDoses = today.singleDose + yesterday.singleDose + twoDaysAgo.singleDose + threeDaysAgo.singleDose + fourDaysAgo.singleDose + fiveDaysAgo.singleDose + sixDayAgo.singleDose;
           vaccinatedData.sevenDayAverageFirstDose = (sevenDayTotalFirstDoses / 7).toFixed(2);
           vaccinatedData.sevenDayAverageSecondDose = (sevenDayTotalSecondDoses / 7).toFixed(2);
+          vaccinatedData.sevenDayAverageSecondDose = (sevenDayTotalSecondDoses / 7).toFixed(2);
+          vaccinatedData.sevenDayAverageSingleDose = (sevenDayTotalSingleDoses / 7).toFixed(2);
           if (item.date.getDay() === 0) {
             vaccinatedData.weeklyFirstDoses = sevenDayTotalFirstDoses;
             vaccinatedData.weeklySecondDoses = sevenDayTotalSecondDoses;
+            vaccinatedData.weeklySingleDoses = sevenDayTotalSingleDoses;
           }
         }
         thisObject.data.push(vaccinatedData);
@@ -198,6 +230,7 @@ function DailyVaccinations() {
       thisObject.chartConfig.data.labels.push(value.date.toDateString());
       thisObject.firstDose.data.push(value.firstDose);
       thisObject.secondDose.data.push(value.secondDose);
+      thisObject.singleDose.data.push(value.singleDose);
       thisObject.populationFirstDose.data.push(value.totalFirstDose);
       thisObject.populationSecondDose.data.push(value.totalSecondDose);
     });
@@ -224,6 +257,7 @@ function DailyVaccinations() {
       thisObject.chartConfig.data.labels.push(value.date.toDateString());
       thisObject.firstDose.data.push(value.firstDose);
       thisObject.secondDose.data.push(value.secondDose);
+      thisObject.singleDose.data.push(value.singleDose);
       thisObject.populationFirstDose.data.push(value.totalFirstDose);
       thisObject.populationSecondDose.data.push(value.totalSecondDose);
     });
@@ -240,6 +274,7 @@ function DailyVaccinations() {
       thisObject.chartConfig.data.labels.push(prefix + today.date.toDateString());
       thisObject.firstDose.data.push(today.sevenDayAverageFirstDose);
       thisObject.secondDose.data.push(today.sevenDayAverageSecondDose);
+      thisObject.singleDose.data.push(today.sevenDayAverageSecondDose);
       thisObject.populationFirstDose.data.push(today.totalFirstDose);
       thisObject.populationSecondDose.data.push(today.totalSecondDose);
     }
@@ -260,6 +295,7 @@ function DailyVaccinations() {
       thisObject.chartConfig.data.labels.push('Week ending ' + today.date.toDateString());
       thisObject.firstDose.data.push(today.weeklyFirstDoses);
       thisObject.secondDose.data.push(today.weeklySecondDoses);
+      thisObject.singleDose.data.push(today.weeklySingleDoses);
       thisObject.populationFirstDose.data.push(today.totalFirstDose);
       thisObject.populationSecondDose.data.push(today.totalSecondDose);
     });
@@ -269,6 +305,7 @@ function DailyVaccinations() {
     let tableBody = document.createElement('tbody');
     let totalFirstDose = 0;
     let totalSecondDose = 0;
+    let totalSingleDose = 0;
     thisObject.chartConfig.data.labels.forEach(function(item, index) {
       // Insert date cell
       let newRow = tableBody.insertRow();
@@ -276,22 +313,28 @@ function DailyVaccinations() {
       let newText = document.createTextNode(item);
       let firstDose = Number(thisObject.firstDose.data[index]);
       let secondDose = (thisObject.secondDose.data[index] ? Number(thisObject.secondDose.data[index]) : 0);
+      let singleDose = (thisObject.singleDose.data[index] ? Number(thisObject.singleDose.data[index]) : 0);
       let populationFirstDose = Number(thisObject.populationFirstDose.data[index]);
       let populationSecondDose = (thisObject.populationSecondDose.data[index] ? Number(thisObject.populationSecondDose.data[index]) : 0);
+      let populationSingleDose = (thisObject.populationSingleDose.data[index] ? Number(thisObject.populationSingleDose.data[index]) : 0);
 
-      let totalDoses = firstDose + secondDose;
+      let totalDoses = firstDose + secondDose + singleDose;
 
       totalFirstDose += firstDose;
       totalSecondDose += secondDose;
+      totalSingleDose += singleDose;
       
       newCell.appendChild(newText);
       createCell(newRow, firstDose);
       createCell(newRow, (secondDose ? secondDose : '-'));
+      createCell(newRow, (singleDose ? singleDose : '-'));
       createCell(newRow, totalDoses);
       createCell(newRow, populationFirstDose);
       createCell(newRow, populationSecondDose);
+      createCell(newRow, populationSingleDose);
       createCell(newRow, ((populationFirstDose * 100) / population).toFixed(2));
       createCell(newRow, ((populationSecondDose * 100) / population).toFixed(2));
+      createCell(newRow, ((populationSingleDose * 100) / population).toFixed(2));
     });
     return tableBody;
   };
@@ -338,8 +381,10 @@ function DailyVaccinations() {
     thisObject.chartConfig.data.labels = new Array();
     thisObject.firstDose.data = new Array();
     thisObject.secondDose.data = new Array();
+    thisObject.singleDose.data = new Array();
     thisObject.populationFirstDose.data = new Array();
     thisObject.populationSecondDose.data = new Array();
+    thisObject.populationSingleDose.data = new Array();
   }
 };
 

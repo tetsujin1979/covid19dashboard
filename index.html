@@ -187,7 +187,7 @@
       let activeDisplay = 'graph';
       let graph = {};
 
-      fetch('data.json')
+      fetch('https://raw.githubusercontent.com/tetsujin1979/covid19dashboard/main/data.json')
         .then(response => response.json())
         .then(function(responseData) {
           responseData.forEach(function(value, index) {
@@ -212,6 +212,9 @@
             }
             if (value.hasOwnProperty("secondDose")) {
               dataObject.secondDose = value.secondDose;
+            }
+            if (value.hasOwnProperty("singleDose")) {
+              dataObject.singleDose = value.singleDose;
             }
             data.push(dataObject);
           });
