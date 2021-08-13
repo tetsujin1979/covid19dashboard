@@ -529,5 +529,6 @@
   {"dateString": "2021-08-09T12:00:00.000Z", "cases": 1522, "firstDose": 10652, "secondDose": 28324, "singleDose": 770, "hospitalisations": 217, "icu": 34},
   {"dateString": "2021-08-10T12:00:00.000Z", "cases": 1508, "firstDose": 10005, "secondDose": 26316, "singleDose": 755, "hospitalisations": 206, "icu": 33},
   {"dateString": "2021-08-11T12:00:00.000Z", "cases": 1819, "firstDose": 10420, "secondDose": 34232, "singleDose": 612, "hospitalisations": 206, "icu": 36},
-  {"dateString": "2021-08-12T12:00:00.000Z", "cases": 1903, "firstDose": 9452, "secondDose": 41025, "singleDose": 942, "hospitalisations": 219, "icu": 37}
+  {"dateString": "2021-08-12T12:00:00.000Z", "cases": 1903, "firstDose": 9452, "secondDose": 41025, "singleDose": 942, "hospitalisations": 219, "icu": 37},
+  {"dateString": "2021-08-13T12:00:00.000Z", "cases": 1978, "hospitalisations": 221, "icu": 43}
 ]
