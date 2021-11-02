@@ -611,5 +611,5 @@
   {"dateString": "2021-10-30T12:00:00.000Z", "positiveSwabs": 3042, "dailySwabs": 24625, "cases": 2966, "hospitalisations": 470, "icu": 92},
   {"dateString": "2021-10-31T12:00:00.000Z", "positiveSwabs": 3198, "dailySwabs": 21451, "cases": 1963, "hospitalisations": 500, "icu": 93},
   {"dateString": "2021-11-01T12:00:00.000Z", "positiveSwabs": 3220, "dailySwabs": 20913, "cases": 2855, "hospitalisations": 515, "icu": 91},
-  {"dateString": "2021-11-02T12:00:00.000Z", "positiveSwabs": 2706, "dailySwabs": 20052}
+  {"dateString": "2021-11-02T12:00:00.000Z", "positiveSwabs": 2706, "dailySwabs": 20052, "cases": 3726, "hospitalisations": 493, "icu": 90}
 ]
