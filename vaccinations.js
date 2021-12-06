@@ -274,7 +274,7 @@ function DailyVaccinations() {
       thisObject.chartConfig.data.labels.push(prefix + today.date.toDateString());
       thisObject.firstDose.data.push(today.sevenDayAverageFirstDose);
       thisObject.secondDose.data.push(today.sevenDayAverageSecondDose);
-      thisObject.singleDose.data.push(today.sevenDayAverageSecondDose);
+      thisObject.singleDose.data.push(today.sevenDayAverageSingleDose);
       thisObject.populationFirstDose.data.push(today.totalFirstDose);
       thisObject.populationSecondDose.data.push(today.totalSecondDose);
     }
