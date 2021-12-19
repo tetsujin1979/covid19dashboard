@@ -398,25 +398,38 @@ function DailyVaccinations() {
     let retVal = new Array();
     let totalFirstDose = 0;
     let totalSecondDose = 0;
+    let totalSingleDose = 0;
     retVal.push(csvHeader);
     thisObject.chartConfig.data.labels.forEach(function(item, index) {
       let csvData = new Array();
       let firstDose = Number(thisObject.firstDose.data[index]);
       let secondDose = (thisObject.secondDose.data[index] ? Number(thisObject.secondDose.data[index]) : 0);
+      let singleDose = (thisObject.singleDose.data[index] ? Number(thisObject.singleDose.data[index]) : 0);
+      let booster = (thisObject.booster.data[index] ? Number(thisObject.booster.data[index]) : 0);
       let populationFirstDose = Number(thisObject.populationFirstDose.data[index]);
       let populationSecondDose = (thisObject.populationSecondDose.data[index] ? Number(thisObject.populationSecondDose.data[index]) : 0);
-      let totalDoses = firstDose + secondDose;
+      let populationSingleDose = (thisObject.populationSingleDose.data[index] ? Number(thisObject.populationSingleDose.data[index]) : 0);
+      let populationBooster = (thisObject.populationBooster.data[index] ? Number(thisObject.populationBooster.data[index]) : 0);
+      let totalDoses = firstDose + secondDose + singleDose + booster;
 
       totalFirstDose += firstDose;
       totalSecondDose += secondDose;
+      totalSingleDose += singleDose;
+
       csvData.push(item);
       csvData.push(firstDose);
       csvData.push(secondDose);
+      csvData.push(singleDose);
+      csvData.push(booster);
       csvData.push(totalDoses);
       csvData.push(totalFirstDose);
       csvData.push(totalSecondDose);
+      csvData.push(populationSingleDose);
+      csvData.push(populationBooster);
       csvData.push(((populationFirstDose * 100) / population).toFixed(2));
       csvData.push(((populationSecondDose * 100) / population).toFixed(2));
+      csvData.push(((populationSingleDose * 100) / population).toFixed(2));
+      csvData.push(((populationBooster * 100) / population).toFixed(2));
       retVal.push(csvData.join(','))
     });
     return retVal.join("\n");
