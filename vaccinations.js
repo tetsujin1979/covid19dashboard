@@ -1,12 +1,14 @@
 function DailyVaccinations() {
   const thisObject = this;
-  const csvHeader = ['Date,First Dose,Second Dose,Total Daily Dose,Total 1st Dose,Total 2nd Dose,% Population With 1st Dose,% Population with 2nd Dose'];
+  const columns = ['Date','First Dose','Second Dose','Single Dose','Booster','Total Daily Dose','Total 1st Dose','Total 2nd Dose','Total Single Dose','Total Booster', '% Population With 1st Dose','% Population with 2nd Dose','% Population with Single Dose', '% Booster'];
+  const csvHeader = [columns.join(',')];
   const population = 4977400;
 
   thisObject.data = new Array();
   thisObject.graphData = new Array();
   thisObject.name = 'vaccinations';
-  thisObject.tableHead = '<tr><th>Date</th><th>First Dose</th><th>Second Dose</th><th>Total Daily Dose</th><th>Total 1st Dose</th><th>Total 2nd Dose</th><th>% Population With 1st Dose</th><th>% Population with 2nd Dose</th></tr>';
+
+  thisObject.tableHead = '<tr><th>' + columns.join('</th><th>') + '</th></tr>';
       
   thisObject.firstDose = {
     label: "First Dose",
@@ -172,7 +174,6 @@ function DailyVaccinations() {
     let totalBooster = 0;
     items.forEach(function(item, index) { 
       if (item.hasOwnProperty("date") && item.hasOwnProperty("firstDose")) {
-        console.log("%j", item);
         totalFirstDose += item.firstDose;
         let populationFirstDose = ((totalFirstDose * 100) / population).toFixed(2);
         let populationSecondDose = 0;
@@ -187,7 +188,6 @@ function DailyVaccinations() {
           populationSingleDose = ((totalSingleDose * 100) / population).toFixed(2);
         }
         if (item.hasOwnProperty("booster")) {
-          console.log("Booster: " + item.booster);
           totalBooster += item.booster;
           populationBooster = ((totalBooster * 100) / population).toFixed(2);
         }
@@ -364,11 +364,13 @@ function DailyVaccinations() {
       let firstDose = Number(thisObject.firstDose.data[index]);
       let secondDose = (thisObject.secondDose.data[index] ? Number(thisObject.secondDose.data[index]) : 0);
       let singleDose = (thisObject.singleDose.data[index] ? Number(thisObject.singleDose.data[index]) : 0);
+      let booster = (thisObject.booster.data[index] ? Number(thisObject.booster.data[index]) : 0);
       let populationFirstDose = Number(thisObject.populationFirstDose.data[index]);
       let populationSecondDose = (thisObject.populationSecondDose.data[index] ? Number(thisObject.populationSecondDose.data[index]) : 0);
       let populationSingleDose = (thisObject.populationSingleDose.data[index] ? Number(thisObject.populationSingleDose.data[index]) : 0);
+      let populationBooster = (thisObject.populationBooster.data[index] ? Number(thisObject.populationBooster.data[index]) : 0);
 
-      let totalDoses = firstDose + secondDose + singleDose;
+      let totalDoses = firstDose + secondDose + singleDose + booster;
 
       totalFirstDose += firstDose;
       totalSecondDose += secondDose;
@@ -378,13 +380,16 @@ function DailyVaccinations() {
       createCell(newRow, firstDose);
       createCell(newRow, (secondDose ? secondDose : '-'));
       createCell(newRow, (singleDose ? singleDose : '-'));
+      createCell(newRow, (booster ? booster : '-'));
       createCell(newRow, totalDoses);
       createCell(newRow, populationFirstDose);
       createCell(newRow, populationSecondDose);
       createCell(newRow, populationSingleDose);
+      createCell(newRow, populationBooster);
       createCell(newRow, ((populationFirstDose * 100) / population).toFixed(2));
       createCell(newRow, ((populationSecondDose * 100) / population).toFixed(2));
       createCell(newRow, ((populationSingleDose * 100) / population).toFixed(2));
+      createCell(newRow, ((populationBooster * 100) / population).toFixed(2));
     });
     return tableBody;
   };
