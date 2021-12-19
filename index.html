@@ -216,6 +216,9 @@
             if (value.hasOwnProperty("singleDose")) {
               dataObject.singleDose = value.singleDose;
             }
+            if (value.hasOwnProperty("booster")) {
+              dataObject.booster = value.booster;
+            }
             data.push(dataObject);
           });
           cases.populateData(data);
