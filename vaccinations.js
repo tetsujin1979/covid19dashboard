@@ -14,7 +14,8 @@ function DailyVaccinations() {
     backgroundColor: "rgba(237, 100, 127, .6)",
     borderColor: "rgba(233,0,45, 1)",
     borderWidth: 0,
-    yAxisID: "DosesAxis"
+    yAxisID: "DosesAxis",
+    order: 2
   };
   
   thisObject.secondDose = {
@@ -23,7 +24,8 @@ function DailyVaccinations() {
     backgroundColor: "rgba(63, 63, 191, 0.6)",
     borderColor: "rgba(14, 54, 201, 0.5)",
     borderWidth: 0,
-    yAxisID: "DosesAxis"
+    yAxisID: "DosesAxis",
+    order: 2
   };
 
   thisObject.singleDose = {
@@ -32,7 +34,18 @@ function DailyVaccinations() {
     backgroundColor: "rgba(150, 81, 159, 0.6)",
     borderColor: "rgba(14, 54, 201, 0.5)",
     borderWidth: 0,
-    yAxisID: "DosesAxis"
+    yAxisID: "DosesAxis",
+    order: 2
+  };
+
+  thisObject.booster = {
+    label: "Booster",
+    data: [],
+    backgroundColor: "rgba(0, 168, 168)",
+    borderColor: "rgba(14, 54, 201, 0.5)",
+    borderWidth: 0,
+    yAxisID: "DosesAxis",
+    order: 2
   };
 
   thisObject.populationFirstDose = {
@@ -42,7 +55,8 @@ function DailyVaccinations() {
     borderColor: "red",
     borderWidth: 4,
     yAxisID: "VaccinatedAxis",
-    type: "line"
+    type: "line",
+    order: 1
   };
   
   thisObject.populationSecondDose = {
@@ -52,7 +66,8 @@ function DailyVaccinations() {
     borderColor: "green",
     borderWidth: 4,
     yAxisID: "VaccinatedAxis",
-    type: "line"
+    type: "line",
+    order: 1
   };
   
   thisObject.populationSingleDose = {
@@ -62,14 +77,26 @@ function DailyVaccinations() {
     borderColor: "orange",
     borderWidth: 4,
     yAxisID: "VaccinatedAxis",
-    type: "line"
+    type: "line",
+    order: 1
+  };
+  
+  thisObject.populationBooster = {
+    label: "Population - Booster",
+    data: [],
+    backgroundColor: "transparent",
+    borderColor: "yellow",
+    borderWidth: 4,
+    yAxisID: "VaccinatedAxis",
+    type: "line",
+    order: 1
   };
   
   thisObject.chartConfig = {
     type: "bar",
     data: {
       labels: [],
-      datasets: [thisObject.firstDose, thisObject.secondDose, thisObject.singleDose, thisObject.populationFirstDose, thisObject.populationSecondDose]
+      datasets: [thisObject.firstDose, thisObject.secondDose, thisObject.singleDose, thisObject.booster, thisObject.populationFirstDose, thisObject.populationSecondDose, thisObject.populationSingleDose, thisObject.populationBooster]
     },
     options: {
       scales: {
@@ -142,11 +169,15 @@ function DailyVaccinations() {
     let totalFirstDose = 0;
     let totalSecondDose = 0;
     let totalSingleDose = 0;
+    let totalBooster = 0;
     items.forEach(function(item, index) { 
       if (item.hasOwnProperty("date") && item.hasOwnProperty("firstDose")) {
+        console.log("%j", item);
         totalFirstDose += item.firstDose;
         let populationFirstDose = ((totalFirstDose * 100) / population).toFixed(2);
         let populationSecondDose = 0;
+        let populationSingleDose = 0;
+        let populationBooster = 0;
         if (item.hasOwnProperty("secondDose")) {
           totalSecondDose += item.secondDose;
           populationSecondDose = ((totalSecondDose * 100) / population).toFixed(2);
@@ -155,16 +186,24 @@ function DailyVaccinations() {
           totalSingleDose += item.singleDose;
           populationSingleDose = ((totalSingleDose * 100) / population).toFixed(2);
         }
+        if (item.hasOwnProperty("booster")) {
+          console.log("Booster: " + item.booster);
+          totalBooster += item.booster;
+          populationBooster = ((totalBooster * 100) / population).toFixed(2);
+        }
         let vaccinatedData = {
           date: item.date,
           firstDose: item.firstDose,
           secondDose: (item.hasOwnProperty("secondDose") ? item.secondDose : 0),
           singleDose: (item.hasOwnProperty("singleDose") ? item.singleDose : 0),
+          booster: (item.hasOwnProperty("booster") ? item.booster : 0),
           totalFirstDose: totalFirstDose,
           totalSecondDose: totalSecondDose,
           totalSingleDose: totalSingleDose,
+          totalBooster: totalBooster,
           populationFirstDose: populationFirstDose,
-          populationSecondDose: populationSecondDose
+          populationSecondDose: populationSecondDose,
+          populationBooster: populationBooster
         };
         if (index > 7) {
           let today = items[index];
@@ -177,14 +216,17 @@ function DailyVaccinations() {
           let sevenDayTotalFirstDoses = today.firstDose + yesterday.firstDose + twoDaysAgo.firstDose + threeDaysAgo.firstDose + fourDaysAgo.firstDose + fiveDaysAgo.firstDose + sixDayAgo.firstDose;
           let sevenDayTotalSecondDoses = today.secondDose + yesterday.secondDose + twoDaysAgo.secondDose + threeDaysAgo.secondDose + fourDaysAgo.secondDose + fiveDaysAgo.secondDose + sixDayAgo.secondDose;
           let sevenDayTotalSingleDoses = today.singleDose + yesterday.singleDose + twoDaysAgo.singleDose + threeDaysAgo.singleDose + fourDaysAgo.singleDose + fiveDaysAgo.singleDose + sixDayAgo.singleDose;
+          let sevenDayTotalBooster = today.booster + yesterday.booster + twoDaysAgo.booster + threeDaysAgo.booster + fourDaysAgo.booster + fiveDaysAgo.booster + sixDayAgo.booster;
           vaccinatedData.sevenDayAverageFirstDose = (sevenDayTotalFirstDoses / 7).toFixed(2);
           vaccinatedData.sevenDayAverageSecondDose = (sevenDayTotalSecondDoses / 7).toFixed(2);
           vaccinatedData.sevenDayAverageSecondDose = (sevenDayTotalSecondDoses / 7).toFixed(2);
           vaccinatedData.sevenDayAverageSingleDose = (sevenDayTotalSingleDoses / 7).toFixed(2);
+          vaccinatedData.sevenDayAverageBooster = (sevenDayTotalBooster / 7).toFixed(2);
           if (item.date.getDay() === 0) {
             vaccinatedData.weeklyFirstDoses = sevenDayTotalFirstDoses;
             vaccinatedData.weeklySecondDoses = sevenDayTotalSecondDoses;
             vaccinatedData.weeklySingleDoses = sevenDayTotalSingleDoses;
+            vaccinatedData.weeklyBooster = sevenDayTotalBooster;
           }
         }
         thisObject.data.push(vaccinatedData);
@@ -231,8 +273,11 @@ function DailyVaccinations() {
       thisObject.firstDose.data.push(value.firstDose);
       thisObject.secondDose.data.push(value.secondDose);
       thisObject.singleDose.data.push(value.singleDose);
+      thisObject.booster.data.push(value.booster);
       thisObject.populationFirstDose.data.push(value.totalFirstDose);
       thisObject.populationSecondDose.data.push(value.totalSecondDose);
+      thisObject.populationSingleDose.data.push(value.totalSingleDose);
+      thisObject.populationBooster.data.push(value.totalBooster);
     });
   };
   
@@ -258,8 +303,11 @@ function DailyVaccinations() {
       thisObject.firstDose.data.push(value.firstDose);
       thisObject.secondDose.data.push(value.secondDose);
       thisObject.singleDose.data.push(value.singleDose);
+      thisObject.booster.data.push(value.booster);
       thisObject.populationFirstDose.data.push(value.totalFirstDose);
       thisObject.populationSecondDose.data.push(value.totalSecondDose);
+      thisObject.populationSingleDose.data.push(value.totalSingleDose);
+      thisObject.populationBooster.data.push(value.totalBooster);
     });
   };
   
@@ -277,6 +325,7 @@ function DailyVaccinations() {
       thisObject.singleDose.data.push(today.sevenDayAverageSingleDose);
       thisObject.populationFirstDose.data.push(today.totalFirstDose);
       thisObject.populationSecondDose.data.push(today.totalSecondDose);
+      thisObject.populationSingleDose.data.push(today.totalSingleDose);
     }
   };
   
@@ -298,6 +347,7 @@ function DailyVaccinations() {
       thisObject.singleDose.data.push(today.weeklySingleDoses);
       thisObject.populationFirstDose.data.push(today.totalFirstDose);
       thisObject.populationSecondDose.data.push(today.totalSecondDose);
+      thisObject.populationSingleDose.data.push(today.totalSingleDose);
     });
   };
 
@@ -382,9 +432,10 @@ function DailyVaccinations() {
     thisObject.firstDose.data = new Array();
     thisObject.secondDose.data = new Array();
     thisObject.singleDose.data = new Array();
+    thisObject.booster.data = new Array();
     thisObject.populationFirstDose.data = new Array();
     thisObject.populationSecondDose.data = new Array();
-    thisObject.populationSingleDose.data = new Array();
+    thisObject.populationBooster.data = new Array();
   }
 };
 
