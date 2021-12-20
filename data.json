@@ -659,5 +659,5 @@
   {"dateString": "2021-12-17T12:00:00.000Z", "dailySwabs": 34248, "positiveSwabs": 5249, "cases": 3628, "hospitalisations": 420, "icu": 105, "firstDose": 1106, "secondDose": 2191, "singleDose": 0, "booster": 53382},
   {"dateString": "2021-12-18T12:00:00.000Z", "dailySwabs": 32041, "positiveSwabs": 5477, "cases": 7333, "hospitalisations": 410, "icu": 107, "firstDose": 1191, "secondDose": 1075, "singleDose": 0, "booster": 35707},
   {"dateString": "2021-12-19T12:00:00.000Z", "dailySwabs": 28648, "positiveSwabs": 5210, "cases": 5124, "hospitalisations": 436, "icu": 107, "firstDose": 421, "secondDose": 476, "singleDose": 0, "booster": 29983},
-  {"dateString": "2021-12-20T12:00:00.000Z", "dailySwabs": 26217, "positiveSwabs": 4755}
+  {"dateString": "2021-12-20T12:00:00.000Z", "dailySwabs": 26217, "positiveSwabs": 4755, "cases": 4799, "hospitalisations": 467, "icu": 104}
 ]
