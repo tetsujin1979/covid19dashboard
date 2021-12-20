@@ -345,9 +345,11 @@ function DailyVaccinations() {
       thisObject.firstDose.data.push(today.weeklyFirstDoses);
       thisObject.secondDose.data.push(today.weeklySecondDoses);
       thisObject.singleDose.data.push(today.weeklySingleDoses);
+      thisObject.booster.data.push(today.weeklyBooster);
       thisObject.populationFirstDose.data.push(today.totalFirstDose);
       thisObject.populationSecondDose.data.push(today.totalSecondDose);
       thisObject.populationSingleDose.data.push(today.totalSingleDose);
+      thisObject.populationBooster.data.push(today.totalBooster);
     });
   };
 
