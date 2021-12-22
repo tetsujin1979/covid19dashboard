@@ -632,7 +632,7 @@
   {"dateString": "2021-11-20T12:00:00.000Z", "positiveSwabs": 5020, "dailySwabs": 31104, "cases": 5959, "hospitalisations": 640, "icu": 121, "firstDose": 1529, "secondDose": 2892, "singleDose": 10, "booster": 19834},
   {"dateString": "2021-11-21T12:00:00.000Z", "positiveSwabs": 4738, "dailySwabs": 28683, "cases": 4179, "hospitalisations": 668, "icu": 125, "firstDose": 1784, "secondDose": 2749, "singleDose": 0, "booster": 12828},
   {"dateString": "2021-11-22T12:00:00.000Z", "positiveSwabs": 4604, "dailySwabs": 26990, "cases": 5634, "hospitalisations": 684, "icu": 126, "firstDose": 709, "secondDose": 461, "singleDose": 2, "booster": 15078},
-  {"dateString": "2021-11-23T12:00:00.000Z", "positiveSwabs": 4691, "dailySwabs": 30275, "cases": 3666, "hospitalisations": 638, "icu": 130, "firstDose": 2167, "secondDose": 1526, "singleDose": 4, "booster": 29340},
+  {"dateString": "2021-11-23T12:00:00.000Z", "positiveSwabs": 4691, "dailySwabs": 30274, "cases": 3666, "hospitalisations": 638, "icu": 130, "firstDose": 2167, "secondDose": 1526, "singleDose": 4, "booster": 29340},
   {"dateString": "2021-11-24T12:00:00.000Z", "positiveSwabs": 4285, "dailySwabs": 31622, "cases": 3893, "hospitalisations": 611, "icu": 132, "firstDose": 1616, "secondDose": 3068, "singleDose": 0, "booster": 32952},
   {"dateString": "2021-11-25T12:00:00.000Z", "positiveSwabs": 4259, "dailySwabs": 35284, "cases": 4764, "hospitalisations": 598, "icu": 126, "firstDose": 1003, "secondDose": 1101, "singleDose": 0, "booster": 37871},
   {"dateString": "2021-11-26T12:00:00.000Z", "positiveSwabs": 4055, "dailySwabs": 32926, "cases": 4620, "hospitalisations": 571, "icu": 118, "firstDose": 1286, "secondDose": 1045, "singleDose": 13, "booster": 32621},
@@ -657,8 +657,9 @@
   {"dateString": "2021-12-15T12:00:00.000Z", "dailySwabs": 36274, "positiveSwabs": 4824, "cases": 4235, "hospitalisations": 470, "icu": 105, "firstDose": 763, "secondDose": 1102, "singleDose": 1, "booster": 51631},
   {"dateString": "2021-12-16T12:00:00.000Z", "dailySwabs": 35133, "positiveSwabs": 4744, "cases": 4141, "hospitalisations": 443, "icu": 108, "firstDose": 983, "secondDose": 1318, "singleDose": 7, "booster": 54593},
   {"dateString": "2021-12-17T12:00:00.000Z", "dailySwabs": 34247, "positiveSwabs": 5248, "cases": 3628, "hospitalisations": 420, "icu": 105, "firstDose": 1131, "secondDose": 2238, "singleDose": 0, "booster": 53382},
-  {"dateString": "2021-12-18T12:00:00.000Z", "dailySwabs": 32617, "positiveSwabs": 5495, "cases": 7333, "hospitalisations": 410, "icu": 107, "firstDose": 1207, "secondDose": 1083, "singleDose": 0, "booster": 35707},
-  {"dateString": "2021-12-19T12:00:00.000Z", "dailySwabs": 29125, "positiveSwabs": 5230, "cases": 5124, "hospitalisations": 436, "icu": 107, "firstDose": 513, "secondDose": 835, "singleDose": 1, "booster": 29983},
-  {"dateString": "2021-12-20T12:00:00.000Z", "dailySwabs": 27017, "positiveSwabs": 4791, "cases": 4799, "hospitalisations": 467, "icu": 104, "firstDose": 424, "secondDose": 410, "singleDose": 0, "booster": 75280},
-  {"dateString": "2021-12-21T12:00:00.000Z", "dailySwabs": 33328, "positiveSwabs": 5625, "cases": 5279, "hospitalisations": 443, "icu": 102}
+  {"dateString": "2021-12-18T12:00:00.000Z", "dailySwabs": 32822, "positiveSwabs": 5506, "cases": 7333, "hospitalisations": 410, "icu": 107, "firstDose": 1207, "secondDose": 1083, "singleDose": 0, "booster": 35707},
+  {"dateString": "2021-12-19T12:00:00.000Z", "dailySwabs": 29155, "positiveSwabs": 5230, "cases": 5124, "hospitalisations": 436, "icu": 107, "firstDose": 513, "secondDose": 835, "singleDose": 1, "booster": 29983},
+  {"dateString": "2021-12-20T12:00:00.000Z", "dailySwabs": 27032, "positiveSwabs": 4791, "cases": 4799, "hospitalisations": 467, "icu": 104, "firstDose": 424, "secondDose": 410, "singleDose": 0, "booster": 75280},
+  {"dateString": "2021-12-21T12:00:00.000Z", "dailySwabs": 34981, "positiveSwabs": 5684, "cases": 5279, "hospitalisations": 443, "icu": 102},
+  {"dateString": "2021-12-22T12:00:00.000Z", "dailySwabs": 33367, "positiveSwabs": 6994}
 ]
