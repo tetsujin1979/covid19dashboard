@@ -676,5 +676,5 @@
   {"dateString": "2022-01-03T12:00:00.000Z", "dailySwabs": 36720, "positiveSwabs": 19181, "cases": 16986, "hospitalisations": 804, "icu": 93, "firstDose": 450, "secondDose": 688, "singleDose": 0, "booster": 15191, "immunocompromised": 54},
   {"dateString": "2022-01-04T12:00:00.000Z", "dailySwabs": 40097, "positiveSwabs": 21121, "cases": 21302, "hospitalisations": 884, "icu": 90, "firstDose": 524, "secondDose": 667, "singleDose": 0, "booster": 28169, "immunocompromised": 151},
   {"dateString": "2022-01-05T12:00:00.000Z", "dailySwabs": 40103, "positiveSwabs": 19371, "cases": 17656, "hospitalisations": 928, "icu": 94, "firstDose": 631, "secondDose": 708, "singleDose": 0, "booster": 35514, "immunocompromised": 185},
-  {"dateString": "2022-01-06T12:00:00.000Z", "dailySwabs": 47179, "positiveSwabs": 24601}
+  {"dateString": "2022-01-06T12:00:00.000Z", "dailySwabs": 47179, "positiveSwabs": 24601, "cases": 23817, "hospitalisations": 941, "icu": 90}
 ]
