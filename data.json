@@ -7146,6 +7146,7 @@
   },
   {
     "dateString": "2022-01-11T12:00:00.000Z",
+    "cases": 19290,
     "hospitalisations": {"cases": 1062, "admissions": 74, "discharges": 116, "hospitalAcquired": 75},
     "icu": {"cases": 92, "admissions": 10, "discharges": 6},
     "dailySwabs": 39871,
