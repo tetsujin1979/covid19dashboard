@@ -6837,7 +6837,7 @@
   },
   {
     "dateString": "2021-12-30T12:00:00.000Z",
-    "dailySwabs": 45623,
+    "dailySwabs": 45622,
     "positiveSwabs": 22095,
     "cases": 20554,
     "hospitalisations": {"cases": 619, "admissions": 77, "discharges": 68, "hospitalAcquired": 71},
@@ -6928,8 +6928,8 @@
   },
   {
     "dateString": "2022-01-06T12:00:00.000Z",
-    "dailySwabs": 48980,
-    "positiveSwabs": 24964,
+    "dailySwabs": 48979,
+    "positiveSwabs": 24963,
     "cases": 23817,
     "hospitalisations": {"cases": 941, "admissions": 100, "discharges": 125, "hospitalAcquired": 53},
     "icu": {"cases": 90, "admissions": 6, "discharges": 9},
@@ -6971,7 +6971,7 @@
     "hospitalisations": {"cases": 984, "admissions": 72, "discharges": 58, "hospitalAcquired": 61},
     "icu": {"cases": 83, "admissions": 7, "discharges": 6},
     "dailySwabs": 44040,
-    "positiveSwabs": 23416,
+    "positiveSwabs": 23417,
     "firstDose": 7092,
     "secondDose": 647,
     "singleDose": 0,
@@ -6996,8 +6996,8 @@
     "cases": 19290,
     "hospitalisations": {"cases": 1062, "admissions": 74, "discharges": 116, "hospitalAcquired": 75},
     "icu": {"cases": 92, "admissions": 10, "discharges": 6},
-    "dailySwabs": 42108,
-    "positiveSwabs": 21405,
+    "dailySwabs": 42109,
+    "positiveSwabs": 21404,
     "firstDose": 4655,
     "secondDose": 1182,
     "singleDose": 1,
@@ -7005,16 +7005,12 @@
     "immunocompromised": 167
   },
   {
-    "dateString": "2022-01-12T12:00:00.000Z", 
-    "hospitalisations": {"cases": 1055, "admissions": 89, "discharges": 128, "hospitalAcquired": 81}, 
-    "icu": {"cases": 92, "admissions": 8, "discharges": 6}, 
+    "dateString": "2022-01-12T12:00:00.000Z",
+    "hospitalisations": {"cases": 1055, "admissions": 89, "discharges": 128, "hospitalAcquired": 81},
+    "icu": {"cases": 92, "admissions": 8, "discharges": 6},
     "cases": 20909,
-    "dailySwabs": 37723, 
-    "positiveSwabs": 18948
+    "dailySwabs": 40655,
+    "positiveSwabs": 19394
   },
-  {
-    "dateString": "2022-01-13T12:00:00.000Z", 
-    "hospitalisations": {"cases": 1011, "admissions": 72, "discharges": 113, "hospitalAcquired": 49}, 
-    "icu": {"cases": 92, "admissions": 7, "discharges": 6}
-  }
+  {"dateString": "2022-01-13T12:00:00.000Z", "hospitalisations": {"cases": 1011, "admissions": 72, "discharges": 113, "hospitalAcquired": 49}, "icu": {"cases": 92, "admissions": 7, "discharges": 6}, "dailySwabs": 36960, "positiveSwabs": 18044}
 ]
