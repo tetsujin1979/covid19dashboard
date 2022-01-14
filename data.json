@@ -7174,7 +7174,8 @@
     "dateString": "2022-01-13T12:00:00.000Z",
     "hospitalisations": {"cases": 1011, "admissions": 72, "discharges": 113, "hospitalAcquired": 49},
     "icu": {"cases": 92, "admissions": 7, "discharges": 6},
-    "cases": 18904,
+    "c"cases": 18904,
+    ases": 18904,
     "dailySwabs": 41945,
     "positiveSwabs": 19917,
     "firstDose": 7112,
@@ -7187,6 +7188,7 @@
     "dateString": "2022-01-14T12:00:00.000Z",
     "hospitalisations": {"cases": 1023, "admissions": 95, "discharges": 102, "hospitalAcquired": 58},
     "icu": {"cases": 83, "admissions": 6, "discharges": 14},
+    "cases": 17065,
     "dailySwabs": 35964,
     "positiveSwabs": 16241
   }
