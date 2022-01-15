@@ -7188,12 +7188,14 @@
     "hospitalisations": {"cases": 1023, "admissions": 95, "discharges": 102, "hospitalAcquired": 58},
     "icu": {"cases": 83, "admissions": 6, "discharges": 14},
     "cases": 17065,
+    "antigen": 5406,
     "dailySwabs": 35964,
     "positiveSwabs": 16241
   },
   {
     "dateString": "2022-01-15T12:00:00.000Z",
-    "hospitalisations": {"cases": 949, "admissions": 70, "discharges": 127, "hospitalAcquired": 49},
-    "icu": {"cases": 89, "admissions": 9, "discharges": 3}
+     "cases": 14555,
+     "hospitalisations": {"cases": 949, "admissions": 70, "discharges": 127, "hospitalAcquired": 49},
+     "icu": {"cases": 89, "admissions": 9, "discharges": 3}
   }
 ]
