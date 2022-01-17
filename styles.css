@@ -1,0 +1,9 @@
+.card {
+  max-width: 28px;
+  padding: 1rem 2rem;
+  background: #fff;
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  border-radius: 0.5rem;
+  margin: 5rem 0rem;
+  border: 2px solid blue;
+}

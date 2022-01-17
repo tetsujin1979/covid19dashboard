@@ -1,120 +1,138 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>A dashboard of daily Irish COVID data</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-trendline"></script>
-    <link rel="stylesheet" href="covid19dashboard.css">
-  </head>
-  <body>
-    <div id="menu">
-      <div style="width: 80%; padding: 15px; text-align: left;">
-        <fieldset>
-          <legend>Share</legend>
-          <a id="twitterLink" title="Share on twitter" target="_blank"><img class="share-link" src="twitter.svg"></img></a>
-          <a id="facebookLink" title="Share on facebook" target="_blank"><img class="share-link" src="facebook.svg"></img></a>
-          <a id="emailLink" title="Share via email" target="_blank" ><img class="share-link" src="email.svg"></img></a>
-          <a id="whatsAppLink" title="Share via whatsapp" class="mobile-link"><img class="share-link" src="whatsapp.svg"></img></a>
-          <img id="copyLink" title="Copy link to clipboard" onmouseover='this.style.cursor="pointer"' class="share-link" src="link.svg" onclick="navigator.clipboard.writeText(link).then(alert('Link copied'));"></img>
-        </fieldset>
-        <fieldset>
-          <legend>Source data</legend>
+
+<head>
+  <meta charset="utf-8" />
+  <title>A dashboard of daily Irish COVID data</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-trendline"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="covid19dashboard.css">
+</head>
+
+<body>
+  <div id="menu">
+    <div style="padding: 15px; text-align: left;">
+      <div class="card">
+        <legend class="title">Share</legend>
+        <a id="twitterLink" title="Share on twitter" target="_blank"><img class="share-link"
+            src="twitter.svg"></img></a>
+        <a id="facebookLink" title="Share on facebook" target="_blank"><img class="share-link"
+            src="facebook.svg"></img></a>
+        <a id="emailLink" title="Share via email" target="_blank"><img class="share-link" src="email.svg"></img></a>
+        <a id="whatsAppLink" title="Share via whatsapp" class="mobile-link"><img class="share-link"
+            src="whatsapp.svg"></img></a>
+        <img id="copyLink" title="Copy link to clipboard" onmouseover='this.style.cursor="pointer"' class="share-link"
+          src="link.svg" onclick="navigator.clipboard.writeText(link).then(alert('Link copied'));"></img>
+      </div>
+      <div class="card">
+        <legend class="title">Source data</legend>
+        <div>
+          <input id="selectCases" type="radio" name="dataSelection" value="cases" onclick="selectData(cases)"> Cases
+        </div>
+        <div>
+          <input id="selectDeaths" type="radio" name="dataSelection" value="deaths" onclick="selectData(deaths)">
+          Deaths
+        </div>
+        <div>
+          <input id="selectSwabs" type="radio" name="dataSelection" value="swabs" onclick="selectData(swabs)"> Swabs
+        </div>
+        <div>
+          <input id="selectVaccinations" type="radio" name="dataSelection" value="vaccinations"
+            onclick="selectData(vaccinations)"> Vaccinations
+        </div>
+      </div>
+      <fieldset class="card">
+        <p class="title">Date selection</p>
+        <div>
+          <input type="radio" name="dateSelection" value="allDates" onclick="allDates()"> All dates
+        </div>
+        <div>
+          <input type="radio" name="dateSelection" value="lastTwoMonths" onclick="lastTwoMonths()"> Last two months
+        </div>
+        <div>
+          <input type="radio" name="dateSelection" value="twoMonthView" onclick="twoMonthView()"> Two month view
+          <select name="twoMonthView" id="twoMonthView" onchange="twoMonthView()" style="width: 100%;"
+            disabled></select>
+        </div>
+        <div>
           <div>
-            <input id="selectCases" type ="radio" name="dataSelection" value="cases" onclick="selectData(cases)"> Cases
+            <input type="radio" name="dateSelection" value="betweenDates" onclick="betweenDates()"> Between dates
           </div>
-          <div>
-            <input id="selectDeaths" type="radio" name="dataSelection" value="deaths" onclick="selectData(deaths)"> Deaths
-          </div>
-          <div>
-            <input id="selectSwabs" type="radio" name="dataSelection" value="swabs" onclick="selectData(swabs)"> Swabs
-          </div>
-          <div>
-            <input id="selectVaccinations" type="radio" name="dataSelection" value="vaccinations" onclick="selectData(vaccinations)"> Vaccinations
-          </div>
-        </fieldset>
-        <fieldset>
-          <legend>Date selection</legend>
-          <div>
-            <input type="radio" name="dateSelection" value="allDates" onclick="allDates()"> All dates
-          </div>
-          <div>
-            <input type="radio" name="dateSelection" value="lastTwoMonths" onclick="lastTwoMonths()"> Last two months
-          </div>
-          <div>
-            <input type="radio" name="dateSelection" value="twoMonthView" onclick="twoMonthView()"> Two month view
-          <select name="twoMonthView" id="twoMonthView" onchange="twoMonthView()" style="width: 100%;" disabled></select>
-          </div>
-          <div>
-            <div>
-              <input type="radio" name="dateSelection" value="betweenDates" onclick="betweenDates()"> Between dates
-            </div>
-            <div style="float: right;">
-              <div style="text-align: right;">
-                <div id="startDateLabel" style="color: #999999; float: right;">Start date </span>
+          <div style="float: right;">
+            <div style="text-align: right;">
+              <div id="startDateLabel" style="color: #999999; float: right;">Start date </span>
                 <div style="float: right; padding-left: 5px;">
                   <select name="startDate" id="startDate" onchange="betweenDates()"></select>
                 </div>
               </div>
               <div style="text-align: right;">
                 <div id="endDateLabel" style="color: #999999; float: right;">End date </span>
-                <div style="float: right; padding-left: 5px;">
-                  <select name="endDate" id="endDate" onchange="betweenDates()"></select>
+                  <div style="float: right; padding-left: 5px;">
+                    <select name="endDate" id="endDate" onchange="betweenDates()"></select>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </fieldset>
-        <fieldset>
-          <legend>Graph type</legend>
-          <div>
-            <input type="radio" name="graphType" id="dailyTotal" value="normal" onclick="standardGraph()"> Daily Total
-          </div>
-          <div>
-            <input type="radio" name="graphType" id="rollingSevenDayAverage" value="rollingSevenDayAverage" onclick="dayAverage(1)"> Rolling seven day average
-          </div>
-          <div>
-            <input type="radio" name="graphType" id="sevenDayAverage" value="sevenDayAverage" onclick="dayAverage(7, 'Seven days to ')"> Seven day average
-          </div>
-          <div>
-            <input type="radio" name="graphType" id="byWeekday" value="byWeekday" onclick="byDay()"> By weekday
-            <select name="day" id="day" disabled="true" onchange="byDay()" style="float: right;">
-              <option value="0">Sunday</option>
-              <option value="1">Monday</option>
-              <option value="2">Tuesday</option>
-              <option value="3">Wednesday</option>
-              <option value="4">Thursday</option>
-              <option value="5">Friday</option>
-              <option value="6">Saturday</option>
-            </select>
-          </div>
-          <div>
-            <input type="radio" name="graphType" id="weeklyTotal" value="weeklyTotal" onclick="weeklyTotal()"> Weekly total
-          </div>
       </fieldset>
-      <fieldset>
-        <legend>Display as</legend>
+      <div class="card">
+        <legend class="title">Graph type</legend>
+        <div>
+          <input type="radio" name="graphType" id="dailyTotal" value="normal" onclick="standardGraph()"> Daily Total
+        </div>
+        <div>
+          <input type="radio" name="graphType" id="rollingSevenDayAverage" value="rollingSevenDayAverage"
+            onclick="dayAverage(1)"> Rolling seven day average
+        </div>
+        <div>
+          <input type="radio" name="graphType" id="sevenDayAverage" value="sevenDayAverage"
+            onclick="dayAverage(7, 'Seven days to ')"> Seven day average
+        </div>
+        <div>
+          <input type="radio" name="graphType" id="byWeekday" value="byWeekday" onclick="byDay()"> By weekday
+          <select name="day" id="day" disabled="true" onchange="byDay()" style="float: right;">
+            <option value="0">Sunday</option>
+            <option value="1">Monday</option>
+            <option value="2">Tuesday</option>
+            <option value="3">Wednesday</option>
+            <option value="4">Thursday</option>
+            <option value="5">Friday</option>
+            <option value="6">Saturday</option>
+          </select>
+        </div>
+        <div>
+          <input type="radio" name="graphType" id="weeklyTotal" value="weeklyTotal" onclick="weeklyTotal()"> Weekly
+          total
+        </div>
+      </div>
+      <div class="card">
+        <legend class="title">Display as</legend>
         <div>
           <input type="radio" name="displayType" id="displayType" value="graph" onclick="displayGraph()"> Graph
         </div>
-        <div style="text-align: center;">
-          <input type="checkbox" id="trendLine" name="trendLine" value="trendLine" onclick="toggleTrendLine()"> Trend line
+        <div>
+          <input type="checkbox" id="trendLine" name="trendLine" value="trendLine" onclick="toggleTrendLine()">
+          Trend
+          line
         </div>
         <div>
           <input type="radio" name="displayType" id="displayType" value="table" onclick="displayTable()"> Table
         </div>
-      </fieldset>
-      <fieldset>
-        <legend>Export data</legend>
+      </div>
+      <div class="card">
+        <legend class="title">Export data</legend>
         <div>
-          <button type="button" id="exportImage" value="exportImage" onclick="exportAsImage()">Export as image</button>
+          <button type="button" class="button" id="exportImage" value="exportImage" onclick="exportAsImage()">Export
+            as
+            image</button>
         </div>
         <div>
-          <button type="button" id="exportCSV" value="exportCSV" onclick="exportAsCSV()">Export as CSV</button>
+          <button type="button" class="button" id="exportCSV" value="exportCSV" onclick="exportAsCSV()">Export as
+            CSV</button>
         </div>
-      </fieldset>
-      <fieldset>
-        <legend>Links</legend>
+      </div>
+      <div class="card">
+        <legend class="title">Links</legend>
         <div>
           <a href="https://github.com/tetsujin1979/testsVpositivity">Github Source</a>
         </div>
@@ -127,10 +145,11 @@
         <div>
           <a href="https://github.com/ShaneHastings/Twitter-AutoPost-for-COVID-Data">COVID-19 Data Ireland</a>
         </div>
-      </fieldset>
+      </div>
     </div>
   </div>
-  <div id="content" style="display: block;">
+
+  <div id="content" style="display: block;" class="card">
     <canvas id="graph"></canvas>
     <div id="table" class="statsTable">
       <table id="dataTable">
@@ -139,442 +158,443 @@
       </table>
     </div>
   </div>
-    <script type="text/javascript" src="cases.js"></script>
-    <script type="text/javascript" src="deaths.js"></script>
-    <script type="text/javascript" src="swabs.js"></script>
-    <script type="text/javascript" src="vaccinations.js"></script>
-    <script type="text/javascript">
-      Chart.plugins.register({
-        beforeDraw: function(chartInstance) {
-          let ctx = chartInstance.chart.ctx;
-          ctx.fillStyle = "white";
-          ctx.fillRect(0, 0, chartInstance.chart.width, chartInstance.chart.height);
-        }
-      });
+  <script type="text/javascript" src="cases.js"></script>
+  <script type="text/javascript" src="deaths.js"></script>
+  <script type="text/javascript" src="swabs.js"></script>
+  <script type="text/javascript" src="vaccinations.js"></script>
+  <script type="text/javascript">
+    Chart.plugins.register({
+      beforeDraw: function (chartInstance) {
+        let ctx = chartInstance.chart.ctx;
+        ctx.fillStyle = "white";
+        ctx.fillRect(0, 0, chartInstance.chart.width, chartInstance.chart.height);
+      }
+    });
 
-      const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-      const parameterList = new URLSearchParams(window.location.search);
-      const graphs = [cases, deaths, swabs];
-      const today = new Date().getDay();
+    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    const parameterList = new URLSearchParams(window.location.search);
+    const graphs = [cases, deaths, swabs];
+    const today = new Date().getDay();
 
-      const positiveSwabsTrendLine = {
-        style: "rgba(237, 100, 127, 0.75)",
-        lineStyle: "dotted|solid",
-        width: 2
-      };
-      
-      const negativeSwabsTrendLine = {
-        style: "rgba(63, 63, 191, 0.75)",
-        lineStyle: "dotted|solid",
-        width: 2
-      };
+    const positiveSwabsTrendLine = {
+      style: "rgba(237, 100, 127, 0.75)",
+      lineStyle: "dotted|solid",
+      width: 2
+    };
 
-      const chartContext = document.getElementById('graph').getContext('2d');      
-      const chart = new Chart(chartContext, {
-        type: "bar",
-        data: {
-          labels: [],
-          datasets: []
-        },
-        options: {}
-      });
+    const negativeSwabsTrendLine = {
+      style: "rgba(63, 63, 191, 0.75)",
+      lineStyle: "dotted|solid",
+      width: 2
+    };
 
-      let data = [];
-      
-      let link = "";
-      let activeDate = 'lastTwoMonths';
-      let activeGraph = 'normal';
-      let activeDisplay = 'graph';
-      let graph = {};
+    const chartContext = document.getElementById('graph').getContext('2d');
+    const chart = new Chart(chartContext, {
+      type: "bar",
+      data: {
+        labels: [],
+        datasets: []
+      },
+      options: {}
+    });
 
-      fetch('https://raw.githubusercontent.com/tetsujin1979/covid19dashboard/main/data.json')
-        .then(response => response.json())
-        .then(function(responseData) {
-          responseData.forEach(function(value, index) {
-            let dataObject = {};
-            if (value.hasOwnProperty("dateString")) {
-              dataObject.date = new Date(value.dateString);
-            }
-            if (value.hasOwnProperty("positiveSwabs")) {
-              dataObject.positiveSwabs = value.positiveSwabs;
-            }
-            if (value.hasOwnProperty("dailySwabs")) {
-              dataObject.dailySwabs = value.dailySwabs;
-            }
-            if (value.hasOwnProperty("cases")) {
-              dataObject.cases = value.cases;
-            }
-            if (value.hasOwnProperty("deaths")) {
-              dataObject.deaths = value.deaths;
-            }
-            if (value.hasOwnProperty("firstDose")) {
-              dataObject.firstDose = value.firstDose;
-            }
-            if (value.hasOwnProperty("secondDose")) {
-              dataObject.secondDose = value.secondDose;
-            }
-            if (value.hasOwnProperty("singleDose")) {
-              dataObject.singleDose = value.singleDose;
-            }
-            if (value.hasOwnProperty("booster")) {
-              dataObject.booster = value.booster;
-            }
-            data.push(dataObject);
-          });
-          cases.populateData(data);
-          deaths.populateData(data);
-          swabs.populateData(data);
-          vaccinations.populateData(data);
-          init();
-        });
+    let data = [];
 
+    let link = "";
+    let activeDate = 'lastTwoMonths';
+    let activeGraph = 'normal';
+    let activeDisplay = 'graph';
+    let graph = {};
 
-      function init() {
-        let dayOptions = document.getElementById("day").options;
-        for (let counter = 0; counter < dayOptions.length; counter++) {
-          let option = dayOptions[counter];
-          if (option.value == today) {
-            option.selected = true;
+    fetch('https://raw.githubusercontent.com/tetsujin1979/covid19dashboard/main/data.json')
+      .then(response => response.json())
+      .then(function (responseData) {
+        responseData.forEach(function (value, index) {
+          let dataObject = {};
+          if (value.hasOwnProperty("dateString")) {
+            dataObject.date = new Date(value.dateString);
           }
+          if (value.hasOwnProperty("positiveSwabs")) {
+            dataObject.positiveSwabs = value.positiveSwabs;
+          }
+          if (value.hasOwnProperty("dailySwabs")) {
+            dataObject.dailySwabs = value.dailySwabs;
+          }
+          if (value.hasOwnProperty("cases")) {
+            dataObject.cases = value.cases;
+          }
+          if (value.hasOwnProperty("deaths")) {
+            dataObject.deaths = value.deaths;
+          }
+          if (value.hasOwnProperty("firstDose")) {
+            dataObject.firstDose = value.firstDose;
+          }
+          if (value.hasOwnProperty("secondDose")) {
+            dataObject.secondDose = value.secondDose;
+          }
+          if (value.hasOwnProperty("singleDose")) {
+            dataObject.singleDose = value.singleDose;
+          }
+          if (value.hasOwnProperty("booster")) {
+            dataObject.booster = value.booster;
+          }
+          data.push(dataObject);
+        });
+        cases.populateData(data);
+        deaths.populateData(data);
+        swabs.populateData(data);
+        vaccinations.populateData(data);
+        init();
+      });
+
+
+    function init() {
+      let dayOptions = document.getElementById("day").options;
+      for (let counter = 0; counter < dayOptions.length; counter++) {
+        let option = dayOptions[counter];
+        if (option.value == today) {
+          option.selected = true;
         }
+      }
 
-        let trendLineParameter = parameterList.get("trendLine");
-        trendLineParameter = trendLineParameter ? (trendLineParameter == "true") : true;
-        document.getElementById("trendLine").checked = trendLineParameter;
+      let trendLineParameter = parameterList.get("trendLine");
+      trendLineParameter = trendLineParameter ? (trendLineParameter == "true") : true;
+      document.getElementById("trendLine").checked = trendLineParameter;
 
-        let displayType = processParameter("displayType", "graph");      
-        processParameter("graphType", "normal");
-        processParameter("dateSelection", "lastTwoMonths");
-        let dataSelection = processParameter("dataSelection", "cases");
-        
+      let displayType = processParameter("displayType", "graph");
+      processParameter("graphType", "normal");
+      processParameter("dateSelection", "lastTwoMonths");
+      let dataSelection = processParameter("dataSelection", "cases");
+
+      dataSelection.onclick();
+      displayType.onclick();
+
+      if (document.querySelector('input[name="dateSelection"]:checked').value === 'twoMonthView') {
+        document.getElementById('twoMonthView').value = parameterList.get('twoMonthView');
         dataSelection.onclick();
-        displayType.onclick();
-        
-        if (document.querySelector('input[name="dateSelection"]:checked').value === 'twoMonthView') {
-          document.getElementById('twoMonthView').value = parameterList.get('twoMonthView');
-          dataSelection.onclick();
-        } else if (document.querySelector('input[name="dateSelection"]:checked').value === 'betweenDates') {
-          let startDate = new Date(parameterList.get('startDate'));
-          let endDate = new Date(parameterList.get('endDate'));
-          document.getElementById('startDate').value = parameterList.get('startDate');
-          document.getElementById('endDate').value = parameterList.get('endDate');
-          populateStartAndEndDates(startDate, endDate);
-          dataSelection.onclick();
-        }
-        
-        if (document.querySelector('input[name="graphType"]:checked').value === 'byWeekday') {
-          let day = parameterList.get('day');
-          document.getElementById('day').value = day;
-          dataSelection.onclick();
-        }
-        
-        if (!navigator.clipboard) {
-          document.getElementById('copyLink').style.display = 'none';
-        }
-      }
-
-      function processParameter(parameterName, defaultValue) {
-        let parameterValue = parameterList.get(parameterName);
-        let retVal = null;
-        parameterValue = parameterValue ? parameterValue : defaultValue;
-        document.getElementsByName(parameterName).forEach(function(item) {
-          if (item.value === parameterValue) {
-            item.checked = true;
-            retVal = item;
-          }
-        });
-        return retVal;
-      }
-
-      function selectData(newGraph) {
-        graph = newGraph;
-        populateTwoMonthView(graph.twoMonthViewOptions());
-        let startAndEndDates = graph.getStartAndEndDates();
-        populateStartAndEndDates(startAndEndDates.startDate, startAndEndDates.endDate);
-        toggleTrendLine();
-        document.getElementsByName("dateSelection").forEach(function(item) {
-          if (item.checked) {
-            item.onclick();
-          }
-        });
-      }
-
-      function populateTwoMonthView(options) {
-        let twoMonthViewSelect = document.getElementById('twoMonthView');
-        let currentValue = twoMonthViewSelect.value;
-        twoMonthViewSelect.innerHTML = '';
-        for (let counter = 0; counter < (options.length - 1); counter++) {
-          let startDate = new Date(options[counter]);
-          let endDate = new Date(options[counter + 1]);
-          endDate.setMonth(endDate.getMonth() + 1);
-          endDate.setDate(0);
-          let twoMonthOption = document.createElement('option');
-          twoMonthOption.value = startDate.getTime() + '|' + endDate.getTime();
-          twoMonthOption.innerHTML = months[startDate.getMonth()] + ' ' + startDate.getFullYear() + ' - ' + months[endDate.getMonth()] + ' ' + endDate.getFullYear();
-          if (twoMonthOption.value == currentValue) {
-            twoMonthOption.selected = true;
-          }
-          if (currentValue === '' && counter === (options.length - 2)) {
-            twoMonthOption.selected = true;
-          }
-          twoMonthViewSelect.appendChild(twoMonthOption);
-        }
-      }
-      
-      function allDates() {
-        disableStartAndEndDates();
-        graph.allDates();
-        generateGraphType();
-        activeDate = 'allDates';
-      }
-      
-      function lastTwoMonths() {
-        disableStartAndEndDates();
-        graph.lastTwoMonths();
-        generateGraphType();
-        activeDate = 'lastTwoMonths';
-      }
-      
-      function twoMonthView() {
-        disableStartAndEndDates();
-        let twoMonthViewSelect = document.getElementById('twoMonthView');
-        twoMonthViewSelect.disabled = false;
-        let timeStamps = twoMonthViewSelect.value.split('|');
-        let startDate = new Date(Number(timeStamps[0]));
-        startDate.setDate(0);
-        let endDate = new Date(Number(timeStamps[1]));
-        graph.twoMonthView(startDate, endDate);
-        generateGraphType();
-        activeDate = 'twoMonthView';
-      }
-
-      function betweenDates() {
-        disableStartAndEndDates();
-        let selectStartDate = document.getElementById('startDate');
-        let selectEndDate = document.getElementById('endDate');
-        let startDateLabel = document.getElementById('startDateLabel');
-        let endDateLabel = document.getElementById('endDateLabel');
-        selectStartDate.disabled = false;
-        selectEndDate.disabled = false;
-        startDateLabel.style.color = 'black';
-        endDateLabel.style.color = 'black';
-        let startDate = new Date(selectStartDate.value);
-        let endDate = new Date(selectEndDate.value);
-        graph.betweenDates(startDate, endDate);
+      } else if (document.querySelector('input[name="dateSelection"]:checked').value === 'betweenDates') {
+        let startDate = new Date(parameterList.get('startDate'));
+        let endDate = new Date(parameterList.get('endDate'));
+        document.getElementById('startDate').value = parameterList.get('startDate');
+        document.getElementById('endDate').value = parameterList.get('endDate');
         populateStartAndEndDates(startDate, endDate);
-        generateGraphType();
-        activeDate = 'betweenDates';
+        dataSelection.onclick();
       }
 
-      function generateGraphType() {
-        document.getElementsByName("graphType").forEach(function(item) {
-          if (item.checked) {
-            item.onclick();
-          }
-        });
+      if (document.querySelector('input[name="graphType"]:checked').value === 'byWeekday') {
+        let day = parameterList.get('day');
+        document.getElementById('day').value = day;
+        dataSelection.onclick();
       }
 
-      function disableStartAndEndDates() {
-        let selectStartDate = document.getElementById('startDate');
-        let selectEndDate = document.getElementById('endDate');
-        let startDateLabel = document.getElementById('startDateLabel');
-        let endDateLabel = document.getElementById('endDateLabel');
-        let twoMonthViewSelect = document.getElementById('twoMonthView');
-        twoMonthViewSelect.disabled = true;
-        selectStartDate.disabled = true;
-        selectEndDate.disabled = true;
-        startDateLabel.style.color = '#999999';
-        endDateLabel.style.color = '#999999';
+      if (!navigator.clipboard) {
+        document.getElementById('copyLink').style.display = 'none';
       }
+    }
 
-      function populateStartAndEndDates(startDate, endDate) {
-        startDate = startDate ? startDate : data[0].date;
-        endDate = endDate ? endDate : data[data.length - 1].date;
-        let selectStartDate = document.getElementById('startDate');
-        let selectEndDate = document.getElementById('endDate');
-        let currentStartDate = selectStartDate.value;
-        let currentEndDate = selectEndDate.value;
-        let startDateSelected = false;
-        let endDateSelected = false;
-        selectStartDate.innerHTML = '';
-        selectEndDate.innerHTML = '';
-        graph.data.forEach(function(item, index) {
-          if (item.date < endDate) {
-            let startOpt = document.createElement('option');
-            startOpt.value = item.date.toISOString();
-            startOpt.innerHTML = item.date.toDateString();
-            if (currentStartDate != '' && startOpt.value == currentStartDate) {
-              startOpt.selected = true;
-              startDateSelected = true;
-            }
-            if (currentStartDate === '' && index === 0) {
-              startOpt.selected = true;
-              startDateSelected = true;
-            }
-            selectStartDate.appendChild(startOpt);
-          }
-          if (item.date > startDate) {
-            let endOpt = document.createElement('option');
-            endOpt.value = item.date.toISOString();
-            endOpt.innerHTML = item.date.toDateString();
-            if (currentStartDate != '' && endOpt.value == currentEndDate) {
-              endOpt.selected = true;
-              endDateSelected = true;
-            }
-            if (currentStartDate === '') {
-              endOpt.selected = true;
-              endDateSelected = true;
-            }
-            selectEndDate.appendChild(endOpt);
-          }
-        });
-        if(!startDateSelected) {
-          selectStartDate.options[0].selected = true;
-        }        
-        if(!endDateSelected) {
-          selectEndDate.options[selectEndDate.options.length - 1].selected = true;
-        }        
-      }
-
-      function standardGraph() {
-        graph.standardGraph();
-        updateChart();
-        activeGraph = 'normal';
-      }
-
-      function byDay() {
-        let day = document.getElementById("day");
-        day.disabled = false;
-        graph.byDay(day.value);
-        activeGraph = 'byWeekday';
-        updateChart();
-      }
-
-      function dayAverage(increment, prefix) {
-        prefix = prefix ? prefix : '';
-        graph.dayAverage(increment, prefix);
-        activeGraph = (prefix === '') ? 'rollingSevenDayAverage' : 'sevenDayAverage';
-        updateChart();
-      }
-
-      function weeklyTotal() {
-        graph.weeklyTotal();
-        activeGraph = 'weeklyTotal';
-        updateChart();
-      }
-
-      function updateChart() {
-        // Populate swab data table
-        let oldDataTableBody = document.getElementById('dataTable').getElementsByTagName('tbody')[0];
-        oldDataTableBody.parentNode.replaceChild(graph.generateTableBody(), oldDataTableBody);
-        let dataTableHead = document.getElementById('dataTable').getElementsByTagName('thead')[0];
-        dataTableHead.innerHTML = graph.tableHead;
-        if (chart && graph) {
-          let chartConfig = graph.chartConfig;
-          chart.options = chartConfig.options;
-          chart.data = chartConfig.data;  
-          chart.update();
+    function processParameter(parameterName, defaultValue) {
+      let parameterValue = parameterList.get(parameterName);
+      let retVal = null;
+      parameterValue = parameterValue ? parameterValue : defaultValue;
+      document.getElementsByName(parameterName).forEach(function (item) {
+        if (item.value === parameterValue) {
+          item.checked = true;
+          retVal = item;
         }
-        updateShareLinks();
-      }
+      });
+      return retVal;
+    }
 
-      function createCell(tableRow, value) {
-        let cell = tableRow.insertCell();
-        let newText = document.createTextNode(value.toString().includes('.') ? Number(value).toFixed(2) : value);
-        cell.appendChild(newText);
-      }
-
-      function displayGraph() {
-        displayContent('none', 'block', 'graph');
-      }
-
-      function displayTable() {
-        displayContent('block', 'none', 'table');
-      }
-
-      function displayContent(tableDisplay, graphDisplay, newActiveDisplay) {
-        let table = document.getElementById('table');
-        let graph = document.getElementById('graph');
-        table.style.display = tableDisplay;
-        graph.style.display = graphDisplay;
-        activeDisplay = newActiveDisplay;
-        updateShareLinks();
-      }
-      
-      function exportAsImage() {
-        let downloadLink = document.createElement("a");
-        downloadLink.download = graph.name + ".png";
-        downloadLink.href = document.getElementById('graph')
-                                    .toDataURL('image/png')
-                                    .replace('image/png', 'image/octet-stream');
-
-        downloadLink.click();
-      }
-
-      function exportAsCSV() {
-        let csvFile = new Blob([graph.generateCSV()], {
-          type: "text/csv"
-        });
-        let downloadLink = document.createElement("a");
-        downloadLink.download = graph.name + ".csv";
-        downloadLink.href = window.URL.createObjectURL(csvFile);
-        downloadLink.style.display = "none";
-        document.body.appendChild(downloadLink);
-        downloadLink.click();
-      }
-
-      function toggleTrendLine() {
-        let trendLine = document.getElementById('trendLine');
-        graph.setTrendLine(trendLine.checked);
-        updateChart();
-      }
-
-      function updateShareLinks() {
-        let trendLine = document.getElementById('trendLine');
-        let parameters = new Array();
-        let activeGraph = document.querySelector('input[name="graphType"]:checked').value;
-        let activeDate = document.querySelector('input[name="dateSelection"]:checked').value;
-        parameters.push("dataSelection=" + graph.name);
-        parameters.push("dateSelection=" + activeDate);
-        if (activeDate === 'twoMonthView') {
-          parameters.push("twoMonthView=" + document.getElementById('twoMonthView').value);
-        } else if (activeDate === 'betweenDates') {
-          parameters.push("startDate=" + document.getElementById('startDate').value);
-          parameters.push("endDate=" +  document.getElementById('endDate').value);
+    function selectData(newGraph) {
+      graph = newGraph;
+      populateTwoMonthView(graph.twoMonthViewOptions());
+      let startAndEndDates = graph.getStartAndEndDates();
+      populateStartAndEndDates(startAndEndDates.startDate, startAndEndDates.endDate);
+      toggleTrendLine();
+      document.getElementsByName("dateSelection").forEach(function (item) {
+        if (item.checked) {
+          item.onclick();
         }
-        parameters.push("graphType=" + activeGraph);
-        if (activeGraph === 'byWeekday') {
-          parameters.push("day=" + document.getElementById('day').value);
-        }
-        parameters.push("displayType=" + activeDisplay);
-        parameters.push("trendLine=" + trendLine.checked);
-        let url = "https://tetsujin1979.github.io/covid19dashboard?" + encodeURIComponent(parameters.join('&'));
-        let twitterLink = document.getElementById('twitterLink');
-        
-        let text = "Take a look at this " + 
-                      {graph: 'graph', table: 'table'}[activeDisplay] +
-                    " of " + 
-                    {normal: '', rollingSevenDayAverage: 'rolling seven day average ', sevenDayAverage: 'seven day average ', byWeekday: '' , weeklyTotal: 'weekly total '}[activeGraph] +
-                    "data from daily Irish COVID 19 " + 
-                    graph.name;
+      });
+    }
 
-        twitterLink.href="https://twitter.com/intent/tweet?url=" + url + "&via=tetsujin1979&text=" + encodeURIComponent(text) + "&hashtags=COVID19Ireland"
-        
-        let facebookLink = document.getElementById('facebookLink');
-        facebookLink.href="https://www.facebook.com/sharer/sharer.php?u=" + url + "&quote=" + encodeURIComponent(text + " #COVID19Ireland");
-        
-        let emailLink = document.getElementById('emailLink');
-        emailLink.href="mailto:?subject=COVID-19 Ireland Dashboard&body=" + encodeURIComponent(text + ": https://tetsujin1979.github.io/covid19dashboard?" + parameters.join('&'));
-        
-        let whatsAppLink = document.getElementById('whatsAppLink');
-        whatsAppLink.href="whatsapp://send?text=" + encodeURIComponent(text + ": https://tetsujin1979.github.io/covid19dashboard?" + parameters.join('&'));
-        
-        link = "https://tetsujin1979.github.io/covid19dashboard?" + parameters.join('&');
+    function populateTwoMonthView(options) {
+      let twoMonthViewSelect = document.getElementById('twoMonthView');
+      let currentValue = twoMonthViewSelect.value;
+      twoMonthViewSelect.innerHTML = '';
+      for (let counter = 0; counter < (options.length - 1); counter++) {
+        let startDate = new Date(options[counter]);
+        let endDate = new Date(options[counter + 1]);
+        endDate.setMonth(endDate.getMonth() + 1);
+        endDate.setDate(0);
+        let twoMonthOption = document.createElement('option');
+        twoMonthOption.value = startDate.getTime() + '|' + endDate.getTime();
+        twoMonthOption.innerHTML = months[startDate.getMonth()] + ' ' + startDate.getFullYear() + ' - ' + months[endDate.getMonth()] + ' ' + endDate.getFullYear();
+        if (twoMonthOption.value == currentValue) {
+          twoMonthOption.selected = true;
+        }
+        if (currentValue === '' && counter === (options.length - 2)) {
+          twoMonthOption.selected = true;
+        }
+        twoMonthViewSelect.appendChild(twoMonthOption);
       }
-      
-      function roundToTwo(value) {
-        return Number(Math.round(value + 'e' + 2) + 'e-' + 2);
+    }
+
+    function allDates() {
+      disableStartAndEndDates();
+      graph.allDates();
+      generateGraphType();
+      activeDate = 'allDates';
+    }
+
+    function lastTwoMonths() {
+      disableStartAndEndDates();
+      graph.lastTwoMonths();
+      generateGraphType();
+      activeDate = 'lastTwoMonths';
+    }
+
+    function twoMonthView() {
+      disableStartAndEndDates();
+      let twoMonthViewSelect = document.getElementById('twoMonthView');
+      twoMonthViewSelect.disabled = false;
+      let timeStamps = twoMonthViewSelect.value.split('|');
+      let startDate = new Date(Number(timeStamps[0]));
+      startDate.setDate(0);
+      let endDate = new Date(Number(timeStamps[1]));
+      graph.twoMonthView(startDate, endDate);
+      generateGraphType();
+      activeDate = 'twoMonthView';
+    }
+
+    function betweenDates() {
+      disableStartAndEndDates();
+      let selectStartDate = document.getElementById('startDate');
+      let selectEndDate = document.getElementById('endDate');
+      let startDateLabel = document.getElementById('startDateLabel');
+      let endDateLabel = document.getElementById('endDateLabel');
+      selectStartDate.disabled = false;
+      selectEndDate.disabled = false;
+      startDateLabel.style.color = 'black';
+      endDateLabel.style.color = 'black';
+      let startDate = new Date(selectStartDate.value);
+      let endDate = new Date(selectEndDate.value);
+      graph.betweenDates(startDate, endDate);
+      populateStartAndEndDates(startDate, endDate);
+      generateGraphType();
+      activeDate = 'betweenDates';
+    }
+
+    function generateGraphType() {
+      document.getElementsByName("graphType").forEach(function (item) {
+        if (item.checked) {
+          item.onclick();
+        }
+      });
+    }
+
+    function disableStartAndEndDates() {
+      let selectStartDate = document.getElementById('startDate');
+      let selectEndDate = document.getElementById('endDate');
+      let startDateLabel = document.getElementById('startDateLabel');
+      let endDateLabel = document.getElementById('endDateLabel');
+      let twoMonthViewSelect = document.getElementById('twoMonthView');
+      twoMonthViewSelect.disabled = true;
+      selectStartDate.disabled = true;
+      selectEndDate.disabled = true;
+      startDateLabel.style.color = '#999999';
+      endDateLabel.style.color = '#999999';
+    }
+
+    function populateStartAndEndDates(startDate, endDate) {
+      startDate = startDate ? startDate : data[0].date;
+      endDate = endDate ? endDate : data[data.length - 1].date;
+      let selectStartDate = document.getElementById('startDate');
+      let selectEndDate = document.getElementById('endDate');
+      let currentStartDate = selectStartDate.value;
+      let currentEndDate = selectEndDate.value;
+      let startDateSelected = false;
+      let endDateSelected = false;
+      selectStartDate.innerHTML = '';
+      selectEndDate.innerHTML = '';
+      graph.data.forEach(function (item, index) {
+        if (item.date < endDate) {
+          let startOpt = document.createElement('option');
+          startOpt.value = item.date.toISOString();
+          startOpt.innerHTML = item.date.toDateString();
+          if (currentStartDate != '' && startOpt.value == currentStartDate) {
+            startOpt.selected = true;
+            startDateSelected = true;
+          }
+          if (currentStartDate === '' && index === 0) {
+            startOpt.selected = true;
+            startDateSelected = true;
+          }
+          selectStartDate.appendChild(startOpt);
+        }
+        if (item.date > startDate) {
+          let endOpt = document.createElement('option');
+          endOpt.value = item.date.toISOString();
+          endOpt.innerHTML = item.date.toDateString();
+          if (currentStartDate != '' && endOpt.value == currentEndDate) {
+            endOpt.selected = true;
+            endDateSelected = true;
+          }
+          if (currentStartDate === '') {
+            endOpt.selected = true;
+            endDateSelected = true;
+          }
+          selectEndDate.appendChild(endOpt);
+        }
+      });
+      if (!startDateSelected) {
+        selectStartDate.options[0].selected = true;
       }
-    </script>
-  </body>
+      if (!endDateSelected) {
+        selectEndDate.options[selectEndDate.options.length - 1].selected = true;
+      }
+    }
+
+    function standardGraph() {
+      graph.standardGraph();
+      updateChart();
+      activeGraph = 'normal';
+    }
+
+    function byDay() {
+      let day = document.getElementById("day");
+      day.disabled = false;
+      graph.byDay(day.value);
+      activeGraph = 'byWeekday';
+      updateChart();
+    }
+
+    function dayAverage(increment, prefix) {
+      prefix = prefix ? prefix : '';
+      graph.dayAverage(increment, prefix);
+      activeGraph = (prefix === '') ? 'rollingSevenDayAverage' : 'sevenDayAverage';
+      updateChart();
+    }
+
+    function weeklyTotal() {
+      graph.weeklyTotal();
+      activeGraph = 'weeklyTotal';
+      updateChart();
+    }
+
+    function updateChart() {
+      // Populate swab data table
+      let oldDataTableBody = document.getElementById('dataTable').getElementsByTagName('tbody')[0];
+      oldDataTableBody.parentNode.replaceChild(graph.generateTableBody(), oldDataTableBody);
+      let dataTableHead = document.getElementById('dataTable').getElementsByTagName('thead')[0];
+      dataTableHead.innerHTML = graph.tableHead;
+      if (chart && graph) {
+        let chartConfig = graph.chartConfig;
+        chart.options = chartConfig.options;
+        chart.data = chartConfig.data;
+        chart.update();
+      }
+      updateShareLinks();
+    }
+
+    function createCell(tableRow, value) {
+      let cell = tableRow.insertCell();
+      let newText = document.createTextNode(value.toString().includes('.') ? Number(value).toFixed(2) : value);
+      cell.appendChild(newText);
+    }
+
+    function displayGraph() {
+      displayContent('none', 'block', 'graph');
+    }
+
+    function displayTable() {
+      displayContent('block', 'none', 'table');
+    }
+
+    function displayContent(tableDisplay, graphDisplay, newActiveDisplay) {
+      let table = document.getElementById('table');
+      let graph = document.getElementById('graph');
+      table.style.display = tableDisplay;
+      graph.style.display = graphDisplay;
+      activeDisplay = newActiveDisplay;
+      updateShareLinks();
+    }
+
+    function exportAsImage() {
+      let downloadLink = document.createElement("a");
+      downloadLink.download = graph.name + ".png";
+      downloadLink.href = document.getElementById('graph')
+        .toDataURL('image/png')
+        .replace('image/png', 'image/octet-stream');
+
+      downloadLink.click();
+    }
+
+    function exportAsCSV() {
+      let csvFile = new Blob([graph.generateCSV()], {
+        type: "text/csv"
+      });
+      let downloadLink = document.createElement("a");
+      downloadLink.download = graph.name + ".csv";
+      downloadLink.href = window.URL.createObjectURL(csvFile);
+      downloadLink.style.display = "none";
+      document.body.appendChild(downloadLink);
+      downloadLink.click();
+    }
+
+    function toggleTrendLine() {
+      let trendLine = document.getElementById('trendLine');
+      graph.setTrendLine(trendLine.checked);
+      updateChart();
+    }
+
+    function updateShareLinks() {
+      let trendLine = document.getElementById('trendLine');
+      let parameters = new Array();
+      let activeGraph = document.querySelector('input[name="graphType"]:checked').value;
+      let activeDate = document.querySelector('input[name="dateSelection"]:checked').value;
+      parameters.push("dataSelection=" + graph.name);
+      parameters.push("dateSelection=" + activeDate);
+      if (activeDate === 'twoMonthView') {
+        parameters.push("twoMonthView=" + document.getElementById('twoMonthView').value);
+      } else if (activeDate === 'betweenDates') {
+        parameters.push("startDate=" + document.getElementById('startDate').value);
+        parameters.push("endDate=" + document.getElementById('endDate').value);
+      }
+      parameters.push("graphType=" + activeGraph);
+      if (activeGraph === 'byWeekday') {
+        parameters.push("day=" + document.getElementById('day').value);
+      }
+      parameters.push("displayType=" + activeDisplay);
+      parameters.push("trendLine=" + trendLine.checked);
+      let url = "https://tetsujin1979.github.io/covid19dashboard?" + encodeURIComponent(parameters.join('&'));
+      let twitterLink = document.getElementById('twitterLink');
+
+      let text = "Take a look at this " +
+        { graph: 'graph', table: 'table' }[activeDisplay] +
+        " of " +
+        { normal: '', rollingSevenDayAverage: 'rolling seven day average ', sevenDayAverage: 'seven day average ', byWeekday: '', weeklyTotal: 'weekly total ' }[activeGraph] +
+        "data from daily Irish COVID 19 " +
+        graph.name;
+
+      twitterLink.href = "https://twitter.com/intent/tweet?url=" + url + "&via=tetsujin1979&text=" + encodeURIComponent(text) + "&hashtags=COVID19Ireland"
+
+      let facebookLink = document.getElementById('facebookLink');
+      facebookLink.href = "https://www.facebook.com/sharer/sharer.php?u=" + url + "&quote=" + encodeURIComponent(text + " #COVID19Ireland");
+
+      let emailLink = document.getElementById('emailLink');
+      emailLink.href = "mailto:?subject=COVID-19 Ireland Dashboard&body=" + encodeURIComponent(text + ": https://tetsujin1979.github.io/covid19dashboard?" + parameters.join('&'));
+
+      let whatsAppLink = document.getElementById('whatsAppLink');
+      whatsAppLink.href = "whatsapp://send?text=" + encodeURIComponent(text + ": https://tetsujin1979.github.io/covid19dashboard?" + parameters.join('&'));
+
+      link = "https://tetsujin1979.github.io/covid19dashboard?" + parameters.join('&');
+    }
+
+    function roundToTwo(value) {
+      return Number(Math.round(value + 'e' + 2) + 'e-' + 2);
+    }
+  </script>
+</body>
+
 </html>

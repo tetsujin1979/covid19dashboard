@@ -1,3 +1,7 @@
+body {
+  font-family: "Lato", sans-serif;
+}
+
 fieldset {
   border-radius: 15px;
 }
@@ -7,7 +11,8 @@ legend {
 }
 
 select {
-  text-align-last: right;
+  text-align-last: left;
+  font-family: "Lato", sans-serif;
 }
 
 option {
@@ -18,8 +23,11 @@ table {
   border-collapse: collapse;
   width: 100%;
 }
-
-th, td {
+a:visited {
+  color: blue;
+}
+th,
+td {
   padding: 8px 16px;
   border: 1px solid #ccc;
 }
@@ -39,14 +47,26 @@ th:not(:nth-child(1)) {
 button {
   width: 100%;
   margin: 5px;
+  display: inline-flex;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background-color: #e4ebf7;
+  color: #333;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 0.25rem;
+  border: none;
 }
 
 .statsTable {
-  display: none; 
+  display: none;
   height: 95%;
-  margin: 1px auto; 
-  padding: 15px; 
-  text-align: left; 
+  margin: 1px auto;
+  padding: 15px;
+  text-align: left;
   overflow-y: scroll;
 }
 
@@ -62,19 +82,18 @@ button {
 }
 
 #menu {
-  width: 20%; 
-  height: 100%; 
-  display: inline-block; 
+  width: 20%;
+  height: 100%;
+  display: inline-block;
   text-align: center;
 }
 
 #content {
   height: 700px;
-  width: 75%; 
-  float: right; 
-  border: 1px #555555 solid; 
-  border-radius: 15px; 
-  margin: 1px auto; 
+  width: 75%;
+  float: right;
+  border-radius: 15px;
+  margin: 1px auto;
   padding: 15px;
 }
 
@@ -86,4 +105,23 @@ button {
   .mobile-link {
     display: block;
   }
+}
+.title {
+  font-weight: bold;
+  margin-bottom: 2%;
+  font-size: larger;
+  margin-top: 0px;
+}
+.card {
+  padding: 10px;
+  background: #fff;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: 0.5rem;
+  margin-bottom: 20px;
+  border: none;
+}
+
+.button:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(156 163 175 / var(--tw-bg-opacity));
 }
