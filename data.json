@@ -7083,6 +7083,7 @@
     "dateString": "2022-01-18T12:00:00.000Z",
     "hospitalisations": {"cases": 979, "admissions": 68, "discharges": 113, "hospitalAcquired": 71},
     "dailySwabs": 19868,
-    "positiveSwabs": 6319
+    "positiveSwabs": 6319,
+    "icu": {"cases": 93, "admissions": 4, "discharges": 6}
   }
 ]
