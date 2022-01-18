@@ -7231,5 +7231,9 @@
     "cases": 6329,
     "dailySwabs": 17048,
     "positiveSwabs": 6283
-  }
+  },
+  {
+    "dateString": "2022-01-18T12:00:00.000Z",
+    "hospitalisations": {"cases": 979, "admissions": 68, "discharges": 113, "hospitalAcquired": 71}
+  } 
 ]
