@@ -7049,6 +7049,7 @@
     "cases": 14555,
     "hospitalisations": {"cases": 949, "admissions": 70, "discharges": 127, "hospitalAcquired": 49},
     "icu": {"cases": 89, "admissions": 9, "discharges": 3},
+    "antigen": 4208,
     "dailySwabs": 35890,
     "positiveSwabs": 15500,
     "firstDose": 8301,
