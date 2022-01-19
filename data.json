@@ -7243,6 +7243,7 @@
     "dateString": "2022-01-18T12:00:00.000Z",
     "hospitalisations": {"cases": 979, "admissions": 68, "discharges": 113, "hospitalAcquired": 71},
     "cases": 5767,
+    "antigen": 5295,
     "dailySwabs": 20695,
     "positiveSwabs": 6415,
     "icu": {"cases": 93, "admissions": 4, "discharges": 6},
@@ -7255,6 +7256,7 @@
   {
     "dateString": "2022-01-19T12:00:00.000Z",
     "hospitalisations": {"cases": 910, "admissions": 72, "discharges": 106, "hospitalAcquired": 35},
+    "cases": 6843,
     "icu": {"cases": 90, "admissions": 7, "discharges": 7},
     "dailySwabs": 21560,
     "positiveSwabs": 6738
