@@ -7299,11 +7299,13 @@
     "dateString": "2022-01-22T12:00:00.000Z",
     "hospitalisations": {"cases": 836, "admissions": 65, "discharges": 103, "hospitalAcquired": 39},
     "icu": {"cases": 78, "admissions": 4, "discharges": 8},
-    "cases": 6689
+    "cases": 6689,
+    "antigen": 3395
   },
   {
     "dateString": "2022-01-23T12:00:00.000Z",
     "hospitalisations": {"cases": 845, "admissions": 55, "discharges": 42, "hospitalAcquired": 29},
-    "icu": {"cases": 79, "admissions": 6, "discharges": 4}
+    "icu": {"cases": 79, "admissions": 6, "discharges": 4},
+    "cases": 4731
   }
 ]
