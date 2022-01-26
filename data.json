@@ -6964,8 +6964,8 @@
   },
   {
     "dateString": "2021-12-28T12:00:00.000Z",
-    "dailySwabs": 26409,
-    "positiveSwabs": 11108,
+    "dailySwabs": 26389,
+    "positiveSwabs": 11107,
     "cases": 9006,
     "hospitalisations": {"cases": 521, "admissions": 50, "discharges": 25, "hospitalAcquired": 50},
     "icu": {"cases": 92, "admissions": 9, "discharges": 5},
@@ -7273,7 +7273,7 @@
     "icu": {"cases": 90, "admissions": 8, "discharges": 8},
     "antigen": 4564,
     "cases": 5523,
-    "dailySwabs": 20503,
+    "dailySwabs": 20502,
     "positiveSwabs": 5842,
     "firstDose": 3655,
     "secondDose": 839,
@@ -7287,8 +7287,8 @@
     "icu": {"cases": 88, "admissions": 4, "discharges": 4},
     "cases": 6597,
     "antigen": 3911,
-    "dailySwabs": 20604,
-    "positiveSwabs": 6828,
+    "dailySwabs": 20602,
+    "positiveSwabs": 6827,
     "firstDose": 3216,
     "secondDose": 905,
     "singleDose": 0,
@@ -7301,7 +7301,7 @@
     "icu": {"cases": 78, "admissions": 4, "discharges": 8},
     "cases": 6689,
     "antigen": 3395,
-    "dailySwabs": 20318,
+    "dailySwabs": 20319,
     "positiveSwabs": 6463,
     "firstDose": 4250,
     "secondDose": 592,
@@ -7315,7 +7315,7 @@
     "icu": {"cases": 79, "admissions": 6, "discharges": 4},
     "cases": 4731,
     "antigen": 4347,
-    "dailySwabs": 15977,
+    "dailySwabs": 15980,
     "positiveSwabs": 4821,
     "firstDose": 3089,
     "secondDose": 673,
@@ -7342,12 +7342,14 @@
     "hospitalisations": {"cases": 824, "admissions": 58, "discharges": 87, "hospitalAcquired": 43},
     "icu": {"cases": 79, "admissions": 5, "discharges": 1},
     "cases": 4006,
-    "dailySwabs": 14027,
-    "positiveSwabs": 4064
+    "dailySwabs": 15287,
+    "positiveSwabs": 4175
   },
   {
     "dateString": "2022-01-26T12:00:00.000Z",
     "hospitalisations": {"cases": 739, "admissions": 40, "discharges": 99, "hospitalAcquired": 38},
-    "icu": {"cases": 74, "admissions": 4, "discharges": 5}
+    "icu": {"cases": 74, "admissions": 4, "discharges": 5},
+    "dailySwabs": 17681,
+    "positiveSwabs": 5392
   }
 ]
