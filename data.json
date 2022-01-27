@@ -7362,6 +7362,7 @@
   {
     "dateString": "2022-01-27T12:00:00.000Z",
     "hospitalisations": {"cases": 711, "admissions": 58, "discharges": 85, "hospitalAcquired": 51},
+    "icu": {"cases": 71, "admissions": 3, "discharges": 3},
     "dailySwabs": 16874,
     "positiveSwabs": 5255
   }
