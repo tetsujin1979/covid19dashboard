@@ -7370,6 +7370,7 @@
     "hospitalisations": {"cases": 711, "admissions": 58, "discharges": 85, "hospitalAcquired": 51},
     "icu": {"cases": 71, "admissions": 3, "discharges": 3},
     "cases": 5265,
+    "antigen": 4482,
     "dailySwabs": 17763,
     "positiveSwabs": 5357,
     "firstDose": 1234,
@@ -7382,6 +7383,7 @@
     "dateString": "2022-01-28T12:00:00.000Z",
     "hospitalisations": {"cases": 707, "admissions": 58, "discharges": 57, "hospitalAcquired": 45},
     "icu": {"cases": 69, "admissions": 4, "discharges": 4},
+    "cases": 5109,
     "dailySwabs": 16573,
     "positiveSwabs": 5224
   }
