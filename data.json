@@ -7394,6 +7394,7 @@
    },
   {
     "dateString": "2022-01-30T12:00:00.000Z",
-    "hospitalisations": {"cases": 650, "admissions": 37, "discharges": 29, "hospitalAcquired": 30}
+    "hospitalisations": {"cases": 650, "admissions": 37, "discharges": 29, "hospitalAcquired": 30},
+    "icu": {"cases": 74, "admissions": 9, "discharges": 1}
    }
 ]
