@@ -7391,10 +7391,14 @@
     "dateString": "2022-01-29T12:00:00.000Z",
     "hospitalisations": {"cases": 649, "admissions": 67, "discharges": 90, "hospitalAcquired": 22},
     "icu": {"cases": 66, "admissions": 4, "discharges": 5}
-   },
+  },
   {
     "dateString": "2022-01-30T12:00:00.000Z",
     "hospitalisations": {"cases": 650, "admissions": 37, "discharges": 29, "hospitalAcquired": 30},
     "icu": {"cases": 74, "admissions": 9, "discharges": 1}
-   }
+  },
+  {
+    "dateString": "2022-01-31T12:00:00.000Z",
+    "hospitalisations": {"cases": 692, "admissions": 60, "discharges": 24, "hospitalAcquired": 24}
+  }
 ]
