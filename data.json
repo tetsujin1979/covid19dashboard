@@ -7055,8 +7055,8 @@
   },
   {
     "dateString": "2022-01-04T12:00:00.000Z",
-    "dailySwabs": 39971,
-    "positiveSwabs": 21101,
+    "dailySwabs": 39953,
+    "positiveSwabs": 21094,
     "cases": 21302,
     "hospitalisations": {"cases": 884, "admissions": 84, "discharges": 43, "hospitalAcquired": 54},
     "icu": {"cases": 90, "admissions": 5, "discharges": 4},
@@ -7385,8 +7385,8 @@
     "icu": {"cases": 69, "admissions": 4, "discharges": 4},
     "cases": 5109,
     "antigen": 4057,
-    "dailySwabs": 17635,
-    "positiveSwabs": 5318,
+    "dailySwabs": 17634,
+    "positiveSwabs": 5317,
     "firstDose": 1013,
     "secondDose": 3018,
     "singleDose": 0,
@@ -7399,7 +7399,7 @@
     "icu": {"cases": 66, "admissions": 4, "discharges": 5},
     "cases": 5091,
     "antigen": 3893,
-    "dailySwabs": 17450,
+    "dailySwabs": 17449,
     "positiveSwabs": 5134,
     "firstDose": 2322,
     "secondDose": 3411,
@@ -7413,8 +7413,8 @@
     "icu": {"cases": 74, "admissions": 9, "discharges": 1},
     "cases": 4400,
     "antigen": 4759,
-    "dailySwabs": 14509,
-    "positiveSwabs": 4633,
+    "dailySwabs": 14508,
+    "positiveSwabs": 4634,
     "firstDose": 1632,
     "secondDose": 7530,
     "singleDose": 0,
@@ -7427,8 +7427,8 @@
     "icu": {"cases": 75, "admissions": 5, "discharges": 5},
     "cases": 3872,
     "antigen": 6410,
-    "dailySwabs": 13195,
-    "positiveSwabs": 4102,
+    "dailySwabs": 13243,
+    "positiveSwabs": 4118,
     "firstDose": 457,
     "secondDose": 1330,
     "singleDose": 0,
@@ -7440,12 +7440,14 @@
     "hospitalisations": {"cases": 657, "admissions": 47, "discharges": 64, "hospitalAcquired": 55},
     "icu": {"cases": 66, "admissions": 3, "discharges": 10},
     "cases": 4208,
-    "dailySwabs": 14439,
-    "positiveSwabs": 4138
+    "dailySwabs": 15904,
+    "positiveSwabs": 4330
   },
   {
     "dateString": "2022-02-02T12:00:00.000Z",
     "hospitalisations": {"cases": 629, "admissions": 43, "discharges": 76, "hospitalAcquired": 58},
-    "icu": {"cases": 65, "admissions": 3, "discharges": 3}
+    "icu": {"cases": 65, "admissions": 3, "discharges": 3},
+    "dailySwabs": 18655,
+    "positiveSwabs": 5787
   }
 ]
