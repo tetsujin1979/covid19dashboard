@@ -7456,6 +7456,7 @@
     "dailySwabs": 19395,
     "positiveSwabs": 5837,
     "cases": 5940,
+    "antigen": 6814,
     "firstDose": 627,
     "secondDose": 2900,
     "singleDose": 0,
@@ -7466,6 +7467,7 @@
     "dateString": "2022-02-03T12:00:00.000Z",
     "hospitalisations": {"cases": 610, "admissions": 36, "discharges": 56, "hospitalAcquired": 52},
     "icu": {"cases": 63, "admissions": 4, "discharges": 3},
+    "cases": 6061,
     "dailySwabs": 19083,
     "positiveSwabs": 6268
   }
