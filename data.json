@@ -422,7 +422,7 @@
     "deaths": 24,
     "hospitalisations": {"cases": 758, "admissions": 22, "discharges": 18, "hospitalAcquired": 13},
     "icu": {"cases": 120, "admissions": 5, "discharges": 5}
- },
+  },
   {
     "dateString": "2020-04-27T12:00:00.000Z",
     "positiveSwabs": 357,
@@ -7487,12 +7487,16 @@
   },
   {
     "dateString": "2022-02-05T12:00:00.000Z",
-    "hospitalisations": {"cases": 581, "admissions": 47, "discharges": 60, "hospitalAcquired": 55},
+    "hospitalisations": {"cases": 581, "admissions": 33, "discharges": 60, "hospitalAcquired": 55},
     "icu": {"cases": 67, "admissions": 7, "discharges": 4}
-   },
+  },
   {
     "dateString": "2022-02-06T12:00:00.000Z",
-    "hospitalisations": {"cases": 615, "admissions": 33, "discharges": 23, "hospitalAcquired": 32},
+    "hospitalisations": {"cases": 615, "admissions": 47, "discharges": 23, "hospitalAcquired": 32},
     "icu": {"cases": 73, "admissions": 8, "discharges": 2}
-   }
+  },
+  {
+    "dateString": "2022-02-07T12:00:00.000Z",
+    "hospitalisations": {"cases": 643, "admissions": 38, "discharges": 25, "hospitalAcquired": 48}
+  }
 ]
