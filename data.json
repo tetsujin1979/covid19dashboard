@@ -7484,6 +7484,7 @@
     "dailySwabs": 20088,
     "positiveSwabs": 6921,
     "cases": 6697,
+    "antigen": 4717,
     "firstDose": 1141,
     "secondDose": 6402,
     "singleDose": 0,
@@ -7496,6 +7497,8 @@
     "icu": {"cases": 67, "admissions": 7, "discharges": 4},
     "dailySwabs": 18113,
     "positiveSwabs": 6117,
+    "cases": 6260,
+    "antigen": 3803,
     "firstDose": 1765,
     "secondDose": 5706,
     "singleDose": 0,
@@ -7512,13 +7515,16 @@
     "secondDose": 7553,
     "singleDose": 0,
     "booster": 1998,
-    "immunocompromised": 471
+    "immunocompromised": 471,
+    "cases": 4933,
+    "antigen": 4478
   },
   {
     "dateString": "2022-02-07T12:00:00.000Z",
     "hospitalisations": {"cases": 643, "admissions": 38, "discharges": 25, "hospitalAcquired": 48},
     "icu": {"cases": 76, "admissions": 4, "discharges": 0},
     "dailySwabs": 12611,
-    "positiveSwabs": 4234
+    "positiveSwabs": 4234,
+    "cases": 3975
   }
 ]
