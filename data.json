@@ -7567,13 +7567,15 @@
     "icu": {"cases": 63, "admissions": 2, "discharges": 4},
     "dailySwabs": 18156,
     "positiveSwabs": 5609,
-    "cases": 5649
+    "cases": 5649,
+    "antigen": 4445
   },
   {
     "dateString": "2022-02-11T12:00:00.000Z",
     "hospitalisations": {"cases": 615, "admissions": 58, "discharges": 45, "hospitalAcquired": 45},
     "icu": {"cases": 64, "admissions": 3, "discharges": 1},
     "dailySwabs": 17526,
-    "positiveSwabs": 6222
+    "positiveSwabs": 6222,
+    "cases": 6618
   }
 ]
