@@ -7582,5 +7582,9 @@
     "dateString": "2022-02-12T12:00:00.000Z",
     "hospitalisations": {"cases": 579, "admissions": 47, "discharges": 65, "hospitalAcquired": 42},
     "icu": {"cases": 62, "admissions": 5, "discharges": 5}
+  },
+  {
+    "dateString": "2022-02-13T12:00:00.000Z",
+    "hospitalisations": {"cases": 608, "admissions": 43, "discharges": 27, "hospitalAcquired": 40}
   }
 ]
