@@ -7572,7 +7572,7 @@
   },
   {
     "dateString": "2022-02-11T12:00:00.000Z",
-    "hospitalisations": {"cases": 615, "admissions": 58, "discharges": 45, "hospitalAcquired": 45},
+    "hospitalisations": {"cases": 614, "admissions": 58, "discharges": 45, "hospitalAcquired": 45},
     "icu": {"cases": 64, "admissions": 3, "discharges": 1},
     "dailySwabs": 17526,
     "positiveSwabs": 6222,
@@ -7585,7 +7585,11 @@
   },
   {
     "dateString": "2022-02-13T12:00:00.000Z",
-    "hospitalisations": {"cases": 608, "admissions": 43, "discharges": 27, "hospitalAcquired": 40},
+    "hospitalisations": {"cases": 609, "admissions": 43, "discharges": 27, "hospitalAcquired": 40},
     "icu": {"cases": 65, "admissions": 5, "discharges": 2}
+  },
+  {
+    "dateString": "2022-02-14T12:00:00.000Z",
+    "hospitalisations": {"cases": 665, "admissions": 46, "discharges": 26, "hospitalAcquired": 52}
   }
 ]
