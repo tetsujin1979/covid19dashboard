@@ -7625,6 +7625,7 @@
     "hospitalisations": {"cases": 665, "admissions": 46, "discharges": 26, "hospitalAcquired": 52},
     "icu": {"cases": 67, "admissions": 4, "discharges": 1},
     "cases": 3494,
+    "antigen": 4655,
     "dailySwabs": 12651,
     "positiveSwabs": 3745,
     "firstDose": 159,
@@ -7638,6 +7639,7 @@
     "hospitalisations": {"cases": 635, "admissions": 38, "discharges": 60, "hospitalAcquired": 40},
     "icu": {"cases": 63, "admissions": 2, "discharges": 5},
     "dailySwabs": 13777,
-    "positiveSwabs": 3778
+    "positiveSwabs": 3778,
+    "cases": 4160
   }
 ]
