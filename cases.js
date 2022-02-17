@@ -15,6 +15,15 @@ function DailyCases() {
     yAxisID: "dailyCasesAxis"
   };
       
+  thisObject.dailyAntigenCases = {
+    label: "Antigen Cases",
+    data: [],
+    backgroundColor: "rgba(43, 57, 133, 0.5)",
+    borderColor: "rgba(233,0,45, 1)",
+    borderWidth: 0,
+    yAxisID: "dailyCasesAxis"
+  };
+
   thisObject.totalCases = {
     label: "Total Cases",
     data: [],
@@ -29,33 +38,37 @@ function DailyCases() {
     type: "bar",
     data: {
       labels: [],
-      datasets: [thisObject.totalCases, thisObject.dailyCases]
+      datasets: [thisObject.totalCases, thisObject.dailyCases, thisObject.dailyAntigenCases]
     },
     options: {
         scales: {
+          xAxes: [{
+            stacked: true
+          }],
           yAxes: [{
-              id: "dailyCasesAxis",
-              position: "left",
-              ticks: {
-                  beginAtZero: true
-              },
-              scaleLabel: {
-                  display: true,
-                  labelString: "Daily Cases"
-              }
+            id: "dailyCasesAxis",
+            stacked: true,
+            position: "left",
+            ticks: {
+                beginAtZero: true
+            },
+            scaleLabel: {
+                display: true,
+                labelString: "Daily Cases"
+            }
           }, {
-              id: "totalCasesAxis",
-              position: "right",
-              ticks: {
-                  beginAtZero: true
-              },
-              gridLines: {
-                  display: false
-              },
-              scaleLabel: {
-                  display: true,
-                  labelString: "Total Cases"
-              }
+            id: "totalCasesAxis",
+            position: "right",
+            ticks: {
+                beginAtZero: true
+            },
+            gridLines: {
+                display: false
+            },
+            scaleLabel: {
+                display: true,
+                labelString: "Total Cases"
+            }
           }]
         },
         tooltips: {
@@ -106,6 +119,7 @@ function DailyCases() {
         let caseData = {
           date: item.date,
           cases: item.cases,
+          antigen: item.antigen,
           totalCases: totalCases
         }
         if (index > 7) {
@@ -117,9 +131,12 @@ function DailyCases() {
           let fiveDaysAgo = items[index - 5];
           let sixDayAgo = items[index - 6];
           let weeklyCases = today.cases + yesterday.cases + twoDaysAgo.cases + threeDaysAgo.cases + fourDaysAgo.cases + fiveDaysAgo.cases + sixDayAgo.cases;
+          let weeklyAntigen = testUndefined(today.antigen) + testUndefined(yesterday.antigen) + testUndefined(twoDaysAgo.antigen) + testUndefined(threeDaysAgo.antigen) + testUndefined(fourDaysAgo.antigen) + testUndefined(fiveDaysAgo.antigen) + testUndefined(sixDayAgo.antigen);
           caseData.sevenDayAverage = (weeklyCases / 7).toFixed(2);
+          caseData.sevenDayAverageAntigen = (weeklyAntigen / 7).toFixed(2);
           if (item.date.getDay() === 0) {
               caseData.weeklyCases = weeklyCases;
+              caseData.weeklyAntigen = weeklyAntigen;
           }
         }
         thisObject.data.push(caseData);
@@ -186,6 +203,7 @@ function DailyCases() {
     thisObject.graphData.forEach(function(value, index) {
       thisObject.chartConfig.data.labels.push(value.date.toDateString());
       thisObject.dailyCases.data.push(value.cases);
+      thisObject.dailyAntigenCases.data.push(value.antigen);
       thisObject.totalCases.data.push(value.totalCases);
     });
   };
@@ -196,6 +214,7 @@ function DailyCases() {
                         .forEach(function(value, index) { 
       thisObject.chartConfig.data.labels.push(value.date.toDateString());
       thisObject.dailyCases.data.push(value.cases);
+      thisObject.dailyAntigenCases.data.push(value.antigen);
       thisObject.totalCases.data.push(value.totalCases);
     });
   };
@@ -210,6 +229,7 @@ function DailyCases() {
       let today = thisObject.graphData[counter];
       thisObject.chartConfig.data.labels.push(prefix + today.date.toDateString());
       thisObject.dailyCases.data.push(today.sevenDayAverage);
+      thisObject.dailyAntigenCases.data.push(today.sevenDayAverageAntigen);
       thisObject.totalCases.data.push(today.totalCases);
     }
   };
@@ -220,6 +240,7 @@ function DailyCases() {
                         .forEach(function (today, index) {
         thisObject.chartConfig.data.labels.push('Week ending ' + today.date.toDateString());
         thisObject.dailyCases.data.push(today.weeklyCases);
+        thisObject.dailyAntigenCases.data.push(today.weeklyAntigen);
         thisObject.totalCases.data.push(today.totalCases);
       });
   };
@@ -288,7 +309,16 @@ function DailyCases() {
   function reset() {
     thisObject.chartConfig.data.labels = new Array();
     thisObject.dailyCases.data = new Array();
+    thisObject.dailyAntigenCases.data = new Array();
     thisObject.totalCases.data = new Array();
+  }
+
+  function testUndefined(value) {
+    let retVal = value;
+    if (!value) {
+      retVal = 0;
+    }
+    return retVal;
   }
 };
 
