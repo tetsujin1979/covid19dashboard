@@ -238,6 +238,9 @@
           if (value.hasOwnProperty("booster")) {
             dataObject.booster = value.booster;
           }
+          if (value.hasOwnProperty("antigen")) {
+            dataObject.antigen = value.antigen;
+          }
           data.push(dataObject);
         });
         cases.populateData(data);
