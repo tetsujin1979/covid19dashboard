@@ -5818,8 +5818,8 @@
     "firstDose": 1279,
     "secondDose": 3928,
     "singleDose": 77,
-    "booster": 1582,
-    "immunocompromised": 154
+    "booster": 1581,
+    "immunocompromised": 155
   },
   {
     "dateString": "2021-10-01T12:00:00.000Z",
@@ -5831,8 +5831,8 @@
     "firstDose": 1836,
     "secondDose": 5137,
     "singleDose": 41,
-    "booster": 2501,
-    "immunocompromised": 250
+    "booster": 2499,
+    "immunocompromised": 252
   },
   {
     "dateString": "2021-10-02T12:00:00.000Z",
@@ -5883,8 +5883,8 @@
     "firstDose": 958,
     "secondDose": 2791,
     "singleDose": 69,
-    "booster": 8312,
-    "immunocompromised": 456
+    "booster": 8309,
+    "immunocompromised": 458
   },
   {
     "dateString": "2021-10-06T12:00:00.000Z",
@@ -5922,8 +5922,8 @@
     "firstDose": 974,
     "secondDose": 2748,
     "singleDose": 45,
-    "booster": 10751,
-    "immunocompromised": 1635
+    "booster": 10748,
+    "immunocompromised": 1638
   },
   {
     "dateString": "2021-10-09T12:00:00.000Z",
@@ -5975,7 +5975,7 @@
     "secondDose": 1580,
     "singleDose": 20,
     "booster": 9608,
-    "immunocompromised": 1031
+    "immunocompromised": 1030
   },
   {
     "dateString": "2021-10-13T12:00:00.000Z",
@@ -6001,7 +6001,7 @@
     "secondDose": 1550,
     "singleDose": 7,
     "booster": 12484,
-    "immunocompromised": 1762
+    "immunocompromised": 1763
   },
   {
     "dateString": "2021-10-15T12:00:00.000Z",
@@ -6013,8 +6013,8 @@
     "firstDose": 952,
     "secondDose": 2035,
     "singleDose": 7,
-    "booster": 8432,
-    "immunocompromised": 2629
+    "booster": 8430,
+    "immunocompromised": 2630
   },
   {
     "dateString": "2021-10-16T12:00:00.000Z",
@@ -6026,8 +6026,8 @@
     "firstDose": 1372,
     "secondDose": 2608,
     "singleDose": 12,
-    "booster": 4996,
-    "immunocompromised": 2895
+    "booster": 4997,
+    "immunocompromised": 2894
   },
   {
     "dateString": "2021-10-17T12:00:00.000Z",
@@ -6078,8 +6078,8 @@
     "firstDose": 2243,
     "secondDose": 2281,
     "singleDose": 0,
-    "booster": 7530,
-    "immunocompromised": 2457
+    "booster": 7528,
+    "immunocompromised": 2459
   },
   {
     "dateString": "2021-10-21T12:00:00.000Z",
@@ -6091,8 +6091,8 @@
     "firstDose": 1744,
     "secondDose": 1788,
     "singleDose": 10,
-    "booster": 8236,
-    "immunocompromised": 3098
+    "booster": 8234,
+    "immunocompromised": 3099
   },
   {
     "dateString": "2021-10-22T12:00:00.000Z",
@@ -6104,8 +6104,8 @@
     "firstDose": 1491,
     "secondDose": 1891,
     "singleDose": 1,
-    "booster": 5034,
-    "immunocompromised": 3077
+    "booster": 5033,
+    "immunocompromised": 3078
   },
   {
     "dateString": "2021-10-23T12:00:00.000Z",
@@ -6117,8 +6117,8 @@
     "firstDose": 2007,
     "secondDose": 1673,
     "singleDose": 0,
-    "booster": 697,
-    "immunocompromised": 745
+    "booster": 696,
+    "immunocompromised": 746
   },
   {
     "dateString": "2021-10-24T12:00:00.000Z",
@@ -6156,7 +6156,7 @@
     "firstDose": 1236,
     "secondDose": 1187,
     "singleDose": 6,
-    "booster": 2707,
+    "booster": 2708,
     "immunocompromised": 1822
   },
   {
@@ -6169,8 +6169,8 @@
     "firstDose": 1549,
     "secondDose": 1392,
     "singleDose": 5,
-    "booster": 4034,
-    "immunocompromised": 3337
+    "booster": 4033,
+    "immunocompromised": 3338
   },
   {
     "dateString": "2021-10-28T12:00:00.000Z",
@@ -6182,7 +6182,7 @@
     "firstDose": 2142,
     "secondDose": 1660,
     "singleDose": 2,
-    "booster": 4297,
+    "booster": 4298,
     "immunocompromised": 3160
   },
   {
@@ -6195,8 +6195,8 @@
     "firstDose": 2131,
     "secondDose": 1333,
     "singleDose": 0,
-    "booster": 3512,
-    "immunocompromised": 3168
+    "booster": 3509,
+    "immunocompromised": 3170
   },
   {
     "dateString": "2021-10-30T12:00:00.000Z",
@@ -6209,7 +6209,7 @@
     "secondDose": 1430,
     "singleDose": 0,
     "booster": 1183,
-    "immunocompromised": 994
+    "immunocompromised": 993
   },
   {
     "dateString": "2021-10-31T12:00:00.000Z",
@@ -6234,8 +6234,8 @@
     "firstDose": 258,
     "secondDose": 258,
     "singleDose": 2,
-    "booster": 2609,
-    "immunocompromised": 271
+    "booster": 2605,
+    "immunocompromised": 275
   },
   {
     "dateString": "2021-11-02T12:00:00.000Z",
@@ -6260,8 +6260,8 @@
     "firstDose": 2532,
     "secondDose": 1826,
     "singleDose": 5,
-    "booster": 6404,
-    "immunocompromised": 2225
+    "booster": 6403,
+    "immunocompromised": 2226
   },
   {
     "dateString": "2021-11-04T12:00:00.000Z",
@@ -6273,8 +6273,8 @@
     "firstDose": 1541,
     "secondDose": 1248,
     "singleDose": 1,
-    "booster": 10145,
-    "immunocompromised": 2105
+    "booster": 10144,
+    "immunocompromised": 2106
   },
   {
     "dateString": "2021-11-05T12:00:00.000Z",
@@ -6286,8 +6286,8 @@
     "firstDose": 1627,
     "secondDose": 1056,
     "singleDose": 2,
-    "booster": 12921,
-    "immunocompromised": 1409
+    "booster": 12924,
+    "immunocompromised": 1412
   },
   {
     "dateString": "2021-11-06T12:00:00.000Z",
@@ -6325,8 +6325,8 @@
     "firstDose": 509,
     "secondDose": 508,
     "singleDose": 1,
-    "booster": 14270,
-    "immunocompromised": 495
+    "booster": 14272,
+    "immunocompromised": 496
   },
   {
     "dateString": "2021-11-09T12:00:00.000Z",
@@ -6339,7 +6339,7 @@
     "secondDose": 1025,
     "singleDose": 1,
     "booster": 22371,
-    "immunocompromised": 929
+    "immunocompromised": 930
   },
   {
     "dateString": "2021-11-10T12:00:00.000Z",
@@ -6351,8 +6351,8 @@
     "firstDose": 1625,
     "secondDose": 1315,
     "singleDose": 0,
-    "booster": 25853,
-    "immunocompromised": 1112
+    "booster": 25849,
+    "immunocompromised": 1116
   },
   {
     "dateString": "2021-11-11T12:00:00.000Z",
@@ -6365,7 +6365,7 @@
     "secondDose": 1082,
     "singleDose": 1,
     "booster": 28739,
-    "immunocompromised": 1350
+    "immunocompromised": 1351
   },
   {
     "dateString": "2021-11-12T12:00:00.000Z",
@@ -6377,8 +6377,8 @@
     "firstDose": 1154,
     "secondDose": 1097,
     "singleDose": 5,
-    "booster": 24890,
-    "immunocompromised": 1279
+    "booster": 24891,
+    "immunocompromised": 1281
   },
   {
     "dateString": "2021-11-13T12:00:00.000Z",
@@ -6391,7 +6391,7 @@
     "secondDose": 1353,
     "singleDose": 0,
     "booster": 19089,
-    "immunocompromised": 902
+    "immunocompromised": 904
   },
   {
     "dateString": "2021-11-14T12:00:00.000Z",
@@ -6403,7 +6403,7 @@
     "firstDose": 1649,
     "secondDose": 1799,
     "singleDose": 0,
-    "booster": 8906,
+    "booster": 8907,
     "immunocompromised": 279
   },
   {
@@ -6429,8 +6429,8 @@
     "firstDose": 1320,
     "secondDose": 1045,
     "singleDose": 5,
-    "booster": 26852,
-    "immunocompromised": 1408
+    "booster": 26851,
+    "immunocompromised": 1409
   },
   {
     "dateString": "2021-11-17T12:00:00.000Z",
@@ -6442,8 +6442,8 @@
     "firstDose": 1518,
     "secondDose": 1079,
     "singleDose": 0,
-    "booster": 31429,
-    "immunocompromised": 1966
+    "booster": 31431,
+    "immunocompromised": 1969
   },
   {
     "dateString": "2021-11-18T12:00:00.000Z",
@@ -6455,7 +6455,7 @@
     "firstDose": 1665,
     "secondDose": 2459,
     "singleDose": 5,
-    "booster": 35980,
+    "booster": 35981,
     "immunocompromised": 2266
   },
   {
@@ -6468,8 +6468,8 @@
     "firstDose": 1184,
     "secondDose": 1512,
     "singleDose": 0,
-    "booster": 29152,
-    "immunocompromised": 2359
+    "booster": 29154,
+    "immunocompromised": 2360
   },
   {
     "dateString": "2021-11-20T12:00:00.000Z",
@@ -6481,7 +6481,7 @@
     "firstDose": 1540,
     "secondDose": 2920,
     "singleDose": 10,
-    "booster": 20001,
+    "booster": 20003,
     "immunocompromised": 1237
   },
   {
@@ -6494,7 +6494,7 @@
     "firstDose": 1786,
     "secondDose": 2752,
     "singleDose": 0,
-    "booster": 12885,
+    "booster": 12884,
     "immunocompromised": 351
   },
   {
@@ -6507,8 +6507,8 @@
     "firstDose": 712,
     "secondDose": 487,
     "singleDose": 2,
-    "booster": 15307,
-    "immunocompromised": 1236
+    "booster": 15305,
+    "immunocompromised": 1237
   },
   {
     "dateString": "2021-11-23T12:00:00.000Z",
@@ -6520,8 +6520,8 @@
     "firstDose": 2161,
     "secondDose": 1554,
     "singleDose": 6,
-    "booster": 30046,
-    "immunocompromised": 3124
+    "booster": 30044,
+    "immunocompromised": 3125
   },
   {
     "dateString": "2021-11-24T12:00:00.000Z",
@@ -6533,8 +6533,8 @@
     "firstDose": 1622,
     "secondDose": 3112,
     "singleDose": 2,
-    "booster": 33520,
-    "immunocompromised": 2008
+    "booster": 33523,
+    "immunocompromised": 2009
   },
   {
     "dateString": "2021-11-25T12:00:00.000Z",
@@ -6547,7 +6547,7 @@
     "secondDose": 1156,
     "singleDose": 1,
     "booster": 38627,
-    "immunocompromised": 2133
+    "immunocompromised": 2137
   },
   {
     "dateString": "2021-11-26T12:00:00.000Z",
@@ -6559,8 +6559,8 @@
     "firstDose": 1290,
     "secondDose": 1075,
     "singleDose": 12,
-    "booster": 33509,
-    "immunocompromised": 2425
+    "booster": 33510,
+    "immunocompromised": 2426
   },
   {
     "dateString": "2021-11-27T12:00:00.000Z",
@@ -6572,8 +6572,8 @@
     "firstDose": 1225,
     "secondDose": 1546,
     "singleDose": 5,
-    "booster": 23334,
-    "immunocompromised": 1168
+    "booster": 23333,
+    "immunocompromised": 1169
   },
   {
     "dateString": "2021-11-28T12:00:00.000Z",
@@ -6599,7 +6599,7 @@
     "secondDose": 970,
     "singleDose": 1,
     "booster": 20454,
-    "immunocompromised": 1094
+    "immunocompromised": 1095
   },
   {
     "dateString": "2021-11-30T12:00:00.000Z",
@@ -6611,8 +6611,8 @@
     "firstDose": 1928,
     "secondDose": 1616,
     "singleDose": 5,
-    "booster": 36970,
-    "immunocompromised": 1772
+    "booster": 36971,
+    "immunocompromised": 1771
   },
   {
     "dateString": "2021-12-01T12:00:00.000Z",
@@ -6637,8 +6637,8 @@
     "firstDose": 1776,
     "secondDose": 1393,
     "singleDose": 0,
-    "booster": 38422,
-    "immunocompromised": 1479
+    "booster": 38424,
+    "immunocompromised": 1480
   },
   {
     "dateString": "2021-12-03T12:00:00.000Z",
@@ -6650,7 +6650,7 @@
     "firstDose": 1042,
     "secondDose": 1161,
     "singleDose": 3,
-    "booster": 34737,
+    "booster": 34745,
     "immunocompromised": 1394
   },
   {
@@ -6689,7 +6689,7 @@
     "firstDose": 934,
     "secondDose": 1269,
     "singleDose": 0,
-    "booster": 21453,
+    "booster": 21455,
     "immunocompromised": 665
   },
   {
@@ -6702,7 +6702,7 @@
     "firstDose": 482,
     "secondDose": 726,
     "singleDose": 1,
-    "booster": 28688,
+    "booster": 28692,
     "immunocompromised": 464
   },
   {
@@ -6715,7 +6715,7 @@
     "firstDose": 814,
     "secondDose": 1485,
     "singleDose": 0,
-    "booster": 36515,
+    "booster": 36518,
     "immunocompromised": 612
   },
   {
@@ -6728,7 +6728,7 @@
     "firstDose": 791,
     "secondDose": 1176,
     "singleDose": 0,
-    "booster": 45560,
+    "booster": 45563,
     "immunocompromised": 642
   },
   {
@@ -6741,8 +6741,8 @@
     "firstDose": 888,
     "secondDose": 1592,
     "singleDose": 1,
-    "booster": 40174,
-    "immunocompromised": 899
+    "booster": 40176,
+    "immunocompromised": 898
   },
   {
     "dateString": "2021-12-11T12:00:00.000Z",
@@ -6754,7 +6754,7 @@
     "firstDose": 640,
     "secondDose": 833,
     "singleDose": 0,
-    "booster": 28891,
+    "booster": 28892,
     "immunocompromised": 231
   },
   {
@@ -6767,7 +6767,7 @@
     "firstDose": 691,
     "secondDose": 1188,
     "singleDose": 0,
-    "booster": 26317,
+    "booster": 26320,
     "immunocompromised": 161
   },
   {
@@ -6793,7 +6793,7 @@
     "firstDose": 627,
     "secondDose": 1175,
     "singleDose": 1,
-    "booster": 52571,
+    "booster": 52575,
     "immunocompromised": 934
   },
   {
@@ -6806,7 +6806,7 @@
     "firstDose": 793,
     "secondDose": 1215,
     "singleDose": 1,
-    "booster": 56928,
+    "booster": 56931,
     "immunocompromised": 581
   },
   {
@@ -6819,7 +6819,7 @@
     "firstDose": 1057,
     "secondDose": 1502,
     "singleDose": 7,
-    "booster": 65398,
+    "booster": 65405,
     "immunocompromised": 844
   },
   {
@@ -6832,7 +6832,7 @@
     "firstDose": 1203,
     "secondDose": 2421,
     "singleDose": 1,
-    "booster": 65340,
+    "booster": 65343,
     "immunocompromised": 543
   },
   {
@@ -6845,7 +6845,7 @@
     "firstDose": 1267,
     "secondDose": 1164,
     "singleDose": 0,
-    "booster": 45677,
+    "booster": 45680,
     "immunocompromised": 369
   },
   {
@@ -6858,7 +6858,7 @@
     "firstDose": 558,
     "secondDose": 877,
     "singleDose": 0,
-    "booster": 54633,
+    "booster": 54639,
     "immunocompromised": 204
   },
   {
@@ -6884,7 +6884,7 @@
     "firstDose": 1461,
     "secondDose": 1767,
     "singleDose": 3,
-    "booster": 128648,
+    "booster": 128655,
     "immunocompromised": 666
   },
   {
@@ -6897,8 +6897,8 @@
     "firstDose": 1239,
     "secondDose": 1538,
     "singleDose": 2,
-    "booster": 131785,
-    "immunocompromised": 753
+    "booster": 131772,
+    "immunocompromised": 754
   },
   {
     "dateString": "2021-12-23T12:00:00.000Z",
@@ -6910,7 +6910,7 @@
     "firstDose": 959,
     "secondDose": 1320,
     "singleDose": 0,
-    "booster": 101320,
+    "booster": 101326,
     "immunocompromised": 640
   },
   {
@@ -6923,7 +6923,7 @@
     "firstDose": 100,
     "secondDose": 135,
     "singleDose": 0,
-    "booster": 10978,
+    "booster": 10979,
     "immunocompromised": 68
   },
   {
@@ -6975,7 +6975,7 @@
     "firstDose": 461,
     "secondDose": 733,
     "singleDose": 0,
-    "booster": 23139,
+    "booster": 23140,
     "immunocompromised": 144
   },
   {
@@ -6988,8 +6988,8 @@
     "firstDose": 1080,
     "secondDose": 1270,
     "singleDose": 0,
-    "booster": 52825,
-    "immunocompromised": 236
+    "booster": 52829,
+    "immunocompromised": 237
   },
   {
     "dateString": "2021-12-30T12:00:00.000Z",
@@ -7001,8 +7001,8 @@
     "firstDose": 1063,
     "secondDose": 1161,
     "singleDose": 1,
-    "booster": 60847,
-    "immunocompromised": 379
+    "booster": 60848,
+    "immunocompromised": 378
   },
   {
     "dateString": "2021-12-31T12:00:00.000Z",
@@ -7040,7 +7040,7 @@
     "firstDose": 271,
     "secondDose": 620,
     "singleDose": 0,
-    "booster": 13839,
+    "booster": 13840,
     "immunocompromised": 33
   },
   {
@@ -7053,8 +7053,8 @@
     "firstDose": 3631,
     "secondDose": 715,
     "singleDose": 0,
-    "booster": 16765,
-    "immunocompromised": 60
+    "booster": 16772,
+    "immunocompromised": 61
   },
   {
     "dateString": "2022-01-04T12:00:00.000Z",
@@ -7066,7 +7066,7 @@
     "firstDose": 1193,
     "secondDose": 751,
     "singleDose": 0,
-    "booster": 31749,
+    "booster": 31748,
     "immunocompromised": 167
   },
   {
@@ -7079,8 +7079,8 @@
     "firstDose": 2142,
     "secondDose": 862,
     "singleDose": 0,
-    "booster": 40725,
-    "immunocompromised": 200
+    "booster": 40727,
+    "immunocompromised": 199
   },
   {
     "dateString": "2022-01-06T12:00:00.000Z",
@@ -7092,8 +7092,8 @@
     "firstDose": 2463,
     "secondDose": 1641,
     "singleDose": 0,
-    "booster": 41267,
-    "immunocompromised": 282
+    "booster": 41273,
+    "immunocompromised": 283
   },
   {
     "dateString": "2022-01-07T12:00:00.000Z",
@@ -7105,8 +7105,8 @@
     "firstDose": 4840,
     "secondDose": 744,
     "singleDose": 0,
-    "booster": 31103,
-    "immunocompromised": 259
+    "booster": 31105,
+    "immunocompromised": 256
   },
   {
     "dateString": "2022-01-08T12:00:00.000Z",
@@ -7157,8 +7157,8 @@
     "firstDose": 4767,
     "secondDose": 1317,
     "singleDose": 1,
-    "booster": 23751,
-    "immunocompromised": 198
+    "booster": 23756,
+    "immunocompromised": 199
   },
   {
     "dateString": "2022-01-12T12:00:00.000Z",
@@ -7183,7 +7183,7 @@
     "firstDose": 7318,
     "secondDose": 765,
     "singleDose": 0,
-    "booster": 25252,
+    "booster": 25254,
     "immunocompromised": 304
   },
   {
@@ -7197,7 +7197,7 @@
     "firstDose": 10721,
     "secondDose": 793,
     "singleDose": 0,
-    "booster": 22185,
+    "booster": 22190,
     "immunocompromised": 330
   },
   {
@@ -7239,7 +7239,7 @@
     "firstDose": 2557,
     "secondDose": 539,
     "singleDose": 0,
-    "booster": 11539,
+    "booster": 11536,
     "immunocompromised": 185
   },
   {
@@ -7253,7 +7253,7 @@
     "firstDose": 4057,
     "secondDose": 413,
     "singleDose": 3,
-    "booster": 12576,
+    "booster": 12579,
     "immunocompromised": 195
   },
   {
@@ -7267,7 +7267,7 @@
     "firstDose": 3479,
     "secondDose": 594,
     "singleDose": 0,
-    "booster": 11680,
+    "booster": 11682,
     "immunocompromised": 174
   },
   {
@@ -7281,8 +7281,8 @@
     "firstDose": 3686,
     "secondDose": 907,
     "singleDose": 0,
-    "booster": 10602,
-    "immunocompromised": 197
+    "booster": 10603,
+    "immunocompromised": 196
   },
   {
     "dateString": "2022-01-21T12:00:00.000Z",
@@ -7295,8 +7295,8 @@
     "firstDose": 3246,
     "secondDose": 950,
     "singleDose": 0,
-    "booster": 8497,
-    "immunocompromised": 660
+    "booster": 8498,
+    "immunocompromised": 661
   },
   {
     "dateString": "2022-01-22T12:00:00.000Z",
@@ -7337,8 +7337,8 @@
     "firstDose": 642,
     "secondDose": 454,
     "singleDose": 0,
-    "booster": 4603,
-    "immunocompromised": 336
+    "booster": 4602,
+    "immunocompromised": 337
   },
   {
     "dateString": "2022-01-25T12:00:00.000Z",
@@ -7352,7 +7352,7 @@
     "secondDose": 1820,
     "singleDose": 0,
     "booster": 5934,
-    "immunocompromised": 534
+    "immunocompromised": 535
   },
   {
     "dateString": "2022-01-26T12:00:00.000Z",
@@ -7365,8 +7365,8 @@
     "firstDose": 698,
     "secondDose": 876,
     "singleDose": 0,
-    "booster": 6500,
-    "immunocompromised": 587
+    "booster": 6501,
+    "immunocompromised": 585
   },
   {
     "dateString": "2022-01-27T12:00:00.000Z",
@@ -7393,7 +7393,7 @@
     "firstDose": 1025,
     "secondDose": 3074,
     "singleDose": 0,
-    "booster": 5785,
+    "booster": 5787,
     "immunocompromised": 964
   },
   {
@@ -7407,7 +7407,7 @@
     "firstDose": 2324,
     "secondDose": 3440,
     "singleDose": 0,
-    "booster": 3296,
+    "booster": 3295,
     "immunocompromised": 597
   },
   {
@@ -7421,7 +7421,7 @@
     "firstDose": 1635,
     "secondDose": 7533,
     "singleDose": 0,
-    "booster": 1713,
+    "booster": 1716,
     "immunocompromised": 270
   },
   {
@@ -7449,8 +7449,8 @@
     "firstDose": 747,
     "secondDose": 3401,
     "singleDose": 1,
-    "booster": 3666,
-    "immunocompromised": 506
+    "booster": 3665,
+    "immunocompromised": 507
   },
   {
     "dateString": "2022-02-02T12:00:00.000Z",
@@ -7463,7 +7463,7 @@
     "firstDose": 641,
     "secondDose": 2978,
     "singleDose": 0,
-    "booster": 4872,
+    "booster": 4871,
     "immunocompromised": 859
   },
   {
@@ -7477,7 +7477,7 @@
     "firstDose": 908,
     "secondDose": 2413,
     "singleDose": 1,
-    "booster": 4713,
+    "booster": 4715,
     "immunocompromised": 1083
   },
   {
@@ -7491,8 +7491,8 @@
     "firstDose": 1166,
     "secondDose": 6493,
     "singleDose": 0,
-    "booster": 4277,
-    "immunocompromised": 1121
+    "booster": 4279,
+    "immunocompromised": 1122
   },
   {
     "dateString": "2022-02-05T12:00:00.000Z",
@@ -7547,7 +7547,7 @@
     "firstDose": 894,
     "secondDose": 1214,
     "singleDose": 0,
-    "booster": 2885,
+    "booster": 2886,
     "immunocompromised": 574
   },
   {
@@ -7561,7 +7561,7 @@
     "firstDose": 1334,
     "secondDose": 1745,
     "singleDose": 0,
-    "booster": 4194,
+    "booster": 4193,
     "immunocompromised": 662
   },
   {
@@ -7575,8 +7575,8 @@
     "firstDose": 687,
     "secondDose": 2530,
     "singleDose": 0,
-    "booster": 4037,
-    "immunocompromised": 996
+    "booster": 4034,
+    "immunocompromised": 997
   },
   {
     "dateString": "2022-02-11T12:00:00.000Z",
@@ -7589,8 +7589,8 @@
     "firstDose": 549,
     "secondDose": 4894,
     "singleDose": 0,
-    "booster": 3797,
-    "immunocompromised": 830
+    "booster": 3795,
+    "immunocompromised": 834
   },
   {
     "dateString": "2022-02-12T12:00:00.000Z",
@@ -7599,8 +7599,8 @@
     "firstDose": 1395,
     "secondDose": 5455,
     "singleDose": 0,
-    "booster": 4734,
-    "immunocompromised": 840,
+    "booster": 4733,
+    "immunocompromised": 841,
     "cases": 4940,
     "antigen": 2950,
     "dailySwabs": 16656,
@@ -7613,7 +7613,7 @@
     "firstDose": 1567,
     "secondDose": 4705,
     "singleDose": 0,
-    "booster": 3278,
+    "booster": 3279,
     "immunocompromised": 565,
     "cases": 4331,
     "antigen": 3609,
@@ -7631,8 +7631,8 @@
     "firstDose": 170,
     "secondDose": 936,
     "singleDose": 1,
-    "booster": 1800,
-    "immunocompromised": 317
+    "booster": 1804,
+    "immunocompromised": 320
   },
   {
     "dateString": "2022-02-15T12:00:00.000Z",
@@ -7646,7 +7646,7 @@
     "secondDose": 793,
     "singleDose": 1,
     "booster": 3015,
-    "immunocompromised": 545
+    "immunocompromised": 546
   },
   {
     "dateString": "2022-02-16T12:00:00.000Z",
@@ -7659,8 +7659,8 @@
     "firstDose": 788,
     "secondDose": 1768,
     "singleDose": 0,
-    "booster": 3492,
-    "immunocompromised": 491
+    "booster": 3499,
+    "immunocompromised": 495
   },
   {
     "dateString": "2022-02-17T12:00:00.000Z",
@@ -7673,8 +7673,8 @@
     "firstDose": 780,
     "secondDose": 1149,
     "singleDose": 2,
-    "booster": 3238,
-    "immunocompromised": 897
+    "booster": 3246,
+    "immunocompromised": 899
   },
   {
     "dateString": "2022-02-18T12:00:00.000Z",
@@ -7687,8 +7687,8 @@
     "firstDose": 790,
     "secondDose": 3244,
     "singleDose": 0,
-    "booster": 2260,
-    "immunocompromised": 603
+    "booster": 2263,
+    "immunocompromised": 605
   },
   {
     "dateString": "2022-02-19T12:00:00.000Z",
@@ -7713,7 +7713,7 @@
     "firstDose": 1362,
     "secondDose": 3586,
     "singleDose": 0,
-    "booster": 1959,
+    "booster": 1960,
     "immunocompromised": 430,
     "cases": 3351,
     "antigen": 2865
@@ -7729,7 +7729,7 @@
     "firstDose": 249,
     "secondDose": 982,
     "singleDose": 1,
-    "booster": 1268,
+    "booster": 1271,
     "immunocompromised": 235
   },
   {
@@ -7744,7 +7744,7 @@
     "secondDose": 945,
     "singleDose": 1,
     "booster": 2463,
-    "immunocompromised": 484
+    "immunocompromised": 488
   },
   {
     "dateString": "2022-02-23T12:00:00.000Z",
@@ -7757,8 +7757,8 @@
     "firstDose": 821,
     "secondDose": 1232,
     "singleDose": 1,
-    "booster": 2436,
-    "immunocompromised": 444
+    "booster": 2437,
+    "immunocompromised": 449
   },
   {
     "dateString": "2022-02-24T12:00:00.000Z",
@@ -7771,8 +7771,8 @@
     "firstDose": 654,
     "secondDose": 1184,
     "singleDose": 0,
-    "booster": 2140,
-    "immunocompromised": 1041
+    "booster": 2143,
+    "immunocompromised": 1052
   },
   {
     "dateString": "2022-02-25T12:00:00.000Z",
@@ -7785,8 +7785,8 @@
     "firstDose": 684,
     "secondDose": 1178,
     "singleDose": 0,
-    "booster": 2515,
-    "immunocompromised": 1411
+    "booster": 2526,
+    "immunocompromised": 1425
   },
   {
     "dateString": "2022-02-26T12:00:00.000Z",
@@ -7797,7 +7797,7 @@
     "firstDose": 955,
     "secondDose": 2067,
     "singleDose": 0,
-    "booster": 2178,
+    "booster": 2182,
     "immunocompromised": 1280,
     "cases": 3635,
     "antigen": 2819
@@ -7811,8 +7811,8 @@
     "firstDose": 667,
     "secondDose": 1780,
     "singleDose": 0,
-    "booster": 2121,
-    "immunocompromised": 1138,
+    "booster": 2119,
+    "immunocompromised": 1140,
     "cases": 2338,
     "antigen": 3642
   },
@@ -7827,8 +7827,8 @@
     "firstDose": 82,
     "secondDose": 395,
     "singleDose": 0,
-    "booster": 828,
-    "immunocompromised": 403
+    "booster": 882,
+    "immunocompromised": 425
   },
   {
     "dateString": "2022-03-01T12:00:00.000Z",
@@ -7839,7 +7839,9 @@
     "cases": 3300,
     "firstDose": 108,
     "secondDose": 886,
-    "singleDose": 0
+    "singleDose": 0,
+    "booster": 905,
+    "immunocompromised": 531
   },
   {
     "dateString": "2022-03-02T12:00:00.000Z",
