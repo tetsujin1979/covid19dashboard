@@ -7837,6 +7837,7 @@
     "dailySwabs": 9381,
     "positiveSwabs": 2569,
     "cases": 3300,
+    "antigen": 4352,
     "firstDose": 108,
     "secondDose": 886,
     "singleDose": 0,
@@ -7848,6 +7849,7 @@
     "hospitalisations": {"cases": 653, "admissions": 56, "discharges": 58, "hospitalAcquired": 62},
     "icu": {"cases": 46, "admissions": 1, "discharges": 2},
     "dailySwabs": 11893,
-    "positiveSwabs": 3864
+    "positiveSwabs": 3864,
+    "cases": 3342
   }
 ]
