@@ -7832,10 +7832,14 @@
   },
   {
     "dateString": "2022-03-01T12:00:00.000Z",
-    "hospitalisations": {"cases": 616, "admissions": 54, "discharges": 69, "hospitalAcquired": 66},
+    "hospitalisations": {"cases": 616, "admissions": 54, "discharges": 69, "hospitalAcquired": 68},
     "icu": {"cases": 48, "admissions": 2, "discharges": 1},
     "dailySwabs": 9381,
     "positiveSwabs": 2569,
     "cases": 3300
+  },
+  {
+    "dateString": "2022-03-02T12:00:00.000Z",
+    "hospitalisations": {"cases": 653, "admissions": 56, "discharges": 58, "hospitalAcquired": 62}
   }
 ]
