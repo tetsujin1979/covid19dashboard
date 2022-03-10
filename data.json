@@ -7949,5 +7949,9 @@
     "dailySwabs": 14703,
     "positiveSwabs": 5186,
     "cases": 1715
+  },
+  {
+    "dateString": "2022-03-10T12:00:00.000Z",
+    "hospitalisations": {"cases": 877, "admissions": 61, "discharges": 60, "hospitalAcquired": 96}
   }
 ]
