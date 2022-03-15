@@ -2635,7 +2635,7 @@
     "deaths": 1,
     "hospitalisations": {"cases": 360, "admissions": 39, "discharges": 8, "hospitalAcquired": 5},
     "icu": {"cases": 30, "admissions": 5, "discharges": 1},
-    "firstDose": 188,
+    "firstDose": 190,
     "secondDose": 21,
     "singleDose": 0
   },
@@ -2648,7 +2648,7 @@
     "firstDose": 74,
     "hospitalisations": {"cases": 409, "admissions": 36, "discharges": 14, "hospitalAcquired": 14},
     "icu": {"cases": 34, "admissions": 8, "discharges": 3},
-    "secondDose": 1,
+    "secondDose": 2,
     "singleDose": 0
   },
   {
@@ -2669,7 +2669,7 @@
     "dailySwabs": 26312,
     "cases": 1620,
     "deaths": 12,
-    "firstDose": 1030,
+    "firstDose": 1031,
     "hospitalisations": {"cases": 491, "admissions": 51, "discharges": 41, "hospitalAcquired": 10},
     "icu": {"cases": 42, "admissions": 10, "discharges": 2},
     "secondDose": 1,
@@ -2792,7 +2792,7 @@
     "firstDose": 4774,
     "hospitalisations": {"cases": 1426, "admissions": 134, "discharges": 43, "hospitalAcquired": -20},
     "icu": {"cases": 128, "admissions": 19, "discharges": 4},
-    "secondDose": 2,
+    "secondDose": 3,
     "singleDose": 1
   },
   {
@@ -2885,7 +2885,7 @@
     "dailySwabs": 18191,
     "cases": 2121,
     "deaths": 8,
-    "firstDose": 8698,
+    "firstDose": 8701,
     "hospitalisations": {"cases": 2020, "admissions": 107, "discharges": 39, "hospitalAcquired": 18},
     "icu": {"cases": 199, "admissions": 19, "discharges": 10},
     "secondDose": 7,
@@ -2921,10 +2921,10 @@
     "dailySwabs": 23196,
     "cases": 2608,
     "deaths": 50,
-    "firstDose": 8983,
+    "firstDose": 8984,
     "hospitalisations": {"cases": 1949, "admissions": 114, "discharges": 118, "hospitalAcquired": -1},
     "icu": {"cases": 214, "admissions": 16, "discharges": 11},
-    "secondDose": 960,
+    "secondDose": 961,
     "singleDose": 0
   },
   {
@@ -2969,7 +2969,7 @@
     "dailySwabs": 14884,
     "cases": 1372,
     "deaths": 7,
-    "firstDose": 1345,
+    "firstDose": 1346,
     "hospitalisations": {"cases": 1948, "admissions": 66, "discharges": 44, "hospitalAcquired": 8},
     "icu": {"cases": 218, "admissions": 13, "discharges": 6},
     "secondDose": 1286,
@@ -3005,7 +3005,7 @@
     "dailySwabs": 21780,
     "cases": 1466,
     "deaths": 47,
-    "firstDose": 981,
+    "firstDose": 983,
     "secondDose": 11537,
     "hospitalisations": {"cases": 1620, "admissions": 76, "discharges": 136, "hospitalAcquired": 11},
     "icu": {"cases": 214, "admissions": 15, "discharges": 12},
@@ -3017,7 +3017,7 @@
     "dailySwabs": 21943,
     "cases": 1254,
     "deaths": 47,
-    "firstDose": 1558,
+    "firstDose": 1561,
     "secondDose": 11525,
     "hospitalisations": {"cases": 1552, "admissions": 109, "discharges": 103, "hospitalAcquired": -41},
     "icu": {"cases": 211, "admissions": 12, "discharges": 8},
@@ -3041,7 +3041,7 @@
     "dailySwabs": 17649,
     "cases": 1247,
     "deaths": 15,
-    "firstDose": 213,
+    "firstDose": 216,
     "secondDose": 4086,
     "hospitalisations": {"cases": 1515, "admissions": 75, "discharges": 33, "hospitalAcquired": -16},
     "icu": {"cases": 211, "admissions": 6, "discharges": 5},
@@ -3077,7 +3077,7 @@
     "dailySwabs": 18442,
     "cases": 1013,
     "deaths": 94,
-    "firstDose": 1387,
+    "firstDose": 1388,
     "secondDose": 6861,
     "hospitalisations": {"cases": 1366, "admissions": 71, "discharges": 86, "hospitalAcquired": 9},
     "icu": {"cases": 202, "admissions": 14, "discharges": 11},
@@ -3089,7 +3089,7 @@
     "dailySwabs": 20214,
     "cases": 1318,
     "deaths": 74,
-    "firstDose": 1412,
+    "firstDose": 1413,
     "secondDose": 10539,
     "hospitalisations": {"cases": 1308, "admissions": 92, "discharges": 82, "hospitalAcquired": -15},
     "icu": {"cases": 187, "admissions": 4, "discharges": 12},
@@ -3150,7 +3150,7 @@
     "cases": 556,
     "deaths": 65,
     "firstDose": 4239,
-    "secondDose": 533,
+    "secondDose": 534,
     "hospitalisations": {"cases": 1104, "admissions": 55, "discharges": 124, "hospitalAcquired": -1},
     "icu": {"cases": 178, "admissions": 10, "discharges": 5},
     "singleDose": 2
@@ -3173,7 +3173,7 @@
     "dailySwabs": 17372,
     "cases": 867,
     "deaths": 52,
-    "firstDose": 6166,
+    "firstDose": 6167,
     "secondDose": 442,
     "hospitalisations": {"cases": 984, "admissions": 52, "discharges": 55, "hospitalAcquired": -8},
     "icu": {"cases": 170, "admissions": 8, "discharges": 9},
@@ -3185,7 +3185,7 @@
     "dailySwabs": 18841,
     "cases": 921,
     "deaths": 19,
-    "firstDose": 4380,
+    "firstDose": 4381,
     "secondDose": 522,
     "hospitalisations": {"cases": 959, "admissions": 48, "discharges": 69, "hospitalAcquired": 5},
     "icu": {"cases": 173, "admissions": 10, "discharges": 5},
@@ -3197,7 +3197,7 @@
     "dailySwabs": 18174,
     "cases": 1078,
     "deaths": 65,
-    "firstDose": 1201,
+    "firstDose": 1202,
     "secondDose": 1912,
     "hospitalisations": {"cases": 898, "admissions": 55, "discharges": 63, "hospitalAcquired": -11},
     "icu": {"cases": 170, "admissions": 9, "discharges": 7},
@@ -3221,7 +3221,7 @@
     "dailySwabs": 11452,
     "cases": 821,
     "deaths": 0,
-    "firstDose": 1953,
+    "firstDose": 1954,
     "secondDose": 7881,
     "hospitalisations": {"cases": 916, "admissions": 41, "discharges": 16, "hospitalAcquired": -1},
     "icu": {"cases": 158, "admissions": 8, "discharges": 5},
@@ -3233,7 +3233,7 @@
     "dailySwabs": 13119,
     "cases": 744,
     "deaths": 34,
-    "firstDose": 5630,
+    "firstDose": 5631,
     "secondDose": 8158,
     "hospitalisations": {"cases": 861, "admissions": 45, "discharges": 66, "hospitalAcquired": 6},
     "icu": {"cases": 155, "admissions": 11, "discharges": 7},
@@ -3245,7 +3245,7 @@
     "dailySwabs": 17122,
     "cases": 650,
     "deaths": 56,
-    "firstDose": 9728,
+    "firstDose": 9729,
     "secondDose": 8462,
     "hospitalisations": {"cases": 831, "admissions": 39, "discharges": 66, "hospitalAcquired": 10},
     "icu": {"cases": 154, "admissions": 9, "discharges": 5},
@@ -3258,7 +3258,7 @@
     "cases": 901,
     "deaths": 46,
     "firstDose": 8451,
-    "secondDose": 8346,
+    "secondDose": 8347,
     "hospitalisations": {"cases": 771, "admissions": 42, "discharges": 52, "hospitalAcquired": 6},
     "icu": {"cases": 151, "admissions": 7, "discharges": 9},
     "singleDose": 0
@@ -3269,7 +3269,7 @@
     "dailySwabs": 17036,
     "cases": 763,
     "deaths": 27,
-    "firstDose": 9378,
+    "firstDose": 9381,
     "secondDose": 6581,
     "hospitalisations": {"cases": 754, "admissions": 50, "discharges": 40, "hospitalAcquired": -4},
     "icu": {"cases": 153, "admissions": 8, "discharges": 5},
@@ -3293,7 +3293,7 @@
     "dailySwabs": 14901,
     "cases": 679,
     "deaths": 1,
-    "firstDose": 1103,
+    "firstDose": 1104,
     "secondDose": 1021,
     "hospitalisations": {"cases": 744, "admissions": 37, "discharges": 21, "hospitalAcquired": 8},
     "icu": {"cases": 151, "admissions": 7, "discharges": 3},
@@ -3305,8 +3305,8 @@
     "dailySwabs": 11828,
     "cases": 686,
     "deaths": 1,
-    "firstDose": 3935,
-    "secondDose": 1117,
+    "firstDose": 3936,
+    "secondDose": 1118,
     "hospitalisations": {"cases": 726, "admissions": 32, "discharges": 9, "hospitalAcquired": 1},
     "icu": {"cases": 156, "admissions": 11, "discharges": 4},
     "singleDose": 1
@@ -3317,8 +3317,8 @@
     "dailySwabs": 13841,
     "cases": 575,
     "deaths": 44,
-    "firstDose": 13347,
-    "secondDose": 1058,
+    "firstDose": 13348,
+    "secondDose": 1059,
     "hospitalisations": {"cases": 693, "admissions": 43, "discharges": 47, "hospitalAcquired": -6},
     "icu": {"cases": 151, "admissions": 2, "discharges": 5},
     "singleDose": 0
@@ -3329,8 +3329,8 @@
     "dailySwabs": 16607,
     "cases": 574,
     "deaths": 56,
-    "firstDose": 16923,
-    "secondDose": 2097,
+    "firstDose": 16925,
+    "secondDose": 2098,
     "hospitalisations": {"cases": 652, "admissions": 31, "discharges": 50, "hospitalAcquired": 4},
     "icu": {"cases": 136, "admissions": 5, "discharges": 7},
     "singleDose": 3
@@ -3341,7 +3341,7 @@
     "dailySwabs": 18206,
     "cases": 613,
     "deaths": 34,
-    "firstDose": 18074,
+    "firstDose": 18075,
     "secondDose": 1748,
     "hospitalisations": {"cases": 591, "admissions": 19, "discharges": 53, "hospitalAcquired": 1},
     "icu": {"cases": 141, "admissions": 9, "discharges": 5},
@@ -3354,7 +3354,7 @@
     "cases": 776,
     "deaths": 29,
     "firstDose": 16078,
-    "secondDose": 2759,
+    "secondDose": 2762,
     "hospitalisations": {"cases": 574, "admissions": 27, "discharges": 28, "hospitalAcquired": -3},
     "icu": {"cases": 136, "admissions": 5, "discharges": 6},
     "singleDose": 0
@@ -3377,8 +3377,8 @@
     "dailySwabs": 13102,
     "cases": 612,
     "deaths": 6,
-    "firstDose": 2438,
-    "secondDose": 50,
+    "firstDose": 2440,
+    "secondDose": 51,
     "hospitalisations": {"cases": 554, "admissions": 19, "discharges": 7, "hospitalAcquired": 0},
     "icu": {"cases": 134, "admissions": 4, "discharges": 3},
     "singleDose": 1
@@ -3389,7 +3389,7 @@
     "dailySwabs": 12210,
     "cases": 687,
     "deaths": 0,
-    "firstDose": 5579,
+    "firstDose": 5580,
     "secondDose": 784,
     "hospitalisations": {"cases": 540, "admissions": 16, "discharges": 14, "hospitalAcquired": -2},
     "icu": {"cases": 117, "admissions": 0, "discharges": 9},
@@ -3401,7 +3401,7 @@
     "dailySwabs": 11680,
     "cases": 369,
     "deaths": 14,
-    "firstDose": 12169,
+    "firstDose": 12170,
     "secondDose": 1604,
     "hospitalisations": {"cases": 498, "admissions": 28, "discharges": 55, "hospitalAcquired": 0},
     "icu": {"cases": 115, "admissions": 3, "discharges": 4},
@@ -3413,7 +3413,7 @@
     "dailySwabs": 15277,
     "cases": 566,
     "deaths": 24,
-    "firstDose": 12877,
+    "firstDose": 12878,
     "secondDose": 1501,
     "hospitalisations": {"cases": 489, "admissions": 31, "discharges": 43, "hospitalAcquired": -2},
     "icu": {"cases": 110, "admissions": 3, "discharges": 6},
@@ -3425,7 +3425,7 @@
     "dailySwabs": 14244,
     "cases": 462,
     "deaths": 39,
-    "firstDose": 18719,
+    "firstDose": 18721,
     "secondDose": 1683,
     "hospitalisations": {"cases": 460, "admissions": 27, "discharges": 47, "hospitalAcquired": -1},
     "icu": {"cases": 105, "admissions": 6, "discharges": 7},
@@ -3437,7 +3437,7 @@
     "dailySwabs": 16640,
     "cases": 522,
     "deaths": 9,
-    "firstDose": 18429,
+    "firstDose": 18430,
     "secondDose": 2389,
     "hospitalisations": {"cases": 426, "admissions": 30, "discharges": 43, "hospitalAcquired": 4},
     "icu": {"cases": 100, "admissions": 5, "discharges": 5},
@@ -3449,7 +3449,7 @@
     "dailySwabs": 13325,
     "cases": 539,
     "deaths": 14,
-    "firstDose": 10436,
+    "firstDose": 10438,
     "secondDose": 135,
     "hospitalisations": {"cases": 414, "admissions": 29, "discharges": 32, "hospitalAcquired": -7},
     "icu": {"cases": 103, "admissions": 5, "discharges": 1},
@@ -3473,7 +3473,7 @@
     "dailySwabs": 10682,
     "cases": 437,
     "deaths": 0,
-    "firstDose": 6647,
+    "firstDose": 6652,
     "secondDose": 1492,
     "hospitalisations": {"cases": 418, "admissions": 18, "discharges": 5, "hospitalAcquired": 2},
     "icu": {"cases": 101, "admissions": 3, "discharges": 3},
@@ -3485,8 +3485,8 @@
     "dailySwabs": 13585,
     "cases": 311,
     "deaths": 30,
-    "firstDose": 13805,
-    "secondDose": 3099,
+    "firstDose": 13806,
+    "secondDose": 3100,
     "hospitalisations": {"cases": 397, "admissions": 23, "discharges": 45, "hospitalAcquired": 1},
     "icu": {"cases": 93, "admissions": 2, "discharges": 7},
     "singleDose": 3
@@ -3497,7 +3497,7 @@
     "dailySwabs": 15592,
     "cases": 631,
     "deaths": 47,
-    "firstDose": 13714,
+    "firstDose": 13715,
     "secondDose": 3978,
     "hospitalisations": {"cases": 370, "admissions": 25, "discharges": 40, "hospitalAcquired": 6},
     "icu": {"cases": 92, "admissions": 3, "discharges": 5},
@@ -3509,7 +3509,7 @@
     "dailySwabs": 15750,
     "cases": 592,
     "deaths": 10,
-    "firstDose": 18452,
+    "firstDose": 18456,
     "secondDose": 2096,
     "hospitalisations": {"cases": 359, "admissions": 25, "discharges": 25, "hospitalAcquired": 7},
     "icu": {"cases": 87, "admissions": 3, "discharges": 5},
@@ -3521,8 +3521,8 @@
     "dailySwabs": 16499,
     "cases": 646,
     "deaths": 10,
-    "firstDose": 17306,
-    "secondDose": 1331,
+    "firstDose": 17307,
+    "secondDose": 1332,
     "hospitalisations": {"cases": 344, "admissions": 17, "discharges": 38, "hospitalAcquired": -1},
     "icu": {"cases": 86, "admissions": 1, "discharges": 2},
     "singleDose": 3
@@ -3533,8 +3533,8 @@
     "dailySwabs": 16203,
     "cases": 543,
     "deaths": 16,
-    "firstDose": 8279,
-    "secondDose": 171,
+    "firstDose": 8283,
+    "secondDose": 172,
     "hospitalisations": {"cases": 340, "admissions": 32, "discharges": 22, "hospitalAcquired": -17},
     "icu": {"cases": 85, "admissions": 3, "discharges": 5},
     "singleDose": 0
@@ -3545,7 +3545,7 @@
     "dailySwabs": 13349,
     "cases": 384,
     "deaths": 0,
-    "firstDose": 372,
+    "firstDose": 373,
     "secondDose": 16,
     "hospitalisations": {"cases": 349, "admissions": 14, "discharges": 9, "hospitalAcquired": 3},
     "icu": {"cases": 86, "admissions": 2, "discharges": 1},
@@ -3557,8 +3557,8 @@
     "dailySwabs": 10586,
     "cases": 575,
     "deaths": 0,
-    "firstDose": 2631,
-    "secondDose": 986,
+    "firstDose": 2633,
+    "secondDose": 987,
     "hospitalisations": {"cases": 360, "admissions": 19, "discharges": 8, "hospitalAcquired": 6},
     "icu": {"cases": 85, "admissions": 1, "discharges": 0},
     "singleDose": 0
@@ -3569,7 +3569,7 @@
     "dailySwabs": 11392,
     "cases": 349,
     "deaths": 18,
-    "firstDose": 8922,
+    "firstDose": 8923,
     "secondDose": 3810,
     "hospitalisations": {"cases": 355, "admissions": 24, "discharges": 40, "hospitalAcquired": 12},
     "icu": {"cases": 85, "admissions": 4, "discharges": 3},
@@ -3581,7 +3581,7 @@
     "dailySwabs": 15990,
     "cases": 557,
     "deaths": 17,
-    "firstDose": 4873,
+    "firstDose": 4874,
     "secondDose": 2415,
     "hospitalisations": {"cases": 350, "admissions": 23, "discharges": 25, "hospitalAcquired": -4},
     "icu": {"cases": 82, "admissions": 4, "discharges": 6},
@@ -3593,7 +3593,7 @@
     "dailySwabs": 13514,
     "cases": 582,
     "deaths": 0,
-    "firstDose": 11698,
+    "firstDose": 11699,
     "secondDose": 4677,
     "hospitalisations": {"cases": 345, "admissions": 14, "discharges": 15, "hospitalAcquired": 10},
     "icu": {"cases": 83, "admissions": 7, "discharges": 4},
@@ -3605,7 +3605,7 @@
     "dailySwabs": 12942,
     "cases": 507,
     "deaths": 10,
-    "firstDose": 10340,
+    "firstDose": 10343,
     "secondDose": 6116,
     "hospitalisations": {"cases": 336, "admissions": 25, "discharges": 32, "hospitalAcquired": 18},
     "icu": {"cases": 87, "admissions": 7, "discharges": 2},
@@ -3617,8 +3617,8 @@
     "dailySwabs": 16621,
     "cases": 525,
     "deaths": 9,
-    "firstDose": 5215,
-    "secondDose": 3115,
+    "firstDose": 5219,
+    "secondDose": 3116,
     "hospitalisations": {"cases": 328, "admissions": 24, "discharges": 34, "hospitalAcquired": 3},
     "icu": {"cases": 83, "admissions": 3, "discharges": 5},
     "singleDose": 2
@@ -3629,7 +3629,7 @@
     "dailySwabs": 14882,
     "cases": 769,
     "deaths": 2,
-    "firstDose": 3622,
+    "firstDose": 3623,
     "secondDose": 53,
     "hospitalisations": {"cases": 360, "admissions": 22, "discharges": 10, "hospitalAcquired": -3},
     "icu": {"cases": 80, "admissions": 1, "discharges": 4},
@@ -3653,7 +3653,7 @@
     "dailySwabs": 15044,
     "cases": 371,
     "deaths": 24,
-    "firstDose": 12550,
+    "firstDose": 12554,
     "secondDose": 7380,
     "hospitalisations": {"cases": 357, "admissions": 16, "discharges": 35, "hospitalAcquired": 9},
     "icu": {"cases": 76, "admissions": 2, "discharges": 6},
@@ -3678,7 +3678,7 @@
     "cases": 606,
     "deaths": 3,
     "firstDose": 20840,
-    "secondDose": 10216,
+    "secondDose": 10218,
     "hospitalisations": {"cases": 312, "admissions": 18, "discharges": 33, "hospitalAcquired": 6},
     "icu": {"cases": 75, "admissions": 4, "discharges": 4},
     "singleDose": 3
@@ -3689,7 +3689,7 @@
     "dailySwabs": 18491,
     "cases": 584,
     "deaths": 20,
-    "firstDose": 19681,
+    "firstDose": 19685,
     "secondDose": 9490,
     "hospitalisations": {"cases": 317, "admissions": 22, "discharges": 35, "hospitalAcquired": 3},
     "icu": {"cases": 66, "admissions": 0, "discharges": 4},
@@ -3701,7 +3701,7 @@
     "dailySwabs": 21134,
     "cases": 624,
     "deaths": 2,
-    "firstDose": 11718,
+    "firstDose": 11719,
     "secondDose": 5338,
     "hospitalisations": {"cases": 304, "admissions": 24, "discharges": 25, "hospitalAcquired": -3},
     "icu": {"cases": 65, "admissions": 1, "discharges": 2},
@@ -3726,7 +3726,7 @@
     "cases": 539,
     "deaths": 1,
     "firstDose": 9238,
-    "secondDose": 3107,
+    "secondDose": 3110,
     "hospitalisations": {"cases": 331, "admissions": 15, "discharges": 3, "hospitalAcquired": 4},
     "icu": {"cases": 70, "admissions": 6, "discharges": 2},
     "singleDose": 3
@@ -3737,7 +3737,7 @@
     "dailySwabs": 14957,
     "cases": 368,
     "deaths": 14,
-    "firstDose": 13311,
+    "firstDose": 13312,
     "secondDose": 8658,
     "hospitalisations": {"cases": 310, "admissions": 23, "discharges": 32, "hospitalAcquired": 6},
     "icu": {"cases": 65, "admissions": 3, "discharges": 2},
@@ -3749,7 +3749,7 @@
     "dailySwabs": 21152,
     "cases": 411,
     "deaths": 6,
-    "firstDose": 15798,
+    "firstDose": 15800,
     "secondDose": 10501,
     "hospitalisations": {"cases": 297, "admissions": 21, "discharges": 27, "hospitalAcquired": -5},
     "icu": {"cases": 64, "admissions": 4, "discharges": 7},
@@ -3761,8 +3761,8 @@
     "dailySwabs": 19535,
     "cases": 761,
     "deaths": 18,
-    "firstDose": 19660,
-    "secondDose": 11617,
+    "firstDose": 19661,
+    "secondDose": 11619,
     "hospitalisations": {"cases": 274, "admissions": 15, "discharges": 31, "hospitalAcquired": 3},
     "icu": {"cases": 63, "admissions": 2, "discharges": 5},
     "singleDose": 7
@@ -3773,7 +3773,7 @@
     "dailySwabs": 19031,
     "cases": 591,
     "deaths": 8,
-    "firstDose": 20110,
+    "firstDose": 20111,
     "secondDose": 13715,
     "hospitalisations": {"cases": 264, "admissions": 20, "discharges": 22, "hospitalAcquired": -2},
     "icu": {"cases": 62, "admissions": 3, "discharges": 2},
@@ -3785,7 +3785,7 @@
     "dailySwabs": 16662,
     "cases": 511,
     "deaths": 2,
-    "firstDose": 7526,
+    "firstDose": 7528,
     "secondDose": 4643,
     "hospitalisations": {"cases": 242, "admissions": 17, "discharges": 26, "hospitalAcquired": -7},
     "icu": {"cases": 65, "admissions": 5, "discharges": 2},
@@ -3821,7 +3821,7 @@
     "dailySwabs": 13864,
     "cases": 443,
     "deaths": 9,
-    "firstDose": 11954,
+    "firstDose": 11957,
     "secondDose": 8155,
     "hospitalisations": {"cases": 261, "admissions": 10, "discharges": 6, "hospitalAcquired": 2},
     "icu": {"cases": 60, "admissions": 2, "discharges": 1},
@@ -3833,7 +3833,7 @@
     "dailySwabs": 16151,
     "cases": 423,
     "deaths": 5,
-    "firstDose": 18324,
+    "firstDose": 18325,
     "secondDose": 10452,
     "hospitalisations": {"cases": 232, "admissions": 16, "discharges": 33, "hospitalAcquired": -3},
     "icu": {"cases": 56, "admissions": 0, "discharges": 3},
@@ -3845,7 +3845,7 @@
     "dailySwabs": 19214,
     "cases": 400,
     "deaths": 7,
-    "firstDose": 20154,
+    "firstDose": 20155,
     "secondDose": 10556,
     "hospitalisations": {"cases": 226, "admissions": 18, "discharges": 33, "hospitalAcquired": -7},
     "icu": {"cases": 55, "admissions": 2, "discharges": 3},
@@ -3857,7 +3857,7 @@
     "dailySwabs": 16795,
     "cases": 473,
     "deaths": 34,
-    "firstDose": 20669,
+    "firstDose": 20670,
     "secondDose": 9151,
     "hospitalisations": {"cases": 212, "admissions": 12, "discharges": 17, "hospitalAcquired": 5},
     "icu": {"cases": 53, "admissions": 1, "discharges": 1},
@@ -3869,8 +3869,8 @@
     "dailySwabs": 16849,
     "cases": 455,
     "deaths": 14,
-    "firstDose": 11143,
-    "secondDose": 4150,
+    "firstDose": 11144,
+    "secondDose": 4153,
     "hospitalisations": {"cases": 208, "admissions": 16, "discharges": 19, "hospitalAcquired": -5},
     "icu": {"cases": 52, "admissions": 2, "discharges": 2},
     "singleDose": 12
@@ -3881,7 +3881,7 @@
     "dailySwabs": 14355,
     "cases": 303,
     "deaths": 2,
-    "firstDose": 2840,
+    "firstDose": 2842,
     "secondDose": 348,
     "hospitalisations": {"cases": 213, "admissions": 16, "discharges": 12, "hospitalAcquired": -9},
     "icu": {"cases": 53, "admissions": 5, "discharges": 4},
@@ -3893,7 +3893,7 @@
     "dailySwabs": 11918,
     "cases": 394,
     "deaths": 0,
-    "firstDose": 7748,
+    "firstDose": 7749,
     "secondDose": 2776,
     "hospitalisations": {"cases": 227, "admissions": 15, "discharges": 2, "hospitalAcquired": 7},
     "icu": {"cases": 50, "admissions": 1, "discharges": 4},
@@ -3905,8 +3905,8 @@
     "dailySwabs": 13650,
     "cases": 358,
     "deaths": 18,
-    "firstDose": 11472,
-    "secondDose": 8582,
+    "firstDose": 11475,
+    "secondDose": 8583,
     "hospitalisations": {"cases": 206, "admissions": 10, "discharges": 19, "hospitalAcquired": 1},
     "icu": {"cases": 48, "admissions": 1, "discharges": 3},
     "singleDose": 1
@@ -3917,7 +3917,7 @@
     "dailySwabs": 16872,
     "cases": 431,
     "deaths": 12,
-    "firstDose": 20324,
+    "firstDose": 20326,
     "secondDose": 6584,
     "hospitalisations": {"cases": 192, "admissions": 14, "discharges": 23, "hospitalAcquired": -1},
     "icu": {"cases": 49, "admissions": 5, "discharges": 3},
@@ -3929,7 +3929,7 @@
     "dailySwabs": 14926,
     "cases": 309,
     "deaths": 8,
-    "firstDose": 27105,
+    "firstDose": 27106,
     "secondDose": 10781,
     "hospitalisations": {"cases": 184, "admissions": 24, "discharges": 22, "hospitalAcquired": -2},
     "icu": {"cases": 51, "admissions": 3, "discharges": 2},
@@ -3941,7 +3941,7 @@
     "dailySwabs": 15404,
     "cases": 420,
     "deaths": 11,
-    "firstDose": 27957,
+    "firstDose": 27956,
     "secondDose": 9823,
     "hospitalisations": {"cases": 190, "admissions": 15, "discharges": 18, "hospitalAcquired": -3},
     "icu": {"cases": 53, "admissions": 2, "discharges": 1},
@@ -3954,7 +3954,7 @@
     "cases": 420,
     "deaths": 4,
     "firstDose": 15835,
-    "secondDose": 4539,
+    "secondDose": 4541,
     "hospitalisations": {"cases": 183, "admissions": 11, "discharges": 17, "hospitalAcquired": -4},
     "icu": {"cases": 50, "admissions": 0, "discharges": 2},
     "singleDose": 2
@@ -3965,8 +3965,8 @@
     "dailySwabs": 14507,
     "cases": 269,
     "deaths": 1,
-    "firstDose": 1055,
-    "secondDose": 471,
+    "firstDose": 1056,
+    "secondDose": 472,
     "hospitalisations": {"cases": 181, "admissions": 10, "discharges": 8, "hospitalAcquired": -4},
     "icu": {"cases": 47, "admissions": 2, "discharges": 3},
     "singleDose": 0
@@ -3977,7 +3977,7 @@
     "dailySwabs": 11881,
     "cases": 403,
     "deaths": 0,
-    "firstDose": 6723,
+    "firstDose": 6725,
     "secondDose": 2239,
     "hospitalisations": {"cases": 183, "admissions": 6, "discharges": 3, "hospitalAcquired": 1},
     "icu": {"cases": 50, "admissions": 4, "discharges": 1},
@@ -3989,7 +3989,7 @@
     "dailySwabs": 15085,
     "cases": 390,
     "deaths": 11,
-    "firstDose": 15052,
+    "firstDose": 15054,
     "secondDose": 7293,
     "hospitalisations": {"cases": 179, "admissions": 15, "discharges": 17, "hospitalAcquired": 3},
     "icu": {"cases": 48, "admissions": 3, "discharges": 5},
@@ -4001,11 +4001,11 @@
     "dailySwabs": 19058,
     "cases": 401,
     "deaths": 15,
-    "firstDose": 26683,
-    "secondDose": 9858,
+    "firstDose": 26685,
+    "secondDose": 9860,
     "hospitalisations": {"cases": 182, "admissions": 20, "discharges": 12, "hospitalAcquired": -1},
     "icu": {"cases": 47, "admissions": 2, "discharges": 2},
-    "singleDose": 2
+    "singleDose": 3
   },
   {
     "dateString": "2021-04-22T12:00:00.000Z",
@@ -4014,7 +4014,7 @@
     "cases": 617,
     "deaths": 10,
     "firstDose": 31599,
-    "secondDose": 12168,
+    "secondDose": 12169,
     "hospitalisations": {"cases": 176, "admissions": 26, "discharges": 29, "hospitalAcquired": -7},
     "icu": {"cases": 48, "admissions": 5, "discharges": 3},
     "singleDose": 1
@@ -4025,8 +4025,8 @@
     "dailySwabs": 19557,
     "cases": 434,
     "deaths": 1,
-    "firstDose": 33568,
-    "secondDose": 12356,
+    "firstDose": 33567,
+    "secondDose": 12357,
     "hospitalisations": {"cases": 166, "admissions": 18, "discharges": 19, "hospitalAcquired": -1},
     "icu": {"cases": 48, "admissions": 2, "discharges": 2},
     "singleDose": 1
@@ -4037,7 +4037,7 @@
     "dailySwabs": 17803,
     "cases": 461,
     "deaths": 5,
-    "firstDose": 23671,
+    "firstDose": 23677,
     "secondDose": 6978,
     "hospitalisations": {"cases": 162, "admissions": 9, "discharges": 10, "hospitalAcquired": 0},
     "icu": {"cases": 46, "admissions": 1, "discharges": 3},
@@ -4050,7 +4050,7 @@
     "cases": 429,
     "deaths": 1,
     "firstDose": 9728,
-    "secondDose": 289,
+    "secondDose": 290,
     "hospitalisations": {"cases": 174, "admissions": 19, "discharges": 8, "hospitalAcquired": -6},
     "icu": {"cases": 45, "admissions": 1, "discharges": 0},
     "singleDose": 2
@@ -4073,8 +4073,8 @@
     "dailySwabs": 15273,
     "cases": 426,
     "deaths": 10,
-    "firstDose": 25889,
-    "secondDose": 7795,
+    "firstDose": 25892,
+    "secondDose": 7796,
     "hospitalisations": {"cases": 153, "admissions": 8, "discharges": 37, "hospitalAcquired": 1},
     "icu": {"cases": 47, "admissions": 2, "discharges": 1},
     "singleDose": 6
@@ -4085,8 +4085,8 @@
     "dailySwabs": 20498,
     "cases": 371,
     "deaths": 13,
-    "firstDose": 26004,
-    "secondDose": 8582,
+    "firstDose": 26006,
+    "secondDose": 8583,
     "hospitalisations": {"cases": 153, "admissions": 18, "discharges": 23, "hospitalAcquired": -1},
     "icu": {"cases": 45, "admissions": 2, "discharges": 4},
     "singleDose": 5
@@ -4098,7 +4098,7 @@
     "cases": 474,
     "deaths": 3,
     "firstDose": 31666,
-    "secondDose": 11323,
+    "secondDose": 11324,
     "hospitalisations": {"cases": 154, "admissions": 16, "discharges": 18, "hospitalAcquired": -2},
     "icu": {"cases": 44, "admissions": 1, "discharges": 2},
     "singleDose": 4
@@ -4109,8 +4109,8 @@
     "dailySwabs": 22296,
     "cases": 545,
     "deaths": 4,
-    "firstDose": 36089,
-    "secondDose": 13506,
+    "firstDose": 36092,
+    "secondDose": 13510,
     "hospitalisations": {"cases": 139, "admissions": 9, "discharges": 18, "hospitalAcquired": -1},
     "icu": {"cases": 44, "admissions": 1, "discharges": 1},
     "singleDose": 8
@@ -4121,7 +4121,7 @@
     "dailySwabs": 18934,
     "cases": 569,
     "deaths": 3,
-    "firstDose": 16522,
+    "firstDose": 16524,
     "secondDose": 6676,
     "hospitalisations": {"cases": 123, "admissions": 9, "discharges": 23, "hospitalAcquired": -4},
     "icu": {"cases": 41, "admissions": 1, "discharges": 3},
@@ -4145,8 +4145,8 @@
     "dailySwabs": 13379,
     "cases": 453,
     "deaths": 0,
-    "firstDose": 14225,
-    "secondDose": 905,
+    "firstDose": 14227,
+    "secondDose": 906,
     "hospitalisations": {"cases": 129, "admissions": 7, "discharges": 7, "hospitalAcquired": -2},
     "icu": {"cases": 40, "admissions": 0, "discharges": 0},
     "singleDose": 16
@@ -4157,8 +4157,8 @@
     "dailySwabs": 14160,
     "cases": 383,
     "deaths": 2,
-    "firstDose": 26605,
-    "secondDose": 6760,
+    "firstDose": 26610,
+    "secondDose": 6762,
     "hospitalisations": {"cases": 144, "admissions": 16, "discharges": 6, "hospitalAcquired": -6},
     "icu": {"cases": 41, "admissions": 2, "discharges": 0},
     "singleDose": 8
@@ -4169,8 +4169,8 @@
     "dailySwabs": 19503,
     "cases": 418,
     "deaths": 7,
-    "firstDose": 32051,
-    "secondDose": 13432,
+    "firstDose": 32057,
+    "secondDose": 13435,
     "hospitalisations": {"cases": 137, "admissions": 17, "discharges": 16, "hospitalAcquired": 1},
     "icu": {"cases": 37, "admissions": 0, "discharges": 3},
     "singleDose": 68
@@ -4181,8 +4181,8 @@
     "dailySwabs": 20862,
     "cases": 393,
     "deaths": 8,
-    "firstDose": 37233,
-    "secondDose": 14362,
+    "firstDose": 37236,
+    "secondDose": 14361,
     "singleDose": 132,
     "hospitalisations": {"cases": 131, "admissions": 14, "discharges": 14, "hospitalAcquired": 2},
     "icu": {"cases": 36, "admissions": 0, "discharges": 1}
@@ -4193,8 +4193,8 @@
     "dailySwabs": 18793,
     "cases": 434,
     "deaths": 4,
-    "firstDose": 40556,
-    "secondDose": 15053,
+    "firstDose": 40558,
+    "secondDose": 15054,
     "singleDose": 93,
     "hospitalisations": {"cases": 127, "admissions": 13, "discharges": 17, "hospitalAcquired": 2},
     "icu": {"cases": 34, "admissions": 1, "discharges": 2}
@@ -4205,8 +4205,8 @@
     "dailySwabs": 23787,
     "cases": 408,
     "deaths": 1,
-    "firstDose": 25569,
-    "secondDose": 7027,
+    "firstDose": 25571,
+    "secondDose": 7028,
     "singleDose": 9,
     "hospitalisations": {"cases": 110, "admissions": 8, "discharges": 19, "hospitalAcquired": 1},
     "icu": {"cases": 33, "admissions": 1, "discharges": 2}
@@ -4218,7 +4218,7 @@
     "cases": 514,
     "deaths": 2,
     "firstDose": 19633,
-    "secondDose": 910,
+    "secondDose": 911,
     "singleDose": 2,
     "hospitalisations": {"cases": 116, "admissions": 8, "discharges": 3, "hospitalAcquired": 3},
     "icu": {"cases": 31, "admissions": 0, "discharges": 1}
@@ -4229,7 +4229,7 @@
     "dailySwabs": 13518,
     "cases": 381,
     "deaths": 0,
-    "firstDose": 28778,
+    "firstDose": 28781,
     "secondDose": 4622,
     "singleDose": 170,
     "hospitalisations": {"cases": 124, "admissions": 12, "discharges": 3, "hospitalAcquired": 3},
@@ -4241,8 +4241,8 @@
     "dailySwabs": 16710,
     "cases": 379,
     "deaths": 9,
-    "firstDose": 33889,
-    "secondDose": 14798,
+    "firstDose": 33891,
+    "secondDose": 14799,
     "singleDose": 150,
     "hospitalisations": {"cases": 117, "admissions": 16, "discharges": 13, "hospitalAcquired": 4},
     "icu": {"cases": 34, "admissions": 4, "discharges": 1}
@@ -4253,8 +4253,8 @@
     "dailySwabs": 19634,
     "cases": 448,
     "deaths": 8,
-    "firstDose": 31239,
-    "secondDose": 20919,
+    "firstDose": 31248,
+    "secondDose": 20920,
     "singleDose": 165,
     "hospitalisations": {"cases": 109, "admissions": 9, "discharges": 10, "hospitalAcquired": 3},
     "icu": {"cases": 34, "admissions": 1, "discharges": 1}
@@ -4264,7 +4264,7 @@
     "positiveSwabs": 478,
     "dailySwabs": 19701,
     "cases": 456,
-    "firstDose": 35942,
+    "firstDose": 35947,
     "secondDose": 25471,
     "singleDose": 149,
     "icu": {"cases": 36, "admissions": 2, "discharges": 0},
@@ -4276,9 +4276,9 @@
     "dailySwabs": 19450,
     "cases": 425,
     "deaths": 4,
-    "firstDose": 38162,
-    "secondDose": 27955,
-    "singleDose": 233,
+    "firstDose": 38163,
+    "secondDose": 27956,
+    "singleDose": 234,
     "icu": {"cases": 39, "admissions": 3, "discharges": 1}
   },
   {
@@ -4286,8 +4286,8 @@
     "positiveSwabs": 550,
     "dailySwabs": 21847,
     "cases": 461,
-    "firstDose": 28811,
-    "secondDose": 12425,
+    "firstDose": 28812,
+    "secondDose": 12427,
     "singleDose": 18,
     "icu": {"cases": 40, "admissions": 4, "discharges": 0}
   },
@@ -4306,8 +4306,8 @@
     "positiveSwabs": 377,
     "dailySwabs": 13345,
     "cases": 379,
-    "firstDose": 35349,
-    "secondDose": 3929,
+    "firstDose": 35351,
+    "secondDose": 3930,
     "singleDose": 112,
     "hospitalisations": {"cases": 110, "admissions": null, "discharges": null, "hospitalAcquired": null},
     "icu": {"cases": 42, "admissions": 0, "discharges": 0}
@@ -4317,8 +4317,8 @@
     "positiveSwabs": 379,
     "dailySwabs": 16964,
     "cases": 365,
-    "firstDose": 38995,
-    "secondDose": 12473,
+    "firstDose": 39000,
+    "secondDose": 12474,
     "singleDose": 122,
     "hospitalisations": {"cases": 102, "admissions": null, "discharges": null, "hospitalAcquired": null},
     "icu": {"cases": 39, "admissions": 1, "discharges": 2}
@@ -4329,7 +4329,7 @@
     "dailySwabs": 20743,
     "cases": 526,
     "firstDose": 36970,
-    "secondDose": 17577,
+    "secondDose": 17580,
     "singleDose": 203,
     "hospitalisations": {"cases": 101, "admissions": null, "discharges": null, "hospitalAcquired": null},
     "icu": {"cases": 38, "admissions": 1, "discharges": 1}
@@ -4339,8 +4339,8 @@
     "positiveSwabs": 453,
     "dailySwabs": 18572,
     "cases": 470,
-    "firstDose": 39028,
-    "secondDose": 19651,
+    "firstDose": 39031,
+    "secondDose": 19653,
     "singleDose": 130,
     "hospitalisations": {"cases": 103, "admissions": null, "discharges": null, "hospitalAcquired": null},
     "icu": {"cases": 38, "admissions": 1, "discharges": 1}
@@ -4350,8 +4350,8 @@
     "positiveSwabs": 544,
     "dailySwabs": 18950,
     "cases": 533,
-    "firstDose": 25777,
-    "secondDose": 23230,
+    "firstDose": 25779,
+    "secondDose": 23231,
     "singleDose": 14930,
     "hospitalisations": {"cases": 107, "admissions": null, "discharges": null, "hospitalAcquired": null},
     "icu": {"cases": 38, "admissions": 2, "discharges": 1}
@@ -4361,9 +4361,9 @@
     "positiveSwabs": 398,
     "dailySwabs": 23519,
     "cases": 384,
-    "firstDose": 16536,
-    "secondDose": 10238,
-    "singleDose": 13517,
+    "firstDose": 16540,
+    "secondDose": 10240,
+    "singleDose": 13519,
     "hospitalisations": {"cases": 110, "admissions": null, "discharges": null, "hospitalAcquired": null},
     "icu": {"cases": 42, "admissions": 5, "discharges": 1}
   },
@@ -4372,7 +4372,7 @@
     "positiveSwabs": 468,
     "dailySwabs": 16285,
     "cases": 447,
-    "firstDose": 8179,
+    "firstDose": 8182,
     "secondDose": 5514,
     "singleDose": 10202,
     "hospitalisations": {"cases": 116, "admissions": null, "discharges": null, "hospitalAcquired": null},
@@ -4383,8 +4383,8 @@
     "positiveSwabs": 373,
     "dailySwabs": 12772,
     "cases": 349,
-    "firstDose": 22484,
-    "secondDose": 8188,
+    "firstDose": 22489,
+    "secondDose": 8192,
     "singleDose": 8445,
     "hospitalisations": {"cases": 127, "admissions": null, "discharges": null, "hospitalAcquired": null},
     "icu": {"cases": 44, "admissions": 3, "discharges": 2}
@@ -4395,7 +4395,7 @@
     "dailySwabs": 16092,
     "cases": 353,
     "firstDose": 30256,
-    "secondDose": 16495,
+    "secondDose": 16497,
     "singleDose": 3220,
     "hospitalisations": {"cases": 103, "admissions": null, "discharges": null, "hospitalAcquired": null},
     "icu": {"cases": 41, "admissions": 1, "discharges": 4}
@@ -4405,8 +4405,8 @@
     "positiveSwabs": 461,
     "dailySwabs": 21087,
     "cases": 445,
-    "firstDose": 19901,
-    "secondDose": 25411,
+    "firstDose": 19906,
+    "secondDose": 25412,
     "singleDose": 3045,
     "hospitalisations": {"cases": 99, "admissions": null, "discharges": null, "hospitalAcquired": null},
     "icu": {"cases": 41, "admissions": 1, "discharges": 1}
@@ -4416,8 +4416,8 @@
     "positiveSwabs": 470,
     "dailySwabs": 17794,
     "cases": 432,
-    "firstDose": 16954,
-    "secondDose": 35986,
+    "firstDose": 16958,
+    "secondDose": 35990,
     "singleDose": 550,
     "deaths": 8,
     "hospitalisations": {"cases": 101, "admissions": null, "discharges": null, "hospitalAcquired": null},
@@ -4428,8 +4428,8 @@
     "positiveSwabs": 453,
     "dailySwabs": 17881,
     "cases": 461,
-    "firstDose": 26950,
-    "secondDose": 31794,
+    "firstDose": 26954,
+    "secondDose": 31797,
     "singleDose": 1551,
     "hospitalisations": {"cases": 99, "admissions": null, "discharges": null, "hospitalAcquired": null},
     "icu": {"cases": 38, "admissions": 3, "discharges": 3}
@@ -4439,9 +4439,9 @@
     "positiveSwabs": 487,
     "dailySwabs": 18905,
     "cases": 456,
-    "firstDose": 24409,
-    "secondDose": 7369,
-    "singleDose": 529,
+    "firstDose": 24411,
+    "secondDose": 7370,
+    "singleDose": 530,
     "hospitalisations": {"cases": 90, "admissions": null, "discharges": null, "hospitalAcquired": null},
     "icu": {"cases": 35, "admissions": 0, "discharges": 3}
   },
@@ -4450,9 +4450,9 @@
     "positiveSwabs": 403,
     "dailySwabs": 16723,
     "cases": 367,
-    "firstDose": 24185,
-    "secondDose": 1660,
-    "singleDose": 205,
+    "firstDose": 24187,
+    "secondDose": 1661,
+    "singleDose": 206,
     "hospitalisations": {"cases": 99, "admissions": null, "discharges": null, "hospitalAcquired": null},
     "icu": {"cases": 35, "admissions": 0, "discharges": 0}
   },
@@ -4461,7 +4461,7 @@
     "positiveSwabs": 395,
     "dailySwabs": 14129,
     "cases": 370,
-    "firstDose": 22496,
+    "firstDose": 22501,
     "secondDose": 7308,
     "singleDose": 3435,
     "hospitalisations": {"cases": 98, "admissions": null, "discharges": null, "hospitalAcquired": null},
@@ -4472,8 +4472,8 @@
     "positiveSwabs": 342,
     "dailySwabs": 16921,
     "cases": 337,
-    "firstDose": 27440,
-    "secondDose": 11484,
+    "firstDose": 27443,
+    "secondDose": 11485,
     "singleDose": 3641,
     "hospitalisations": {"cases": 89, "admissions": null, "discharges": null, "hospitalAcquired": null},
     "icu": {"cases": 34, "admissions": 1, "discharges": 1}
@@ -4483,9 +4483,9 @@
     "positiveSwabs": 425,
     "dailySwabs": 23042,
     "cases": 407,
-    "firstDose": 18611,
-    "secondDose": 20866,
-    "singleDose": 3995,
+    "firstDose": 18614,
+    "secondDose": 20869,
+    "singleDose": 3996,
     "hospitalisations": {"cases": 93, "admissions": null, "discharges": null, "hospitalAcquired": null},
     "icu": {"cases": 34, "admissions": 2, "discharges": 1}
   },
@@ -4494,7 +4494,7 @@
     "positiveSwabs": 512,
     "dailySwabs": 19005,
     "cases": 465,
-    "firstDose": 16599,
+    "firstDose": 16607,
     "secondDose": 30677,
     "singleDose": 1970,
     "hospitalisations": {"cases": 84, "admissions": null, "discharges": null, "hospitalAcquired": null},
@@ -4505,9 +4505,9 @@
     "positiveSwabs": 516,
     "dailySwabs": 19272,
     "cases": 529,
-    "firstDose": 28940,
-    "secondDose": 23326,
-    "singleDose": 146,
+    "firstDose": 28942,
+    "secondDose": 23324,
+    "singleDose": 147,
     "hospitalisations": {"cases": 86, "admissions": null, "discharges": null, "hospitalAcquired": null},
     "icu": {"cases": 28, "admissions": 0, "discharges": 6}
   },
@@ -4516,9 +4516,9 @@
     "positiveSwabs": 429,
     "dailySwabs": 19182,
     "cases": 416,
-    "firstDose": 20888,
-    "secondDose": 11458,
-    "singleDose": 28,
+    "firstDose": 20890,
+    "secondDose": 11462,
+    "singleDose": 29,
     "hospitalisations": {"cases": 74, "admissions": null, "discharges": null, "hospitalAcquired": null},
     "icu": {"cases": 29, "admissions": 1, "discharges": 0}
   },
@@ -4527,9 +4527,9 @@
     "positiveSwabs": 338,
     "dailySwabs": 14558,
     "cases": 313,
-    "firstDose": 19884,
-    "secondDose": 3878,
-    "singleDose": 35,
+    "firstDose": 19885,
+    "secondDose": 3881,
+    "singleDose": 36,
     "hospitalisations": {"cases": 70, "admissions": null, "discharges": null, "hospitalAcquired": null},
     "icu": {"cases": 27, "admissions": 1, "discharges": 1}
   },
@@ -4538,8 +4538,8 @@
     "positiveSwabs": 386,
     "dailySwabs": 13686,
     "cases": 377,
-    "firstDose": 19730,
-    "secondDose": 4541,
+    "firstDose": 19738,
+    "secondDose": 4545,
     "singleDose": 36,
     "hospitalisations": {"cases": 69, "admissions": null, "discharges": null, "hospitalAcquired": null},
     "icu": {"cases": 26, "admissions": 0, "discharges": 2}
@@ -4549,8 +4549,8 @@
     "positiveSwabs": 277,
     "dailySwabs": 12211,
     "cases": 271,
-    "firstDose": 26350,
-    "secondDose": 18315,
+    "firstDose": 26352,
+    "secondDose": 18316,
     "singleDose": 39,
     "hospitalisations": {"cases": 77, "admissions": null, "discharges": null, "hospitalAcquired": null},
     "icu": {"cases": 27, "admissions": 1, "discharges": 0}
@@ -4560,8 +4560,8 @@
     "positiveSwabs": 285,
     "dailySwabs": 15850,
     "cases": 259,
-    "firstDose": 32705,
-    "secondDose": 20068,
+    "firstDose": 32707,
+    "secondDose": 20070,
     "singleDose": 167,
     "hospitalisations": {"cases": 76, "admissions": null, "discharges": null, "hospitalAcquired": null},
     "icu": {"cases": 27, "admissions": 0, "discharges": 0}
@@ -4571,8 +4571,8 @@
     "positiveSwabs": 408,
     "dailySwabs": 17980,
     "cases": 398,
-    "firstDose": 27596,
-    "secondDose": 27447,
+    "firstDose": 27602,
+    "secondDose": 27451,
     "singleDose": 261,
     "hospitalisations": {"cases": 70, "admissions": null, "discharges": null, "hospitalAcquired": null},
     "icu": {"cases": 23, "admissions": 0, "discharges": 4}
@@ -4582,9 +4582,9 @@
     "positiveSwabs": 335,
     "dailySwabs": 16980,
     "cases": 319,
-    "firstDose": 26360,
-    "secondDose": 32855,
-    "singleDose": 34,
+    "firstDose": 26368,
+    "secondDose": 32857,
+    "singleDose": 35,
     "hospitalisations": {"cases": 60, "admissions": null, "discharges": null, "hospitalAcquired": null},
     "icu": {"cases": 23, "admissions": 1, "discharges": 1}
   },
@@ -4593,7 +4593,7 @@
     "positiveSwabs": 442,
     "dailySwabs": 17777,
     "cases": 431,
-    "firstDose": 12139,
+    "firstDose": 12141,
     "secondDose": 19692,
     "singleDose": 99,
     "hospitalisations": {"cases": 58, "admissions": null, "discharges": null, "hospitalAcquired": null},
@@ -4604,8 +4604,8 @@
     "positiveSwabs": 330,
     "dailySwabs": 14404,
     "cases": 315,
-    "firstDose": 8509,
-    "secondDose": 18148,
+    "firstDose": 8510,
+    "secondDose": 18150,
     "singleDose": 829,
     "hospitalisations": {"cases": 62, "admissions": null, "discharges": null, "hospitalAcquired": null},
     "icu": {"cases": 22, "admissions": 0, "discharges": 0}
@@ -4615,8 +4615,8 @@
     "positiveSwabs": 265,
     "dailySwabs": 11377,
     "cases": 242,
-    "firstDose": 15955,
-    "secondDose": 31262,
+    "firstDose": 15956,
+    "secondDose": 31264,
     "singleDose": 43,
     "hospitalisations": {"cases": 67, "admissions": null, "discharges": null, "hospitalAcquired": null},
     "icu": {"cases": 23, "admissions": 1, "discharges": 0}
@@ -4627,8 +4627,8 @@
     "dailySwabs": 13889,
     "cases": 283,
     "firstDose": 14627,
-    "secondDose": 41507,
-    "singleDose": 199,
+    "secondDose": 41515,
+    "singleDose": 200,
     "hospitalisations": {"cases": 60, "admissions": null, "discharges": null, "hospitalAcquired": null},
     "icu": {"cases": 23, "admissions": 1, "discharges": 1}
   },
@@ -4637,8 +4637,8 @@
     "positiveSwabs": 353,
     "dailySwabs": 17356,
     "cases": 329,
-    "firstDose": 13366,
-    "secondDose": 48341,
+    "firstDose": 13370,
+    "secondDose": 48344,
     "singleDose": 208,
     "hospitalisations": {"cases": 57, "admissions": null, "discharges": null, "hospitalAcquired": null},
     "icu": {"cases": 19, "admissions": 0, "discharges": 2}
@@ -4648,9 +4648,9 @@
     "positiveSwabs": 368,
     "dailySwabs": 17936,
     "cases": 373,
-    "firstDose": 21512,
-    "secondDose": 42618,
-    "singleDose": 527,
+    "firstDose": 21513,
+    "secondDose": 42621,
+    "singleDose": 528,
     "deaths": 26,
     "hospitalisations": {"cases": 54, "admissions": null, "discharges": null, "hospitalAcquired": null},
     "icu": {"cases": 18, "admissions": 1, "discharges": 2}
@@ -4660,7 +4660,7 @@
     "positiveSwabs": 342,
     "dailySwabs": 15662,
     "cases": 313,
-    "firstDose": 11955,
+    "firstDose": 11958,
     "secondDose": 50010,
     "singleDose": 544,
     "hospitalisations": {"cases": 53, "admissions": null, "discharges": null, "hospitalAcquired": null},
@@ -4672,7 +4672,7 @@
     "dailySwabs": 17162,
     "cases": 393,
     "firstDose": 6249,
-    "secondDose": 32755,
+    "secondDose": 32756,
     "singleDose": 426,
     "hospitalisations": {"cases": 48, "admissions": null, "discharges": null, "hospitalAcquired": null},
     "icu": {"cases": 14, "admissions": 0, "discharges": 1}
@@ -4683,7 +4683,7 @@
     "dailySwabs": 13845,
     "cases": 288,
     "firstDose": 8469,
-    "secondDose": 26109,
+    "secondDose": 26111,
     "singleDose": 172,
     "hospitalisations": {"cases": 49, "admissions": null, "discharges": null, "hospitalAcquired": null},
     "icu": {"cases": 15, "admissions": 1, "discharges": 0}
@@ -4694,7 +4694,7 @@
     "dailySwabs": 10994,
     "cases": 284,
     "firstDose": 15405,
-    "secondDose": 32274,
+    "secondDose": 32279,
     "singleDose": 560,
     "hospitalisations": {"cases": 53, "admissions": null, "discharges": null, "hospitalAcquired": null},
     "icu": {"cases": 13, "admissions": 0, "discharges": 1}
@@ -4704,9 +4704,9 @@
     "positiveSwabs": 308,
     "dailySwabs": 14078,
     "cases": 294,
-    "firstDose": 15075,
-    "secondDose": 43484,
-    "singleDose": 712,
+    "firstDose": 15077,
+    "secondDose": 43487,
+    "singleDose": 713,
     "hospitalisations": {"cases": 39, "admissions": null, "discharges": null, "hospitalAcquired": null},
     "icu": {"cases": 13, "admissions": 2, "discharges": 1}
   },
@@ -4716,7 +4716,7 @@
     "dailySwabs": 18414,
     "cases": 348,
     "deaths": 10,
-    "firstDose": 20018,
+    "firstDose": 20019,
     "secondDose": 39333,
     "singleDose": 874,
     "hospitalisations": {"cases": 41, "admissions": null, "discharges": null, "hospitalAcquired": null},
@@ -4727,9 +4727,9 @@
     "positiveSwabs": 312,
     "dailySwabs": 17237,
     "cases": 304,
-    "firstDose": 18954,
-    "secondDose": 44197,
-    "singleDose": 1026,
+    "firstDose": 18958,
+    "secondDose": 44202,
+    "singleDose": 1027,
     "hospitalisations": {"cases": 47, "admissions": null, "discharges": null, "hospitalAcquired": null},
     "icu": {"cases": 13, "admissions": 0, "discharges": 0}
   },
@@ -4738,8 +4738,8 @@
     "positiveSwabs": 402,
     "dailySwabs": 17450,
     "cases": 380,
-    "firstDose": 15133,
-    "secondDose": 50079,
+    "firstDose": 15138,
+    "secondDose": 50082,
     "singleDose": 824,
     "hospitalisations": {"cases": 38, "admissions": null, "discharges": null, "hospitalAcquired": null},
     "icu": {"cases": 13, "admissions": 0, "discharges": 0}
@@ -4749,8 +4749,8 @@
     "positiveSwabs": 454,
     "dailySwabs": 18725,
     "cases": 443,
-    "firstDose": 8993,
-    "secondDose": 30496,
+    "firstDose": 8995,
+    "secondDose": 30500,
     "singleDose": 490,
     "hospitalisations": {"cases": 43, "admissions": null, "discharges": null, "hospitalAcquired": null},
     "icu": {"cases": 13, "admissions": 1, "discharges": 0}
@@ -4761,7 +4761,7 @@
     "dailySwabs": 14771,
     "cases": 340,
     "firstDose": 8690,
-    "secondDose": 30434,
+    "secondDose": 30435,
     "singleDose": 49,
     "hospitalisations": {"cases": 47, "admissions": null, "discharges": null, "hospitalAcquired": null},
     "icu": {"cases": 15, "admissions": 2, "discharges": 0}
@@ -4771,8 +4771,8 @@
     "positiveSwabs": 320,
     "dailySwabs": 13363,
     "cases": 305,
-    "firstDose": 24161,
-    "secondDose": 24579,
+    "firstDose": 24165,
+    "secondDose": 24583,
     "singleDose": 505,
     "hospitalisations": {"cases": 49, "admissions": null, "discharges": null, "hospitalAcquired": null},
     "icu": {"cases": 16, "admissions": 1, "discharges": 0}
@@ -4782,8 +4782,8 @@
     "positiveSwabs": 369,
     "dailySwabs": 15721,
     "cases": 351,
-    "firstDose": 28083,
-    "secondDose": 30945,
+    "firstDose": 28084,
+    "secondDose": 30948,
     "singleDose": 800,
     "hospitalisations": {"cases": 46, "admissions": null, "discharges": null, "hospitalAcquired": null},
     "icu": {"cases": 16, "admissions": 0, "discharges": 0}
@@ -4794,9 +4794,9 @@
     "dailySwabs": 20569,
     "cases": 452,
     "deaths": 9,
-    "firstDose": 22481,
-    "secondDose": 36792,
-    "singleDose": 566,
+    "firstDose": 22483,
+    "secondDose": 36799,
+    "singleDose": 567,
     "hospitalisations": {"cases": 44, "admissions": null, "discharges": null, "hospitalAcquired": null},
     "icu": {"cases": 14, "admissions": 0, "discharges": 2}
   },
@@ -4806,8 +4806,8 @@
     "dailySwabs": 19135,
     "cases": 448,
     "deaths": 2,
-    "firstDose": 14879,
-    "secondDose": 48249,
+    "firstDose": 14882,
+    "secondDose": 48252,
     "singleDose": 624,
     "hospitalisations": {"cases": 44, "admissions": null, "discharges": null, "hospitalAcquired": null},
     "icu": {"cases": 14, "admissions": 0, "discharges": 0}
@@ -4817,8 +4817,8 @@
     "positiveSwabs": 533,
     "dailySwabs": 18961,
     "cases": 512,
-    "firstDose": 13577,
-    "secondDose": 47180,
+    "firstDose": 13580,
+    "secondDose": 47189,
     "singleDose": 809,
     "hospitalisations": {"cases": 46, "admissions": null, "discharges": null, "hospitalAcquired": null},
     "icu": {"cases": 14, "admissions": 2, "discharges": 1}
@@ -4828,8 +4828,8 @@
     "positiveSwabs": 538,
     "dailySwabs": 20129,
     "cases": 448,
-    "firstDose": 9250,
-    "secondDose": 30411,
+    "firstDose": 9251,
+    "secondDose": 30417,
     "singleDose": 495,
     "hospitalisations": {"cases": 42, "admissions": null, "discharges": null, "hospitalAcquired": null},
     "icu": {"cases": 14, "admissions": 1, "discharges": 1}
@@ -4840,7 +4840,7 @@
     "dailySwabs": 17150,
     "cases": 562,
     "firstDose": 6394,
-    "secondDose": 27738,
+    "secondDose": 27739,
     "singleDose": 225,
     "hospitalisations": {"cases": 48, "admissions": null, "discharges": null, "hospitalAcquired": null},
     "icu": {"cases": 14, "admissions": 0, "discharges": 0}
@@ -4851,7 +4851,7 @@
     "dailySwabs": 13733,
     "cases": 365,
     "firstDose": 15495,
-    "secondDose": 33354,
+    "secondDose": 33362,
     "singleDose": 5326,
     "hospitalisations": {"cases": 51, "admissions": null, "discharges": null, "hospitalAcquired": null},
     "icu": {"cases": 14, "admissions": 0, "discharges": 0}
@@ -4861,7 +4861,7 @@
     "positiveSwabs": 420,
     "dailySwabs": 16463,
     "cases": 397,
-    "firstDose": 12315,
+    "firstDose": 12317,
     "secondDose": 48276,
     "singleDose": 5472,
     "hospitalisations": {"cases": 54, "admissions": null, "discharges": null, "hospitalAcquired": null},
@@ -4872,8 +4872,8 @@
     "positiveSwabs": 619,
     "dailySwabs": 22292,
     "cases": 581,
-    "firstDose": 19617,
-    "secondDose": 43677,
+    "firstDose": 19618,
+    "secondDose": 43683,
     "singleDose": 5042,
     "hospitalisations": {"cases": 60, "admissions": null, "discharges": null, "hospitalAcquired": null},
     "icu": {"cases": 17, "admissions": 2, "discharges": 0}
@@ -4883,8 +4883,8 @@
     "positiveSwabs": 532,
     "dailySwabs": 20558,
     "cases": 534,
-    "firstDose": 17686,
-    "secondDose": 45506,
+    "firstDose": 17689,
+    "secondDose": 45509,
     "singleDose": 5981,
     "hospitalisations": {"cases": 58, "admissions": null, "discharges": null, "hospitalAcquired": null},
     "icu": {"cases": 17, "admissions": 0, "discharges": 0}
@@ -4894,8 +4894,8 @@
     "positiveSwabs": 631,
     "dailySwabs": 19848,
     "cases": 631,
-    "firstDose": 13452,
-    "secondDose": 45024,
+    "firstDose": 13454,
+    "secondDose": 45027,
     "singleDose": 6517,
     "hospitalisations": {"cases": 50, "admissions": null, "discharges": null, "hospitalAcquired": null},
     "icu": {"cases": 15, "admissions": 0, "discharges": 2}
@@ -4906,7 +4906,7 @@
     "dailySwabs": 20023,
     "cases": 581,
     "firstDose": 8563,
-    "secondDose": 23784,
+    "secondDose": 23788,
     "singleDose": 4354,
     "hospitalisations": {"cases": 52, "admissions": null, "discharges": null, "hospitalAcquired": null},
     "icu": {"cases": 16, "admissions": 1, "discharges": 0}
@@ -4916,8 +4916,8 @@
     "positiveSwabs": 536,
     "dailySwabs": 18603,
     "cases": 576,
-    "firstDose": 15186,
-    "secondDose": 16065,
+    "firstDose": 15187,
+    "secondDose": 16067,
     "singleDose": 2147,
     "hospitalisations": {"cases": 58, "admissions": null, "discharges": null, "hospitalAcquired": null},
     "icu": {"cases": 16, "admissions": 0, "discharges": 0}
@@ -4928,7 +4928,7 @@
     "dailySwabs": 15286,
     "cases": 600,
     "firstDose": 17043,
-    "secondDose": 31658,
+    "secondDose": 31662,
     "singleDose": 6075,
     "hospitalisations": {"cases": 63, "admissions": null, "discharges": null, "hospitalAcquired": null},
     "icu": {"cases": 16, "admissions": 0, "discharges": 0}
@@ -4938,8 +4938,8 @@
     "positiveSwabs": 590,
     "dailySwabs": 15775,
     "cases": 589,
-    "firstDose": 20029,
-    "secondDose": 36462,
+    "firstDose": 20031,
+    "secondDose": 36470,
     "singleDose": 8474,
     "hospitalisations": {"cases": 62, "admissions": null, "discharges": null, "hospitalAcquired": null},
     "icu": {"cases": 17, "admissions": 1, "discharges": 0}
@@ -4949,9 +4949,9 @@
     "positiveSwabs": 873,
     "dailySwabs": 20989,
     "cases": 783,
-    "firstDose": 20724,
+    "firstDose": 20725,
     "secondDose": 35611,
-    "singleDose": 9318,
+    "singleDose": 9319,
     "hospitalisations": {"cases": 73, "admissions": null, "discharges": null, "hospitalAcquired": null},
     "icu": {"cases": 20, "admissions": 2, "discharges": 1}
   },
@@ -4960,8 +4960,8 @@
     "positiveSwabs": 975,
     "dailySwabs": 19504,
     "cases": 994,
-    "firstDose": 23554,
-    "secondDose": 28745,
+    "firstDose": 23555,
+    "secondDose": 28748,
     "singleDose": 9558,
     "hospitalisations": {"cases": 80, "admissions": null, "discharges": null, "hospitalAcquired": null},
     "icu": {"cases": 22, "admissions": 3, "discharges": 1}
@@ -4972,7 +4972,7 @@
     "dailySwabs": 20952,
     "cases": 1173,
     "firstDose": 23477,
-    "secondDose": 27326,
+    "secondDose": 27333,
     "singleDose": 9155,
     "hospitalisations": {"cases": 79, "admissions": null, "discharges": null, "hospitalAcquired": null},
     "icu": {"cases": 23, "admissions": 2, "discharges": 1}
@@ -4983,7 +4983,7 @@
     "dailySwabs": 22292,
     "cases": 1377,
     "firstDose": 11443,
-    "secondDose": 19358,
+    "secondDose": 19361,
     "singleDose": 4667,
     "hospitalisations": {"cases": 78, "admissions": null, "discharges": null, "hospitalAcquired": null},
     "icu": {"cases": 22, "admissions": 1, "discharges": 1}
@@ -4993,7 +4993,7 @@
     "positiveSwabs": 1233,
     "dailySwabs": 19210,
     "cases": 1179,
-    "firstDose": 16816,
+    "firstDose": 16817,
     "secondDose": 15753,
     "singleDose": 1921,
     "hospitalisations": {"cases": 91, "admissions": null, "discharges": null, "hospitalAcquired": null},
@@ -5004,8 +5004,8 @@
     "positiveSwabs": 1097,
     "dailySwabs": 17005,
     "cases": 1071,
-    "firstDose": 24811,
-    "secondDose": 18323,
+    "firstDose": 24814,
+    "secondDose": 18326,
     "singleDose": 6230,
     "hospitalisations": {"cases": 101, "admissions": null, "discharges": null, "hospitalAcquired": null},
     "icu": {"cases": 20, "admissions": 1, "discharges": 3}
@@ -5015,8 +5015,8 @@
     "positiveSwabs": 1139,
     "dailySwabs": 20211,
     "cases": 1110,
-    "firstDose": 30503,
-    "secondDose": 18073,
+    "firstDose": 30504,
+    "secondDose": 18075,
     "singleDose": 7685,
     "hospitalisations": {"cases": 89, "admissions": null, "discharges": null, "hospitalAcquired": null},
     "icu": {"cases": 21, "admissions": 1, "discharges": 0}
@@ -5026,8 +5026,8 @@
     "positiveSwabs": 1363,
     "dailySwabs": 24462,
     "cases": 1378,
-    "firstDose": 30267,
-    "secondDose": 19739,
+    "firstDose": 30270,
+    "secondDose": 19743,
     "singleDose": 6873,
     "hospitalisations": {"cases": 96, "admissions": null, "discharges": null, "hospitalAcquired": null},
     "icu": {"cases": 22, "admissions": 3, "discharges": 2}
@@ -5038,7 +5038,7 @@
     "dailySwabs": 21846,
     "cases": 1189,
     "firstDose": 33468,
-    "secondDose": 15840,
+    "secondDose": 15844,
     "singleDose": 6919,
     "hospitalisations": {"cases": 95, "admissions": null, "discharges": null, "hospitalAcquired": null},
     "icu": {"cases": 23, "admissions": 1, "discharges": 0}
@@ -5048,9 +5048,9 @@
     "positiveSwabs": 1404,
     "dailySwabs": 21509,
     "cases": 1386,
-    "firstDose": 27023,
-    "secondDose": 20720,
-    "singleDose": 5597,
+    "firstDose": 27026,
+    "secondDose": 20722,
+    "singleDose": 5599,
     "hospitalisations": {"cases": 106, "admissions": null, "discharges": null, "hospitalAcquired": null},
     "icu": {"cases": 22, "admissions": 2, "discharges": 3}
   },
@@ -5060,7 +5060,7 @@
     "dailySwabs": 22454,
     "cases": 1345,
     "firstDose": 15389,
-    "secondDose": 14722,
+    "secondDose": 14725,
     "singleDose": 2259,
     "hospitalisations": {"cases": 105, "admissions": null, "discharges": null, "hospitalAcquired": null},
     "icu": {"cases": 21, "admissions": 1, "discharges": 2}
@@ -5070,8 +5070,8 @@
     "positiveSwabs": 1150,
     "dailySwabs": 17094,
     "cases": 1126,
-    "firstDose": 14679,
-    "secondDose": 13587,
+    "firstDose": 14678,
+    "secondDose": 13586,
     "singleDose": 1029,
     "hospitalisations": {"cases": 123, "admissions": null, "discharges": null, "hospitalAcquired": null},
     "icu": {"cases": 22, "admissions": 3, "discharges": 1}
@@ -5081,8 +5081,8 @@
     "positiveSwabs": 1387,
     "dailySwabs": 17517,
     "cases": 1345,
-    "firstDose": 23769,
-    "secondDose": 18171,
+    "firstDose": 23770,
+    "secondDose": 18175,
     "singleDose": 3401,
     "hospitalisations": {"cases": 141, "admissions": null, "discharges": null, "hospitalAcquired": null},
     "icu": {"cases": 25, "admissions": 6, "discharges": 1}
@@ -5092,7 +5092,7 @@
     "positiveSwabs": 1073,
     "dailySwabs": 17496,
     "cases": 1120,
-    "firstDose": 25423,
+    "firstDose": 25424,
     "secondDose": 23775,
     "singleDose": 3654,
     "hospitalisations": {"cases": 142, "admissions": null, "discharges": null, "hospitalAcquired": null},
@@ -5103,9 +5103,9 @@
     "positiveSwabs": 1512,
     "dailySwabs": 22792,
     "cases": 1408,
-    "firstDose": 23374,
-    "secondDose": 25168,
-    "singleDose": 3247,
+    "firstDose": 23377,
+    "secondDose": 25172,
+    "singleDose": 3248,
     "hospitalisations": {"cases": 152, "admissions": null, "discharges": null, "hospitalAcquired": null},
     "icu": {"cases": 26, "admissions": 1, "discharges": 2}
   },
@@ -5115,7 +5115,7 @@
     "dailySwabs": 19948,
     "cases": 1361,
     "firstDose": 19198,
-    "secondDose": 27766,
+    "secondDose": 27769,
     "singleDose": 2950,
     "hospitalisations": {"cases": 162, "admissions": 24, "discharges": 21, "hospitalAcquired": 8},
     "icu": {"cases": 26, "admissions": 1, "discharges": 0}
@@ -5125,8 +5125,8 @@
     "positiveSwabs": 1550,
     "dailySwabs": 22408,
     "cases": 1501,
-    "firstDose": 21878,
-    "secondDose": 22817,
+    "firstDose": 21881,
+    "secondDose": 22826,
     "singleDose": 2108,
     "hospitalisations": {"cases": 169, "admissions": 20, "discharges": 16, "hospitalAcquired": 5},
     "icu": {"cases": 23, "admissions": 1, "discharges": 3}
@@ -5137,7 +5137,7 @@
     "dailySwabs": 19688,
     "cases": 1427,
     "firstDose": 13691,
-    "secondDose": 12389,
+    "secondDose": 12391,
     "singleDose": 900,
     "hospitalisations": {"cases": 164, "admissions": 9, "discharges": 20, "hospitalAcquired": 11},
     "icu": {"cases": 26, "admissions": 4, "discharges": 1}
@@ -5147,8 +5147,8 @@
     "positiveSwabs": 1380,
     "dailySwabs": 18374,
     "cases": 1098,
-    "firstDose": 11045,
-    "secondDose": 9251,
+    "firstDose": 11047,
+    "secondDose": 9252,
     "singleDose": 362,
     "hospitalisations": {"cases": 163, "admissions": 10, "discharges": 16, "hospitalAcquired": 10},
     "icu": {"cases": 26, "admissions": 1, "discharges": 1}
@@ -5159,7 +5159,7 @@
     "dailySwabs": 12584,
     "cases": 1352,
     "firstDose": 14957,
-    "secondDose": 15901,
+    "secondDose": 15905,
     "singleDose": 420,
     "hospitalisations": {"cases": 177, "admissions": 12, "discharges": 8, "hospitalAcquired": 10},
     "icu": {"cases": 27, "admissions": 2, "discharges": 1}
@@ -5169,8 +5169,8 @@
     "positiveSwabs": 1051,
     "dailySwabs": 14841,
     "cases": 1015,
-    "firstDose": 17281,
-    "secondDose": 25341,
+    "firstDose": 17282,
+    "secondDose": 25344,
     "singleDose": 1103,
     "hospitalisations": {"cases": 178, "admissions": 9, "discharges": 9, "hospitalAcquired": 5},
     "icu": {"cases": 29, "admissions": 2, "discharges": 0}
@@ -5180,8 +5180,8 @@
     "positiveSwabs": 1366,
     "dailySwabs": 19997,
     "cases": 1314,
-    "firstDose": 22048,
-    "secondDose": 17185,
+    "firstDose": 22049,
+    "secondDose": 17188,
     "singleDose": 1569,
     "hospitalisations": {"cases": 187, "admissions": 16, "discharges": 22, "hospitalAcquired": 19},
     "icu": {"cases": 30, "admissions": 3, "discharges": 0}
@@ -5191,9 +5191,9 @@
     "positiveSwabs": 1577,
     "dailySwabs": 20564,
     "cases": 1491,
-    "firstDose": 13472,
-    "secondDose": 29934,
-    "singleDose": 1416,
+    "firstDose": 13473,
+    "secondDose": 29940,
+    "singleDose": 1417,
     "hospitalisations": {"cases": 193, "admissions": 18, "discharges": 15, "hospitalAcquired": 2},
     "icu": {"cases": 28, "admissions": 1, "discharges": 2}
   },
@@ -5203,7 +5203,7 @@
     "dailySwabs": 22005,
     "cases": 1782,
     "firstDose": 12136,
-    "secondDose": 24646,
+    "secondDose": 24651,
     "singleDose": 941,
     "hospitalisations": {"cases": 189, "admissions": 17, "discharges": 20, "hospitalAcquired": 6},
     "icu": {"cases": 30, "admissions": 3, "discharges": 1}
@@ -5214,7 +5214,7 @@
     "dailySwabs": 22769,
     "cases": 1828,
     "firstDose": 6307,
-    "secondDose": 8373,
+    "secondDose": 8375,
     "singleDose": 577,
     "hospitalisations": {"cases": 198, "admissions": 14, "discharges": 23, "hospitalAcquired": 18},
     "icu": {"cases": 33, "admissions": 5, "discharges": 1}
@@ -5235,8 +5235,8 @@
     "positiveSwabs": 1626,
     "dailySwabs": 16052,
     "cases": 1522,
-    "firstDose": 5500,
-    "secondDose": 22922,
+    "firstDose": 5501,
+    "secondDose": 22923,
     "singleDose": 596,
     "hospitalisations": {"cases": 217, "admissions": 19, "discharges": 9, "hospitalAcquired": 7},
     "icu": {"cases": 34, "admissions": 3, "discharges": 0}
@@ -5246,9 +5246,9 @@
     "positiveSwabs": 1490,
     "dailySwabs": 18638,
     "cases": 1508,
-    "firstDose": 9291,
-    "secondDose": 25901,
-    "singleDose": 701,
+    "firstDose": 9292,
+    "secondDose": 25903,
+    "singleDose": 702,
     "hospitalisations": {"cases": 206, "admissions": 19, "discharges": 30, "hospitalAcquired": 15},
     "icu": {"cases": 33, "admissions": 1, "discharges": 2}
   },
@@ -5257,7 +5257,7 @@
     "positiveSwabs": 2043,
     "dailySwabs": 24234,
     "cases": 1819,
-    "firstDose": 6961,
+    "firstDose": 6963,
     "secondDose": 31126,
     "singleDose": 652,
     "hospitalisations": {"cases": 206, "admissions": 22, "discharges": 24, "hospitalAcquired": 12},
@@ -5269,7 +5269,7 @@
     "dailySwabs": 21609,
     "cases": 1903,
     "firstDose": 6719,
-    "secondDose": 38196,
+    "secondDose": 38197,
     "singleDose": 857,
     "hospitalisations": {"cases": 219, "admissions": 27, "discharges": 21, "hospitalAcquired": 14},
     "icu": {"cases": 37, "admissions": 6, "discharges": 4}
@@ -5280,7 +5280,7 @@
     "dailySwabs": 22551,
     "cases": 1978,
     "firstDose": 10869,
-    "secondDose": 28148,
+    "secondDose": 28150,
     "singleDose": 857,
     "hospitalisations": {"cases": 221, "admissions": 21, "discharges": 21, "hospitalAcquired": 9},
     "icu": {"cases": 43, "admissions": 8, "discharges": 1}
@@ -5291,7 +5291,7 @@
     "dailySwabs": 23269,
     "cases": 2074,
     "firstDose": 18093,
-    "secondDose": 5786,
+    "secondDose": 5790,
     "singleDose": 275,
     "hospitalisations": {"cases": 230, "admissions": 25, "discharges": 21, "hospitalAcquired": 8},
     "icu": {"cases": 43, "admissions": 4, "discharges": 3}
@@ -5301,8 +5301,8 @@
     "positiveSwabs": 1767,
     "dailySwabs": 20215,
     "cases": 1758,
-    "firstDose": 16975,
-    "secondDose": 3685,
+    "firstDose": 16976,
+    "secondDose": 3686,
     "singleDose": 46,
     "hospitalisations": {"cases": 248, "admissions": 26, "discharges": 12, "hospitalAcquired": 9},
     "icu": {"cases": 48, "admissions": 5, "discharges": 1}
@@ -5313,7 +5313,7 @@
     "dailySwabs": 15775,
     "cases": 1558,
     "firstDose": 10147,
-    "secondDose": 23057,
+    "secondDose": 23058,
     "singleDose": 379,
     "hospitalisations": {"cases": 262, "admissions": 22, "discharges": 14, "hospitalAcquired": 2},
     "icu": {"cases": 51, "admissions": 6, "discharges": 1}
@@ -5323,8 +5323,8 @@
     "positiveSwabs": 1677,
     "dailySwabs": 18709,
     "cases": 1496,
-    "firstDose": 12851,
-    "secondDose": 26789,
+    "firstDose": 12850,
+    "secondDose": 26794,
     "singleDose": 522,
     "hospitalisations": {"cases": 248, "admissions": 29, "discharges": 33, "hospitalAcquired": 2},
     "icu": {"cases": 54, "admissions": 4, "discharges": 2}
@@ -5335,7 +5335,7 @@
     "dailySwabs": 23925,
     "cases": 1861,
     "firstDose": 15186,
-    "secondDose": 25699,
+    "secondDose": 25702,
     "singleDose": 653,
     "hospitalisations": {"cases": 249, "admissions": 33, "discharges": 29, "hospitalAcquired": 4},
     "icu": {"cases": 54, "admissions": 7, "discharges": 5}
@@ -5345,8 +5345,8 @@
     "positiveSwabs": 2026,
     "dailySwabs": 22901,
     "cases": 1818,
-    "firstDose": 11333,
-    "secondDose": 25619,
+    "firstDose": 11334,
+    "secondDose": 25621,
     "singleDose": 537,
     "hospitalisations": {"cases": 244, "admissions": 28, "discharges": 24, "hospitalAcquired": 3},
     "icu": {"cases": 52, "admissions": 2, "discharges": 4}
@@ -5356,8 +5356,8 @@
     "positiveSwabs": 1940,
     "dailySwabs": 21223,
     "cases": 2098,
-    "firstDose": 14804,
-    "secondDose": 22165,
+    "firstDose": 14805,
+    "secondDose": 22168,
     "singleDose": 683,
     "hospitalisations": {"cases": 251, "admissions": 26, "discharges": 28, "hospitalAcquired": 11},
     "icu": {"cases": 52, "admissions": 3, "discharges": 3}
@@ -5367,7 +5367,7 @@
     "positiveSwabs": 2131,
     "dailySwabs": 22583,
     "cases": 2125,
-    "firstDose": 11845,
+    "firstDose": 11846,
     "secondDose": 7917,
     "singleDose": 240,
     "hospitalisations": {"cases": 259, "admissions": 29, "discharges": 31, "hospitalAcquired": 23},
@@ -5379,7 +5379,7 @@
     "dailySwabs": 18070,
     "cases": 1688,
     "firstDose": 7991,
-    "secondDose": 12213,
+    "secondDose": 12214,
     "singleDose": 160,
     "hospitalisations": {"cases": 314, "admissions": 33, "discharges": 5, "hospitalAcquired": 31},
     "icu": {"cases": 59, "admissions": 5, "discharges": 0}
@@ -5389,8 +5389,8 @@
     "positiveSwabs": 1549,
     "dailySwabs": 14921,
     "cases": 1592,
-    "firstDose": 10834,
-    "secondDose": 15300,
+    "firstDose": 10835,
+    "secondDose": 15303,
     "singleDose": 284,
     "hospitalisations": {"cases": 318, "admissions": 15, "discharges": 17, "hospitalAcquired": 11},
     "icu": {"cases": 60, "admissions": 6, "discharges": 5}
@@ -5401,7 +5401,7 @@
     "dailySwabs": 18420,
     "cases": 1571,
     "firstDose": 9723,
-    "secondDose": 22856,
+    "secondDose": 22857,
     "singleDose": 382,
     "hospitalisations": {"cases": 307, "admissions": 27, "discharges": 41, "hospitalAcquired": 15},
     "icu": {"cases": 55, "admissions": 5, "discharges": 9}
@@ -5412,8 +5412,8 @@
     "dailySwabs": 23838,
     "cases": 2051,
     "firstDose": 9392,
-    "secondDose": 19443,
-    "singleDose": 309,
+    "secondDose": 19445,
+    "singleDose": 310,
     "hospitalisations": {"cases": 323, "admissions": 40, "discharges": 33, "hospitalAcquired": 16},
     "icu": {"cases": 56, "admissions": 5, "discharges": 4}
   },
@@ -5422,8 +5422,8 @@
     "positiveSwabs": 1929,
     "dailySwabs": 23029,
     "cases": 1866,
-    "firstDose": 8550,
-    "secondDose": 19358,
+    "firstDose": 8552,
+    "secondDose": 19361,
     "singleDose": 363,
     "hospitalisations": {"cases": 332, "admissions": 43, "discharges": 38, "hospitalAcquired": 14},
     "icu": {"cases": 61, "admissions": 8, "discharges": 3}
@@ -5435,7 +5435,7 @@
     "cases": 1875,
     "hospitalisations": {"cases": 326, "admissions": 26, "discharges": 34, "hospitalAcquired": 21},
     "icu": {"cases": 59, "admissions": 2, "discharges": 3},
-    "firstDose": 9691,
+    "firstDose": 9693,
     "secondDose": 19136,
     "singleDose": 430
   },
@@ -5457,7 +5457,7 @@
     "cases": 1706,
     "hospitalisations": {"cases": 347, "admissions": 26, "discharges": 16, "hospitalAcquired": 15},
     "icu": {"cases": 60, "admissions": 3, "discharges": 3},
-    "firstDose": 8787,
+    "firstDose": 8788,
     "secondDose": 9160,
     "singleDose": 28
   },
@@ -5469,7 +5469,7 @@
     "hospitalisations": {"cases": 382, "admissions": 29, "discharges": 10, "hospitalAcquired": 11},
     "icu": {"cases": 61, "admissions": 2, "discharges": 1},
     "firstDose": 5037,
-    "secondDose": 11055,
+    "secondDose": 11056,
     "singleDose": 80
   },
   {
@@ -5479,8 +5479,8 @@
     "cases": 1382,
     "hospitalisations": {"cases": 355, "admissions": 25, "discharges": 55, "hospitalAcquired": 13},
     "icu": {"cases": 54, "admissions": 5, "discharges": 9},
-    "firstDose": 4043,
-    "secondDose": 12806,
+    "firstDose": 4044,
+    "secondDose": 12808,
     "singleDose": 140
   },
   {
@@ -5491,7 +5491,7 @@
     "hospitalisations": {"cases": 360, "admissions": 36, "discharges": 41, "hospitalAcquired": 16},
     "icu": {"cases": 56, "admissions": 7, "discharges": 4},
     "firstDose": 4920,
-    "secondDose": 12474,
+    "secondDose": 12476,
     "singleDose": 179
   },
   {
@@ -5502,7 +5502,7 @@
     "hospitalisations": {"cases": 343, "admissions": 35, "discharges": 38, "hospitalAcquired": 10},
     "icu": {"cases": 59, "admissions": 5, "discharges": 2},
     "firstDose": 4992,
-    "secondDose": 12308,
+    "secondDose": 12309,
     "singleDose": 246
   },
   {
@@ -5513,7 +5513,7 @@
     "hospitalisations": {"cases": 353, "admissions": 34, "discharges": 22, "hospitalAcquired": 9},
     "icu": {"cases": 55, "admissions": 3, "discharges": 6},
     "firstDose": 4748,
-    "secondDose": 16008,
+    "secondDose": 16009,
     "singleDose": 163
   },
   {
@@ -5523,7 +5523,7 @@
     "cases": 1703,
     "hospitalisations": {"cases": 363, "admissions": 27, "discharges": 33, "hospitalAcquired": 13},
     "icu": {"cases": 52, "admissions": 4, "discharges": 4},
-    "firstDose": 4613,
+    "firstDose": 4614,
     "secondDose": 10542,
     "singleDose": 132
   },
@@ -5535,7 +5535,7 @@
     "hospitalisations": {"cases": 362, "admissions": 21, "discharges": 8, "hospitalAcquired": 13},
     "icu": {"cases": 59, "admissions": 7, "discharges": 0},
     "firstDose": 5303,
-    "secondDose": 11874,
+    "secondDose": 11876,
     "singleDose": 1
   },
   {
@@ -5545,7 +5545,7 @@
     "cases": 1144,
     "hospitalisations": {"cases": 384, "admissions": 32, "discharges": 10, "hospitalAcquired": 15},
     "icu": {"cases": 59, "admissions": 4, "discharges": 4},
-    "firstDose": 2133,
+    "firstDose": 2134,
     "secondDose": 9637,
     "singleDose": 73
   },
@@ -5568,7 +5568,7 @@
     "hospitalisations": {"cases": 335, "admissions": 20, "discharges": 39, "hospitalAcquired": 5},
     "icu": {"cases": 56, "admissions": 6, "discharges": 8},
     "firstDose": 2585,
-    "secondDose": 14761,
+    "secondDose": 14762,
     "singleDose": 184
   },
   {
@@ -5590,7 +5590,7 @@
     "hospitalisations": {"cases": 328, "admissions": 36, "discharges": 35, "hospitalAcquired": 9},
     "icu": {"cases": 59, "admissions": 7, "discharges": 2},
     "firstDose": 3361,
-    "secondDose": 13910,
+    "secondDose": 13911,
     "singleDose": 115
   },
   {
@@ -5600,7 +5600,7 @@
     "cases": 1466,
     "hospitalisations": {"cases": 310, "admissions": 25, "discharges": 37, "hospitalAcquired": 7},
     "icu": {"cases": 58, "admissions": 3, "discharges": 4},
-    "firstDose": 2545,
+    "firstDose": 2546,
     "secondDose": 11297,
     "singleDose": 61
   },
@@ -5634,7 +5634,7 @@
     "hospitalisations": {"cases": 309, "admissions": 22, "discharges": 29, "hospitalAcquired": 10},
     "icu": {"cases": 60, "admissions": 6, "discharges": 2},
     "firstDose": 1535,
-    "secondDose": 10741,
+    "secondDose": 10743,
     "singleDose": 81
   },
   {
@@ -5645,7 +5645,7 @@
     "hospitalisations": {"cases": 292, "admissions": 23, "discharges": 32, "hospitalAcquired": 12},
     "icu": {"cases": 65, "admissions": 8, "discharges": 3},
     "firstDose": 3265,
-    "secondDose": 12368,
+    "secondDose": 12369,
     "singleDose": 134
   },
   {
@@ -5656,7 +5656,7 @@
     "hospitalisations": {"cases": 290, "admissions": 26, "discharges": 16, "hospitalAcquired": 11},
     "icu": {"cases": 67, "admissions": 5, "discharges": 3},
     "firstDose": 1894,
-    "secondDose": 10567,
+    "secondDose": 10566,
     "singleDose": 113
   },
   {
@@ -5666,8 +5666,8 @@
     "cases": 1392,
     "hospitalisations": {"cases": 288, "admissions": 29, "discharges": 24, "hospitalAcquired": 11},
     "icu": {"cases": 73, "admissions": 9, "discharges": 2},
-    "firstDose": 2553,
-    "secondDose": 14583,
+    "firstDose": 2554,
+    "secondDose": 14584,
     "singleDose": 90
   },
   {
@@ -5689,7 +5689,7 @@
     "hospitalisations": {"cases": 278, "admissions": 24, "discharges": 13, "hospitalAcquired": 14},
     "icu": {"cases": 63, "admissions": 1, "discharges": 2},
     "firstDose": 1856,
-    "secondDose": 8482,
+    "secondDose": 8483,
     "singleDose": 13
   },
   {
@@ -5699,7 +5699,7 @@
     "cases": 1154,
     "hospitalisations": {"cases": 297, "admissions": 20, "discharges": 4, "hospitalAcquired": 17},
     "icu": {"cases": 65, "admissions": 2, "discharges": 1},
-    "firstDose": 944,
+    "firstDose": 945,
     "secondDose": 5593,
     "singleDose": 32
   },
@@ -5733,7 +5733,7 @@
     "hospitalisations": {"cases": 286, "admissions": 37, "discharges": 26, "hospitalAcquired": 16},
     "icu": {"cases": 59, "admissions": 5, "discharges": 5},
     "firstDose": 1689,
-    "secondDose": 8736,
+    "secondDose": 8737,
     "singleDose": 88
   },
   {
@@ -5777,10 +5777,10 @@
     "hospitalisations": {"cases": 310, "admissions": 16, "discharges": 7, "hospitalAcquired": 12},
     "icu": {"cases": 66, "admissions": 4, "discharges": 2},
     "firstDose": 1168,
-    "secondDose": 3771,
+    "secondDose": 3772,
     "singleDose": 45,
-    "booster": 256,
-    "immunocompromised": 48
+    "booster": 258,
+    "immunocompromised": 46
   },
   {
     "dateString": "2021-09-28T12:00:00.000Z",
@@ -5790,7 +5790,7 @@
     "hospitalisations": {"cases": 300, "admissions": 23, "discharges": 34, "hospitalAcquired": 18},
     "icu": {"cases": 63, "admissions": 4, "discharges": 7},
     "firstDose": 1439,
-    "secondDose": 5098,
+    "secondDose": 5100,
     "singleDose": 91,
     "booster": 508,
     "immunocompromised": 18
@@ -5805,8 +5805,8 @@
     "firstDose": 1641,
     "secondDose": 3589,
     "singleDose": 77,
-    "booster": 649,
-    "immunocompromised": 28
+    "booster": 650,
+    "immunocompromised": 27
   },
   {
     "dateString": "2021-09-30T12:00:00.000Z",
@@ -5818,8 +5818,8 @@
     "firstDose": 1280,
     "secondDose": 3932,
     "singleDose": 77,
-    "booster": 1583,
-    "immunocompromised": 158
+    "booster": 1585,
+    "immunocompromised": 156
   },
   {
     "dateString": "2021-10-01T12:00:00.000Z",
@@ -5831,8 +5831,8 @@
     "firstDose": 1834,
     "secondDose": 5140,
     "singleDose": 41,
-    "booster": 2493,
-    "immunocompromised": 259
+    "booster": 2501,
+    "immunocompromised": 251
   },
   {
     "dateString": "2021-10-02T12:00:00.000Z",
@@ -5842,10 +5842,10 @@
     "hospitalisations": {"cases": 298, "admissions": 20, "discharges": 37, "hospitalAcquired": 16},
     "icu": {"cases": 56, "admissions": 4, "discharges": 5},
     "firstDose": 1704,
-    "secondDose": 4068,
+    "secondDose": 4069,
     "singleDose": 39,
-    "booster": 1025,
-    "immunocompromised": 230
+    "booster": 1026,
+    "immunocompromised": 229
   },
   {
     "dateString": "2021-10-03T12:00:00.000Z",
@@ -5870,8 +5870,8 @@
     "firstDose": 334,
     "secondDose": 1207,
     "singleDose": 17,
-    "booster": 4295,
-    "immunocompromised": 548
+    "booster": 4300,
+    "immunocompromised": 543
   },
   {
     "dateString": "2021-10-05T12:00:00.000Z",
@@ -5883,8 +5883,8 @@
     "firstDose": 958,
     "secondDose": 2797,
     "singleDose": 69,
-    "booster": 8301,
-    "immunocompromised": 467
+    "booster": 8308,
+    "immunocompromised": 460
   },
   {
     "dateString": "2021-10-06T12:00:00.000Z",
@@ -5894,10 +5894,10 @@
     "hospitalisations": {"cases": 343, "admissions": 24, "discharges": 32, "hospitalAcquired": 13},
     "icu": {"cases": 70, "admissions": 7, "discharges": 2},
     "firstDose": 970,
-    "secondDose": 2535,
+    "secondDose": 2537,
     "singleDose": 35,
-    "booster": 10807,
-    "immunocompromised": 1592
+    "booster": 10818,
+    "immunocompromised": 1581
   },
   {
     "dateString": "2021-10-07T12:00:00.000Z",
@@ -5909,8 +5909,8 @@
     "firstDose": 1199,
     "secondDose": 2667,
     "singleDose": 44,
-    "booster": 10620,
-    "immunocompromised": 1374
+    "booster": 10631,
+    "immunocompromised": 1364
   },
   {
     "dateString": "2021-10-08T12:00:00.000Z",
@@ -5920,10 +5920,10 @@
     "hospitalisations": {"cases": 354, "admissions": 32, "discharges": 32, "hospitalAcquired": 16},
     "icu": {"cases": 73, "admissions": 6, "discharges": 2},
     "firstDose": 973,
-    "secondDose": 2756,
+    "secondDose": 2759,
     "singleDose": 45,
-    "booster": 10730,
-    "immunocompromised": 1658
+    "booster": 10750,
+    "immunocompromised": 1641
   },
   {
     "dateString": "2021-10-09T12:00:00.000Z",
@@ -5935,8 +5935,8 @@
     "firstDose": 727,
     "secondDose": 2354,
     "singleDose": 22,
-    "booster": 4908,
-    "immunocompromised": 1646
+    "booster": 4915,
+    "immunocompromised": 1639
   },
   {
     "dateString": "2021-10-10T12:00:00.000Z",
@@ -5948,7 +5948,7 @@
     "firstDose": 1499,
     "secondDose": 3904,
     "singleDose": 1,
-    "booster": 736,
+    "booster": 737,
     "immunocompromised": 573
   },
   {
@@ -5974,8 +5974,8 @@
     "firstDose": 562,
     "secondDose": 1583,
     "singleDose": 20,
-    "booster": 9590,
-    "immunocompromised": 1047
+    "booster": 9603,
+    "immunocompromised": 1035
   },
   {
     "dateString": "2021-10-13T12:00:00.000Z",
@@ -5987,8 +5987,8 @@
     "firstDose": 1019,
     "secondDose": 2022,
     "singleDose": 9,
-    "booster": 10753,
-    "immunocompromised": 1241
+    "booster": 10775,
+    "immunocompromised": 1219
   },
   {
     "dateString": "2021-10-14T12:00:00.000Z",
@@ -6000,8 +6000,8 @@
     "firstDose": 688,
     "secondDose": 1558,
     "singleDose": 7,
-    "booster": 12460,
-    "immunocompromised": 1787
+    "booster": 12480,
+    "immunocompromised": 1767
   },
   {
     "dateString": "2021-10-15T12:00:00.000Z",
@@ -6011,10 +6011,10 @@
     "hospitalisations": {"cases": 413, "admissions": 32, "discharges": 33, "hospitalAcquired": 15},
     "icu": {"cases": 73, "admissions": 5, "discharges": 2},
     "firstDose": 952,
-    "secondDose": 2041,
+    "secondDose": 2042,
     "singleDose": 7,
-    "booster": 8419,
-    "immunocompromised": 2645
+    "booster": 8434,
+    "immunocompromised": 2630
   },
   {
     "dateString": "2021-10-16T12:00:00.000Z",
@@ -6024,10 +6024,10 @@
     "hospitalisations": {"cases": 406, "admissions": 35, "discharges": 39, "hospitalAcquired": 18},
     "icu": {"cases": 71, "admissions": 4, "discharges": 4},
     "firstDose": 1373,
-    "secondDose": 2613,
+    "secondDose": 2614,
     "singleDose": 12,
-    "booster": 4991,
-    "immunocompromised": 2899
+    "booster": 4992,
+    "immunocompromised": 2898
   },
   {
     "dateString": "2021-10-17T12:00:00.000Z",
@@ -6039,8 +6039,8 @@
     "firstDose": 1698,
     "secondDose": 2882,
     "singleDose": 2,
-    "booster": 565,
-    "immunocompromised": 1126
+    "booster": 567,
+    "immunocompromised": 1124
   },
   {
     "dateString": "2021-10-18T12:00:00.000Z",
@@ -6049,11 +6049,11 @@
     "cases": 1578,
     "hospitalisations": {"cases": 484, "admissions": 29, "discharges": 15, "hospitalAcquired": 13},
     "icu": {"cases": 73, "admissions": 5, "discharges": 2},
-    "firstDose": 666,
+    "firstDose": 665,
     "secondDose": 1208,
     "singleDose": 4,
-    "booster": 3919,
-    "immunocompromised": 1105
+    "booster": 3922,
+    "immunocompromised": 1102
   },
   {
     "dateString": "2021-10-19T12:00:00.000Z",
@@ -6065,8 +6065,8 @@
     "firstDose": 1330,
     "secondDose": 1767,
     "singleDose": 12,
-    "booster": 7684,
-    "immunocompromised": 2352
+    "booster": 7689,
+    "immunocompromised": 2347
   },
   {
     "dateString": "2021-10-20T12:00:00.000Z",
@@ -6078,8 +6078,8 @@
     "firstDose": 2244,
     "secondDose": 2284,
     "singleDose": 0,
-    "booster": 7512,
-    "immunocompromised": 2480
+    "booster": 7522,
+    "immunocompromised": 2471
   },
   {
     "dateString": "2021-10-21T12:00:00.000Z",
@@ -6088,11 +6088,11 @@
     "cases": 2029,
     "hospitalisations": {"cases": 448, "admissions": 30, "discharges": 30, "hospitalAcquired": 10},
     "icu": {"cases": 88, "admissions": 2, "discharges": 0},
-    "firstDose": 1746,
+    "firstDose": 1747,
     "secondDose": 1796,
     "singleDose": 10,
-    "booster": 8233,
-    "immunocompromised": 3106
+    "booster": 8243,
+    "immunocompromised": 3096
   },
   {
     "dateString": "2021-10-22T12:00:00.000Z",
@@ -6101,11 +6101,11 @@
     "cases": 2466,
     "hospitalisations": {"cases": 457, "admissions": 33, "discharges": 30, "hospitalAcquired": 18},
     "icu": {"cases": 90, "admissions": 7, "discharges": 4},
-    "firstDose": 1491,
+    "firstDose": 1492,
     "secondDose": 1899,
     "singleDose": 2,
-    "booster": 5027,
-    "immunocompromised": 3081
+    "booster": 5035,
+    "immunocompromised": 3073
   },
   {
     "dateString": "2021-10-23T12:00:00.000Z",
@@ -6117,8 +6117,8 @@
     "firstDose": 2008,
     "secondDose": 1673,
     "singleDose": 1,
-    "booster": 696,
-    "immunocompromised": 746
+    "booster": 697,
+    "immunocompromised": 745
   },
   {
     "dateString": "2021-10-24T12:00:00.000Z",
@@ -6130,8 +6130,8 @@
     "firstDose": 1943,
     "secondDose": 2177,
     "singleDose": 2,
-    "booster": 92,
-    "immunocompromised": 1279
+    "booster": 93,
+    "immunocompromised": 1278
   },
   {
     "dateString": "2021-10-25T12:00:00.000Z",
@@ -6156,8 +6156,8 @@
     "firstDose": 1235,
     "secondDose": 1191,
     "singleDose": 6,
-    "booster": 2702,
-    "immunocompromised": 1830
+    "booster": 2705,
+    "immunocompromised": 1827
   },
   {
     "dateString": "2021-10-27T12:00:00.000Z",
@@ -6169,8 +6169,8 @@
     "firstDose": 1549,
     "secondDose": 1393,
     "singleDose": 5,
-    "booster": 4025,
-    "immunocompromised": 3349
+    "booster": 4032,
+    "immunocompromised": 3342
   },
   {
     "dateString": "2021-10-28T12:00:00.000Z",
@@ -6182,8 +6182,8 @@
     "firstDose": 2145,
     "secondDose": 1663,
     "singleDose": 3,
-    "booster": 4292,
-    "immunocompromised": 3165
+    "booster": 4298,
+    "immunocompromised": 3159
   },
   {
     "dateString": "2021-10-29T12:00:00.000Z",
@@ -6193,10 +6193,10 @@
     "hospitalisations": {"cases": 481, "admissions": 39, "discharges": 46, "hospitalAcquired": 25},
     "icu": {"cases": 97, "admissions": 5, "discharges": 6},
     "firstDose": 2131,
-    "secondDose": 1337,
+    "secondDose": 1338,
     "singleDose": 0,
-    "booster": 3474,
-    "immunocompromised": 3204
+    "booster": 3485,
+    "immunocompromised": 3193
   },
   {
     "dateString": "2021-10-30T12:00:00.000Z",
@@ -6221,8 +6221,8 @@
     "firstDose": 1624,
     "secondDose": 1314,
     "singleDose": 0,
-    "booster": 165,
-    "immunocompromised": 817
+    "booster": 166,
+    "immunocompromised": 816
   },
   {
     "dateString": "2021-11-01T12:00:00.000Z",
@@ -6234,8 +6234,8 @@
     "firstDose": 260,
     "secondDose": 259,
     "singleDose": 1,
-    "booster": 2599,
-    "immunocompromised": 280
+    "booster": 2604,
+    "immunocompromised": 275
   },
   {
     "dateString": "2021-11-02T12:00:00.000Z",
@@ -6247,8 +6247,8 @@
     "firstDose": 1087,
     "secondDose": 1073,
     "singleDose": 9,
-    "booster": 5562,
-    "immunocompromised": 2830
+    "booster": 5568,
+    "immunocompromised": 2824
   },
   {
     "dateString": "2021-11-03T12:00:00.000Z",
@@ -6257,11 +6257,11 @@
     "cases": 3174,
     "hospitalisations": {"cases": 460, "admissions": 31, "discharges": 58, "hospitalAcquired": 18},
     "icu": {"cases": 86, "admissions": 6, "discharges": 7},
-    "firstDose": 2534,
+    "firstDose": 2533,
     "secondDose": 1836,
     "singleDose": 5,
-    "booster": 6372,
-    "immunocompromised": 2258
+    "booster": 6384,
+    "immunocompromised": 2246
   },
   {
     "dateString": "2021-11-04T12:00:00.000Z",
@@ -6273,8 +6273,8 @@
     "firstDose": 1542,
     "secondDose": 1250,
     "singleDose": 1,
-    "booster": 10136,
-    "immunocompromised": 2120
+    "booster": 10153,
+    "immunocompromised": 2102
   },
   {
     "dateString": "2021-11-05T12:00:00.000Z",
@@ -6286,8 +6286,8 @@
     "firstDose": 1626,
     "secondDose": 1059,
     "singleDose": 2,
-    "booster": 12911,
-    "immunocompromised": 1427
+    "booster": 12923,
+    "immunocompromised": 1415
   },
   {
     "dateString": "2021-11-06T12:00:00.000Z",
@@ -6299,8 +6299,8 @@
     "firstDose": 1818,
     "secondDose": 1337,
     "singleDose": 5,
-    "booster": 9878,
-    "immunocompromised": 1490
+    "booster": 9886,
+    "immunocompromised": 1482
   },
   {
     "dateString": "2021-11-07T12:00:00.000Z",
@@ -6312,8 +6312,8 @@
     "firstDose": 725,
     "secondDose": 765,
     "singleDose": 0,
-    "booster": 10706,
-    "immunocompromised": 546
+    "booster": 10707,
+    "immunocompromised": 545
   },
   {
     "dateString": "2021-11-08T12:00:00.000Z",
@@ -6322,11 +6322,11 @@
     "cases": 3161,
     "hospitalisations": {"cases": 498, "admissions": 39, "discharges": 20, "hospitalAcquired": 13},
     "icu": {"cases": 78, "admissions": 7, "discharges": 3},
-    "firstDose": 512,
+    "firstDose": 513,
     "secondDose": 513,
     "singleDose": 2,
-    "booster": 14261,
-    "immunocompromised": 507
+    "booster": 14269,
+    "immunocompromised": 499
   },
   {
     "dateString": "2021-11-09T12:00:00.000Z",
@@ -6335,11 +6335,11 @@
     "cases": 3578,
     "hospitalisations": {"cases": 520, "admissions": 60, "discharges": 53, "hospitalAcquired": 29},
     "icu": {"cases": 83, "admissions": 9, "discharges": 3},
-    "firstDose": 1377,
-    "secondDose": 1034,
+    "firstDose": 1375,
+    "secondDose": 1035,
     "singleDose": 1,
-    "booster": 22338,
-    "immunocompromised": 975
+    "booster": 22352,
+    "immunocompromised": 965
   },
   {
     "dateString": "2021-11-10T12:00:00.000Z",
@@ -6351,8 +6351,8 @@
     "firstDose": 1625,
     "secondDose": 1322,
     "singleDose": 0,
-    "booster": 25823,
-    "immunocompromised": 1145
+    "booster": 25828,
+    "immunocompromised": 1140
   },
   {
     "dateString": "2021-11-11T12:00:00.000Z",
@@ -6361,11 +6361,11 @@
     "cases": 3680,
     "hospitalisations": {"cases": 543, "admissions": 43, "discharges": 61, "hospitalAcquired": 38},
     "icu": {"cases": 97, "admissions": 12, "discharges": 1},
-    "firstDose": 1398,
+    "firstDose": 1397,
     "secondDose": 1083,
     "singleDose": 1,
-    "booster": 28722,
-    "immunocompromised": 1375
+    "booster": 28734,
+    "immunocompromised": 1368
   },
   {
     "dateString": "2021-11-12T12:00:00.000Z",
@@ -6377,8 +6377,8 @@
     "firstDose": 1152,
     "secondDose": 1115,
     "singleDose": 5,
-    "booster": 24880,
-    "immunocompromised": 1299
+    "booster": 24904,
+    "immunocompromised": 1276
   },
   {
     "dateString": "2021-11-13T12:00:00.000Z",
@@ -6390,8 +6390,8 @@
     "firstDose": 1410,
     "secondDose": 1358,
     "singleDose": 0,
-    "booster": 19089,
-    "immunocompromised": 918
+    "booster": 19101,
+    "immunocompromised": 908
   },
   {
     "dateString": "2021-11-14T12:00:00.000Z",
@@ -6403,8 +6403,8 @@
     "firstDose": 1648,
     "secondDose": 1800,
     "singleDose": 0,
-    "booster": 8915,
-    "immunocompromised": 281
+    "booster": 8918,
+    "immunocompromised": 279
   },
   {
     "dateString": "2021-11-15T12:00:00.000Z",
@@ -6416,8 +6416,8 @@
     "firstDose": 1245,
     "secondDose": 566,
     "singleDose": 0,
-    "booster": 14390,
-    "immunocompromised": 572
+    "booster": 14404,
+    "immunocompromised": 557
   },
   {
     "dateString": "2021-11-16T12:00:00.000Z",
@@ -6429,8 +6429,8 @@
     "firstDose": 1319,
     "secondDose": 1048,
     "singleDose": 5,
-    "booster": 26829,
-    "immunocompromised": 1434
+    "booster": 26841,
+    "immunocompromised": 1422
   },
   {
     "dateString": "2021-11-17T12:00:00.000Z",
@@ -6442,8 +6442,8 @@
     "firstDose": 1518,
     "secondDose": 1086,
     "singleDose": 0,
-    "booster": 31397,
-    "immunocompromised": 2003
+    "booster": 31416,
+    "immunocompromised": 1986
   },
   {
     "dateString": "2021-11-18T12:00:00.000Z",
@@ -6452,11 +6452,11 @@
     "cases": 4650,
     "hospitalisations": {"cases": 643, "admissions": 56, "discharges": 48, "hospitalAcquired": 34},
     "icu": {"cases": 118, "admissions": 5, "discharges": 4},
-    "firstDose": 1666,
+    "firstDose": 1665,
     "secondDose": 2471,
     "singleDose": 5,
-    "booster": 35958,
-    "immunocompromised": 2298
+    "booster": 35988,
+    "immunocompromised": 2272
   },
   {
     "dateString": "2021-11-19T12:00:00.000Z",
@@ -6468,8 +6468,8 @@
     "firstDose": 1184,
     "secondDose": 1525,
     "singleDose": 0,
-    "booster": 29141,
-    "immunocompromised": 2379
+    "booster": 29154,
+    "immunocompromised": 2366
   },
   {
     "dateString": "2021-11-20T12:00:00.000Z",
@@ -6478,11 +6478,11 @@
     "cases": 5959,
     "hospitalisations": {"cases": 640, "admissions": 81, "discharges": 62, "hospitalAcquired": -1},
     "icu": {"cases": 121, "admissions": 11, "discharges": 5},
-    "firstDose": 1541,
+    "firstDose": 1540,
     "secondDose": 2922,
     "singleDose": 11,
-    "booster": 19997,
-    "immunocompromised": 1247
+    "booster": 20000,
+    "immunocompromised": 1246
   },
   {
     "dateString": "2021-11-21T12:00:00.000Z",
@@ -6494,8 +6494,8 @@
     "firstDose": 1786,
     "secondDose": 2752,
     "singleDose": 0,
-    "booster": 12887,
-    "immunocompromised": 352
+    "booster": 12892,
+    "immunocompromised": 347
   },
   {
     "dateString": "2021-11-22T12:00:00.000Z",
@@ -6505,10 +6505,10 @@
     "hospitalisations": {"cases": 685, "admissions": 52, "discharges": 21, "hospitalAcquired": 8},
     "icu": {"cases": 126, "admissions": 7, "discharges": 4},
     "firstDose": 711,
-    "secondDose": 489,
+    "secondDose": 490,
     "singleDose": 2,
-    "booster": 15303,
-    "immunocompromised": 1248
+    "booster": 15313,
+    "immunocompromised": 1240
   },
   {
     "dateString": "2021-11-23T12:00:00.000Z",
@@ -6520,8 +6520,8 @@
     "firstDose": 2162,
     "secondDose": 1556,
     "singleDose": 6,
-    "booster": 30027,
-    "immunocompromised": 3152
+    "booster": 30043,
+    "immunocompromised": 3137
   },
   {
     "dateString": "2021-11-24T12:00:00.000Z",
@@ -6533,8 +6533,8 @@
     "firstDose": 1625,
     "secondDose": 3118,
     "singleDose": 2,
-    "booster": 33515,
-    "immunocompromised": 2030
+    "booster": 33532,
+    "immunocompromised": 2015
   },
   {
     "dateString": "2021-11-25T12:00:00.000Z",
@@ -6543,11 +6543,11 @@
     "cases": 4764,
     "hospitalisations": {"cases": 598, "admissions": 57, "discharges": 50, "hospitalAcquired": 16},
     "icu": {"cases": 126, "admissions": 8, "discharges": 11},
-    "firstDose": 1001,
+    "firstDose": 1000,
     "secondDose": 1159,
     "singleDose": 1,
-    "booster": 38599,
-    "immunocompromised": 2174
+    "booster": 38616,
+    "immunocompromised": 2159
   },
   {
     "dateString": "2021-11-26T12:00:00.000Z",
@@ -6559,8 +6559,8 @@
     "firstDose": 1289,
     "secondDose": 1076,
     "singleDose": 12,
-    "booster": 33497,
-    "immunocompromised": 2447
+    "booster": 33510,
+    "immunocompromised": 2434
   },
   {
     "dateString": "2021-11-27T12:00:00.000Z",
@@ -6570,10 +6570,10 @@
     "hospitalisations": {"cases": 536, "admissions": 40, "discharges": 65, "hospitalAcquired": 20},
     "icu": {"cases": 121, "admissions": 9, "discharges": 4},
     "firstDose": 1227,
-    "secondDose": 1550,
+    "secondDose": 1549,
     "singleDose": 5,
-    "booster": 23335,
-    "immunocompromised": 1177
+    "booster": 23342,
+    "immunocompromised": 1171
   },
   {
     "dateString": "2021-11-28T12:00:00.000Z",
@@ -6585,8 +6585,8 @@
     "firstDose": 1966,
     "secondDose": 2251,
     "singleDose": 0,
-    "booster": 15844,
-    "immunocompromised": 237
+    "booster": 15854,
+    "immunocompromised": 227
   },
   {
     "dateString": "2021-11-29T12:00:00.000Z",
@@ -6598,8 +6598,8 @@
     "firstDose": 553,
     "secondDose": 975,
     "singleDose": 1,
-    "booster": 20442,
-    "immunocompromised": 1106
+    "booster": 20449,
+    "immunocompromised": 1100
   },
   {
     "dateString": "2021-11-30T12:00:00.000Z",
@@ -6608,11 +6608,11 @@
     "cases": 5471,
     "hospitalisations": {"cases": 579, "admissions": 54, "discharges": 62, "hospitalAcquired": 32},
     "icu": {"cases": 122, "admissions": 10, "discharges": 0},
-    "firstDose": 1930,
+    "firstDose": 1929,
     "secondDose": 1620,
     "singleDose": 6,
-    "booster": 36973,
-    "immunocompromised": 1788
+    "booster": 36992,
+    "immunocompromised": 1773
   },
   {
     "dateString": "2021-12-01T12:00:00.000Z",
@@ -6621,11 +6621,11 @@
     "cases": 3793,
     "hospitalisations": {"cases": 578, "admissions": 63, "discharges": 66, "hospitalAcquired": 26},
     "icu": {"cases": 117, "admissions": 6, "discharges": 7},
-    "firstDose": 1083,
+    "firstDose": 1081,
     "secondDose": 1353,
     "singleDose": 1,
-    "booster": 37511,
-    "immunocompromised": 1633
+    "booster": 37530,
+    "immunocompromised": 1620
   },
   {
     "dateString": "2021-12-02T12:00:00.000Z",
@@ -6634,11 +6634,11 @@
     "cases": 4163,
     "hospitalisations": {"cases": 545, "admissions": 44, "discharges": 78, "hospitalAcquired": 28},
     "icu": {"cases": 117, "admissions": 6, "discharges": 2},
-    "firstDose": 1774,
+    "firstDose": 1775,
     "secondDose": 1398,
     "singleDose": 0,
-    "booster": 38414,
-    "immunocompromised": 1501
+    "booster": 38422,
+    "immunocompromised": 1492
   },
   {
     "dateString": "2021-12-03T12:00:00.000Z",
@@ -6650,8 +6650,8 @@
     "firstDose": 1043,
     "secondDose": 1164,
     "singleDose": 3,
-    "booster": 34745,
-    "immunocompromised": 1410
+    "booster": 34754,
+    "immunocompromised": 1404
   },
   {
     "dateString": "2021-12-04T12:00:00.000Z",
@@ -6663,8 +6663,8 @@
     "firstDose": 1201,
     "secondDose": 1694,
     "singleDose": 0,
-    "booster": 22939,
-    "immunocompromised": 404
+    "booster": 22944,
+    "immunocompromised": 400
   },
   {
     "dateString": "2021-12-05T12:00:00.000Z",
@@ -6676,8 +6676,8 @@
     "firstDose": 1348,
     "secondDose": 1770,
     "singleDose": 0,
-    "booster": 15056,
-    "immunocompromised": 139
+    "booster": 15057,
+    "immunocompromised": 137
   },
   {
     "dateString": "2021-12-06T12:00:00.000Z",
@@ -6686,11 +6686,11 @@
     "cases": 2950,
     "hospitalisations": {"cases": 536, "admissions": 35, "discharges": 19, "hospitalAcquired": 14},
     "icu": {"cases": 110, "admissions": 7, "discharges": 4},
-    "firstDose": 934,
+    "firstDose": 936,
     "secondDose": 1275,
     "singleDose": 0,
     "booster": 21453,
-    "immunocompromised": 676
+    "immunocompromised": 674
   },
   {
     "dateString": "2021-12-07T12:00:00.000Z",
@@ -6702,8 +6702,8 @@
     "firstDose": 484,
     "secondDose": 729,
     "singleDose": 1,
-    "booster": 28670,
-    "immunocompromised": 489
+    "booster": 28681,
+    "immunocompromised": 480
   },
   {
     "dateString": "2021-12-08T12:00:00.000Z",
@@ -6715,8 +6715,8 @@
     "firstDose": 811,
     "secondDose": 1488,
     "singleDose": 0,
-    "booster": 36535,
-    "immunocompromised": 621
+    "booster": 36541,
+    "immunocompromised": 618
   },
   {
     "dateString": "2021-12-09T12:00:00.000Z",
@@ -6725,11 +6725,11 @@
     "cases": 4022,
     "hospitalisations": {"cases": 530, "admissions": 52, "discharges": 54, "hospitalAcquired": 13},
     "icu": {"cases": 115, "admissions": 7, "discharges": 10},
-    "firstDose": 795,
+    "firstDose": 796,
     "secondDose": 1185,
     "singleDose": 0,
-    "booster": 45568,
-    "immunocompromised": 645
+    "booster": 45576,
+    "immunocompromised": 639
   },
   {
     "dateString": "2021-12-10T12:00:00.000Z",
@@ -6738,11 +6738,11 @@
     "cases": 4115,
     "hospitalisations": {"cases": 511, "admissions": 49, "discharges": 54, "hospitalAcquired": 9},
     "icu": {"cases": 110, "admissions": 5, "discharges": 8},
-    "firstDose": 891,
+    "firstDose": 892,
     "secondDose": 1590,
     "singleDose": 1,
-    "booster": 40183,
-    "immunocompromised": 907
+    "booster": 40193,
+    "immunocompromised": 897
   },
   {
     "dateString": "2021-12-11T12:00:00.000Z",
@@ -6754,8 +6754,8 @@
     "firstDose": 636,
     "secondDose": 835,
     "singleDose": 0,
-    "booster": 28915,
-    "immunocompromised": 232
+    "booster": 28917,
+    "immunocompromised": 229
   },
   {
     "dateString": "2021-12-12T12:00:00.000Z",
@@ -6767,8 +6767,8 @@
     "firstDose": 690,
     "secondDose": 1188,
     "singleDose": 0,
-    "booster": 26336,
-    "immunocompromised": 162
+    "booster": 26342,
+    "immunocompromised": 155
   },
   {
     "dateString": "2021-12-13T12:00:00.000Z",
@@ -6780,7 +6780,7 @@
     "firstDose": 721,
     "secondDose": 1042,
     "singleDose": 0,
-    "booster": 31270,
+    "booster": 31271,
     "immunocompromised": 394
   },
   {
@@ -6793,8 +6793,8 @@
     "firstDose": 628,
     "secondDose": 1179,
     "singleDose": 1,
-    "booster": 52617,
-    "immunocompromised": 939
+    "booster": 52629,
+    "immunocompromised": 930
   },
   {
     "dateString": "2021-12-15T12:00:00.000Z",
@@ -6803,11 +6803,11 @@
     "cases": 4235,
     "hospitalisations": {"cases": 470, "admissions": 39, "discharges": 47, "hospitalAcquired": 18},
     "icu": {"cases": 105, "admissions": 12, "discharges": 10},
-    "firstDose": 793,
-    "secondDose": 1227,
+    "firstDose": 795,
+    "secondDose": 1228,
     "singleDose": 1,
-    "booster": 56964,
-    "immunocompromised": 583
+    "booster": 56974,
+    "immunocompromised": 575
   },
   {
     "dateString": "2021-12-16T12:00:00.000Z",
@@ -6816,11 +6816,11 @@
     "cases": 4141,
     "hospitalisations": {"cases": 443, "admissions": 40, "discharges": 44, "hospitalAcquired": 10},
     "icu": {"cases": 108, "admissions": 6, "discharges": 1},
-    "firstDose": 1059,
+    "firstDose": 1060,
     "secondDose": 1516,
     "singleDose": 7,
-    "booster": 65446,
-    "immunocompromised": 847
+    "booster": 65458,
+    "immunocompromised": 838
   },
   {
     "dateString": "2021-12-17T12:00:00.000Z",
@@ -6829,11 +6829,11 @@
     "cases": 3628,
     "hospitalisations": {"cases": 420, "admissions": 26, "discharges": 44, "hospitalAcquired": 15},
     "icu": {"cases": 105, "admissions": 6, "discharges": 3},
-    "firstDose": 1205,
+    "firstDose": 1208,
     "secondDose": 2431,
     "singleDose": 1,
-    "booster": 65370,
-    "immunocompromised": 564
+    "booster": 65383,
+    "immunocompromised": 553
   },
   {
     "dateString": "2021-12-18T12:00:00.000Z",
@@ -6843,10 +6843,10 @@
     "hospitalisations": {"cases": 410, "admissions": 29, "discharges": 42, "hospitalAcquired": 17},
     "icu": {"cases": 107, "admissions": 6, "discharges": 5},
     "firstDose": 1266,
-    "secondDose": 1166,
+    "secondDose": 1165,
     "singleDose": 0,
-    "booster": 45709,
-    "immunocompromised": 370
+    "booster": 45717,
+    "immunocompromised": 364
   },
   {
     "dateString": "2021-12-19T12:00:00.000Z",
@@ -6858,8 +6858,8 @@
     "firstDose": 557,
     "secondDose": 877,
     "singleDose": 0,
-    "booster": 54674,
-    "immunocompromised": 206
+    "booster": 54675,
+    "immunocompromised": 203
   },
   {
     "dateString": "2021-12-20T12:00:00.000Z",
@@ -6868,11 +6868,11 @@
     "cases": 4799,
     "hospitalisations": {"cases": 467, "admissions": 39, "discharges": 16, "hospitalAcquired": 13},
     "icu": {"cases": 104, "admissions": 3, "discharges": 5},
-    "firstDose": 535,
-    "secondDose": 589,
+    "firstDose": 536,
+    "secondDose": 590,
     "singleDose": 0,
-    "booster": 92811,
-    "immunocompromised": 475
+    "booster": 92835,
+    "immunocompromised": 457
   },
   {
     "dateString": "2021-12-21T12:00:00.000Z",
@@ -6881,11 +6881,11 @@
     "cases": 5279,
     "hospitalisations": {"cases": 443, "admissions": 39, "discharges": 55, "hospitalAcquired": 25},
     "icu": {"cases": 102, "admissions": 5, "discharges": 4},
-    "firstDose": 1466,
-    "secondDose": 1771,
+    "firstDose": 1464,
+    "secondDose": 1770,
     "singleDose": 3,
-    "booster": 128739,
-    "immunocompromised": 665
+    "booster": 128770,
+    "immunocompromised": 648
   },
   {
     "dateString": "2021-12-22T12:00:00.000Z",
@@ -6894,11 +6894,11 @@
     "cases": 6307,
     "hospitalisations": {"cases": 429, "admissions": 41, "discharges": 56, "hospitalAcquired": 33},
     "icu": {"cases": 100, "admissions": 8, "discharges": 8},
-    "firstDose": 1244,
-    "secondDose": 1546,
+    "firstDose": 1242,
+    "secondDose": 1547,
     "singleDose": 2,
-    "booster": 131853,
-    "immunocompromised": 760
+    "booster": 131888,
+    "immunocompromised": 734
   },
   {
     "dateString": "2021-12-23T12:00:00.000Z",
@@ -6910,8 +6910,8 @@
     "firstDose": 964,
     "secondDose": 1337,
     "singleDose": 0,
-    "booster": 101416,
-    "immunocompromised": 634
+    "booster": 101444,
+    "immunocompromised": 608
   },
   {
     "dateString": "2021-12-24T12:00:00.000Z",
@@ -6923,8 +6923,8 @@
     "firstDose": 104,
     "secondDose": 137,
     "singleDose": 0,
-    "booster": 10981,
-    "immunocompromised": 70
+    "booster": 10986,
+    "immunocompromised": 66
   },
   {
     "dateString": "2021-12-25T12:00:00.000Z",
@@ -6949,7 +6949,7 @@
     "firstDose": 10,
     "secondDose": 6,
     "singleDose": 0,
-    "booster": 240,
+    "booster": 241,
     "immunocompromised": 1
   },
   {
@@ -6963,7 +6963,7 @@
     "secondDose": 581,
     "singleDose": 0,
     "booster": 12784,
-    "immunocompromised": 58
+    "immunocompromised": 59
   },
   {
     "dateString": "2021-12-28T12:00:00.000Z",
@@ -6975,8 +6975,8 @@
     "firstDose": 468,
     "secondDose": 736,
     "singleDose": 0,
-    "booster": 23143,
-    "immunocompromised": 145
+    "booster": 23150,
+    "immunocompromised": 140
   },
   {
     "dateString": "2021-12-29T12:00:00.000Z",
@@ -6985,11 +6985,11 @@
     "cases": 16428,
     "hospitalisations": {"cases": 568, "admissions": 59, "discharges": 48, "hospitalAcquired": 48},
     "icu": {"cases": 93, "admissions": 5, "discharges": 4},
-    "firstDose": 1090,
+    "firstDose": 1089,
     "secondDose": 1275,
     "singleDose": 0,
-    "booster": 52858,
-    "immunocompromised": 238
+    "booster": 52874,
+    "immunocompromised": 227
   },
   {
     "dateString": "2021-12-30T12:00:00.000Z",
@@ -6998,11 +6998,11 @@
     "cases": 20554,
     "hospitalisations": {"cases": 619, "admissions": 77, "discharges": 68, "hospitalAcquired": 71},
     "icu": {"cases": 88, "admissions": 8, "discharges": 9},
-    "firstDose": 1069,
+    "firstDose": 1071,
     "secondDose": 1170,
     "singleDose": 1,
-    "booster": 60876,
-    "immunocompromised": 380
+    "booster": 60904,
+    "immunocompromised": 362
   },
   {
     "dateString": "2021-12-31T12:00:00.000Z",
@@ -7014,8 +7014,8 @@
     "firstDose": 720,
     "secondDose": 1665,
     "singleDose": 0,
-    "booster": 18942,
-    "immunocompromised": 105
+    "booster": 18945,
+    "immunocompromised": 102
   },
   {
     "dateString": "2022-01-01T12:00:00.000Z",
@@ -7027,8 +7027,8 @@
     "firstDose": 65,
     "secondDose": 95,
     "singleDose": 0,
-    "booster": 8923,
-    "immunocompromised": 9
+    "booster": 8924,
+    "immunocompromised": 8
   },
   {
     "dateString": "2022-01-02T12:00:00.000Z",
@@ -7040,8 +7040,8 @@
     "firstDose": 270,
     "secondDose": 621,
     "singleDose": 0,
-    "booster": 13846,
-    "immunocompromised": 33
+    "booster": 13848,
+    "immunocompromised": 31
   },
   {
     "dateString": "2022-01-03T12:00:00.000Z",
@@ -7053,8 +7053,8 @@
     "firstDose": 3631,
     "secondDose": 714,
     "singleDose": 0,
-    "booster": 16776,
-    "immunocompromised": 61
+    "booster": 16783,
+    "immunocompromised": 54
   },
   {
     "dateString": "2022-01-04T12:00:00.000Z",
@@ -7063,11 +7063,11 @@
     "cases": 21302,
     "hospitalisations": {"cases": 884, "admissions": 84, "discharges": 43, "hospitalAcquired": 54},
     "icu": {"cases": 90, "admissions": 5, "discharges": 4},
-    "firstDose": 1194,
-    "secondDose": 756,
+    "firstDose": 1193,
+    "secondDose": 757,
     "singleDose": 0,
-    "booster": 31753,
-    "immunocompromised": 167
+    "booster": 31777,
+    "immunocompromised": 144
   },
   {
     "dateString": "2022-01-05T12:00:00.000Z",
@@ -7077,10 +7077,10 @@
     "hospitalisations": {"cases": 928, "admissions": 74, "discharges": 105, "hospitalAcquired": 99},
     "icu": {"cases": 94, "admissions": 7, "discharges": 3},
     "firstDose": 2144,
-    "secondDose": 875,
+    "secondDose": 874,
     "singleDose": 0,
-    "booster": 40744,
-    "immunocompromised": 198
+    "booster": 40769,
+    "immunocompromised": 173
   },
   {
     "dateString": "2022-01-06T12:00:00.000Z",
@@ -7090,10 +7090,10 @@
     "hospitalisations": {"cases": 941, "admissions": 100, "discharges": 125, "hospitalAcquired": 53},
     "icu": {"cases": 90, "admissions": 6, "discharges": 9},
     "firstDose": 2462,
-    "secondDose": 1649,
+    "secondDose": 1643,
     "singleDose": 0,
-    "booster": 41279,
-    "immunocompromised": 286
+    "booster": 41324,
+    "immunocompromised": 240
   },
   {
     "dateString": "2022-01-07T12:00:00.000Z",
@@ -7103,21 +7103,21 @@
     "hospitalisations": {"cases": 936, "admissions": 90, "discharges": 128, "hospitalAcquired": 71},
     "icu": {"cases": 84, "admissions": 2, "discharges": 7},
     "firstDose": 4842,
-    "secondDose": 751,
+    "secondDose": 748,
     "singleDose": 0,
-    "booster": 31108,
-    "immunocompromised": 255
+    "booster": 31174,
+    "immunocompromised": 191
   },
   {
     "dateString": "2022-01-08T12:00:00.000Z",
     "cases": 26122,
     "hospitalisations": {"cases": 917, "admissions": 73, "discharges": 124, "hospitalAcquired": 67},
     "icu": {"cases": 83, "admissions": 11, "discharges": 8},
-    "firstDose": 9788,
-    "secondDose": 727,
+    "firstDose": 9789,
+    "secondDose": 725,
     "singleDose": 1,
-    "booster": 14778,
-    "immunocompromised": 81,
+    "booster": 14784,
+    "immunocompromised": 76,
     "dailySwabs": 48579,
     "positiveSwabs": 25404
   },
@@ -7128,11 +7128,11 @@
     "icu": {"cases": 83, "admissions": 7, "discharges": 6},
     "dailySwabs": 44041,
     "positiveSwabs": 23422,
-    "firstDose": 7116,
+    "firstDose": 7115,
     "secondDose": 664,
     "singleDose": 0,
-    "booster": 10211,
-    "immunocompromised": 34
+    "booster": 10214,
+    "immunocompromised": 31
   },
   {
     "dateString": "2022-01-10T12:00:00.000Z",
@@ -7141,11 +7141,11 @@
     "icu": {"cases": 89, "admissions": 9, "discharges": 2},
     "dailySwabs": 43835,
     "positiveSwabs": 23396,
-    "firstDose": 6654,
-    "secondDose": 481,
+    "firstDose": 6655,
+    "secondDose": 476,
     "singleDose": 0,
-    "booster": 14640,
-    "immunocompromised": 133
+    "booster": 14676,
+    "immunocompromised": 95
   },
   {
     "dateString": "2022-01-11T12:00:00.000Z",
@@ -7154,11 +7154,11 @@
     "icu": {"cases": 92, "admissions": 10, "discharges": 6},
     "dailySwabs": 42771,
     "positiveSwabs": 21490,
-    "firstDose": 4766,
+    "firstDose": 4768,
     "secondDose": 1323,
     "singleDose": 1,
-    "booster": 23766,
-    "immunocompromised": 189
+    "booster": 23814,
+    "immunocompromised": 141
   },
   {
     "dateString": "2022-01-12T12:00:00.000Z",
@@ -7167,11 +7167,11 @@
     "cases": 20909,
     "dailySwabs": 42085,
     "positiveSwabs": 19833,
-    "firstDose": 7555,
-    "secondDose": 866,
+    "firstDose": 7556,
+    "secondDose": 867,
     "singleDose": 1,
-    "booster": 25190,
-    "immunocompromised": 301
+    "booster": 25297,
+    "immunocompromised": 195
   },
   {
     "dateString": "2022-01-13T12:00:00.000Z",
@@ -7181,10 +7181,10 @@
     "dailySwabs": 42612,
     "positiveSwabs": 19965,
     "firstDose": 7321,
-    "secondDose": 774,
+    "secondDose": 776,
     "singleDose": 0,
-    "booster": 25269,
-    "immunocompromised": 303
+    "booster": 25365,
+    "immunocompromised": 207
   },
   {
     "dateString": "2022-01-14T12:00:00.000Z",
@@ -7197,8 +7197,8 @@
     "firstDose": 10721,
     "secondDose": 800,
     "singleDose": 0,
-    "booster": 22195,
-    "immunocompromised": 326
+    "booster": 22449,
+    "immunocompromised": 73
   },
   {
     "dateString": "2022-01-15T12:00:00.000Z",
@@ -7211,8 +7211,8 @@
     "firstDose": 8353,
     "secondDose": 635,
     "singleDose": 0,
-    "booster": 12174,
-    "immunocompromised": 135
+    "booster": 12217,
+    "immunocompromised": 93
   },
   {
     "dateString": "2022-01-16T12:00:00.000Z",
@@ -7223,10 +7223,10 @@
     "dailySwabs": 23309,
     "positiveSwabs": 8954,
     "firstDose": 6966,
-    "secondDose": 1211,
+    "secondDose": 1210,
     "singleDose": 1,
-    "booster": 6507,
-    "immunocompromised": 27
+    "booster": 6519,
+    "immunocompromised": 15
   },
   {
     "dateString": "2022-01-17T12:00:00.000Z",
@@ -7236,11 +7236,11 @@
     "antigen": 5916,
     "dailySwabs": 18199,
     "positiveSwabs": 6379,
-    "firstDose": 2558,
+    "firstDose": 2559,
     "secondDose": 542,
     "singleDose": 0,
-    "booster": 11551,
-    "immunocompromised": 187
+    "booster": 11699,
+    "immunocompromised": 43
   },
   {
     "dateString": "2022-01-18T12:00:00.000Z",
@@ -7253,8 +7253,8 @@
     "firstDose": 4059,
     "secondDose": 420,
     "singleDose": 3,
-    "booster": 12587,
-    "immunocompromised": 199
+    "booster": 12739,
+    "immunocompromised": 45
   },
   {
     "dateString": "2022-01-19T12:00:00.000Z",
@@ -7265,10 +7265,10 @@
     "dailySwabs": 22775,
     "positiveSwabs": 6846,
     "firstDose": 3479,
-    "secondDose": 594,
+    "secondDose": 595,
     "singleDose": 0,
-    "booster": 11677,
-    "immunocompromised": 182
+    "booster": 11808,
+    "immunocompromised": 51
   },
   {
     "dateString": "2022-01-20T12:00:00.000Z",
@@ -7279,10 +7279,10 @@
     "dailySwabs": 20492,
     "positiveSwabs": 5840,
     "firstDose": 3686,
-    "secondDose": 914,
+    "secondDose": 915,
     "singleDose": 0,
-    "booster": 10606,
-    "immunocompromised": 194
+    "booster": 10763,
+    "immunocompromised": 42
   },
   {
     "dateString": "2022-01-21T12:00:00.000Z",
@@ -7295,8 +7295,8 @@
     "firstDose": 3249,
     "secondDose": 955,
     "singleDose": 0,
-    "booster": 8498,
-    "immunocompromised": 661
+    "booster": 9081,
+    "immunocompromised": 76
   },
   {
     "dateString": "2022-01-22T12:00:00.000Z",
@@ -7309,8 +7309,8 @@
     "firstDose": 4271,
     "secondDose": 631,
     "singleDose": 0,
-    "booster": 5586,
-    "immunocompromised": 503
+    "booster": 6063,
+    "immunocompromised": 26
   },
   {
     "dateString": "2022-01-23T12:00:00.000Z",
@@ -7323,8 +7323,8 @@
     "firstDose": 3092,
     "secondDose": 677,
     "singleDose": 0,
-    "booster": 3219,
-    "immunocompromised": 328
+    "booster": 3518,
+    "immunocompromised": 29
   },
   {
     "dateString": "2022-01-24T12:00:00.000Z",
@@ -7337,8 +7337,8 @@
     "firstDose": 645,
     "secondDose": 454,
     "singleDose": 0,
-    "booster": 4608,
-    "immunocompromised": 336
+    "booster": 4918,
+    "immunocompromised": 26
   },
   {
     "dateString": "2022-01-25T12:00:00.000Z",
@@ -7351,8 +7351,8 @@
     "firstDose": 697,
     "secondDose": 1825,
     "singleDose": 0,
-    "booster": 5929,
-    "immunocompromised": 538
+    "booster": 6424,
+    "immunocompromised": 44
   },
   {
     "dateString": "2022-01-26T12:00:00.000Z",
@@ -7362,11 +7362,11 @@
     "antigen": 4673,
     "dailySwabs": 20321,
     "positiveSwabs": 5739,
-    "firstDose": 700,
+    "firstDose": 699,
     "secondDose": 878,
     "singleDose": 0,
-    "booster": 6505,
-    "immunocompromised": 580
+    "booster": 7031,
+    "immunocompromised": 55
   },
   {
     "dateString": "2022-01-27T12:00:00.000Z",
@@ -7376,11 +7376,11 @@
     "antigen": 4482,
     "dailySwabs": 18028,
     "positiveSwabs": 5395,
-    "firstDose": 1274,
+    "firstDose": 1273,
     "secondDose": 1153,
     "singleDose": 0,
-    "booster": 5233,
-    "immunocompromised": 726
+    "booster": 5925,
+    "immunocompromised": 35
   },
   {
     "dateString": "2022-01-28T12:00:00.000Z",
@@ -7390,11 +7390,11 @@
     "antigen": 4057,
     "dailySwabs": 17812,
     "positiveSwabs": 5335,
-    "firstDose": 1025,
+    "firstDose": 1026,
     "secondDose": 3078,
     "singleDose": 0,
-    "booster": 5796,
-    "immunocompromised": 962
+    "booster": 6691,
+    "immunocompromised": 67
   },
   {
     "dateString": "2022-01-29T12:00:00.000Z",
@@ -7407,8 +7407,8 @@
     "firstDose": 2325,
     "secondDose": 3441,
     "singleDose": 0,
-    "booster": 3299,
-    "immunocompromised": 597
+    "booster": 3844,
+    "immunocompromised": 52
   },
   {
     "dateString": "2022-01-30T12:00:00.000Z",
@@ -7421,8 +7421,8 @@
     "firstDose": 1634,
     "secondDose": 7535,
     "singleDose": 0,
-    "booster": 1717,
-    "immunocompromised": 270
+    "booster": 1969,
+    "immunocompromised": 18
   },
   {
     "dateString": "2022-01-31T12:00:00.000Z",
@@ -7435,8 +7435,8 @@
     "firstDose": 478,
     "secondDose": 1377,
     "singleDose": 1,
-    "booster": 2470,
-    "immunocompromised": 372
+    "booster": 2815,
+    "immunocompromised": 29
   },
   {
     "dateString": "2022-02-01T12:00:00.000Z",
@@ -7447,10 +7447,10 @@
     "dailySwabs": 16070,
     "positiveSwabs": 4335,
     "firstDose": 749,
-    "secondDose": 3404,
+    "secondDose": 3405,
     "singleDose": 1,
-    "booster": 3666,
-    "immunocompromised": 508
+    "booster": 4127,
+    "immunocompromised": 48
   },
   {
     "dateString": "2022-02-02T12:00:00.000Z",
@@ -7463,8 +7463,8 @@
     "firstDose": 642,
     "secondDose": 2982,
     "singleDose": 0,
-    "booster": 4872,
-    "immunocompromised": 861
+    "booster": 5678,
+    "immunocompromised": 55
   },
   {
     "dateString": "2022-02-03T12:00:00.000Z",
@@ -7477,8 +7477,8 @@
     "firstDose": 909,
     "secondDose": 2418,
     "singleDose": 1,
-    "booster": 4708,
-    "immunocompromised": 1093
+    "booster": 5743,
+    "immunocompromised": 60
   },
   {
     "dateString": "2022-02-04T12:00:00.000Z",
@@ -7491,8 +7491,8 @@
     "firstDose": 1168,
     "secondDose": 6499,
     "singleDose": 0,
-    "booster": 4291,
-    "immunocompromised": 1127
+    "booster": 5355,
+    "immunocompromised": 64
   },
   {
     "dateString": "2022-02-05T12:00:00.000Z",
@@ -7503,10 +7503,10 @@
     "cases": 6260,
     "antigen": 3803,
     "firstDose": 1777,
-    "secondDose": 5743,
+    "secondDose": 5744,
     "singleDose": 0,
-    "booster": 3028,
-    "immunocompromised": 761
+    "booster": 3758,
+    "immunocompromised": 31
   },
   {
     "dateString": "2022-02-06T12:00:00.000Z",
@@ -7515,10 +7515,10 @@
     "dailySwabs": 15185,
     "positiveSwabs": 4971,
     "firstDose": 1408,
-    "secondDose": 7556,
+    "secondDose": 7555,
     "singleDose": 0,
-    "booster": 2009,
-    "immunocompromised": 480,
+    "booster": 2482,
+    "immunocompromised": 8,
     "cases": 4933,
     "antigen": 4478
   },
@@ -7530,11 +7530,11 @@
     "positiveSwabs": 4308,
     "cases": 3975,
     "antigen": 5585,
-    "firstDose": 432,
-    "secondDose": 1338,
+    "firstDose": 433,
+    "secondDose": 1341,
     "singleDose": 0,
-    "booster": 1701,
-    "immunocompromised": 371
+    "booster": 2054,
+    "immunocompromised": 20
   },
   {
     "dateString": "2022-02-08T12:00:00.000Z",
@@ -7545,10 +7545,10 @@
     "cases": 3780,
     "antigen": 5578,
     "firstDose": 895,
-    "secondDose": 1216,
+    "secondDose": 1217,
     "singleDose": 0,
-    "booster": 2898,
-    "immunocompromised": 586
+    "booster": 3451,
+    "immunocompromised": 29
   },
   {
     "dateString": "2022-02-09T12:00:00.000Z",
@@ -7558,11 +7558,11 @@
     "positiveSwabs": 5917,
     "cases": 5677,
     "antigen": 5387,
-    "firstDose": 1332,
+    "firstDose": 1333,
     "secondDose": 1755,
     "singleDose": 0,
-    "booster": 4198,
-    "immunocompromised": 668
+    "booster": 4830,
+    "immunocompromised": 37
   },
   {
     "dateString": "2022-02-10T12:00:00.000Z",
@@ -7575,8 +7575,8 @@
     "firstDose": 687,
     "secondDose": 2534,
     "singleDose": 0,
-    "booster": 4047,
-    "immunocompromised": 1012
+    "booster": 5022,
+    "immunocompromised": 39
   },
   {
     "dateString": "2022-02-11T12:00:00.000Z",
@@ -7587,10 +7587,10 @@
     "cases": 6618,
     "antigen": 3650,
     "firstDose": 553,
-    "secondDose": 4900,
+    "secondDose": 4903,
     "singleDose": 0,
-    "booster": 3808,
-    "immunocompromised": 848
+    "booster": 4598,
+    "immunocompromised": 59
   },
   {
     "dateString": "2022-02-12T12:00:00.000Z",
@@ -7599,8 +7599,8 @@
     "firstDose": 1396,
     "secondDose": 5458,
     "singleDose": 0,
-    "booster": 4741,
-    "immunocompromised": 846,
+    "booster": 5561,
+    "immunocompromised": 26,
     "cases": 4940,
     "antigen": 2950,
     "dailySwabs": 16656,
@@ -7613,8 +7613,8 @@
     "firstDose": 1567,
     "secondDose": 4706,
     "singleDose": 0,
-    "booster": 3280,
-    "immunocompromised": 565,
+    "booster": 3825,
+    "immunocompromised": 20,
     "cases": 4331,
     "antigen": 3609,
     "dailySwabs": 14249,
@@ -7631,8 +7631,8 @@
     "firstDose": 171,
     "secondDose": 945,
     "singleDose": 1,
-    "booster": 1814,
-    "immunocompromised": 328
+    "booster": 2114,
+    "immunocompromised": 29
   },
   {
     "dateString": "2022-02-15T12:00:00.000Z",
@@ -7642,11 +7642,11 @@
     "positiveSwabs": 3945,
     "cases": 4160,
     "antigen": 4613,
-    "firstDose": 645,
+    "firstDose": 646,
     "secondDose": 801,
     "singleDose": 1,
-    "booster": 3005,
-    "immunocompromised": 561
+    "booster": 3537,
+    "immunocompromised": 33
   },
   {
     "dateString": "2022-02-16T12:00:00.000Z",
@@ -7656,11 +7656,11 @@
     "positiveSwabs": 5351,
     "cases": 5268,
     "antigen": 4406,
-    "firstDose": 790,
-    "secondDose": 1772,
+    "firstDose": 791,
+    "secondDose": 1776,
     "singleDose": 0,
-    "booster": 3521,
-    "immunocompromised": 518
+    "booster": 4001,
+    "immunocompromised": 39
   },
   {
     "dateString": "2022-02-17T12:00:00.000Z",
@@ -7673,8 +7673,8 @@
     "firstDose": 787,
     "secondDose": 1179,
     "singleDose": 2,
-    "booster": 3256,
-    "immunocompromised": 916
+    "booster": 4123,
+    "immunocompromised": 52
   },
   {
     "dateString": "2022-02-18T12:00:00.000Z",
@@ -7684,11 +7684,11 @@
     "positiveSwabs": 5639,
     "cases": 4821,
     "antigen": 3076,
-    "firstDose": 791,
-    "secondDose": 3271,
+    "firstDose": 793,
+    "secondDose": 3272,
     "singleDose": 0,
-    "booster": 2250,
-    "immunocompromised": 647
+    "booster": 2861,
+    "immunocompromised": 36
   },
   {
     "dateString": "2022-02-19T12:00:00.000Z",
@@ -7699,8 +7699,8 @@
     "firstDose": 976,
     "secondDose": 3545,
     "singleDose": 0,
-    "booster": 3579,
-    "immunocompromised": 802,
+    "booster": 4354,
+    "immunocompromised": 30,
     "cases": 4847,
     "antigen": 2574
   },
@@ -7713,8 +7713,8 @@
     "firstDose": 1366,
     "secondDose": 3587,
     "singleDose": 0,
-    "booster": 1962,
-    "immunocompromised": 430,
+    "booster": 2367,
+    "immunocompromised": 25,
     "cases": 3351,
     "antigen": 2865
   },
@@ -7729,8 +7729,8 @@
     "firstDose": 250,
     "secondDose": 989,
     "singleDose": 1,
-    "booster": 1285,
-    "immunocompromised": 250
+    "booster": 1522,
+    "immunocompromised": 17
   },
   {
     "dateString": "2022-02-22T12:00:00.000Z",
@@ -7740,11 +7740,11 @@
     "positiveSwabs": 3039,
     "cases": 3294,
     "antigen": 3900,
-    "firstDose": 471,
+    "firstDose": 472,
     "secondDose": 959,
     "singleDose": 0,
-    "booster": 2476,
-    "immunocompromised": 493
+    "booster": 2941,
+    "immunocompromised": 28
   },
   {
     "dateString": "2022-02-23T12:00:00.000Z",
@@ -7757,8 +7757,8 @@
     "firstDose": 822,
     "secondDose": 1259,
     "singleDose": 1,
-    "booster": 2448,
-    "immunocompromised": 480
+    "booster": 2893,
+    "immunocompromised": 40
   },
   {
     "dateString": "2022-02-24T12:00:00.000Z",
@@ -7769,10 +7769,10 @@
     "cases": 3763,
     "antigen": 3621,
     "firstDose": 657,
-    "secondDose": 1207,
+    "secondDose": 1208,
     "singleDose": 0,
-    "booster": 2127,
-    "immunocompromised": 1119
+    "booster": 3206,
+    "immunocompromised": 42
   },
   {
     "dateString": "2022-02-25T12:00:00.000Z",
@@ -7785,8 +7785,8 @@
     "firstDose": 688,
     "secondDose": 1211,
     "singleDose": 0,
-    "booster": 2546,
-    "immunocompromised": 1539
+    "booster": 4005,
+    "immunocompromised": 82
   },
   {
     "dateString": "2022-02-26T12:00:00.000Z",
@@ -7797,8 +7797,8 @@
     "firstDose": 956,
     "secondDose": 2084,
     "singleDose": 0,
-    "booster": 2198,
-    "immunocompromised": 1305,
+    "booster": 3479,
+    "immunocompromised": 25,
     "cases": 3635,
     "antigen": 2819
   },
@@ -7811,8 +7811,8 @@
     "firstDose": 670,
     "secondDose": 1781,
     "singleDose": 0,
-    "booster": 2123,
-    "immunocompromised": 1155,
+    "booster": 3246,
+    "immunocompromised": 33,
     "cases": 2338,
     "antigen": 3642
   },
@@ -7827,8 +7827,8 @@
     "firstDose": 81,
     "secondDose": 420,
     "singleDose": 0,
-    "booster": 931,
-    "immunocompromised": 515
+    "booster": 1422,
+    "immunocompromised": 28
   },
   {
     "dateString": "2022-03-01T12:00:00.000Z",
@@ -7839,10 +7839,10 @@
     "cases": 3300,
     "antigen": 4352,
     "firstDose": 120,
-    "secondDose": 928,
+    "secondDose": 929,
     "singleDose": 0,
-    "booster": 1244,
-    "immunocompromised": 694
+    "booster": 1917,
+    "immunocompromised": 32
   },
   {
     "dateString": "2022-03-02T12:00:00.000Z",
@@ -7853,10 +7853,10 @@
     "cases": 3342,
     "antigen": 4746,
     "firstDose": 199,
-    "secondDose": 981,
+    "secondDose": 982,
     "singleDose": 2,
-    "booster": 2187,
-    "immunocompromised": 990
+    "booster": 3134,
+    "immunocompromised": 50
   },
   {
     "dateString": "2022-03-03T12:00:00.000Z",
@@ -7867,10 +7867,10 @@
     "cases": 4042,
     "antigen": 4304,
     "firstDose": 266,
-    "secondDose": 1262,
+    "secondDose": 1263,
     "singleDose": 0,
-    "booster": 2406,
-    "immunocompromised": 1364
+    "booster": 3722,
+    "immunocompromised": 55
   },
   {
     "dateString": "2022-03-04T12:00:00.000Z",
@@ -7881,10 +7881,10 @@
     "cases": 4033,
     "antigen": 4014,
     "firstDose": 725,
-    "secondDose": 1480,
+    "secondDose": 1479,
     "singleDose": 2,
-    "booster": 1863,
-    "immunocompromised": 1384
+    "booster": 3187,
+    "immunocompromised": 69
   },
   {
     "dateString": "2022-03-05T12:00:00.000Z",
@@ -7895,8 +7895,8 @@
     "firstDose": 961,
     "secondDose": 3327,
     "singleDose": 0,
-    "booster": 2347,
-    "immunocompromised": 1499,
+    "booster": 3808,
+    "immunocompromised": 41,
     "cases": 3904,
     "antigen": 3537
   },
@@ -7909,8 +7909,8 @@
     "firstDose": 455,
     "secondDose": 1914,
     "singleDose": 0,
-    "booster": 3054,
-    "immunocompromised": 1425,
+    "booster": 4440,
+    "immunocompromised": 39,
     "cases": 1254,
     "antigen": 4760
   },
@@ -7925,8 +7925,8 @@
     "firstDose": 111,
     "secondDose": 105,
     "singleDose": 0,
-    "booster": 808,
-    "immunocompromised": 396
+    "booster": 1210,
+    "immunocompromised": 15
   },
   {
     "dateString": "2022-03-08T12:00:00.000Z",
@@ -7939,8 +7939,8 @@
     "firstDose": 117,
     "secondDose": 476,
     "singleDose": 0,
-    "booster": 1703,
-    "immunocompromised": 745
+    "booster": 2426,
+    "immunocompromised": 39
   },
   {
     "dateString": "2022-03-09T12:00:00.000Z",
@@ -7950,11 +7950,11 @@
     "positiveSwabs": 5353,
     "cases": 1715,
     "antigen": 7617,
-    "firstDose": 113,
+    "firstDose": 114,
     "secondDose": 311,
     "singleDose": 0,
-    "booster": 1964,
-    "immunocompromised": 854
+    "booster": 2805,
+    "immunocompromised": 33
   },
   {
     "dateString": "2022-03-10T12:00:00.000Z",
@@ -7964,11 +7964,11 @@
     "positiveSwabs": 4959,
     "cases": 4065,
     "antigen": 6752,
-    "firstDose": 247,
-    "secondDose": 489,
+    "firstDose": 248,
+    "secondDose": 491,
     "singleDose": 0,
-    "booster": 2813,
-    "immunocompromised": 1316
+    "booster": 4029,
+    "immunocompromised": 110
   },
   {
     "dateString": "2022-03-11T12:00:00.000Z",
@@ -7978,11 +7978,11 @@
     "positiveSwabs": 5277,
     "cases": 9186,
     "antigen": 6853,
-    "firstDose": 490,
-    "secondDose": 2140,
+    "firstDose": 492,
+    "secondDose": 2145,
     "singleDose": 0,
-    "booster": 2278,
-    "immunocompromised": 1055
+    "booster": 3223,
+    "immunocompromised": 192
   },
   {
     "dateString": "2022-03-12T12:00:00.000Z",
@@ -7990,11 +7990,11 @@
     "icu": {"cases": 41, "admissions": 6, "discharges": 1},
     "dailySwabs": 13139,
     "positiveSwabs": 4999,
-    "firstDose": 472,
-    "secondDose": 2370,
+    "firstDose": 474,
+    "secondDose": 2372,
     "singleDose": 2,
-    "booster": 2576,
-    "immunocompromised": 739,
+    "booster": 3324,
+    "immunocompromised": 58,
     "cases": 4400,
     "antigen": 5791
   },
@@ -8005,10 +8005,10 @@
     "dailySwabs": 12428,
     "positiveSwabs": 5204,
     "firstDose": 363,
-    "secondDose": 1076,
+    "secondDose": 1077,
     "singleDose": 0,
-    "booster": 3394,
-    "immunocompromised": 783,
+    "booster": 4155,
+    "immunocompromised": 29,
     "cases": 5475,
     "antigen": 7271
   },
@@ -8018,7 +8018,12 @@
     "icu": {"cases": 42, "admissions": 5, "discharges": 1},
     "dailySwabs": 10972,
     "positiveSwabs": 4346,
-    "cases": 2100
+    "cases": 2100,
+    "firstDose": 97,
+    "secondDose": 96,
+    "singleDose": 0,
+    "booster": 1173,
+    "immunocompromised": 362
   },
   {
     "dateString": "2022-03-15T12:00:00.000Z",
