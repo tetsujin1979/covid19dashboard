@@ -8032,13 +8032,15 @@
     "icu": {"cases": 42, "admissions": 6, "discharges": 4},
     "dailySwabs": 12731,
     "positiveSwabs": 4214,
-    "cases": 6284
+    "cases": 6284,
+    "antigen": 8644
   },
   {
     "dateString": "2022-03-16T12:00:00.000Z",
     "hospitalisations": {"cases": 1081, "admissions": 78, "discharges": 80, "hospitalAcquired": 99},
     "icu": {"cases": 44, "admissions": 7, "discharges": 5},
     "dailySwabs": 16225,
-    "positiveSwabs": 7131
-  }
+    "positiveSwabs": 7131,
+   "cases": 5452
+   }
 ]
