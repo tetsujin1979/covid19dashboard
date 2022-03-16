@@ -8037,7 +8037,7 @@
   {
     "dateString": "2022-03-16T12:00:00.000Z",
     "hospitalisations": {"cases": 1081, "admissions": 78, "discharges": 80, "hospitalAcquired": 99},
-    "icu": {"cases": 42, "admissions": 6, "discharges": 4},
+    "icu": {"cases": 44, "admissions": 7, "discharges": 5},
     "dailySwabs": 16225,
     "positiveSwabs": 7131
   }
